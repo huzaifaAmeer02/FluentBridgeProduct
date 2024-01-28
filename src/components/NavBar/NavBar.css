@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+body{
+    background-color: #075C5C;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style-type: none;
+}
+.navbar {
+    z-index: 9999;
+    top: 0;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    height: 13vh;
+    background-color: #ffffff;
+    box-shadow: rgba(50, 50, 93, 0.23) 0px 30px 30px -20px;
+
+    /*box-shadow: rgba(50, 50, 93, 0.23) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;*/
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+}
+
+.nav-links li {
+    color: black;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: all ease-in-out 0.5s;
+}
+.nav-links li:hover{
+    scale: 1.1;
+}
+.hero {
+    text-align: center;
+    margin-top: 15%;
+}
+.hero h1 {
+    text-align: center;
+    font-size: 70px;
+}
+.mobile-menu-icon {
+    display: none;
+}
+button {
+    border: none;
+    text-decoration: none;
+    font-size: 20px;
+    background: none;
+}
+@media (max-width: 820px) {
+    .logo {
+        display: flex;
+        position: absolute;
+        /*top: 25px;*/
+        left: 20px;
+    }
+    .nav-links {
+        display: none;
+    }
+    .nav-links-mobile {
+        position: absolute;
+        display: block;
+        list-style: none;
+        box-shadow: rgba(50, 50, 93, 0.23) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        left: 0;
+        top: 13%;
+        transition: all 0.5s ease-in-out;
+        width: 100%;
+        background-color: white;
+    }
+    ul li {
+        padding: 32px;
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+        text-align: center;
+    }
+    ul li:hover{
+        scale: 1.1;
+    }
+    .mobile-menu-icon {
+        position: absolute;
+        display: block;
+        right: 20px;
+    }
+    .hero h1 {
+        font-size: 50px;
+    }
+}
