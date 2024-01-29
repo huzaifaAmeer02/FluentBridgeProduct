@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {useState} from "react"
 import "./navbar.css"
 import { Link } from "react-router-dom"
 import { FaBars } from "react-icons/fa"
@@ -7,6 +7,7 @@ import logo from "/src/assets/logofluent.png"
 
 const Navbar = () => {
     const [Mobile, setMobile] = useState(false)
+
     return (
         <>
             <nav className='navbar'>
@@ -32,12 +33,14 @@ const Navbar = () => {
                         <li>Contact Us</li>
                     </Link>
                 </ul>
+
                 {/*
         whenever we click on button = setMobile(!Mobile) ==  is mobile oppsite to setMobile
         */}
                 <button className='mobile-menu-icon' onClick={() => setMobile(!Mobile)}>
                     {Mobile ? <ImCross /> : <FaBars />}
                 </button>
+
             </nav>
         </>
     )

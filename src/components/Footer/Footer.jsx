@@ -1,27 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from '../../assets/logofluent.png'
 
 const Footer = () => {
+    const googleTranslateInit = () => {
+        new window.google.translate.TranslateElement(
+            { pageLanguage: 'en', includedLanguages: 'si,ta', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
+            'google_translate_element'
+        );
+    };
+    useEffect(() => {
+        googleTranslateInit();
+    }, []);
+
   return (
       <footer className="text-gray-600 body-font bg-white">
           <div className="container px-5 py-24 mx-auto">
               <div className="flex flex-wrap md:text-left text-center order-first">
                   <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                      <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-                      <nav className="list-none mb-10">
-                          <li>
-                              <a className="text-gray-600 hover:text-gray-800">First Link</a>
-                          </li>
-                          <li>
-                              <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-                          </li>
-                          <li>
-                              <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-                          </li>
-                          <li>
-                              <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-                          </li>
-                      </nav>
+                      <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Get Multi Language Support</h2>
+                      {/* Google Translate element */}
+                      <div id='google_translate_element' className='translate-option ml-auto p-2'>Support</div>
                   </div>
                   <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                       <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>

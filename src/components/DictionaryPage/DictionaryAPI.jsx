@@ -47,7 +47,8 @@ const DictionaryAPI = () => {
                 Back To Main
               </button>
             </Link>
-            <div className="flex flex-col text-center w-full mb-12">
+
+            <div className="flex flex-col text-center w-full mb-5">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 mt-20">
                 {word}
               </h1>
