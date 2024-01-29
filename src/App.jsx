@@ -7,6 +7,7 @@ import Contact from "./components/ContactPage/ContactUs";
 import Activity from "./components/ActivityPage/ActivityPanel";
 import Dictionary from "./components/DictionaryPage/DictionaryPage";
 import DictionaryAPI from "./components/DictionaryPage/DictionaryAPI.jsx";
+import GamePage from "./components/DictionGame/gamePage.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                     <Route path='/dictionary' element={<Dictionary />} />
                     <Route path='/contact' element={<Contact />} />
                     <Route path='/dictionaryapi' element={<DictionaryAPI/>}/>
+                    <Route path='/gamePage' element={<GamePage/>}/>
                 </Routes>
                 <Footer/>
             </Router>
