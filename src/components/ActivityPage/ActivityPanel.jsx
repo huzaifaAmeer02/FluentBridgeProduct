@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import VocabPanel from "../VocabPanel/vocabPanel.jsx";
+import imageBG from "../../assets/buttonBG.jpg";
 
 const ActivityPanel = () => {
     // Define entrance animations using react-spring
@@ -26,7 +27,7 @@ const ActivityPanel = () => {
     });
 
     const panelStyle = {
-        backgroundImage: "url('https://img.freepik.com/premium-vector/hand-drawn-sketch-mystical-moon-illustration_614983-7411.jpg?w=740')",
+        backgroundImage: `url(${imageBG})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
     };
@@ -41,7 +42,7 @@ const ActivityPanel = () => {
                 <section className="hero">
                     <div className="flex flex-col md:flex-row p-4">
                         <div className="md:w-40% mb-4 md:mb-0 md:pr-4">
-                            <h2 className="text-lg font-bold mb-2 md:mb-4 text-center">Learner Activity Panel</h2>
+                            <h2 className="text-lg font-bold mb-2 md:mb-4 text-center mt-4">Learner Activity Panel</h2>
                             <div className="grid grid-cols-2 gap-4">
                                 <animated.div style={bounceIn} className="w-full h-50vh">
                                     <Link
