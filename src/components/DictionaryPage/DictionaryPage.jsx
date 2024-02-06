@@ -8,21 +8,18 @@ const DictionaryPage = () => {
     const fadeIn = useSpring({
         opacity: 1,
         from: { opacity: 0 },
-        config: { duration: 800 }, // Adjust the duration as needed
+        config: { duration: 800 },
     });
 
     const slideIn = useSpring({
         transform: "translateY(0)",
         from: { transform: "translateY(100px)" },
-        config: { duration: 800 }, // Adjust the duration as needed
+        config: { duration: 1000 },
     });
 
     return (
         <>
-            <animated.section
-                style={fadeIn}
-                className="text-gray-600 body-font top-10"
-            >
+            <animated.section style={fadeIn} className="text-gray-600 body-font top-10">
                 <div className="container mx-auto flex flex-col items-center lg:flex-row px-5 py-12 lg:py-24">
                     <animated.div style={slideIn} className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
                         <img
@@ -32,10 +29,7 @@ const DictionaryPage = () => {
                         />
                     </animated.div>
 
-                    <animated.div
-                        style={{ ...slideIn, delay: 200 }}
-                        className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
-                    >
+                    <animated.div style={{ ...slideIn, delay: 200 }} className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
                         <h1 className="title-font sm:text-4xl text-5xl mb-4 font-medium text-white py-10">
                             FluentBridge Dictionary
                         </h1>
@@ -56,6 +50,7 @@ const DictionaryPage = () => {
                                 <br />
                             </i>
                         </p>
+
                         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start">
                             <Link to="/dictionaryapi">
                                 <button className="mb-4 lg:mb-0 lg:mr-4 inline-flex text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 rounded text-lg">

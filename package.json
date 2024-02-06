@@ -14,7 +14,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.21.3",
-    "react-spring": "^9.7.3"
+    "react-spring": "^9.7.3",
+    "react-typist": "^2.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
