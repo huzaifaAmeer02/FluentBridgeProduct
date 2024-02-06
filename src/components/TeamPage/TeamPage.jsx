@@ -40,7 +40,7 @@ export const TeamPage = () => {
             </div>
             <div className="grid gap-10 mx-auto lg:grid-cols-2 lg:max-w-screen-lg">
                 {teamMembers.map((member, index) => (
-                    <div key={index} className="grid sm:grid-cols-3">
+                    <div key={index} className="grid sm:grid-cols-3  bg-gray-300 p-10 m-6 rounded-3xl">
                         <div className="relative w-full h-48 max-h-full rounded shadow sm:h-auto">
                             <img
                                 className="absolute object-cover w-full h-full rounded"
@@ -49,8 +49,8 @@ export const TeamPage = () => {
                             />
                         </div>
                         <div className="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2">
-                            <p className="text-lg font-bold">{member.name}</p>
-                            <p className="mb-4 text-xs text-gray-800">{member.role}</p>
+                            <p className="text-lg text-gray-500 font-bold">{member.name}</p>
+                            <p className="mb-4 text-xs text-gray-300">{member.role}</p>
                             <p className="mb-4 text-sm tracking-wide text-gray-800">{member.description}</p>
                             <div className="flex items-center space-x-3">
                                 <a
