@@ -14,7 +14,7 @@ const ActivityPanel = () => {
         from: { opacity: 0 },
         config: { duration: 800 },
     });
-
+// added a comment to checkout git features
     const slideIn = useSpring({
         transform: "translateX(0)",
         from: { transform: "translateX(-100%)" },
@@ -89,7 +89,7 @@ const ActivityPanel = () => {
                                 </animated.div>
                                 <animated.div style={bounceIn} className="w-full h-50vh">
                                     <Link
-                                        to="#"
+                                        to="/listening"
                                         className="block bg-red-500 hover:bg-red-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
                                         Reading

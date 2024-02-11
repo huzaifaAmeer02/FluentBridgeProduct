@@ -1,5 +1,6 @@
 import React from "react";
 
+// eslint-disable-next-line react/prop-types
 const ChatBotModal = ({ onClose }) => {
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
@@ -13,5 +14,4 @@ const ChatBotModal = ({ onClose }) => {
         </div>
     );
 };
-
 export default ChatBotModal;
