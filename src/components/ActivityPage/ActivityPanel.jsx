@@ -14,7 +14,7 @@ const ActivityPanel = () => {
         from: { opacity: 0 },
         config: { duration: 800 },
     });
-
+// added a comment to checkout git features
     const slideIn = useSpring({
         transform: "translateX(0)",
         from: { transform: "translateX(-100%)" },
