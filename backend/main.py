@@ -23,6 +23,7 @@ app = FastAPI()
 
 
 # CORS - Origins
+# CORS - Origins
 Origins =[
     "http://localhost:5173",
     "http://localhost:5174",
