@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const VideoPage = () => {
+const VideoPage = ({ selectedOption }) => {
     // Sample data for job details
     const jobs = [
         {
-            title:"Labour",
-            videourl:"https://youtu.be/-X2dsCQMLcs"
+            title: "Labour",
+            videourl: "https://youtu.be/-X2dsCQMLcs"
         },
         {
             title: "Engineer",
@@ -18,7 +18,7 @@ const VideoPage = () => {
         },
         {
             title: "Artists",
-            videourl: "",
+            videourl: ""
         },
         {
             title: "Driver",
@@ -46,26 +46,27 @@ const VideoPage = () => {
         }
     ];
 
+    // Find the selected job
+    const selectedJob = jobs.find(job => job.title.toLowerCase() === selectedOption.toLowerCase());
+
     return (
-        <section className="bg-gray-200 py-8">
-            <h2 className="text-3xl font-bold text-center mb-8">Listening Activity</h2>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-10 p-4">
-                {jobs.map((job, index) => (
-                    <Link to={job.link} key={index}>
-                        <div
-                            className="relative flex items-center justify-center bg-cover bg-center rounded-xl text-white font-bold text-center transition duration-300 hover:bg-opacity-50 backdrop-filter backdrop-blur-md overflow-hidden"
-                            style={{
-                                backgroundImage: `url(${job.image})`,
-                                paddingTop: "100%", // Maintain aspect ratio
-                            }}
-                        >
-                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 rounded-md transition duration-300 hover:bg-opacity-50">
-                                <span>{job.title}</span>
-                            </div>
-                        </div>
-                    </Link>
-                ))}
-            </div>
+        <section className="flex flex-col items-center justify-center h-screen">
+            {selectedJob && selectedJob.videourl ? (
+                <div className="max-w-2xl w-full">
+                    <h2 className="text-2xl font-bold mb-4">{selectedJob.title}</h2>
+                    <div className="aspect-w-16 aspect-h-9">
+                        <iframe
+                            src={selectedJob.videourl}
+                            title={selectedJob.title}
+                            className="w-full h-full"
+                            allowFullScreen
+                        />
+                    </div>
+                    <Link to="/quiz" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Take Quiz</Link>
+                </div>
+            ) : (
+                <p className="text-xl">Video not available for {selectedOption}</p>
+            )}
         </section>
     );
 };
