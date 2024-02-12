@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactPlayer from "react-player";
 
 // eslint-disable-next-line react/prop-types
 const VideoPage = ({ onClose, videoUrl }) => {
@@ -12,10 +13,20 @@ const VideoPage = ({ onClose, videoUrl }) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                <video controls autoPlay className="w-full max-w-screen-lg max-h-screen-3/4 mx-auto mt-8" src={videoUrl} />
+
+                {/* Use ReactPlayer instead of <video> tag */}
+                <ReactPlayer
+                    url={videoUrl}
+                    controls
+                    playing
+                    width="100%"
+                    height="auto"
+                    className="w-full max-w-screen-lg max-h-screen-3/4 mx-auto mt-8"
+                />
                 <Link to="/quiz" className="block text-center mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Take Quiz</Link>
             </div>
         </div>
     );
 };
+
 export default VideoPage;
