@@ -37,6 +37,7 @@ const ListeningActivity = () => {
             title: "Nurse",
             image: "https://img.freepik.com/free-photo/medium-shot-female-nurse-hospital_23-2150796710.jpg?t=st=1707677272~exp=1707680872~hmac=a712895918ac7a4e7d5853669d6df944b85ddef469c41796d1ad30ba6b00ab40&w=740",
             link: "/Nurse",
+            videoUrl: "https://youtu.be/Y6_HBR2Ue2k"
         },
         {
             title: "Care Taker",

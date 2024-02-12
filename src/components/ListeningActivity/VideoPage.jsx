@@ -11,12 +11,7 @@ const VideoPage = ({ onClose, videoUrl }) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                <iframe
-                    src={videoUrl}
-                    title="Video"
-                    className="w-full h-80"
-                    allowFullScreen
-                />
+                <video controls className="w-full" src={videoUrl} />
                 <Link to="/quiz" className="block text-center mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Take Quiz</Link>
             </div>
         </div>
