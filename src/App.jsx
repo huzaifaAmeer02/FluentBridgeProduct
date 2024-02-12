@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer"
