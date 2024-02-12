@@ -1,73 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const VideoPage = ({ selectedOption }) => {
-    // Sample data for job details
-    const jobs = [
-        {
-            title: "Labour",
-            videourl: "https://youtu.be/-X2dsCQMLcs"
-        },
-        {
-            title: "Engineer",
-            videourl: ""
-        },
-        {
-            title: "Teacher",
-            videourl: ""
-        },
-        {
-            title: "Artists",
-            videourl: ""
-        },
-        {
-            title: "Driver",
-            videourl: ""
-        },
-        {
-            title: "Nurse",
-            videourl: ""
-        },
-        {
-            title: "Care Taker",
-            videourl: ""
-        },
-        {
-            title: "IT Consultant",
-            videourl: ""
-        },
-        {
-            title: "Pharmacist",
-            videourl: ""
-        },
-        {
-            title: "Store Keeper",
-            videourl: ""
-        }
-    ];
-
-    // Find the selected job
-    const selectedJob = jobs.find(job => job.title.toLowerCase() === selectedOption.toLowerCase());
-
+// eslint-disable-next-line react/prop-types
+const VideoPage = ({ onClose, videoUrl }) => {
     return (
-        <section className="flex flex-col items-center justify-center h-screen">
-            {selectedJob && selectedJob.videourl ? (
-                <div className="max-w-2xl w-full">
-                    <h2 className="text-2xl font-bold mb-4">{selectedJob.title}</h2>
-                    <div className="aspect-w-16 aspect-h-9">
-                        <iframe
-                            src={selectedJob.videourl}
-                            title={selectedJob.title}
-                            className="w-full h-full"
-                            allowFullScreen
-                        />
-                    </div>
-                    <Link to="/quiz" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Take Quiz</Link>
-                </div>
-            ) : (
-                <p className="text-xl">Video not available for {selectedOption}</p>
-            )}
-        </section>
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">
+            <div className="bg-white p-8 rounded-lg relative">
+                <button className="absolute top-4 right-4 text-gray-500 hover:text-gray-800" onClick={onClose}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <iframe
+                    src={videoUrl}
+                    title="Video"
+                    className="w-full h-80"
+                    allowFullScreen
+                />
+                <Link to="/quiz" className="block text-center mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Take Quiz</Link>
+            </div>
+        </div>
     );
 };
 

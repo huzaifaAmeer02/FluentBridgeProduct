@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
+import VideoPage from "./VideoPage.jsx";
+import {IoIosArrowBack} from "react-icons/io";
 
 const ListeningActivity = () => {
     // Sample data for job details
@@ -8,6 +10,7 @@ const ListeningActivity = () => {
             title: "Labour",
             image: "https://img.freepik.com/free-photo/construction-workers-sunset_53876-138180.jpg?w=900&t=st=1707675337~exp=1707675937~hmac=88653ffa23aecd19c4753b729f43b7e73dc70638b03813eab70d37a3fa4433a4",
             link: "/Labour",
+            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
         },
         {
             title: "Engineer",
@@ -56,15 +59,28 @@ const ListeningActivity = () => {
         }
         // Add more job details as needed
     ];
+    const [selectedJob, setSelectedJob] = useState(null);
+
+    const handleJobClick = (job) => {
+        setSelectedJob(job);
+    };
+
+    const handleClosePopup = () => {
+        setSelectedJob(null);
+    };
 
     return (
-        <section className="bg-gray-200 py-8">
+        <section className="bg-gray-200 py-8 relative">
+            <Link to="/activities" className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
+                <IoIosArrowBack />
+            </Link>
             <h2 className="text-3xl font-bold text-center mb-8">Listening Activity</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 px-4">
                 {jobs.map((job, index) => (
-                    <Link to={job.link} key={index}>
+                    <div key={index}>
                         <div
-                            className="bg-white rounded-xl overflow-hidden shadow-lg transition duration-300"
+                            className="bg-white rounded-xl overflow-hidden shadow-lg transition duration-300 cursor-pointer"
+                            onClick={() => handleJobClick(job)}
                         >
                             <img
                                 src={job.image}
@@ -73,12 +89,15 @@ const ListeningActivity = () => {
                             />
                             <div className="p-4 text-center">
                                 <h3 className="text-lg font-bold mb-2">{job.title}</h3>
-                                <Link to={job.link} className="text-blue-500 hover:underline">Watch Video</Link>
+                                <p className="text-blue-500 hover:underline">Watch Video</p>
                             </div>
                         </div>
-                    </Link>
+                    </div>
                 ))}
             </div>
+            {selectedJob && (
+                <VideoPage onClose={handleClosePopup} videoUrl={selectedJob.videoUrl} />
+            )}
         </section>
     );
 };
