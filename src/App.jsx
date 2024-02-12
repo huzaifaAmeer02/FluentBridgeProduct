@@ -7,8 +7,9 @@ import Contact from "./components/ContactPage/ContactUs";
 import Activity from "./components/ActivityPage/ActivityPanel";
 import Dictionary from "./components/DictionaryPage/DictionaryPage";
 import DictionaryAPI from "./components/DictionaryPage/DictionaryAPI.jsx";
+import ListeningActivity from "./components/ListeningActivity/ListeningActivity.jsx";
+import VideoPage from "./components/ListeningActivity/VideoPage.jsx";
 import GamePage from "./components/DictionGame/gamePage.jsx";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
                     <Route path='/contact' element={<Contact />} />
                     <Route path='/dictionaryapi' element={<DictionaryAPI/>}/>
                     <Route path='/gamePage' element={<GamePage/>}/>
-                    <Route path='/listening' element={<GamePage/>}/>
+                    <Route path='/listening' element={<ListeningActivity/>}/>
+                    <Route path='/videopage' element={<VideoPage/>}/>
                 </Routes>
                 <Footer/>
             </Router>
