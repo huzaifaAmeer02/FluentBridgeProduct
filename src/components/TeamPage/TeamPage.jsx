@@ -44,7 +44,7 @@ export const TeamPage = () => {
 
     return (
         <div className="px-4 py-16 mx-auto sm:py-24 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-28">
-            <div className="mx-auto mb-10 lg:max-w-xl sm:text-center border-2 p-10 rounded-2xl">
+            <div className="bg-gray-400 mx-auto mb-10 lg:max-w-xl sm:text-center border-2 p-10 rounded-2xl">
                 <p className="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider text-gray-100 uppercase rounded-full bg-teal-accent-400">
                     FluentBridge sri Lanka Team
                 </p>
