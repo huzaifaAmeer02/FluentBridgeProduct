@@ -4,7 +4,7 @@
 # Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 # .\venv\Scripts\Activate
-# .\venv\Scripts\Activate
+# 
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import StreamingResponse
@@ -54,10 +54,17 @@ async def reset_conversation():
 
 
 # get audio
-@app.get("/post-audio-get/")
-async def get_audio():
-    # get saved audio
-    audio_input = open("audio.mp3", "rb")
+@app.post("/post-audio/")
+async def post_audio( file: UploadFile = File(...)):
+
+    """ # get saved audio
+    audio_input = open("audio.mp3", "rb") """
+
+    # save file from front end
+    with open(file.filename,"wb") as buffer:
+        buffer.write(file.file.read())
+    audio_input = open(file.filename, "rb")
+
 
     # decode audio
     message_decoded = convert_audio_to_text(audio_input)
@@ -89,7 +96,7 @@ async def get_audio():
         yield audio_output
 
     # return audio file
-    return StreamingResponse(iterfile(),media_Type="audio/mpeg")
+    return StreamingResponse(iterfile(),media_Type="application/octet-stream")
 
 
 
