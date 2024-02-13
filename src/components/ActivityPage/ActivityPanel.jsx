@@ -89,10 +89,10 @@ const ActivityPanel = () => {
                                 </animated.div>
                                 <animated.div style={bounceIn} className="w-full h-50vh">
                                     <Link
-                                        to="/listening"
+                                        to="/Listening"
                                         className="block bg-red-500 hover:bg-red-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
-                                        Reading
+                                        Listening
                                     </Link>
                                 </animated.div>
                             </div>
