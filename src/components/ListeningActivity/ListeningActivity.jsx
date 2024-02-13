@@ -59,7 +59,7 @@ const ListeningActivity = () => {
             title: "Pharmacist",
             image: "https://img.freepik.com/free-photo/group-pharmacists-pharmacy-flat-design-cartoon-illustration_123827-28136.jpg?t=st=1707677491~exp=1707681091~hmac=246f3dfe3455d85752696558bd8902975e5cd3af2c501833e56ec99e7fab00f4&w=826",
             link: "/Pharmacist",
-            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
+            videoUrl: "https://youtu.be/R5C-RJTqD5w",
         },
         {
             title: "Store Keeper",

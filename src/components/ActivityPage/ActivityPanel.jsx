@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
-import VocabPanel from "../VocabPanel/vocabPanel.jsx";
 import imageBG from "../../assets/buttonBG.jpg";
 import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
 import { FiMessageSquare } from "react-icons/fi"; // Importing the Message Square icon from react-icons
