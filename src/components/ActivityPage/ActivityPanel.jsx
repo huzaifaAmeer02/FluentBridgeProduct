@@ -104,9 +104,6 @@ const ActivityPanel = () => {
                 </section>
             </animated.div>
 
-            {/* Vocab Panel */}
-            <VocabPanel className="md:flex-grow overflow-y-auto" />
-
             {/* ChatBot Modal */}
             {showChatBot && <ChatBotModal onClose={toggleChatBot} />}
         </div>
