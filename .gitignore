@@ -25,3 +25,4 @@ dist-ssr
 venv
 __pycache__
 202402110643.mp4
+.env
