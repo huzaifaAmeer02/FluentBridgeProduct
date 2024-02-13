@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 
 // checking faslans git update
+//file
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
