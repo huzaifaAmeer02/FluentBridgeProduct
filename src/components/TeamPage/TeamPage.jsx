@@ -1,5 +1,5 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FiMail, FiGithub, FiTwitter } from 'react-icons/fi';
 
 export const TeamPage = () => {
@@ -43,20 +43,32 @@ export const TeamPage = () => {
     ];
 
     return (
-        <div className="px-4 py-16 mx-auto sm:py-24 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-28">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="px-4 py-16 mx-auto sm:py-24 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-28"
+        >
             <div className="bg-gray-400 mx-auto mb-10 lg:max-w-xl sm:text-center border-2 p-10 rounded-2xl">
                 <p className="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider text-gray-100 uppercase rounded-full bg-teal-accent-400">
-                    FluentBridge sri Lanka Team
+                    FluentBridge Sri Lanka Team
                 </p>
                 <p className="text-base text-gray-100 md:text-lg px-4 md:px-0">
                     Our team consists of second-year undergraduate students, each bringing unique perspectives
+                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                     and skills to the table. Despite being early in our academic journey, we're passionate, driven,
                     and committed to learning and contributing to meaningful projects.
                 </p>
             </div>
             <div className="grid gap-10 mx-auto lg:grid-cols-2 lg:max-w-screen-lg">
                 {teamMembers.map((member, index) => (
-                    <div key={index} className="grid sm:grid-cols-3 bg-gray-200 p-10 m-6 rounded-3xl">
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="grid sm:grid-cols-3 bg-gray-200 p-10 m-6 rounded-3xl"
+                    >
                         <div className="relative w-full h-40 max-h-full rounded shadow sm:h-auto">
                             <img
                                 className="absolute object-cover w-full h-full rounded"
@@ -89,9 +101,9 @@ export const TeamPage = () => {
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
 };
