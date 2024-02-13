@@ -4,38 +4,38 @@ import { FiMail, FiGithub, FiTwitter } from 'react-icons/fi';
 export const TeamPage = () => {
     const teamMembers = [
         {
-            name: "Oliver Aguilerra",
-            role: "Product Manager",
+            name: "Mentor",
+            role: "Mentor",
             imageUrl: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
             description: "Vincent Van Gogh’s most popular painting, The Starry Night."
         },
         {
-            name: "Marta Clermont",
-            role: "Design Team Lead",
+            name: "Muhammedhu Ishrath",
+            role: "Team Leader",
             imageUrl: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             description: "Amet I love liquorice jujubes pudding croissant I love pudding."
         },
         {
-            name: "Alice Melbourne",
-            role: "Human Resources",
+            name: "Asani Amarasinghe",
+            role: "Developer",
             imageUrl: "https://images.pexels.com/photos/3747435/pexels-photo-3747435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             description: "Lorizzle ipsum bling bling sit amizzle, consectetuer adipiscing elit."
         },
         {
-            name: "John Doe",
-            role: "Good guy",
+            name: "Nuwaf Azley",
+            role: "Developer",
             imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             description: "Bacon ipsum dolor sit amet salami jowl corned beef, andouille flank."
         },
         {
-            name: "John Doe",
-            role: "Good guy",
+            name: "Faslan Rizni",
+            role: "Developer",
             imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             description: "Bacon ipsum dolor sit amet salami jowl corned beef, andouille flank."
         },
         {
-            name: "John Doe",
-            role: "Good guy",
+            name: "Mohamed Huzaifa Ameer",
+            role: "Developer",
             imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             description: "Bacon ipsum dolor sit amet salami jowl corned beef, andouille flank."
         }
