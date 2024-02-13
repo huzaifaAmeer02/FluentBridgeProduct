@@ -95,5 +95,3 @@ export const TeamPage = () => {
         </div>
     );
 };
-
-export default TeamPage;
