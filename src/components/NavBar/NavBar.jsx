@@ -10,7 +10,7 @@ const Navbar = () => {
     const location = useLocation();
 
     // Condition to check if the navbar should be hidden based on the current URL
-    const hideNavbar = location.pathname === "/listening";
+    const hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel";
 
     // Function to toggle mobile menu
     const toggleMobileMenu = () => {

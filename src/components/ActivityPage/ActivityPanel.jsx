@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
-import VocabPanel from "../VocabPanel/vocabPanel.jsx";
 import imageBG from "../../assets/buttonBG.jpg";
 import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
 import { FiMessageSquare } from "react-icons/fi"; // Importing the Message Square icon from react-icons
@@ -89,10 +88,10 @@ const ActivityPanel = () => {
                                 </animated.div>
                                 <animated.div style={bounceIn} className="w-full h-50vh">
                                     <Link
-                                        to="#"
+                                        to="/vocabpanel"
                                         className="block bg-red-500 hover:bg-red-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
-                                        Reading
+                                        Vocabulary
                                     </Link>
                                 </animated.div>
                             </div>
@@ -103,9 +102,6 @@ const ActivityPanel = () => {
                     </div>
                 </section>
             </animated.div>
-
-            {/* Vocab Panel */}
-            <VocabPanel className="md:flex-grow overflow-y-auto" />
 
             {/* ChatBot Modal */}
             {showChatBot && <ChatBotModal onClose={toggleChatBot} />}
