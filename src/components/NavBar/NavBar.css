@@ -65,6 +65,20 @@ button {
     font-size: 20px;
     background: none;
 }
+.special-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.special-1 li{
+    color: #075C5C !important;
+    border-radius: 20px;
+    border: 2px solid #075C5C;
+}
+.special-1 li:hover{
+    background-color: #075C5C;
+    color: white !important;
+}
 @media (max-width: 820px) {
     .logo {
         display: flex;
@@ -90,6 +104,10 @@ button {
         padding: 32px;
         width: 100%;
         transition: all 0.5s ease-in-out;
+        text-align: center;
+    }
+    .special-1 li{
+        width: 50%;
         text-align: center;
     }
     ul li:hover{

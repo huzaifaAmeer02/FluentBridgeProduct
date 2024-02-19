@@ -36,8 +36,8 @@ const Navbar = () => {
                         <Link to="/contact" className="bg-gray-200 rounded-2xl hover:bg-gray-400">
                             <li>Contact Us</li>
                         </Link>
-                        <Link to="/" className="logout-icon bg-green-300 p-4 ml-4 rounded-2xl hover:bg-red-300 text-white" title="Logout">
-                            <FaSignOutAlt />
+                        <Link to="/" className="logout-icon special-1">
+                            <li><FaSignOutAlt /></li>
                         </Link>
                     </ul>
                     <button className="mobile-menu-icon" onClick={toggleMobileMenu}>
