@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import { FaBars,FaSignOutAlt  } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import logo from "/src/assets/logofluent.png";
 import "./navbar.css";
@@ -29,14 +30,14 @@ const Navbar = () => {
                         <Link to="/activities">
                             <li>Activities</li>
                         </Link>
-                        <Link to="/dictionary">
-                            <li>Dictionary</li>
-                        </Link>
                         <Link to="/about">
                             <li>About Us</li>
                         </Link>
                         <Link to="/contact" className="bg-gray-200 rounded-2xl hover:bg-gray-400">
                             <li>Contact Us</li>
+                        </Link>
+                        <Link to="/" className="logout-icon bg-green-300 p-4 ml-4 rounded-2xl hover:bg-red-300 text-white" title="Logout">
+                            <FaSignOutAlt />
                         </Link>
                     </ul>
                     <button className="mobile-menu-icon" onClick={toggleMobileMenu}>
