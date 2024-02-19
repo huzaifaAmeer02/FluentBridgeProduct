@@ -1,16 +1,16 @@
-
-/* import './App.css'; */
-import Controller from './component/Controller';
+import { useState } from "react";
+import Controller from "./components/Controller";
 
 function App() {
+  const [count, setCount] = useState(0);
 
-
-    return (
-        <div className='text-2xl bg-blue-500'>
-            <Controller/>
-
-        </div>
-    )
+  return (
+    <div>
+      <>
+        <Controller />
+      </>
+    </div>
+  );
 }
 
-export default App
+export default App;
