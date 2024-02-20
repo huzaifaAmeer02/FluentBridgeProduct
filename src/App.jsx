@@ -1,5 +1,5 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer"
 import About from "./components/AboutUsPage/Aboutus";
@@ -11,8 +11,9 @@ import DictionaryAPI from "./components/DictionaryPage/DictionaryAPI.jsx";
 import ListeningActivity from "./components/ListeningActivity/ListeningActivity.jsx";
 import VideoPage from "./components/ListeningActivity/VideoPage.jsx";
 import GamePage from "./components/DictionGame/gamePage.jsx";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import VocabPanel from "./components/VocabPanel/vocabPanel.jsx";
+import LandingPage from "./components/LandingPage/LandingPage";
+
 
 function App() {
     return (
@@ -20,7 +21,8 @@ function App() {
             <Router>
                 <Navbar />
                 <Routes>
-                    <Route path='/' element={<Home />} />
+                    <Route path='/' element={<LandingPage />} />
+                    <Route path='/home' element={<Home />} />
                     <Route path='/about' element={<About />} />
                     <Route path='/activities' element={<Activity />} />
                     <Route path='/dictionary' element={<Dictionary />} />
