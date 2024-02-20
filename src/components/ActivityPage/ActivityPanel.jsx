@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import imageBG from "../../assets/buttonBG.jpg";
 import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
-import { FiMessageSquare } from "react-icons/fi"; // Importing the Message Square icon from react-icons
+import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook } from "react-icons/fi"; // Importing the necessary icons
 
 const ActivityPanel = () => {
     const [showChatBot, setShowChatBot] = useState(false);
@@ -27,16 +27,6 @@ const ActivityPanel = () => {
         config: { duration: 800, delay: 300, tension: 300, friction: 10 },
     });
 
-    const chatBotButtonStyle = {
-        backgroundColor: "#023C41",
-    };
-
-    const panelStyle = {
-        backgroundImage: `url(${imageBG})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-    };
-
     const toggleChatBot = () => {
         setShowChatBot(!showChatBot);
     };
@@ -45,7 +35,7 @@ const ActivityPanel = () => {
         <div className="relative">
             {/* ChatBot Button */}
             <animated.div
-                className="fixed bottom-8 right-8 bg-blue-500 hover:bg-blue-700 text-white p-3 text-center transition rounded-full z-10"
+                className="fixed bottom-20 right-8 bg-blue-500 hover:bg-blue-700 text-white p-3 text-center transition rounded-full z-10"
                 style={fadeIn}
                 onClick={toggleChatBot}
             >
@@ -60,13 +50,14 @@ const ActivityPanel = () => {
                 <section className="hero">
                     <div className="flex flex-col md:flex-row p-4">
                         <div className="md:w-40% mb-4 md:mb-0 md:pr-4">
-                            <h2 className="text-lg font-bold mb-2 md:mb-4 text-center mt-4">Learner Activity Panel</h2>
-                            <div className="grid grid-cols-2 gap-4">
+                            <h2 className="text-2xl font-bold mb-2 md:mb-4 text-center mt-2">Select Your Activity</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4"> {/* Adjust grid-cols to display 3 activities in a row on larger screens */}
                                 <animated.div style={bounceIn} className="w-full h-50vh">
                                     <Link
                                         to="#"
                                         className="block bg-blue-500 hover:bg-blue-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
+                                        <FiMic className="mx-auto mb-2 text-4xl" /> {/* Icon for Speaking */}
                                         Speaking
                                     </Link>
                                 </animated.div>
@@ -75,6 +66,7 @@ const ActivityPanel = () => {
                                         to="/listening"
                                         className="block bg-green-500 hover:bg-green-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
+                                        <FiHeadphones className="mx-auto mb-2 text-4xl" /> {/* Icon for Listening */}
                                         Listening
                                     </Link>
                                 </animated.div>
@@ -83,6 +75,7 @@ const ActivityPanel = () => {
                                         to="#"
                                         className="block bg-yellow-500 hover:bg-yellow-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
+                                        <FiEdit className="mx-auto mb-2 text-4xl" /> {/* Icon for Writing */}
                                         Writing
                                     </Link>
                                 </animated.div>
@@ -91,7 +84,26 @@ const ActivityPanel = () => {
                                         to="/vocabpanel"
                                         className="block bg-red-500 hover:bg-red-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
+                                        <FiBook className="mx-auto mb-2 text-4xl" /> {/* Icon for Vocabulary */}
                                         Vocabulary
+                                    </Link>
+                                </animated.div>
+                                <animated.div style={bounceIn} className="w-full h-50vh">
+                                    <Link
+                                        to="/gradingquiz"
+                                        className="w-full block bg-purple-500 hover:bg-purple-700 text-white p-6 text-center transition h-full rounded-md"
+                                    >
+                                        <FiEdit className="mx-auto mb-2 text-4xl" /> {/* Icon for Grading Quiz */}
+                                        Grading Quiz
+                                    </Link>
+                                </animated.div>
+                                <animated.div style={bounceIn} className="w-full h-50vh">
+                                    <Link
+                                        to="/chatbotactivity"
+                                        className="block bg-indigo-500 hover:bg-indigo-700 text-white p-6 text-center transition h-full rounded-md"
+                                    >
+                                        <FiMessageSquare className="mx-auto mb-2 text-4xl" /> {/* Icon for Chatbot Activity */}
+                                        Chatbot Activity
                                     </Link>
                                 </animated.div>
                             </div>
