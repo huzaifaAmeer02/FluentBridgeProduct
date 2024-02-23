@@ -16,7 +16,7 @@ export default function Signup() {
 
     const signup = async () => {
         try {
-            const response = await AxiosInstance.post('/users/register', {
+            const response = await AxiosInstance.post('/users/signup', {
                 fullName, email, password
             });
             console.log(response);

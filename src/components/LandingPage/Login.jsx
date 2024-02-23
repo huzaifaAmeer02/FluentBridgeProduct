@@ -11,11 +11,7 @@ export default function Login() {
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
 
-  /*  useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000); // Simulating a 2-second delay for demonstration purposes
-    }, []);*/
+
 
     // const inputRef = useRef(null);
     const login=async ()=>{
