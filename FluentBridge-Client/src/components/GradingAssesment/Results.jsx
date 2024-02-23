@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -11,7 +12,7 @@ export default function Results() {
     return (
         <div className="container mx-auto px-4 py-8 flex flex-col items-center bg-gray-400 min-h-screen">
 
-            <h1 className="border-2 rounded-3xl text-3xl font-bold text-center mb-8 p-4 text-white m-4 bg-blue-500">Grading Assessment</h1>
+            <h1 className="border-2 rounded-3xl text-3xl font-bold text-center mb-8 p-4 text-white m-4 bg-[#4FA4A5]">Grading Assessment Results</h1>
 
             <motion.div className="bg-white p-8 rounded-lg shadow-md"
                         initial={{ opacity: 0, y: -50 }}
@@ -58,10 +59,10 @@ export default function Results() {
             </motion.div>
 
             <div className="mt-8 flex flex-col sm:flex-row justify-center">
-                <Link to="/gradingquiz" onClick={onRestart} className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mb-2 sm:mr-2 sm:mb-0">
+                <Link to="/gradingquiz" onClick={onRestart} className="bg-[#023C41] hover:bg-[#001415] text-white font-bold py-2 px-4 rounded mb-2 sm:mr-2 sm:mb-0">
                     Restart Quiz
                 </Link>
-                <Link to="/activities" className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                <Link to="/activities" className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
                     Checkout Quiz
                 </Link>
             </div>
