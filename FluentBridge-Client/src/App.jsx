@@ -12,6 +12,7 @@ import ListeningActivity from "./components/ListeningActivity/ListeningActivity.
 import VideoPage from "./components/ListeningActivity/VideoPage.jsx";
 import VocabPanel from "./components/VocabPanel/vocabPanel.jsx";
 import LandingPage from "./components/LandingPage/LandingPage";
+import GradingAssesment from "./components/GradingAssesment/GradingAssesment.jsx";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                     <Route path='/listening' element={<ListeningActivity/>}/>
                     <Route path='/vocabpanel' element={<VocabPanel/>}/>
                     <Route path='/videopage' element={<VideoPage/>}/>
+                    <Route path='/gradingquiz' element={<GradingAssesment/>}/>
                 </Routes>
                 <Footer/>
             </Router>

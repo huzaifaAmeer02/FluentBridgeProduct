@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
 import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook } from "react-icons/fi"; // Importing the necessary icons
+import rightBack from "../../assets/right-background.jpg";
 
 const ActivityPanel = () => {
     const [showChatBot, setShowChatBot] = useState(false);
@@ -113,6 +114,11 @@ const ActivityPanel = () => {
                     </div>
                 </section>
             </animated.div>
+            {/* Empty area with animated background */}
+            <animated.div
+                className="absolute inset-y-0 right-0 w-full md:w-1/3 h-full"
+                style={{ backgroundImage: `url(${rightBack})`, backgroundSize: 'cover', backgroundPosition: 'center', transition: 'background-image 1.5s ease-in-out' }}
+            ></animated.div>
 
             {/* ChatBot Modal */}
             {showChatBot && <ChatBotModal onClose={toggleChatBot} />}
