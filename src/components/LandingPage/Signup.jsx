@@ -1,24 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useRef, useState } from "react";
-import LoadingPage from "../LoadingPage/LoadingPage.jsx";
+
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AxiosInstance from "../../config/axiosInstance.jsx";
 
 export default function Signup() {
-    const [loading, setLoading] = useState(true);
+
     const [fullName, setFullName]=useState('');
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000); // Simulating a 2-second delay for demonstration purposes
-    }, []);
 
-    const inputRef = useRef(null);
+
     const signup = async () => {
         try {
             const response = await AxiosInstance.post('/users/register', {
@@ -49,10 +44,9 @@ export default function Signup() {
             }}
 
         >
-            {loading ? (
-                <LoadingPage />
-            ) : (
-                /*==*/
+
+            (
+
                 <div className="container mx-auto max-w-lg p-8 bg-white bg-opacity-90 shadow-lg rounded-lg">
                     <Link
                         to="/activities"
@@ -113,7 +107,7 @@ export default function Signup() {
 
 
                 </div>
-            )}
+            )
         </motion.div>
     );
 }

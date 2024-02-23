@@ -1,36 +1,44 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useRef, useState } from "react";
-import LoadingPage from "../LoadingPage/LoadingPage.jsx";
+
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AxiosInstance from "../../config/axiosInstance.jsx";
 
 export default function Login() {
-    const [loading, setLoading] = useState(true);
-    const [fullName, setFullName]=useState('');
+    // const [loading, setLoading] = useState(true);
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
 
-    useEffect(() => {
+  /*  useEffect(() => {
         setTimeout(() => {
             setLoading(false);
         }, 2000); // Simulating a 2-second delay for demonstration purposes
-    }, []);
+    }, []);*/
 
-    const inputRef = useRef(null);
-    const signup = async () => {
-        try {
-            const response = await AxiosInstance.post('/users/register', {
-                fullName, email, password
+    // const inputRef = useRef(null);
+    const login=async ()=>{
+        try{
+            const response = await AxiosInstance.post('/users/login',{
+                email,password
             });
-            console.log(response);
+
+
+            //==============
+            const expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate()+2);
+
+            const cookieValue=encodeURIComponent('token')+'='
+                +encodeURIComponent(response.data)+'; expires='+expirationDate.toUTCString()+'; path=/';
+
+            document.cookie=cookieValue;
+            console.log(response.data);
 
             setEmail('');
-            setFullName('');
             setPassword('');
 
-        } catch (e) {
+        }catch (e){
             console.log(e)
         }
     }
@@ -49,10 +57,7 @@ export default function Login() {
             }}
 
         >
-            {loading ? (
-                <LoadingPage />
-            ) : (
-                /*==*/
+             (
                 <div className="container mx-auto max-w-lg p-8 bg-white bg-opacity-90 shadow-lg rounded-lg">
                     <Link
                         to="/activities"
@@ -61,21 +66,11 @@ export default function Login() {
                         <IoIosArrowBack />
                     </Link>
                     <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">
-                        Happy learning
+                        Sign up
                     </h1>
                     <div className="container mx-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="col-span-3">
-                                <div className="form-group">
-                                    <label htmlFor="name" className="text-gray-700">Full Name</label>
-                                    <input
-                                        type="text"
-                                        onChange={(e) => { setFullName(e.target.value) }}
-                                        className='form-input w-full' placeholder='Full Name here'
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-span-3">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="col-span-2 md:col-span-1">
                                 <div className="form-group">
                                     <label htmlFor="email" className="text-gray-700">Email</label>
                                     <input
@@ -85,7 +80,7 @@ export default function Login() {
                                     />
                                 </div>
                             </div>
-                            <div className="col-span-3">
+                            <div className="col-span-2 md:col-span-1">
                                 <div className="form-group">
                                     <label htmlFor="password" className="text-gray-700">Password</label>
                                     <input
@@ -95,16 +90,16 @@ export default function Login() {
                                     />
                                 </div>
                             </div>
-                            <div className="col-span-3 mt-4">
+                            <div className="col-span-2 mt-4">
                                 <button
                                     className='bg-blue-500 text-white py-2 px-4 w-full rounded'
-                                    onClick={signup}
+                                    onClick={login}
                                 >
-                                    Register Now
+                                    Login
                                 </button>
                             </div>
-                            <div className="col-span-3 mt-2">
-                                <Link to="/login" className='border border-gray-300 text-gray-700 py-2 px-4 w-full rounded inline-block text-center'>Already have an Account</Link>
+                            <div className="col-span-2 mt-2">
+                                <Link to="/signup" className='border border-gray-300 text-gray-700 py-2 px-4 w-full rounded inline-block text-center'>Sign up</Link>
                             </div>
                         </div>
                     </div>
@@ -112,8 +107,9 @@ export default function Login() {
 
 
 
+
                 </div>
-            )}
+            )
         </motion.div>
     );
 }
