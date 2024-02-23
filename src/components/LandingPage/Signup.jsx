@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AxiosInstance from "../../config/axiosInstance.jsx";
 
-export default function Login() {
+export default function Signup() {
     const [loading, setLoading] = useState(true);
     const [fullName, setFullName]=useState('');
     const [email, setEmail]=useState('');

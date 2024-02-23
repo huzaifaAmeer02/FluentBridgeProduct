@@ -13,6 +13,9 @@ import VideoPage from "./components/ListeningActivity/VideoPage.jsx";
 import GamePage from "./components/DictionGame/gamePage.jsx";
 import VocabPanel from "./components/VocabPanel/vocabPanel.jsx";
 import LandingPage from "./components/LandingPage/LandingPage";
+import Login from "./components/LandingPage/Login";
+import Signup from "./components/LandingPage/Signup.jsx";
+// import Signup from "./components/LandingPage/Signup";
 
 
 function App() {
@@ -32,6 +35,8 @@ function App() {
                     <Route path='/listening' element={<ListeningActivity/>}/>
                     <Route path='/vocabpanel' element={<VocabPanel/>}/>
                     <Route path='/videopage' element={<VideoPage/>}/>
+                    <Route path='/login' element={<Login/>}/>
+                    <Route path='/signup' element={<Signup/>}/>
                 </Routes>
                 <Footer/>
             </Router>
