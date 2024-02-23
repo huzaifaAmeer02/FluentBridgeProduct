@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
@@ -29,7 +30,7 @@ const VocabPanel = () => {
                     to="/dictionary"
                     className="button1 flex items-center justify-center text-white font-bold py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-700 transition duration-300 ease-in-out mx-2"
                 >
-                    Dictionary
+                    Use Dictionary
                 </Link>
                 <Link
                     to="/vocabulary-activity"
