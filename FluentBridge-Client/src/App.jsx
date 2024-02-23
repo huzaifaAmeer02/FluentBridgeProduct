@@ -14,6 +14,7 @@ import VocabPanel from "./components/VocabPanel/vocabPanel.jsx";
 import LandingPage from "./components/LandingPage/LandingPage";
 import GradingAssesment from "./components/GradingAssesment/GradingAssesment.jsx";
 import Quiz from "./components/GradingAssesment/Quiz.jsx";
+import Results from "./components/GradingAssesment/Results.jsx";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                     <Route path='/videopage' element={<VideoPage/>}/>
                     <Route path='/gradingquiz' element={<GradingAssesment/>}/>
                     <Route path='/quiz' element={<Quiz/>}/>
+                    <Route path='/results' element={<Results/>}/>
                 </Routes>
                 <Footer/>
             </Router>
