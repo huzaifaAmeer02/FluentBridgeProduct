@@ -13,6 +13,7 @@ import VideoPage from "./components/ListeningActivity/VideoPage.jsx";
 import VocabPanel from "./components/VocabPanel/vocabPanel.jsx";
 import LandingPage from "./components/LandingPage/LandingPage";
 import GradingAssesment from "./components/GradingAssesment/GradingAssesment.jsx";
+import Quiz from "./components/GradingAssesment/Quiz.jsx";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                     <Route path='/vocabpanel' element={<VocabPanel/>}/>
                     <Route path='/videopage' element={<VideoPage/>}/>
                     <Route path='/gradingquiz' element={<GradingAssesment/>}/>
+                    <Route path='/quiz' element={<Quiz/>}/>
                 </Routes>
                 <Footer/>
             </Router>
