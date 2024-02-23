@@ -38,7 +38,7 @@ export default function Signup() {
             transition={{ duration: 1 }}
             className="flex justify-center items-center h-screen"
             style={{
-                backgroundImage: `url('https://img.freepik.com/free-photo/diverse-multiethnic-kids-junior-school-students-group-study-together-classroom-generative-ai_1258-166493.jpg?t=st=1708657512~exp=1708661112~hmac=c8a0d4cdb34b79646270515622f94e1fb522c8d20fc28748a113268243ff8400&w=996')`,
+                backgroundImage: `url('https://img.freepik.com/free-vector/modern-desktop-background-geometric-blue-design-vector_53876-135923.jpg?t=st=1708689364~exp=1708692964~hmac=fcccc35303a3ba2cdb11db3463e494c8a2da28e1b0c0f64c33525984e3530946&w=996')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}
@@ -55,7 +55,7 @@ export default function Signup() {
                         <IoIosArrowBack />
                     </Link>
                     <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">
-                        Happy learning
+                        Signup
                     </h1>
                     <div className="container mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
