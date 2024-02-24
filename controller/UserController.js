@@ -4,7 +4,7 @@ const salt=10;
 const nodemailer= require('nodemailer');
 const jsonwebtoken =require('jsonwebtoken');
 
-const register = (req,resp) => {
+const signup = (req,resp) => {
 
     userSchema.findOne({'email':req.body.email}).then(result=>{
         if(result==null){
@@ -22,16 +22,16 @@ const register = (req,resp) => {
                 const transporter= nodemailer.createTransport({
                     service:'gmail',
                     auth:{
-                        user:'fluentBrige@gmail.com',
+                        user:'testdevstackemail@gmail.com',
                         pass:'jxdo sqxg szag keuu',
                     }
                 });
 
                 const mailOption={
-                    from:'fluentBrige@gmail.com',
+                    from:'testdevstackemail@gmail.com',
                     to:req.body.email,
                     subject:'New Account Creation',
-                    text:' happy learning, You have Created Your with fluentBrige Account!'
+                    text:'You have Created Your Account!'
                 }
                 transporter.sendMail(mailOption, function (error, info) {
                     if (error){
@@ -81,5 +81,5 @@ const login = (req,resp) => {
 }
 
 module.exports={
-    register,login
+    signup,login
 }

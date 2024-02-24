@@ -8,43 +8,41 @@
 * jsonwebtoken (npm i jsonwebtoken)
 *
 * */
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser')
 const cors = require('cors')
-
+const express= require('express');
+const mongoose = require('mongoose');
 require('dotenv').config();
-const port = process.env.SERVER_PORT || 3000;
 
-const customerRoute = require('./route/customerRoute')
-const userRoute = require('./route/UserRoute')
-
+const bodyParser = require('body-parser');
+const port = process.env.SERVER_PORT | 3000;
 const app = express();
 app.use(cors())
+//-----------------------
+const userRoute = require('./route/UserRoute');
+const customerRoute = require('./route/CustomerRoute');
 
+//-----------------------
 
-    /*=======body parser==========*/
-    app.use(bodyParser.urlencoded({extended:false}))
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
-    app.use(bodyParser.json());
-
-    /*=======body parser==========*/
-
-    try{
-        mongoose.connect('mongodb://127.0.0.1:27017/posapi');
-        app.listen(port,()=>{
-            console.log(`server Started & running on port ${port}`);
-        })
-    }catch (e){
-        console.log(e);
-    }
-
-    app.get('/test-api',(req,resp)=>{
-        return resp.json({'message':'Server Started!'})
+// parse application/json
+app.use(bodyParser.json())
+try{
+    mongoose.connect('mongodb://127.0.0.1:27017/fluentBridge');
+    app.listen(port,()=>{
+        console.log(`server Started & running on port ${port}`);
     })
+}catch (e){
+    console.log(e);
+}
+
+app.get('/test-api',(req,resp)=>{
+    return resp.json({'message':'Server Started!'})
+})
+
+//------------
+app.use('/api/v1/users',userRoute);
 
 
-    app.use('/api/v1/customers',customerRoute);/*http://localhost:3000/api/v1/customers/save-customer*/
-    app.use('/api/v1/users',userRoute);
-
-
+app.use('/api/v1/customers',customerRoute);
