@@ -1,8 +1,12 @@
-// eslint-disable-next-line no-unused-vars
+
+
+// import { useHistory } from "react-router-dom";
 import React, { useEffect, useRef, useState } from "react";
 
+
+
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import AxiosInstance from "../../config/axiosInstance.jsx";
 
@@ -11,6 +15,9 @@ export default function Signup() {
     const [fullName, setFullName]=useState('');
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
+
+    const navigate = useNavigate();
+
 
 
 
@@ -24,6 +31,10 @@ export default function Signup() {
             setEmail('');
             setFullName('');
             setPassword('');
+
+            // Navigate to the home page
+            navigate('/home');
+
 
         } catch (e) {
             console.log(e)
