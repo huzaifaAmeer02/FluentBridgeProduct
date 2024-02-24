@@ -14,6 +14,7 @@ export default function Login() {
     // const [loading, setLoading] = useState(true);
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const navigate = useNavigate();
 
@@ -26,6 +27,9 @@ export default function Login() {
             const response = await AxiosInstance.post('/users/login',{
                 email,password
             });
+
+            // Clear any previous error message
+            setErrorMessage('');
 
 
             //==============
@@ -42,8 +46,8 @@ export default function Login() {
             setPassword('');
 
             navigate('/home');
-
         }catch (e){
+            setErrorMessage('Invalid email or password. Please try again.');
             console.log(e)
         }
     }
@@ -103,6 +107,11 @@ export default function Login() {
                                     Login
                                 </button>
                             </div>
+                            {errorMessage && (
+                                <div className="col-span-2 mt-2 text-red-500">
+                                    {errorMessage}
+                                </div>
+                            )}
                             <div className="col-span-2 mt-2">
                                 <Link to="/signup" className='border border-gray-300 text-gray-700 py-2 px-4 w-full rounded inline-block text-center'>Sign up</Link>
                             </div>
