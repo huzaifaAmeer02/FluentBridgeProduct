@@ -2,6 +2,7 @@ import React from "react";
 import dictionary from "../../assets/dictionary.jpg";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
+import {IoIosArrowBack} from "react-icons/io";
 
 const DictionaryPage = () => {
     // Define entrance animations using react-spring
@@ -19,6 +20,12 @@ const DictionaryPage = () => {
 
     return (
         <>
+            <Link
+                to="/vocabpanel"
+                className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
+            >
+                <IoIosArrowBack />
+            </Link>
             <animated.section style={fadeIn} className="text-gray-600 body-font top-10">
                 <div className="container mx-auto flex flex-col items-center lg:flex-row px-5 py-12 lg:py-24">
                     <animated.div style={slideIn} className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
@@ -55,11 +62,6 @@ const DictionaryPage = () => {
                             <Link to="/dictionaryapi">
                                 <button className="mb-4 lg:mb-0 lg:mr-4 inline-flex text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 rounded text-lg">
                                     Start Using
-                                </button>
-                            </Link>
-                            <Link to="/gamePage">
-                                <button className="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-                                    Play Game
                                 </button>
                             </Link>
                         </div>
