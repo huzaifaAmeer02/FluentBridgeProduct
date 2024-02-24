@@ -19,7 +19,6 @@ import GradingAssesment from "./components/GradingAssesment/GradingAssesment.jsx
 import Quiz from "./components/GradingAssesment/Quiz.jsx";
 import Results from "./components/GradingAssesment/Results.jsx";
 
-
 function App() {
     return (
         <>
