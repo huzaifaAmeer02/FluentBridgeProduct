@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import bglanding from '../../assets/bg-landing.jpg';
-import logo from '../../assets/logofluent.png'; // Import your logo image
+import logo from '../../assets/logofluent.png';
 
 function LandingPage() {
     const [currentDateTime, setCurrentDateTime] = useState('');
@@ -15,6 +15,7 @@ function LandingPage() {
         const currentTime = now.toLocaleTimeString(undefined, timeOptions);
         setCurrentDateTime(`${currentDate} ${currentTime}`);
     };
+
 
     // Update date and time on component mount
     useEffect(() => {
@@ -40,8 +41,11 @@ function LandingPage() {
                     <p className="text-lg animate-pulse">Sign up or log in to access the full features of Fluent Bridge.</p>
                     <div className='mt-4'>
                         <Link to="/login"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Login</button></Link>
-                        <Link to="/register"><button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Register</button></Link>
+                        <Link to="/signup"><button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Register</button></Link>
                     </div>
+
+
+
                     <p className="text-sm mt-2">{currentDateTime}</p>
                     <section className="bg-white text-black bg-opacity-50 rounded-lg p-4 mt-4 transition duration-300 hover:bg-gray-800 hover:bg-opacity-75 hover:text-white">
                         <h2 className="text-2xl font-semibold animate-pulse">Contact Us</h2>
