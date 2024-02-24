@@ -12,7 +12,7 @@ export default function GradingAssesment() {
             setLoading(false);
         }, 2000); // Simulating a 2-second delay for demonstration purposes
     }, []);
-
+    
     const inputRef = useRef(null);
 
     return (
