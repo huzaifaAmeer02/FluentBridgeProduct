@@ -116,9 +116,14 @@ const ActivityPanel = () => {
             </animated.div>
             {/* Empty area with animated background */}
             <animated.div
-                className="absolute inset-y-0 right-0 w-full md:w-1/3 h-full"
-                style={{ backgroundImage: `url(${rightBack})`, backgroundSize: 'cover', backgroundPosition: 'center', transition: 'background-image 1.5s ease-in-out' }}
-            ></animated.div>
+                className="w-full h-full bg-cover bg-center"
+                style={useSpring({
+                    display: "none", // Initially hide background image
+                    "@media (min-width: 768px)": {
+                        display: "block", // Display background image for screens larger than 768px
+                    },
+                })}
+            />
 
             {/* ChatBot Modal */}
             {showChatBot && <ChatBotModal onClose={toggleChatBot} />}

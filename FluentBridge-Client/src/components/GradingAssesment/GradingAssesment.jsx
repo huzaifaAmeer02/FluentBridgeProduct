@@ -30,7 +30,7 @@ export default function GradingAssesment() {
             {loading ? (
                 <LoadingPage />
             ) : (
-                <div className="container mx-auto max-w-lg p-8 bg-white bg-opacity-90 shadow-lg rounded-lg">
+                <div className="container mx-auto max-w-lg p-8 bg-white bg-opacity-90 shadow-lg rounded-lg sm:mt-4">
                     <Link
                         to="/activities"
                         className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
@@ -53,7 +53,7 @@ export default function GradingAssesment() {
                     </form>
                     <div className="start text-center">
                         <Link to="/quiz" className="btn py-2 px-6 border border-transparent text-base font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400">
-                            Start the Assessment
+                            Start
                         </Link>
                     </div>
                 </div>

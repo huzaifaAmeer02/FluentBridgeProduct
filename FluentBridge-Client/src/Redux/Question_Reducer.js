@@ -13,6 +13,12 @@ export const questionReducer = createSlice({
                 ...state,
                 queue: action.payload
             }
+        },
+        moveNextAction : (state,action) => {
+            return{
+                ...state,
+                trace: state.trace+1
+            }
         }
     }
 })
