@@ -15,7 +15,8 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import GradingAssesment from "./components/GradingAssesment/GradingAssesment.jsx";
 import Quiz from "./components/GradingAssesment/Quiz.jsx";
 import Results from "./components/GradingAssesment/Results.jsx";
-import VocabularyActivity from "./components/VocabularyActivity/VocabularyActivityPage";
+import VocabularyActivity from "./components/VocabularyActivity/VocabularyActivityPage.jsx";
+import VActivities from "./components/VocabularyActivity/VActivities.jsx";
 
 function App() {
     return (
@@ -36,7 +37,9 @@ function App() {
                     <Route path='/gradingquiz' element={<GradingAssesment/>}/>
                     <Route path='/quiz' element={<Quiz/>}/>
                     <Route path='/results' element={<Results/>}/>
-                    <Route path="/vocabulary-activity" element={<VocabularyActivity/>} />
+                    <Route path='/vocabulary-activity' element={<VocabularyActivity/>} />
+                    <Route path='/vactivities' element={<VActivities/>}/>
+                    
 
 
                 </Routes>
