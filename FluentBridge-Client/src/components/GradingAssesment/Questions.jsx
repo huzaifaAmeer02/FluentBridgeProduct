@@ -21,13 +21,14 @@ export default function Questions() {
     const trace = useSelector(state => state.questions.trace)
 
     useEffect(() => {
-        console.log(questions);
+        //console.log(questions);
     })
 
     function onSelect() {
         setChecked(true);
         //console.log("radio button change");
     }
+
     if (isLoading) return <h3 className="text-blue-500 text-lg">isLoading</h3>
     if (serverError) return <h3 className="text-blue-500 text-lg">{serverError || "Unknown Error "}</h3>
 

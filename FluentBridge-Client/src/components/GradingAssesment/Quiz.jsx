@@ -3,12 +3,15 @@ import React, {useEffect} from "react";
 import Questions from "./Questions.jsx";
 import bgImage from "../../assets/questionaier-bg.jpg";
 
+import {MoveNextQuestion} from "../../Hooks/FetchQuestion.js";
+
 /*importing the redux store*/
-import { useSelector } from "react-redux"
+import { useSelector,useDispatch } from "react-redux"
 
 export default function Quiz() {
 
-    const state = useSelector(state => state)
+    const state = useSelector(state => state.questions.trace)
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         console.log(state)
@@ -17,6 +20,8 @@ export default function Quiz() {
     /*next button event handler*/
     function onNext() {
         console.log("Next question")
+        /*updating the trace's value*/
+        dispatch(MoveNextQuestion())
     }
     /*prev button event handler*/
     function onPrevious() {
