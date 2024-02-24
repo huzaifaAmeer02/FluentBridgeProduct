@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import bglanding from '../../assets/bg-landing.jpg';
-import logo from '../../assets/logofluent.png'; // Import your logo image
+import logo from '../../assets/logofluent.png';
 
 function LandingPage() {
     const [currentDateTime, setCurrentDateTime] = useState('');
