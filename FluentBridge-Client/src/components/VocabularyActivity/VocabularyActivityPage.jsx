@@ -2,29 +2,18 @@
 
 import React from "react";
 import vocabActivity from "../../assets/vocabActivity.jpg";
-import { Link } from "react-router-dom";
-import { useSpring, animated } from "react-spring";
-import { IoIosArrowBack } from "react-icons/io";
 
 const VocabularyActivityPage = () => {
-    const containerStyle = {
-        backgroundImage: `url(${vocabActivity})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    };
 
     return (
-        <div className="p-8" style={containerStyle}>
-            
-            <h1>Vocabulary Activity</h1>
-            {/* Add your content here */}
-        </div>
-        
+       <div className="bg-cover bg-center min-h-screen flex flex-col justify-center items-center" style={{backgroundImage: `url(${vocabActivity})`}}>
+        <main className="text-center text-white">
+            <section className="mb-8 bg-gray-900 bg-opacity-90 rounded-lg p-4 transition duration-300 hover:bg-gray-800 hover:bg-opacity-75">
+            <h2 className="text-4xl font-semibold animate-pulse">Master Vocabulary</h2> 
+            </section>
+        </main>
+       </div>
+      
     );
 };
 
