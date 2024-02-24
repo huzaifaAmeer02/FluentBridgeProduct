@@ -10,6 +10,7 @@ const Navbar = () => {
     const location = useLocation();
 
     // Condition to check if the navbar should be hidden based on the current URL
+    /*const hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel" || location.pathname === "/login" || location.pathname === "/signup"|| location.pathname === "/";*/
     const hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel" || location.pathname === "/" || location.pathname ==="/dictionaryapi" || location.pathname ==="/dictionary" || location.pathname==="/gradingquiz" || location.pathname==="/quiz" || location.pathname==="/results"
 
     // Function to toggle mobile menu
