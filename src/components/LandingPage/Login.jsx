@@ -111,6 +111,8 @@ export default function Login() {
                                 <div className="col-span-2 mt-2 text-red-500">
                                     {errorMessage}
                                 </div>
+
+
                             )}
                             <div className="col-span-2 mt-2">
                                 <Link to="/signup" className='border border-gray-300 text-gray-700 py-2 px-4 w-full rounded inline-block text-center'>Sign up</Link>
