@@ -1,38 +1,59 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Questions from "./Questions.jsx";
 import bgImage from "../../assets/questionaier-bg.jpg";
-
-import {MoveNextQuestion} from "../../Hooks/FetchQuestion.js";
+import {MoveNextQuestion, MovePreviousQuestion} from "../../Hooks/FetchQuestion.js";
+import { pushAnswer} from "../../Hooks/setResults.js";
 
 /*importing the redux store*/
 import { useSelector,useDispatch } from "react-redux"
+import {Navigate} from "react-router-dom";
 
 export default function Quiz() {
 
-    const state = useSelector(state => state.questions.trace)
+    const [check, setChecked] = useState(undefined);
+    const result = useSelector(state => state.result.result)
+    const {queue,trace} = useSelector(state => state.questions)
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        console.log(state)
+        console.log(result)
     })
 
     /*next button event handler*/
     function onNext() {
         console.log("Next question")
-        /*updating the trace's value*/
-        dispatch(MoveNextQuestion())
+        if (trace < queue.length){
+            /*updating the trace's value*/
+            dispatch(MoveNextQuestion())
+
+            dispatch(pushAnswer(check))
+        }
     }
+
     /*prev button event handler*/
     function onPrevious() {
         console.log("Previous Question")
+        if (trace>0){
+            /*updating the trace's value*/
+            dispatch(MovePreviousQuestion())
+        }
+    }
+    function onChecked(check){
+        setChecked(check)
+        console.log(check)
+    }
+
+    /*finish the assessment after the last question*/
+    if (result.length && result.length >= queue.length){
+        return <Navigate to="/results" replace={true}></Navigate>
     }
 
     return (
         <div className="container mx-auto px-4 py-8" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundAttachment: 'fixed' }}>
             <h1 className="border-2 rounded-3xl text-3xl font-bold text-center mb-8 p-4 text-white m-4">Grading Assessment</h1>
 
-            <Questions />{/*questions*/}
+            <Questions onChecked={onChecked} />{/*questions*/}
 
             {/* Grid for buttons */}
             <div className="flex justify-between">

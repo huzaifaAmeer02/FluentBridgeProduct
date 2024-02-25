@@ -6,7 +6,7 @@ import {useFetchQuestion} from "../../Hooks/FetchQuestion.js";
 import {useSelector} from "react-redux";
 import {data} from "autoprefixer";
 
-export default function Questions() {
+export default function Questions( {onChecked} ) {
 
     const [checked, setChecked] = useState(undefined);
     const [{isLoading,apiData,serverError},setGetData]=useFetchQuestion()
@@ -24,9 +24,10 @@ export default function Questions() {
         //console.log(questions);
     })
 
-    function onSelect() {
+    function onSelect(i) {
         setChecked(true);
-        //console.log("radio button change");
+        console.log(i);
+        onChecked(i)
     }
 
     if (isLoading) return <h3 className="text-blue-500 text-lg">isLoading</h3>
@@ -46,7 +47,7 @@ export default function Questions() {
                                     value={false}
                                     name={"options"}
                                     id={`q${i}-option`}
-                                    onChange={onSelect}
+                                    onChange={() => onSelect(i)}
                                     className="mr-2 appearance-none border-2 border-gray-600 rounded-full w-4 h-4 checked:bg-blue-600 cursor-pointer checked:border-transparent focus:outline-none"
                                 />
                                 <label className="text-gray-700" htmlFor={`q${i}-option`}>{q}</label>
