@@ -82,7 +82,7 @@ const ActivityPanel = () => {
                                 <animated.div style={bounceIn} className="w-full h-50vh">
                                     <Link
                                         to="/vocabpanel"
-                                        className="block bg-red-500 hover:bg-red-700 text-white p-6 text-center transition h-full rounded-md"
+                                        className="block bg-red-500 hover:bg-brown-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
                                         <FiBook className="mx-auto mb-2 text-4xl" /> {/* Icon for Vocabulary */}
                                         Vocabulary

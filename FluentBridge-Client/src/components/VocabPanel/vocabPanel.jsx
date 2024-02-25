@@ -28,13 +28,17 @@ const VocabPanel = () => {
             <div className="flex justify-center mt-8">
                 <Link
                     to="/dictionary"
-                    className="button1 flex items-center justify-center text-white font-bold py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-700 transition duration-300 ease-in-out mx-2"
+                    className="button1 flex items-center justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-brown-500 hover:bg-brown-700 transition duration-300 ease-in-out mx-2"
+
+
+
                 >
                     Use Dictionary
                 </Link>
                 <Link
                     to="/vocabulary-activity"
-                    className="button2 flex items-center justify-center text-white font-bold py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-700 transition duration-300 ease-in-out mx-2"
+                    className="button1 flex items-center justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-brown-500 hover:bg-brown-700 transition duration-300 ease-in-out mx-2"
+
                 >
                     Vocabulary Activity
                 </Link>
