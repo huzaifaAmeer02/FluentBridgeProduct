@@ -23,7 +23,7 @@ const VideoPage = ({ onClose, videoUrl }) => {
                     height="auto"
                     className="w-full max-w-screen-lg max-h-screen-3/4 mx-auto mt-8"
                 />
-                <Link to="/quiz" className="block text-center mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Take Quiz</Link>
+                <Link to="/listeningquiz" className="block text-center mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Take Quiz</Link>
             </div>
         </div>
     );

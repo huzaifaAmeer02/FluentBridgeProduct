@@ -20,6 +20,7 @@ import Quiz from "./components/GradingAssesment/Quiz.jsx";
 import Results from "./components/GradingAssesment/Results.jsx";
 
 
+
 function App() {
     return (
         <>
@@ -41,6 +42,8 @@ function App() {
                     <Route path='/gradingquiz' element={<GradingAssesment/>}/>
                     <Route path='/quiz' element={<Quiz/>}/>
                     <Route path='/results' element={<Results/>}/>
+
+
                 </Routes>
                 <Footer/>
             </Router>
