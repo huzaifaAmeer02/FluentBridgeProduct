@@ -12,6 +12,7 @@ const DictionaryAPI = () => {
   const [showListPanel, setShowListPanel] = useState(false);
   const [duplicateWordError, setDuplicateWordError] = useState(false);
   const [wordFound, setWordFound] = useState(false);
+  const [sortedSavedWords, setSortedSavedWords] = useState([]); // Add a state to store sorted saved words
 
   const getMeaning = async () => {
     if (!word.trim()) {
@@ -58,7 +59,7 @@ const DictionaryAPI = () => {
     const lowercaseSavedWords = savedWords.map(savedWord => savedWord.toLowerCase());
   
     if (meanings.length > 0 && !lowercaseSavedWords.includes(lowercaseWord)) {
-      setSavedWords([...savedWords, word]);
+      setSavedWords([...savedWords, lowercaseWord]);
       setWord("");
       setDuplicateWordError(false);
     } else {
@@ -106,6 +107,12 @@ const DictionaryAPI = () => {
     setAudio(null);
   }, [word]);
 
+  // Use useEffect to update sortedSavedWords whenever savedWords changes
+  useEffect(() => {
+    const sortedWords = [...savedWords].sort((a, b) => a.localeCompare(b));
+    setSortedSavedWords(sortedWords);
+  }, [savedWords]);
+
   return (
     <>
       <div style={{ backgroundImage: `url(${dictionarybg})`, backgroundSize: 'cover' }}>
@@ -114,7 +121,8 @@ const DictionaryAPI = () => {
             <Link to="/dictionary" className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
               <IoIosArrowBack />
             </Link>
-            <section className="mb-8 bg-teal-900 bg-opacity-80 rounded-lg p-4 transition duration-300  hover:bg-opacity-100">
+            <section className="mb-8 bg-teal-900 bg-opacity-80 rounded-lg p-4 transition duration-300  hover:bg-opacity-100" style={{ minHeight: '200px' }}>
+
               <section className="text-gray-600 body-font flex items-center">
                 <img
                   src={myListIcon}
@@ -200,26 +208,24 @@ const DictionaryAPI = () => {
           </div>
         </section>
         {showListPanel && (
-          <div className="absolute right-4 top-20 bg-teal-700 bg-opacity-90 text-white w-1/4 p-4" style={{ maxHeight: `${Math.min(savedWords.length * 40 + 120, 600)}px` }}>
+          <div className="absolute right-4 top-20 bg-teal-700 bg-opacity-90 text-white w-1/4 p-4" >
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-medium mb-2">My List:</h2>
               <button className="text-blue-500 hover:text-gray-700 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-3 bg-white left-30 top-3" onClick={() => setShowListPanel(false)}>
                 <IoIosClose />
               </button>
             </div>
-            <ul className="list-disc pl-4">
-            {savedWords.map((savedWord, index) => (
-              <li key={index} className="mb-2">
+            <ul className="list-disc pl-4 space-y-1" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+            {sortedSavedWords.map((savedWord, index) => (
+              <li key={index} className="mb-1">
                 <span
-                  className="cursor-pointer"
+                  className="cursor-pointer text-white hover:text-blue-500"
                   onClick={() => handleWordClick(savedWord)}
-                  style={{color: 'white' }}
-                  onMouseEnter={(e) => e.target.style.color = 'blue'}
-                  onMouseLeave={(e) => e.target.style.color = 'white'}
+                  
                 >
                   {savedWord}
                 </span>
-                <button className="text-red-500 hover:text-red-700 ml-2" onClick={() => removeFromList(savedWord)}>
+                <button className="text-red-500 hover:text-red-700 px-1" onClick={() => removeFromList(savedWord)}>
                   Remove
                 </button>
               </li>

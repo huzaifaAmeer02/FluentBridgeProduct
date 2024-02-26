@@ -60,7 +60,7 @@ const DictionaryPage = () => {
 
                         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start">
                             <Link to="/dictionaryapi">
-                                <button className="mb-4 lg:mb-0 lg:mr-4 inline-flex text-white bg-blue-900 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded text-lg">
+                                <button className="mb-4 lg:mb-0 lg:mr-4 inline-flex text-white bg-brown-900 border-0 py-2 px-6 focus:outline-none hover:bg-brown-700 rounded text-lg">
                                     Start Using
                                 </button>
                             </Link>
