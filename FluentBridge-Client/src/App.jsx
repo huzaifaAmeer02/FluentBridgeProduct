@@ -12,13 +12,13 @@ import ListeningActivity from "./components/ListeningActivity/ListeningActivity.
 import VideoPage from "./components/ListeningActivity/VideoPage.jsx";
 import VocabPanel from "./components/VocabPanel/vocabPanel.jsx";
 import LandingPage from "./components/LandingPage/LandingPage";
-import Login from "./components/LandingPage/Login";
-import Signup from "./components/LandingPage/Signup.jsx";
-// import Signup from "./components/LandingPage/Signup";
 import GradingAssesment from "./components/GradingAssesment/GradingAssesment.jsx";
 import Quiz from "./components/GradingAssesment/Quiz.jsx";
 import Results from "./components/GradingAssesment/Results.jsx";
+import VocabularyActivity from "./components/VocabularyActivity/VocabularyActivityPage.jsx";
+import VActivities from "./components/VocabularyActivity/VActivities.jsx";
 import ListeningQuiz from "./components/ListeningQuiz/App.jsx";
+
 
 function App() {
     return (
@@ -36,12 +36,14 @@ function App() {
                     <Route path='/listening' element={<ListeningActivity/>}/>
                     <Route path='/vocabpanel' element={<VocabPanel/>}/>
                     <Route path='/videopage' element={<VideoPage/>}/>
-                    <Route path='/login' element={<Login/>}/>
-                    <Route path='/signup' element={<Signup/>}/>
                     <Route path='/gradingquiz' element={<GradingAssesment/>}/>
                     <Route path='/quiz' element={<Quiz/>}/>
                     <Route path='/results' element={<Results/>}/>
+                    <Route path='/vocabulary-activity' element={<VocabularyActivity/>} />
+                    <Route path='/vactivities' element={<VActivities/>}/>
+                    
                     <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
+
 
                 </Routes>
                 <Footer/>
