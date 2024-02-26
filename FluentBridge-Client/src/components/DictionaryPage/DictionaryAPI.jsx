@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack, IoIosClose } from 'react-icons/io'; // Import IoIosClose
 import myListIcon from '../../assets/myListIcon.png';
-import dictionarybg from '../../assets/dictionarybg.jpg';
+import dictionarybg from '../../assets/dictionarybg4.jpg';
 
 const DictionaryAPI = () => {
-  const [word, setWord] = useState("FluentBridge Dictionary");
+  const [word, setWord] = useState("");
   const [meanings, setMeanings] = useState([]);
   const [audio, setAudio] = useState();
   const [savedWords, setSavedWords] = useState([]);
@@ -70,7 +70,8 @@ const DictionaryAPI = () => {
   const handleWordClick = (selectedWord) => {
     setWord(selectedWord); // Set the selected word
     setShowListPanel(false); // Close the list panel
-    getMeaning(); // Trigger API call to fetch details for the selected word
+    getMeaningForSelectedWord(selectedWord);
+    
   };
   
 
@@ -121,8 +122,10 @@ const DictionaryAPI = () => {
             <Link to="/dictionary" className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
               <IoIosArrowBack />
             </Link>
-            <section className="mb-8 bg-teal-900 bg-opacity-80 rounded-lg p-4 transition duration-300  hover:bg-opacity-100" style={{ minHeight: '200px' }}>
-
+            <h1 className="sm:text-3xl text-xl font-small title-font mb-4 text-white mt-4 ">
+              ------- Fluent Bridge Dictionary ------
+            </h1>
+            <section className="mb-8 bg-teal-700 bg-opacity-50 rounded-lg p-4 transition duration-300 hover:bg-opacity-100" style={{ minHeight: '200px', width: '650px' }} >
               <section className="text-gray-600 body-font flex items-center">
                 <img
                   src={myListIcon}
@@ -131,25 +134,28 @@ const DictionaryAPI = () => {
                   style={{ width: '50px', height: '50px' }}
                   onClick={() => setShowListPanel(!showListPanel)}
                 />
-                <h1 className="sm:text-5xl text-3xl font-medium title-font mb-4 text-white mt-4">
-                  {word}
-                </h1>
+                <div className="overflow-hidden"> {/* Adjust the width as needed */}
+                  <h2 className="sm:text-3xl text-xl font-small title-font mb-4 text-white mt-4 ">
+                    {word}
+                  </h2>
+                </div>
               </section>
-              <div className="relative flex-grow py-1 mb-5">
-                <label htmlFor="name" className="leading-7 text-sm text-white"><b>Type the Word</b></label>
-                <div className="relative">
+               <div className="relative flex-grow py-1 mb-5" style={{ height: 'auto' }}>
+                <div className="relative my-">
                 <input
                     onChange={handleChange}
                     type="text"
                     id="name"
                     name="word"
-                    className="w-full bg-white bg-opacity-50 rounded border border-gray-400 focus:border-gray-800 focus:bg-green-100 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mt-5"
+                    className="w-full bg-white bg-opacity-50 rounded border border-gray-700 focus:border-gray-800 focus:bg-green-100 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mt-5 placeholder-gray-600"
                     placeholder="Enter a word" // Placeholder text
+                    value={word}
+                    style={{ width: '600px', margin: '0 10px'}} // Adjust height and padding
                   />
 
                   <button
                     onClick={getMeaning}
-                    className="absolute top-2 right-0 mt-5 mr-2 text-white bg-gray-900 border-0 px-4 focus:outline-none hover:bg-gray-500 rounded text-lg"
+                    className="absolute top-0 right-0 mt-2 mr-4 text-white bg-gray-900 border-0 px-4 focus:outline-none hover:bg-gray-500 rounded text-lg"
                   >
                     Find
                   </button>
@@ -208,29 +214,33 @@ const DictionaryAPI = () => {
           </div>
         </section>
         {showListPanel && (
-          <div className="absolute right-4 top-20 bg-teal-700 bg-opacity-90 text-white w-1/4 p-4" >
+          <div className="absolute right-10 top-10 bg-teal-700 bg-opacity-90 text-white w-21 p-4 m-9" style={{ maxHeight: '600px', overflowY: 'auto' }}>
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-medium mb-2">My List:</h2>
               <button className="text-blue-500 hover:text-gray-700 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-3 bg-white left-30 top-3" onClick={() => setShowListPanel(false)}>
                 <IoIosClose />
               </button>
             </div>
-            <ul className="list-disc pl-4 space-y-1" style={{ maxHeight: '400px', overflowY: 'auto' }}>
-            {sortedSavedWords.map((savedWord, index) => (
-              <li key={index} className="mb-1">
-                <span
-                  className="cursor-pointer text-white hover:text-blue-500"
-                  onClick={() => handleWordClick(savedWord)}
+            <ul className="list-disc pl-4 space-y-1" style={{ maxHeight: '600px',}}>
+              {sortedSavedWords.map((savedWord, index) => (
+                <li key={index} className="py-2 flex justify-between items-center">
+                  <div className="flex flex-col">
+                    <span
+                      className="cursor-pointer text-white hover:text-blue-500"
+                      onClick={() => handleWordClick(savedWord)}
+                    >
+                      {savedWord}
+                    </span>
+                  </div>
                   
-                >
-                  {savedWord}
-                </span>
-                <button className="text-red-500 hover:text-red-700 px-1" onClick={() => removeFromList(savedWord)}>
-                  Remove
-                </button>
-              </li>
-            ))}
-          </ul>
+                  <div>
+                    <button className="text-red-500 hover:text-red-700 px-5" onClick={() => removeFromList(savedWord)}>
+                      Remove
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>
