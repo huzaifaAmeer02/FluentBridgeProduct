@@ -17,6 +17,8 @@ import Quiz from "./components/GradingAssesment/Quiz.jsx";
 import Results from "./components/GradingAssesment/Results.jsx";
 import VocabularyActivity from "./components/VocabularyActivity/VocabularyActivityPage.jsx";
 import VActivities from "./components/VocabularyActivity/VActivities.jsx";
+import ListeningQuiz from "./components/ListeningQuiz/App.jsx";
+
 
 function App() {
     return (
@@ -40,6 +42,7 @@ function App() {
                     <Route path='/vocabulary-activity' element={<VocabularyActivity/>} />
                     <Route path='/vactivities' element={<VActivities/>}/>
                     
+                    <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
 
 
                 </Routes>
