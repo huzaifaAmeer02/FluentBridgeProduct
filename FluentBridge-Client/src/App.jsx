@@ -18,6 +18,7 @@ import Signup from "./components/LandingPage/Signup.jsx";
 import GradingAssesment from "./components/GradingAssesment/GradingAssesment.jsx";
 import Quiz from "./components/GradingAssesment/Quiz.jsx";
 import Results from "./components/GradingAssesment/Results.jsx";
+import ListeningQuiz from "./components/ListeningQuiz/App.jsx";
 
 function App() {
     return (
@@ -40,6 +41,8 @@ function App() {
                     <Route path='/gradingquiz' element={<GradingAssesment/>}/>
                     <Route path='/quiz' element={<Quiz/>}/>
                     <Route path='/results' element={<Results/>}/>
+                    <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
+
                 </Routes>
                 <Footer/>
             </Router>
