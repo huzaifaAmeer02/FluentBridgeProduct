@@ -3,10 +3,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ResultsTables from "./ResultsTables.jsx";
+import {useDispatch} from "react-redux";
+
+import {resetAllAction} from "../../Redux/Question_Reducer.js";
+import {resetResultAction} from "../../Redux/Result_Reducer.js";
 
 export default function Results() {
+    const dispatch = useDispatch()
     function onRestart() {
         console.log("On Restart");
+        dispatch(resetAllAction())
+        dispatch(resetResultAction())
     }
 
     return (
@@ -62,7 +69,7 @@ export default function Results() {
                 <Link to="/gradingquiz" onClick={onRestart} className="bg-[#023C41] hover:bg-[#001415] text-white font-bold py-2 px-4 rounded mb-2 sm:mr-2 sm:mb-0">
                     Restart Quiz
                 </Link>
-                <Link to="/activities" className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+                <Link to="/activities" onClick={onRestart} className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
                     Checkout Quiz
                 </Link>
             </div>
