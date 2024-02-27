@@ -56,12 +56,10 @@ export default function Questions({ onChecked }) {
                                     name={"options"}
                                     id={`q${i}-option`}
                                     onChange={() => onSelect(i)}
-                                    className="mr-2 appearance-none border-2 border-gray-600 rounded-full w-4 h-4 checked:bg-green-600 checked:border-2 checked:border-green-400 cursor-pointer checked:border-transparent focus:outline-none"
+                                    className="mr-2 appearance-none border-2 border-gray-600 rounded-full w-4 h-4 checked:bg-blue-600 checked:border-2 checked:border-blue-400 cursor-pointer checked:border-transparent focus:outline-none"
                                     checked={checkedOptions[trace] === i}
                                 />
-                                <label className="text-gray-700" htmlFor={`q${i}-option`}>
-                                    {q}
-                                </label>
+                                <label className="text-gray-700" htmlFor={`q${i}-option`}>{q}</label>
                                 <div className={`check ${checkedOptions[trace] === i ? "checked" : ""}`}></div>
                             </li>
                         ))}

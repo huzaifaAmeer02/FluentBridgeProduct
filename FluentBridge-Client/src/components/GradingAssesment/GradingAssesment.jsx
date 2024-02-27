@@ -1,9 +1,10 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useRef, useState } from "react";
 import LoadingPage from "../LoadingPage/LoadingPage.jsx";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { setUserId } from "../../Redux/Result_Reducer.js";
 
 export default function GradingAssesment() {
     const [loading, setLoading] = useState(true);
@@ -12,8 +13,21 @@ export default function GradingAssesment() {
             setLoading(false);
         }, 2000); // Simulating a 2-second delay for demonstration purposes
     }, []);
-    
+
     const inputRef = useRef(null);
+    const dispatch = useDispatch();
+    const [username, setUsername] = useState(""); // State to hold the username input
+
+    function startQuiz() {
+        if (username) {
+            dispatch(setUserId(username));
+        }
+    }
+
+    // Function to handle input change and update the username state
+    const handleInputChange = (event) => {
+        setUsername(event.target.value);
+    };
 
     return (
         <motion.div
@@ -49,10 +63,21 @@ export default function GradingAssesment() {
                         <li>5. The result will be declared at the end of the quiz.</li>
                     </ol>
                     <form id="form" className="mb-6">
-                        <input ref={inputRef} type="text" placeholder="Enter your username for this attempt" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500" />
+                        <input
+                            ref={inputRef}
+                            type="text"
+                            value={username}
+                            onChange={handleInputChange}
+                            placeholder="Enter your username for this attempt"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500"
+                        />
                     </form>
                     <div className="start text-center">
-                        <Link to="/quiz" className="btn py-2 px-6 border border-transparent text-base font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400">
+                        <Link
+                            to="/quiz"
+                            onClick={startQuiz}
+                            className={`btn py-2 px-6 border border-transparent text-base font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 ${!username && "pointer-events-none opacity-50"}`}
+                        >
                             Start
                         </Link>
                     </div>

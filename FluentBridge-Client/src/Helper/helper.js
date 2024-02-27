@@ -15,10 +15,11 @@ export function flagResult(totalPoints, earnPoints) {
 }
 
 /** Check user authentication */
-/*export function CheckUserExist({ children }) {
+// eslint-disable-next-line react/prop-types
+export function CheckUserExist({ children }) {
     const auth = useSelector(state => state.result.userId);
-    return auth ? children : <Navigate to={'/'} replace={true} />;
-}*/
+    return auth ? children : <Navigate to={'/activities'} replace={true} />;
+}
 
 export async function getServerData(url, callback) {
     try {

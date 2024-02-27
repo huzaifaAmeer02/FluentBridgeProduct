@@ -27,5 +27,5 @@ export const resultReducer =createSlice({
     }
 })
 
-export const {pushResultAction,resetResultAction, updateresultAction} = resultReducer.actions
+export const {setUserId,pushResultAction,resetResultAction, updateresultAction} = resultReducer.actions
 export default resultReducer.reducer
