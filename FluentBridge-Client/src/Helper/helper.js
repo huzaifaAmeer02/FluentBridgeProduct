@@ -14,13 +14,6 @@ export function flagResult(totalPoints, earnPoints) {
     return (totalPoints * 50 / 100) < earnPoints; // Earn 50% marks
 }
 
-/** Check user authentication */
-// eslint-disable-next-line react/prop-types
-export function CheckUserExist({ children }) {
-    const auth = useSelector(state => state.result.userId);
-    return auth ? children : <Navigate to={'/activities'} replace={true} />;
-}
-
 export async function getServerData(url, callback) {
     try {
         const { data } = await axios.get(url);

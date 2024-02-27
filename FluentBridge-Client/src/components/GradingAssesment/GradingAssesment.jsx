@@ -51,6 +51,7 @@ export default function GradingAssesment() {
                     >
                         <IoIosArrowBack />
                     </Link>
+
                     <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">
                         Welcome to the Grading Assessment
                     </h1>
