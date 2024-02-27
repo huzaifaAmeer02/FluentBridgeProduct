@@ -10,6 +10,7 @@ import {resetResultAction} from "../../Redux/Result_Reducer.js";
 
 export default function Results() {
     const dispatch = useDispatch()
+
     function onRestart() {
         console.log("On Restart");
         dispatch(resetAllAction())
@@ -18,9 +19,7 @@ export default function Results() {
 
     return (
         <div className="container mx-auto px-4 py-8 flex flex-col items-center bg-gray-400 min-h-screen">
-
             <h1 className="border-2 rounded-3xl text-3xl font-bold text-center mb-8 p-4 text-white m-4 bg-[#4FA4A5]">Grading Assessment Results</h1>
-
             <motion.div className="bg-white p-8 rounded-lg shadow-md"
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
