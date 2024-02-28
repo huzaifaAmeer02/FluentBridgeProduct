@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
-import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
+// import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
 import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook } from "react-icons/fi"; // Importing the necessary icons
 import rightBack from "../../assets/right-background.jpg";
 
@@ -99,7 +99,7 @@ const ActivityPanel = () => {
                                 </animated.div>
                                 <animated.div style={bounceIn} className="w-full h-50vh">
                                     <Link
-                                        to="/chatbotactivity"
+                                        to="/chatBot"
                                         className="block bg-indigo-500 hover:bg-indigo-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
                                         <FiMessageSquare className="mx-auto mb-2 text-4xl" /> {/* Icon for Chatbot Activity */}

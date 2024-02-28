@@ -1,10 +1,10 @@
 import React from "react";
 
-type Props = {
+/*type Props = {
     classText: string;
-};
+};*/
 
-function RecordIcon({ classText }: Props) {
+const RecordIcon = ({ classText }) => {
     return (
         <>
             <svg

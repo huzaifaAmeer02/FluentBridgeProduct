@@ -1,11 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
 
+/*
 type Props = {
-    setMessages: any;
+    setMessages: any
 };
+*/
 
-function Title({ setMessages }: Props) {
+
+
+
+
+const Title = ({ setMessages }) => {
     const [isResetting, setIsResetting] = useState(false);
 
     // Reset conversation
