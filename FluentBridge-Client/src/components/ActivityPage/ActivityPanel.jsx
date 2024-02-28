@@ -4,6 +4,7 @@ import { useSpring, animated } from "react-spring";
 // import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
 import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook } from "react-icons/fi"; // Importing the necessary icons
 import rightBack from "../../assets/right-background.jpg";
+import Footer from "../Footer/Footer.jsx";
 
 const ActivityPanel = () => {
     const [showChatBot, setShowChatBot] = useState(false);
@@ -127,6 +128,8 @@ const ActivityPanel = () => {
 
             {/* ChatBot Modal */}
             {showChatBot && <ChatBotModal onClose={toggleChatBot} />}
+
+            <Footer/>
         </div>
     );
 };

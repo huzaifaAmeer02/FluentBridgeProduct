@@ -3,6 +3,7 @@ import dictionary from "../../assets/dictionary.jpg";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import {IoIosArrowBack} from "react-icons/io";
+import Footer from "../Footer/Footer.jsx";
 
 const DictionaryPage = () => {
     // Define entrance animations using react-spring
@@ -68,6 +69,7 @@ const DictionaryPage = () => {
                     </animated.div>
                 </div>
             </animated.section>
+            <Footer/>
         </>
     );
 };
