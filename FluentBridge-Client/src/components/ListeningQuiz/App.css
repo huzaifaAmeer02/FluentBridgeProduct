@@ -7,15 +7,15 @@
 
 .main {
   width: 75%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
-    url("https://i.ytimg.com/vi/yQbJRGs0fy8/maxresdefault.jpg") center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), gray ),
+    url("./assets/gold.jpg") center;
   display: flex;
   flex-direction: column;
 }
 
 .pyramid {
   width: 25%;
-  background-color: #020230;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;

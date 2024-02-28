@@ -1,3 +1,5 @@
+// Trivia.js
+
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
 import play from "../sounds/play.mp3";
@@ -37,34 +39,27 @@ export default function Trivia({
     delay(3000, () => {
       setClassName(a.correct ? "answer correct" : "answer wrong");
     });
-    // setTimeout(() => {
-    //   setClassName(a.correct ? "answer correct" : "answer wrong");
-    // }, 3000);
 
-    // setTimeout(() => {
-      delay(5000, () => {
+    delay(5000, () => {
       if (a.correct) {
         correctAnswer();
         delay(1000, () => {
-          setQuestionNumber((prev) => prev + 1);
-          setSelectedAnswer(null);
+          if (questionNumber < data.length) {
+            setQuestionNumber((prev) => prev + 1);
+            setSelectedAnswer(null);
+          } else {
+            setTimeOut(true); // Terminate when questions are over
+          }
         });
-        // setTimeout(() => {
-        //   setQuestionNumber((prev) => prev + 1);
-        //   setSelectedAnswer(null);
-        // }, 1000);
       } else {
         wrongAnswer();
         delay(1000, () => {
           setTimeOut(true);
         });
-        // setTimeout(() => {
-        //   setTimeOut(true);
-        // }, 1000);
       }
-    // }, 5000);
-      })
+    });
   };
+
   return (
     <div className="trivia">
       <div className="question">{question?.question}</div>
@@ -73,6 +68,7 @@ export default function Trivia({
           <div
             className={selectedAnswer === a ? className : "answer"}
             onClick={() => !selectedAnswer && handleClick(a)}
+            key={a.text}
           >
             {a.text}
           </div>
