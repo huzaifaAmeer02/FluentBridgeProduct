@@ -9,6 +9,7 @@ const app = express(); // Call the express function to create an instance of the
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
+config();
 
 /*routes*/
 app.get("/", (req, res) => {
