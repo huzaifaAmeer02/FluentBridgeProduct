@@ -4,7 +4,6 @@ import Start from "./components/Start";
 import Timer from "./components/Timer";
 import Trivia from "./components/Trivia";
 
-
 function App() {
   const [username, setUsername] = useState(null);
   const [timeOut, setTimeOut] = useState(false);
@@ -56,292 +55,292 @@ function App() {
         },
       ],
     },
-    {
-      id: 3,
-      question: "Why does William have back pain?",
-      answers: [
-        {
-          text: "Unknown cause",
-          correct: false,
-        },
-        {
-          text: "Running injury",
-          correct: false,
-        },
-        {
-          text: " Car accident",
-          correct: false,
-        },
-        {
-          text: "Bike accident",
-          correct: true,
-        },
-      ],
-    },
-        {
-          id: 4,
-          question: "Where specifically does William feel the pain in his back?",
-          answers: [
-            {
-              text: "Upper back",
-              correct: false,
-            },
-            {
-              text: "Middle back",
-              correct: false,
-            },
-            {
-              text: "Lower back",
-              correct: true,
-            },
-            {
-              text: "Entire back",
-              correct: false,
-            },
-          ],
-        },
-            {
-              id: 5,
-              question: "Where specifically does William feel the pain in his back?",
-              answers: [
-                {
-                  text: "Upper back",
-                  correct: false,
-                },
-                {
-                  text: "Middle back",
-                  correct: false,
-                },
-                {
-                  text: "Lower back",
-                  correct: true,
-                },
-                {
-                  text: "Entire back",
-                  correct: false,
-                },
-              ],
-            },
-            {
-              id: 6,
-              question: "Where specifically does William feel the pain in his back?",
-              answers: [
-                {
-                  text: "Upper back",
-                  correct: false,
-                },
-                {
-                  text: "Middle back",
-                  correct: false,
-                },
-                {
-                  text: "Lower back",
-                  correct: true,
-                },
-                {
-                  text: "Entire back",
-                  correct: false,
-                },
-              ],
-            },
-            {
-              id: 7,
-              question: "Where specifically does William feel the pain in his back?",
-              answers: [
-                {
-                  text: "Upper back",
-                  correct: false,
-                },
-                {
-                  text: "Middle back",
-                  correct: false,
-                },
-                {
-                  text: "Lower back",
-                  correct: true,
-                },
-                {
-                  text: "Entire back",
-                  correct: false,
-                },
-              ],
-            },
-                {
-                  id: 8,
-                  question: "Where specifically does William feel the pain in his back?",
-                  answers: [
-                    {
-                      text: "Upper back",
-                      correct: false,
-                    },
-                    {
-                      text: "Middle back",
-                      correct: false,
-                    },
-                    {
-                      text: "Lower back",
-                      correct: true,
-                    },
-                    {
-                      text: "Entire back",
-                      correct: false,
-                    },
-                  ],
-                },
-                {
-                  id: 9,
-                  question: "Where specifically does William feel the pain in his back?",
-                  answers: [
-                    {
-                      text: "Upper back",
-                      correct: false,
-                    },
-                    {
-                      text: "Middle back",
-                      correct: false,
-                    },
-                    {
-                      text: "Lower back",
-                      correct: true,
-                    },
-                    {
-                      text: "Entire back",
-                      correct: false,
-                    },
-                  ],
-                },
-                {
-                  id: 10,
-                  question: "Where specifically does William feel the pain in his back?",
-                  answers: [
-                    {
-                      text: "Upper back",
-                      correct: false,
-                    },
-                    {
-                      text: "Middle back",
-                      correct: false,
-                    },
-                    {
-                      text: "Lower back",
-                      correct: true,
-                    },
-                    {
-                      text: "Entire back",
-                      correct: false,
-                    },
-                  ],
-                },
-                {
-                  id: 11,
-                  question: "Where specifically does William feel the pain in his back?",
-                  answers: [
-                    {
-                      text: "Upper back",
-                      correct: false,
-                    },
-                    {
-                      text: "Middle back",
-                      correct: false,
-                    },
-                    {
-                      text: "Lower back",
-                      correct: true,
-                    },
-                    {
-                      text: "Entire back",
-                      correct: false,
-                    },
-                  ],
-                },
-                {
-                  id: 12,
-                  question: "Where specifically does William feel the pain in his back?",
-                  answers: [
-                    {
-                      text: "Upper back",
-                      correct: false,
-                    },
-                    {
-                      text: "Middle back",
-                      correct: false,
-                    },
-                    {
-                      text: "Lower back",
-                      correct: true,
-                    },
-                    {
-                      text: "Entire back",
-                      correct: false,
-                    },
-                  ],
-                },
-                {
-                  id: 13,
-                  question: "Where specifically does William feel the pain in his back?",
-                  answers: [
-                    {
-                      text: "Upper back",
-                      correct: false,
-                    },
-                    {
-                      text: "Middle back",
-                      correct: false,
-                    },
-                    {
-                      text: "Lower back",
-                      correct: true,
-                    },
-                    {
-                      text: "Entire back",
-                      correct: false,
-                    },
-                  ],
-                },
-                {
-                  id: 14,
-                  question: "Where specifically does William feel the pain in his back?",
-                  answers: [
-                    {
-                      text: "Upper back",
-                      correct: false,
-                    },
-                    {
-                      text: "Middle back",
-                      correct: false,
-                    },
-                    {
-                      text: "Lower back",
-                      correct: true,
-                    },
-                    {
-                      text: "Entire back",
-                      correct: false,
-                    },
-                  ],
-                },
-                {
-                  id: 15,
-                  question: "Where specifically does William feel the pain in his back?",
-                  answers: [
-                    {
-                      text: "Upper back",
-                      correct: false,
-                    },
-                    {
-                      text: "Middle back",
-                      correct: false,
-                    },
-                    {
-                      text: "Lower back",
-                      correct: true,
-                    },
-                    {
-                      text: "Entire back",
-                      correct: false,
-                    },
-                  ],
-                },
+//     {
+//       id: 3,
+//       question: "Why does William have back pain?",
+//       answers: [
+//         {
+//           text: "Unknown cause",
+//           correct: false,
+//         },
+//         {
+//           text: "Running injury",
+//           correct: false,
+//         },
+//         {
+//           text: " Car accident",
+//           correct: false,
+//         },
+//         {
+//           text: "Bike accident",
+//           correct: true,
+//         },
+//       ],
+//     },
+//         {
+//           id: 4,
+//           question: "Where specifically does William feel the pain in his back?",
+//           answers: [
+//             {
+//               text: "Upper back",
+//               correct: false,
+//             },
+//             {
+//               text: "Middle back",
+//               correct: false,
+//             },
+//             {
+//               text: "Lower back",
+//               correct: true,
+//             },
+//             {
+//               text: "Entire back",
+//               correct: false,
+//             },
+//           ],
+//         },
+//             {
+//               id: 5,
+//               question: "Where specifically does William feel the pain in his back?",
+//               answers: [
+//                 {
+//                   text: "Upper back",
+//                   correct: false,
+//                 },
+//                 {
+//                   text: "Middle back",
+//                   correct: false,
+//                 },
+//                 {
+//                   text: "Lower back",
+//                   correct: true,
+//                 },
+//                 {
+//                   text: "Entire back",
+//                   correct: false,
+//                 },
+//               ],
+//             },
+//             {
+//               id: 6,
+//               question: "Where specifically does William feel the pain in his back?",
+//               answers: [
+//                 {
+//                   text: "Upper back",
+//                   correct: false,
+//                 },
+//                 {
+//                   text: "Middle back",
+//                   correct: false,
+//                 },
+//                 {
+//                   text: "Lower back",
+//                   correct: true,
+//                 },
+//                 {
+//                   text: "Entire back",
+//                   correct: false,
+//                 },
+//               ],
+//             },
+//             {
+//               id: 7,
+//               question: "Where specifically does William feel the pain in his back?",
+//               answers: [
+//                 {
+//                   text: "Upper back",
+//                   correct: false,
+//                 },
+//                 {
+//                   text: "Middle back",
+//                   correct: false,
+//                 },
+//                 {
+//                   text: "Lower back",
+//                   correct: true,
+//                 },
+//                 {
+//                   text: "Entire back",
+//                   correct: false,
+//                 },
+//               ],
+//             },
+//                 {
+//                   id: 8,
+//                   question: "Where specifically does William feel the pain in his back?",
+//                   answers: [
+//                     {
+//                       text: "Upper back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Middle back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Lower back",
+//                       correct: true,
+//                     },
+//                     {
+//                       text: "Entire back",
+//                       correct: false,
+//                     },
+//                   ],
+//                 },
+//                 {
+//                   id: 9,
+//                   question: "Where specifically does William feel the pain in his back?",
+//                   answers: [
+//                     {
+//                       text: "Upper back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Middle back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Lower back",
+//                       correct: true,
+//                     },
+//                     {
+//                       text: "Entire back",
+//                       correct: false,
+//                     },
+//                   ],
+//                 },
+//                 {
+//                   id: 10,
+//                   question: "Where specifically does William feel the pain in his back?",
+//                   answers: [
+//                     {
+//                       text: "Upper back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Middle back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Lower back",
+//                       correct: true,
+//                     },
+//                     {
+//                       text: "Entire back",
+//                       correct: false,
+//                     },
+//                   ],
+//                 },
+//                 {
+//                   id: 11,
+//                   question: "Where specifically does William feel the pain in his back?",
+//                   answers: [
+//                     {
+//                       text: "Upper back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Middle back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Lower back",
+//                       correct: true,
+//                     },
+//                     {
+//                       text: "Entire back",
+//                       correct: false,
+//                     },
+//                   ],
+//                 },
+//                 {
+//                   id: 12,
+//                   question: "Where specifically does William feel the pain in his back?",
+//                   answers: [
+//                     {
+//                       text: "Upper back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Middle back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Lower back",
+//                       correct: true,
+//                     },
+//                     {
+//                       text: "Entire back",
+//                       correct: false,
+//                     },
+//                   ],
+//                 },
+//                 {
+//                   id: 13,
+//                   question: "Where specifically does William feel the pain in his back?",
+//                   answers: [
+//                     {
+//                       text: "Upper back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Middle back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Lower back",
+//                       correct: true,
+//                     },
+//                     {
+//                       text: "Entire back",
+//                       correct: false,
+//                     },
+//                   ],
+//                 },
+//                 {
+//                   id: 14,
+//                   question: "Where specifically does William feel the pain in his back?",
+//                   answers: [
+//                     {
+//                       text: "Upper back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Middle back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Lower back",
+//                       correct: true,
+//                     },
+//                     {
+//                       text: "Entire back",
+//                       correct: false,
+//                     },
+//                   ],
+//                 },
+//                 {
+//                   id: 15,
+//                   question: "Where specifically does William feel the pain in his back?",
+//                   answers: [
+//                     {
+//                       text: "Upper back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Middle back",
+//                       correct: false,
+//                     },
+//                     {
+//                       text: "Lower back",
+//                       correct: true,
+//                     },
+//                     {
+//                       text: "Entire back",
+//                       correct: false,
+//                     },
+//                   ],
+//                 },
   ];
 
   const moneyPyramid = useMemo(
@@ -368,62 +367,63 @@ function App() {
 
   useEffect(() => {
     questionNumber > 1 &&
-      setEarned(moneyPyramid.find((m) => m.id === questionNumber - 1).amount);
+    setEarned(moneyPyramid.find((m) => m.id === questionNumber - 1).amount);
   }, [questionNumber, moneyPyramid]);
 
+  const handleStart = () => {
+    setUsername("Guest");
+  };
+
   return (
-
-    <div className="app">
-
-
-      {!username ? (
-        <Start setUsername={setUsername} />
-      ) : (
-        <>
-          <div className="main">
-            {timeOut ? (
-              <h1 className="endText">You earned: {earned}</h1>
-            ) : (
-              <>
-                <div className="top">
-                  <div className="timer">
-                    <Timer
-                      setTimeOut={setTimeOut}
-                      questionNumber={questionNumber}
-                    />
-                  </div>
-                </div>
-                <div className="bottom">
-                  <Trivia
-                    data={data}
-                    questionNumber={questionNumber}
-                    setQuestionNumber={setQuestionNumber}
-                    setTimeOut={setTimeOut}
-                  />
-                </div>
-              </>
-            )}
-          </div>
-          <div className="pyramid">
-            <ul className="moneyList">
-              {moneyPyramid.map((m) => (
-                <li
-                  className={
-                    questionNumber === m.id
-                      ? "moneyListItem active"
-                      :  "moneyListItem"
-                  }
-                >
-                  <span className="moneyListItemNumber">{m.id}</span>
-                  <span className="moneyListItemAmount">{m.amount}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )}
-    </div>
-
+      <div className="app">
+        {!username ? (
+            <Start onStart={handleStart} />
+        ) : (
+            <>
+              <div className="main">
+                {timeOut ? (
+                    <h1 className="endText">You earned: {earned}</h1>
+                ) : (
+                    <>
+                      <div className="top">
+                        <div className="timer">
+                          <Timer
+                              setTimeOut={setTimeOut}
+                              questionNumber={questionNumber}
+                          />
+                        </div>
+                      </div>
+                      <div className="bottom">
+                        <Trivia
+                            data={data}
+                            questionNumber={questionNumber}
+                            setQuestionNumber={setQuestionNumber}
+                            setTimeOut={setTimeOut}
+                        />
+                      </div>
+                    </>
+                )}
+              </div>
+              <div className="pyramid">
+                <ul className="moneyList">
+                  {moneyPyramid.map((m) => (
+                      <li
+                          className={
+                            questionNumber === m.id
+                                ? "moneyListItem active"
+                                : "moneyListItem"
+                          }
+                          key={m.id}
+                      >
+                        <span className="moneyListItemNumber">{m.id}</span>
+                        <span className="moneyListItemAmount">{m.amount}</span>
+                      </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+        )}
+      </div>
   );
 }
 
