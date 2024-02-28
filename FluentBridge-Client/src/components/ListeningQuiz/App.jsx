@@ -4,6 +4,7 @@ import Start from "./components/Start";
 import Timer from "./components/Timer";
 import Trivia from "./components/Trivia";
 
+
 function App() {
   const [username, setUsername] = useState(null);
   const [timeOut, setTimeOut] = useState(false);
@@ -371,7 +372,10 @@ function App() {
   }, [questionNumber, moneyPyramid]);
 
   return (
+
     <div className="app">
+
+
       {!username ? (
         <Start setUsername={setUsername} />
       ) : (
@@ -407,7 +411,7 @@ function App() {
                   className={
                     questionNumber === m.id
                       ? "moneyListItem active"
-                      : "moneyListItem"
+                      :  "moneyListItem"
                   }
                 >
                   <span className="moneyListItemNumber">{m.id}</span>
@@ -419,6 +423,7 @@ function App() {
         </>
       )}
     </div>
+
   );
 }
 
