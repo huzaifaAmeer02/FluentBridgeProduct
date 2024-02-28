@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
-import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook } from "react-icons/fi"; // Importing the necessary icons
+import {FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook, FiBookOpen} from "react-icons/fi"; // Importing the necessary icons
 import rightBack from "../../assets/right-background.jpg";
 
 const ActivityPanel = () => {
@@ -95,6 +95,16 @@ const ActivityPanel = () => {
                                     >
                                         <FiEdit className="mx-auto mb-2 text-4xl" /> {/* Icon for Grading Quiz */}
                                         Grading Quiz
+                                    </Link>
+                                </animated.div>
+                                {/* Add Reading activity */}
+                                <animated.div style={bounceIn} className="w-full h-50vh">
+                                    <Link
+                                        to="#"
+                                        className="block bg-orange-500 hover:bg-orange-700 text-white p-6 text-center transition h-full rounded-md"
+                                    >
+                                        <FiBookOpen className="mx-auto mb-2 text-4xl" />
+                                        Reading
                                     </Link>
                                 </animated.div>
                                 <animated.div style={bounceIn} className="w-full h-50vh">
