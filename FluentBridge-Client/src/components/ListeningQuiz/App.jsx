@@ -18,7 +18,7 @@ function App() {
   const data = [
     {
       id: 1,
-      question: "?",
+      question: "How is William feeling today?",
       answers: [
         {
           text: "Great",
@@ -38,6 +38,7 @@ function App() {
         },
       ],
     },
+
     {
       id: 2,
       question: "What is the main reason for William's discomfort?",
@@ -60,6 +61,7 @@ function App() {
         },
       ],
     },
+ 
 
   ];
 
