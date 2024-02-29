@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan"
 import cors from "cors"
 import {config} from "dotenv";
+import router from "./Router/Route.js";
 
 const app = express(); // Call the express function to create an instance of the application
 
@@ -11,7 +12,14 @@ app.use(cors());
 app.use(express.json());
 config();
 
+/*application port*/
+const port = process.env.PORT || 3000;
+
+
 /*routes*/
+app.use('/api',router)
+
+
 app.get("/", (req, res) => {
     try {
         res.json("Get Request");
@@ -20,7 +28,7 @@ app.get("/", (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log("Server Connected to http://localhost:3000");
+app.listen(port, () => {
+    console.log(`Server Connected to http://localhost:${port}`);
 });
 
