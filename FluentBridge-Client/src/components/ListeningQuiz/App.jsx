@@ -385,7 +385,7 @@ function App() {
 
   return (
     <div className="app">
-      <Link to="/listening" className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
+      <Link to="/listening" className="back-to-activities flex items-center text-yellow-500 font-bold hover:text-red-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
         <IoIosArrowBack />
       </Link>
       {!username ? (
