@@ -1,39 +1,40 @@
 import { useEffect, useState } from "react";
-import data, {answers} from "../Database/Data";
 import { useDispatch } from "react-redux";
 import * as Action from "../Redux/Question_Reducer";
+import { getServerData } from "../Helper/helper";
 
-export const useFetchQuestion = () => {
-    const dispatch = useDispatch();
-    const [getData, setGetData] = useState({ isLoading: false, apiData: [], serverError: null });
+export const useFetchQestion = () => {
+    const dispatch = useDispatch();   
+    const [getData, setGetData] = useState({ isLoading : false, apiData : [], serverError: null});
 
     useEffect(() => {
-        setGetData(prev => ({ ...prev, isLoading: true }));
+        setGetData(prev => ({...prev, isLoading : true}));
 
-        const fetchData = async () => {
+        /** async function fetch backend data */
+        (async () => {
             try {
-                let question = await data;
+                const [{ questions, answers }] = await getServerData(`${process.env.REACT_APP_SERVER_HOSTNAME}/api/questions`, (data) => data)
+                
+                if(questions.length > 0){
+                    setGetData(prev => ({...prev, isLoading : false}));
+                    setGetData(prev => ({...prev, apiData : questions}));
 
-                if (question.length > 0) {
-                    setGetData(prev => ({ ...prev, isLoading: false }));
-                    setGetData(prev => ({ ...prev, apiData: {question , answers}}));
+                    /** dispatch an action */
+                    dispatch(Action.startExamAction({ question : questions, answers }))
 
-                    dispatch(Action.startExamAction({question , answers}));
-                } else {
-                    throw new Error("No Questions Available !");
+                } else{
+                    throw new Error("No Question Avalibale");
                 }
             } catch (error) {
-                setGetData(prev => ({ ...prev, isLoading: false}));
-                setGetData(prev => ({ ...prev, serverError: error}));
+                setGetData(prev => ({...prev, isLoading : false}));
+                setGetData(prev => ({...prev, serverError : error}));
             }
-        };
-
-        fetchData();
-
+        })();
     }, [dispatch]);
 
     return [getData, setGetData];
-};
+}
+
 
 /* move action dispatch function */
 export const MoveNextQuestion = () => async(dispatch) => {
