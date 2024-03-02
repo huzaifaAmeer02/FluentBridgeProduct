@@ -216,7 +216,7 @@ const DictionaryAPI = () => {
         {showListPanel && (
           <div className="absolute right-10 top-10 bg-teal-700 bg-opacity-90 text-white w-21 p-4 m-9" style={{ maxHeight: '600px', overflowY: 'auto' }}>
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-medium mb-2">My List:</h2>
+              <h2 className="text-xl font-medium my-2 ml-2">My List:</h2>
               <button className="text-blue-500 hover:text-gray-700 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-3 bg-white left-30 top-3" onClick={() => setShowListPanel(false)}>
                 <IoIosClose />
               </button>
