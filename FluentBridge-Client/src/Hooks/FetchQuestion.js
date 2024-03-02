@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import * as Action from "../Redux/Question_Reducer";
 
 export const useFetchQuestion = () => {
-    
     const dispatch = useDispatch();
     const [getData, setGetData] = useState({ isLoading: false, apiData: [], serverError: null });
 
