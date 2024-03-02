@@ -52,6 +52,7 @@ export default function Quiz() {
 
             <Questions onChecked={onChecked} />{/*questions*/}
             {/* Grid for buttons */}
+            
             <div className="flex justify-between">
                 {/* Previous button */}
                 { trace > 0 ? <button onClick={onPrevious} className="rounded-2xl bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-3 sm:px-4 shadow-md transition duration-300 ease-in-out w-1/3 sm:w-auto">Previous</button>:<div></div> }

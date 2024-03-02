@@ -51,7 +51,7 @@ export const TeamPage = () => {
         >
             <div className="bg-gray-400 mx-auto mb-10 lg:max-w-xl sm:text-center border-2 p-10 rounded-2xl">
                 <p className="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider text-gray-100 uppercase rounded-full bg-teal-accent-400">
-                    FluentBridge Sri Lanka Team
+                    FluentBridge - Sri Lanka Crew
                 </p>
                 <p className="text-base text-gray-100 md:text-lg px-4 md:px-0">
                     Our team consists of second-year undergraduate students, each bringing unique perspectives
