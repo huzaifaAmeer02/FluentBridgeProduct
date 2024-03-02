@@ -22,7 +22,7 @@ app.use('/api',router)
 
 app.get("/", (req, res) => {
     try {
-        res.json("Get Request");
+        res.json("Get Request FluentBridge");
     } catch (error) {
         res.json(error);
     }
