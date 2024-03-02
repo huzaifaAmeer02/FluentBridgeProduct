@@ -1,69 +1,64 @@
-import Questions from "../Models/QuestionSchema";
-import Results from "../Models/ResultSchema";
-import questions, { answers } from '../Database/Data.js'
+import Question from "../Models/QuestionSchema.js";
+import Result from "../Models/ResultSchema.js";
+import questions,{answers} from '../Database/Data.js';
 
-/** get all questions */
-export async function getQuestions(req, res){
+export async function getQuestions(req, res) {
     try {
-        const q = await Questions.find();
-        res.json(q)
+        const q = await Question.find();
+        res.json(q);
     } catch (error) {
-        res.json({ error })
+        res.status(500).json({ error: error.message });
     }
 }
 
-/** insert all questinos */
-export async function insertQuestions(req, res){
+export async function insertQuestions(req, res) {
     try {
-        Questions.insertMany({ questions, answers }, function(err, data){
-            res.json({ msg: "Data Saved Successfully...!"})
-        })
+        await Question.deleteMany(); // Clear existing questions
+        const insertedQuestions = await Question.create({ questions, answers }); // Insert new questions with answers
+        res.json({ msg: "Data Saved Successfully", data: insertedQuestions });
     } catch (error) {
-        res.json({ error })
+        res.status(500).json({ error: error.message });
     }
 }
 
-/** Delete all Questions */
-export async function dropQuestions(req, res){
+
+export async function deleteQuestions(req, res) {
     try {
-        await Questions.deleteMany();
-        res.json({ msg: "Questions Deleted Successfully...!"});
+        await Question.deleteMany();
+        res.json({ msg: "All questions deleted successfully" });
     } catch (error) {
-        res.json({ error })
+        res.status(500).json({ error: error.message });
     }
 }
 
-/** get all result */
-export async function getResult(req, res){
+export async function getResults(req, res) {
     try {
-        const r = await Results.find();
-        res.json(r)
+        const r = await Result.find();
+        res.json(r);
     } catch (error) {
-        res.json({ error })
+        res.status(500).json({ error: error.message });
     }
 }
 
-/** post all result */
-export async function storeResult(req, res){
+export async function storeResults(req, res) {
     try {
-        const { username, result, attempts, points, achived } = req.body;
-        if(!username && !result) throw new Error('Data Not Provided...!');
+        const { username, result, attempts, points, achieved } = req.body;
+        if (!username || !result) throw new Error('Data Not Provided...!');
 
-        Results.create({ username, result, attempts, points, achived }, function(err, data){
-            res.json({ msg : "Result Saved Successfully...!"})
-        })
+        const newResult = new Result({ username, result, attempts, points, achieved });
+        await newResult.save();
 
+        res.json({ msg: "Result Saved Successfully...!" });
     } catch (error) {
-        res.json({error})
+        res.status(500).json({ error: error.message });
     }
 }
 
-/** delete all result */
-export async function dropResult(req, res){
+export async function deleteResults(req, res) {
     try {
-        await Results.deleteMany();
-        res.json({ msg : "Result Deleted Successfully...!"})
+        await Result.deleteMany();
+        res.json({ msg: "All results deleted successfully" });
     } catch (error) {
-        res.json({ error })
+        res.status(500).json({ error: error.message });
     }
 }
