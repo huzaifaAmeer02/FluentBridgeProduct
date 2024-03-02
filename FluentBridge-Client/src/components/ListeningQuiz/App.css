@@ -62,27 +62,7 @@
   width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
-  .main {
-    width: 100%;
-  }
 
-  .pyramid {
-    display: none;
-  }
-
-  .moneyListItem {
-    flex-direction: column;
-  }
-
-  .moneyListItemNumber {
-    width: 100%;
-  }
-
-  .start {
-    width: 100%;
-  }
-}
 
 .moneyListItem {
   display: flex;
@@ -139,7 +119,8 @@
 }
 
 .question {
-  width: 180%;
+  width: 300%; /* or a specific width in pixels */
+  max-width: 1000px;
   background: linear-gradient(#FFD700, black);
   text-align: center;
   padding: 20px;
@@ -149,7 +130,8 @@
 }
 
 .answers {
-  width: 200%;
+  width: 300%;
+  max-width: 1000px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -251,4 +233,5 @@
 .startButton:hover {
   background-color: #333333; /* Darker black on hover */
 }
+
 
