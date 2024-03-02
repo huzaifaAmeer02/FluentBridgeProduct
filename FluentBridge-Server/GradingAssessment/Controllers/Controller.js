@@ -1,13 +1,23 @@
-
+import Questions from "../Models/QuestionSchema.js";
+import Results from "../Models/ResultSchema.js";
 
 /*get all the questions*/
 export async function getQuestions(req,res){
-    res.json("Questions API GET Request H");
+    try{
+        const q = await Questions.find()
+        res.json(q)
+    }catch (error){
+        res.json({error})
+    }
 }
 
 /*insert all the questions*/
 export async function insertQuestions(req,res){
-    res.json("Questions API POST Request H")
+    try{
+        Questions.insertMany({ questions : [0], answers : []})
+    }catch (error){
+        res.json({error})
+    }
 }
 
 /*Delete all questions*/
