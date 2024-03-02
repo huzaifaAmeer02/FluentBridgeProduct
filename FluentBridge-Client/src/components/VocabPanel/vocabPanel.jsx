@@ -25,20 +25,26 @@ const VocabPanel = () => {
                 <IoIosArrowBack />
             </Link>
 
-            <div className="flex justify-center mt-8">
-                <Link
-                    to="/dictionary"
-                    className="button1 flex items-center justify-center text-white font-bold py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-700 transition duration-300 ease-in-out mx-2"
-                >
-                    Use Dictionary
-                </Link>
-                <Link
-                    to="/vocabulary-activity"
-                    className="button2 flex items-center justify-center text-white font-bold py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-700 transition duration-300 ease-in-out mx-2"
-                >
-                    Vocabulary Activity
-                </Link>
+            <div className="absolute top-18 left-20 mt-4 ml-10">
+                <div className="flex flex-col">
+                    <Link
+                        to="/dictionary"
+                        className="button1 flex justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-teal-500 hover:bg-teal-700 transition duration-300 ease-in-out mx-2 my-8"
+                    >
+                        Use Dictionary
+                    </Link>
+                </div>
+                <div className="flex flex-col">
+                    <Link
+                        to="/vocabulary-activity"
+                        className="button1 flex justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-red-500 hover:bg-red-700 transition duration-300 ease-in-out mx-2"
+                    >
+                        Vocabulary Activity
+                    </Link>
+                </div>
             </div>
+
+
         </div>
     );
 };
