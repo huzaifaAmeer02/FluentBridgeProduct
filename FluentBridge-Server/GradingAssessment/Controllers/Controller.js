@@ -22,7 +22,7 @@ export async function insertQuestions(req, res) {
 }
 
 
-export async function deleteQuestions(req, res) {
+export async function dropQuestions(req, res) {
     try {
         await Question.deleteMany();
         res.json({ msg: "All questions deleted successfully" });

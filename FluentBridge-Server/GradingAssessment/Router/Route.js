@@ -10,7 +10,7 @@ import * as controller from "../Controllers/Controller.js"
 router.route('/questions')
     .get(controller.getQuestions)/*GET Request*/
     .post(controller.insertQuestions)/*POST Request*/
-    .delete(controller.deleteQuestions)/*DELETE Request*/
+    .delete(controller.dropQuestions)/*DELETE Request*/
 
 router.route('/results')
     .get(controller.getResults)
