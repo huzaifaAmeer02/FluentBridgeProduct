@@ -4,6 +4,10 @@ import cors from "cors"
 import {config} from "dotenv";
 import router from "./Router/Route.js";
 
+/*importing the connection file*/
+import connect from "./Database/conn.js"
+
+
 const app = express(); // Call the express function to create an instance of the application
 
 /*middle ware*/
@@ -22,13 +26,20 @@ app.use('/api',router)
 
 app.get("/", (req, res) => {
     try {
-        res.json("Get Request FluentBridge");
+        res.json("Get Request");
     } catch (error) {
         res.json(error);
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server Connected to http://localhost:${port}`);
-});
-
+connect().then(() =>{
+    try {
+        app.listen(port, () => {
+            console.log(`Server Connected to http://localhost:${port}`);
+        });
+    }catch (error){
+        console.log("Cannot connect to the server !")
+    }
+}).catch(error =>{
+    console.log("Invalid DB Connection")
+})
