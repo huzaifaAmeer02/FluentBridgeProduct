@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import fiveLetterWords from "./fiveletterwords.json";
+import { IoIosArrowBack, IoIosClose } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 const WordleGame = () => {
     const wordList = ["clean",  "grape", "melon", "plain",  "ready", "clean", "lemon", "print", "peach", "berry", "mango"]; // New array list for random words
@@ -93,8 +95,14 @@ const WordleGame = () => {
     };
 
     return (
-        <div className="text-center">
-            <h2 className="text-5xl text-white font-bold mt-40 mb-4">Wordle Game</h2>
+        <>
+        <div className="min-h-screen bg-cover bg-center bg-no-repeat p-0 mt-[-60px]" style={{ backgroundImage: 'url("/src/assets/wordlebg.jpg")'}}>
+            <Link to="/vocabulary-activity" className="back-to-vocabulary-activity flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
+                <IoIosArrowBack />
+            </Link>
+        <div style={{ margin: '50px', padding:'60px'}}>
+        <div className="container px-10 mx-auto flex flex-col items-center bg-black-900 bg-opacity-50 rounded-lg p-4 transition duration-300 hover:bg-opacity-70 text-center max-w-2xl">
+            <h2 className="text-5xl text-white font-bold pt-10 pb-4 mb-4">Wordle Game</h2>
             {feedback.map((feedbackArray, attemptIndex) => (
                 <div key={attemptIndex} className="flex justify-center mb-4">
                     {feedbackArray.map((color, letterIndex) => (
@@ -122,7 +130,7 @@ const WordleGame = () => {
                 </button>
             </div>
             {gameOver && (
-                <div className="text-xl font-semibold mb-4">
+                <div className="text-xl text-white font-semibold mb-4">
                     {guess === word
                         ? "Congratulations! You guessed the word!"
                         : "Game over! The word was " + word}
@@ -140,7 +148,7 @@ const WordleGame = () => {
                         </button>
                     ))}
                 </div>
-            <div className="text-xl font-semibold mb-4">
+            <div className="text-xl text-white font-semibold mb-4">
                 Remaining attempts: {maxAttempts - attempts.length}
             </div>
             {gameOver && (
@@ -151,14 +159,18 @@ const WordleGame = () => {
                     Play Again
                 </button>
             )}
-            <div className="my-8">
-                <p className="text-white">========================================================</p>
+            <div className="my-8 ">
+                <p className="text-white">====================================</p>
                 <p className="text-white text-3xl">Instructions</p>
-                <p>A green circle indicates that a letter is correct and in the right position. <br />
+                <p className="text-white flex justify-center">A green circle indicates that a letter is correct and in the right position. <br />
                     A yellow circle indicates that a letter is correct but in the wrong position. <br/>
                     A gray circle indicates that a letter is not in the word.</p>
             </div>
         </div>
+        </div>
+        </div>
+        </>
+        
     );
 };
 
