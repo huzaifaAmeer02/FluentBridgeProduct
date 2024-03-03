@@ -18,7 +18,7 @@ import Results from "./components/GradingAssesment/Results.jsx";
 import VocabularyActivity from "./components/VocabularyActivity/VocabularyActivityPage.jsx";
 import ListeningQuiz from "./components/ListeningQuiz/App.jsx";
 import WordleGame from "./components/WordleGame/WordleGame.jsx";
-
+import Confetti from "./components/WordleGame/Confetti.jsx";
 
 
 function App() {
@@ -43,9 +43,9 @@ function App() {
                     <Route path='/vocabulary-activity' element={<VocabularyActivity/>} />
                     <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
                     <Route path='/wordleGame' element={<WordleGame/>} />
-
+                    <Route path='/confetti' element={<Confetti/>}/>
                 </Routes>
-                <Footer/>
+                
             </Router>
         </>
     );

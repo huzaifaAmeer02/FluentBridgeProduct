@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import fiveLetterWords from "./fiveletterwords.json";
-import { IoIosArrowBack, IoIosClose } from 'react-icons/io';
+import { IoIosArrowBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import Confetti from "./Confetti.jsx";
+
 
 const WordleGame = () => {
     const wordList = ["clean",  "grape", "melon", "plain",  "ready",  "lemon", "print", "peach", "berry", "mango"]; // New array list for random words
@@ -16,6 +18,7 @@ const WordleGame = () => {
     const initialKeyColors = alphabet.reduce((acc, curr) => ({ ...acc, [curr]: 'bg-blue-500' }), {});
     const [keyColors, setKeyColors] = useState(initialKeyColors);
     const [congratulationsMessage, setCongratulationsMessage] = useState("");
+    const [showConfetti, setShowConfetti] = useState(false); 
 
     useEffect(() => {
         chooseRandomWord();
@@ -24,11 +27,13 @@ const WordleGame = () => {
     const chooseRandomWord = () => {
         const randomIndex = Math.floor(Math.random() * wordList.length);
         setWord(wordList[randomIndex]);
+        setShowConfetti(true);
     };
 
     const displayCongratulations = () => {
         const message = "Congratulations! You guessed the word!";
         setCongratulationsMessage(message); // Update state variable with congratulations message
+        setShowConfetti(true);
     };
     
 
@@ -109,12 +114,12 @@ const WordleGame = () => {
 
     return (
         <>
-        <div className="min-h-screen bg-cover bg-center bg-no-repeat p-0 my-[-50px]" style={{ backgroundImage: 'url("/src/assets/wordlebg.jpg")'}}>
+        <div className="min-h-screen bg-cover bg-center bg-no-repeat p-0 my-[-50px]" style={{ backgroundImage: 'url("/src/assets/wordlebg1.jpg")'}}>
             <Link to="/vocabulary-activity" className="back-to-vocabulary-activity flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
                 <IoIosArrowBack />
             </Link>
         <div style={{ margin: '50px', padding:'80px'}}>
-        <div className="container px-10  mx-auto flex flex-col items-center bg-black-900 bg-opacity-50 rounded-lg p-4 transition duration-300 hover:bg-opacity-70 text-center max-w-3xl">
+        <div className="container px-10  mx-auto flex flex-col items-center bg-black-900 bg-opacity-80 rounded-lg p-4 transition duration-300 hover:bg-opacity-90 text-center max-w-3xl">
             <h2 className="text-5xl text-white font-bold pt-10 pb-4 mb-4">Wordle Game</h2>
             {feedback.map((feedbackArray, attemptIndex) => (
                 <div key={attemptIndex} className="flex justify-center mb-4">
@@ -143,10 +148,12 @@ const WordleGame = () => {
                 </button>
             </div>
 
-            {congratulationsMessage && (
+            {congratulationsMessage && (<>
                 <div className="congratulations-message text-white">
                     {congratulationsMessage}
                 </div>
+                <Confetti numberOfPieces={200} />
+                </>
             )}
 
             {gameOver && (
