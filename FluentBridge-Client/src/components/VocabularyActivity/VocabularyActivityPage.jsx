@@ -12,16 +12,16 @@ const VocabularyActivityPage = () => {
             </Link>
             <main className="text-justify">
                 <section className="bg-gray-900 bg-opacity-80 rounded-lg p-8 my-8 mx-auto max-w-xl transition duration-300 hover:bg-gray-900 hover:bg-opacity-75">
-                    <h2 className="text-4xl text-white font-semibold mb-4">Master Vocabulary</h2>
+                    <h2 className="text-4xl text-white text-center font-semibold mb-4">Master Vocabulary</h2>
                     <p className="text-lg text-white mb-8">Unlock the power of words and master your vocabulary with our immersive learning experience.</p>
                     <div className="text-white mb-8">
                         <hr className="border-b border-white my-4" />
-                        <h3 className="text-3xl mb-4">Instructions</h3>
+                        <h3 className="text-3xl text-center mb-4">Instructions</h3>
                         <p className="mb-2">At the start of the game, a random five-letter word is selected as the hidden word.</p>
                         <p className="mb-2">The player enters their guess for the hidden word using the input field provided.</p>
                         <p className="mb-2">After each guess, the player receives feedback in the form of colored circles:</p>
-                        <p className="mb-2 flex justify-center items-center"> <span className="h-4 w-4 rounded-full mr-2 bg-green-500"></span> Green circle: Indicates that a letter is correct and in the right position.</p>
-                        <p className="mb-2 flex justify-center items-center"> <span className="h-4 w-4 rounded-full mr-2 bg-yellow-500"></span> Yellow circle: Indicates that a letter is correct but in the wrong position.</p>
+                        <p className="mb-2 flex justify-center items-center"> <span className="h-4 w-4 rounded-full mr-2 bg-green-500"></span> Green circle: The letter is correct and in the right position.</p>
+                        <p className="mb-2 flex justify-center items-center"> <span className="h-4 w-4 rounded-full mr-2 bg-yellow-500"></span> Yellow circle: The letter is correct but in the wrong position.</p>
                         <p className="mb-2 flex justify-center items-center"> <span className="h-4 w-4 rounded-full mr-2 bg-gray-500"></span> Gray circle: Indicates that a letter is not in the word.</p>
                         <p>Based on the feedback received, the player adjusts their guess and continues guessing until they either correctly guess the word or exhaust their allowed attempts.</p>
                     </div>

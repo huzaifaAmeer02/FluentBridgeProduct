@@ -23,7 +23,7 @@ const Confetti = () => {
             <ReactConfetti
                 width={windowDimension.width}
                 height={windowDimension.height}
-                tweenDuration={2000}
+                tweenDuration={1000}
             />
         </>
     );
