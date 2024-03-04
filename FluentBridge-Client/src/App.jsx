@@ -19,6 +19,7 @@ import VocabularyActivity from "./components/VocabularyActivity/VocabularyActivi
 import VActivities from "./components/VocabularyActivity/VActivities.jsx";
 import ListeningQuiz from "./components/ListeningQuiz/App.jsx";
 import ReadingQuestionier from "./components/ReadingActivity/ReadingQuestionier.jsx";
+import Controller from "./components/ChatBotModal/Controller";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
                     <Route path='/vactivities' element={<VActivities/>}/>
                     <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
                     <Route path='/readingquestionaier' element={<ReadingQuestionier/>}/>
+                    <Route path='/Controller' element={<Controller/>}/>
                 </Routes>
                 <Footer/>
             </Router>

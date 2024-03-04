@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
-import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
+// import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
 import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook, FiBookOpen } from "react-icons/fi"; // Importing the necessary icons
 import rightBack from "../../assets/activity-bg.jpg";
+import Controller from "../ChatBotModal/Controller.jsx";
 
 const ActivityPanel = () => {
     const [showChatBot, setShowChatBot] = useState(false);
@@ -97,7 +98,7 @@ const ActivityPanel = () => {
                         </animated.div>
                         <animated.div style={bounceIn}>
                             <Link
-                                to="/chatBotPage"
+                                to="/Controller"
                                 className="block bg-indigo-500 hover:bg-indigo-700 text-white p-6 text-center transition rounded-md"
                             >
                                 <FiMessageSquare className="mx-auto mb-2 text-4xl" />
@@ -109,7 +110,7 @@ const ActivityPanel = () => {
             </animated.div>
 
             {/* ChatBot Modal */}
-            {showChatBot && <ChatBotModal onClose={toggleChatBot} />}
+            {showChatBot && <Controller onClose={toggleChatBot} />}
 
         </div>
     );
