@@ -119,10 +119,10 @@ const DictionaryAPI = () => {
       <div className= "h-100" style={{ backgroundImage: `url(${dictionarybg})`, backgroundSize: 'cover' , height:800}}>
         <section className="text-gray-600 body-font relative">
           <div className="container px-5 py-20 mx-auto flex flex-col items-center ">
-            <Link to="/dictionary" className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
-              <IoIosArrowBack />
-            </Link>
-            <section className="mb-8 bg-gray-900 bg-opacity-50 rounded-lg p-4 transition duration-300 hover:bg-opacity-70" style={{ minHeight: '200px', width: '650px' }} >
+          <Link to="/dictionary" className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-black absolute left-4 top-4">
+            <IoIosArrowBack />
+          </Link>
+            <section className="mb-8 mt-20 bg-gray-900 bg-opacity-50 rounded-lg p-4 transition duration-300 hover:bg-opacity-80" style={{ minHeight: '200px', width: '650px' }} >
               <section className="text-gray-600 body-font flex items-center">
                 <img
                   src={myListIcon}
@@ -211,14 +211,14 @@ const DictionaryAPI = () => {
           </div>
         </section>
         {showListPanel && (
-          <div className="absolute right-10 top-10 bg-teal-700 bg-opacity-90 text-white w-21 p-4 m-9" style={{ maxHeight: '600px', overflowY: 'auto' }}>
+          <div className="absolute right-10 top-10 bg-teal-900 bg-opacity-70 text-white w-21 p-4 m-9 rounded-lg transition duration-300 hover:bg-opacity-100" style={{ maxHeight: '600px', overflowY: 'auto' }}>
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-medium my-2 ml-2 px-5">My List:</h2>
+            <h2 className="text-xl font-medium my-2 ml-2 px-5" style={{ textShadow: '10px 7px 10px black' }}>My List:</h2>
               <button className="text-blue-500 hover:text-gray-700 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-3 bg-white left-30 top-3" onClick={() => setShowListPanel(false)}>
                 <IoIosClose />
               </button>
             </div>
-            <ul className="list-disc pl-4 space-y-1" style={{ maxHeight: '600px',}}>
+            <ul className="list-disc pl-4 space-y-1" style={{ maxHeight: '600px', textShadow: '10px 10px 10px black'}}>
               {sortedSavedWords.map((savedWord, index) => (
                 <li key={index} className="py-2 flex justify-between items-center">
                   <div className="flex flex-col">

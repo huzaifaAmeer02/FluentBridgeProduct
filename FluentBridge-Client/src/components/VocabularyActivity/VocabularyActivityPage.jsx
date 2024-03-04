@@ -1,17 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import vocabActivity1 from "../../assets/vocabActivity1.jpg";
-
+import crown from "../../assets/crown.png";
 import { IoIosArrowBack } from 'react-icons/io';
 
 const VocabularyActivityPage = () => {
     return (
-        <div className="bg-cover bg-center min-h-screen flex flex-col justify-center items-center" style={{ backgroundImage: `url(${vocabActivity1})` }}>
+        <div className="bg-cover  bg-center min-h-screen flex flex-col justify-center items-center" style={{ backgroundImage: `url(${vocabActivity1})` }}>
+            
             <Link to="/vocabpanel" className="back-to-vocabpanel absolute left-4 top-4 text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white">
                 <IoIosArrowBack />
             </Link>
             <main className="text-justify">
-                <section className="bg-gray-900 bg-opacity-80 rounded-lg p-8 my-8 mx-auto max-w-xl transition duration-300 hover:bg-gray-900 hover:bg-opacity-75">
+                <section className="bg-gray-900 bg-opacity-80 rounded-lg  my-20 mx-auto max-w-2xl "  style={{ position: 'relative', bottom:'-10px' }}>
+                <img src={crown} alt="crown clip art" className=" mx-auto "  />
+                <section className="bg-gray-900 bg-opacity-80 rounded-lg p-8  mx-8   transition duration-300 hover:bg-gray-900 hover:bg-opacity-75  "  style={{ position: 'relative', top: '-70px'}}>
                     <h2 className="text-4xl text-white text-center font-semibold mb-4">Master Vocabulary</h2>
                     <p className="text-lg text-white mb-8">Unlock the power of words and master your vocabulary with our immersive learning experience.</p>
                     <div className="text-white mb-8">
@@ -33,6 +36,7 @@ const VocabularyActivityPage = () => {
                             Start the Wordle
                         </Link>
                     </div>
+                    </section>
                 </section>
             </main>
         </div>
