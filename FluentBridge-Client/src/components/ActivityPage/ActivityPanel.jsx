@@ -97,7 +97,7 @@ const ActivityPanel = () => {
                         </animated.div>
                         <animated.div style={bounceIn}>
                             <Link
-                                to="#"
+                                to="/readingquestionaier"
                                 className="block bg-indigo-500 hover:bg-indigo-700 text-white p-6 text-center transition rounded-md"
                             >
                                 <FiBookOpen className="mx-auto mb-2 text-4xl" />
