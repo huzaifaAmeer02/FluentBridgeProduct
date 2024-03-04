@@ -97,11 +97,11 @@ const ActivityPanel = () => {
                         </animated.div>
                         <animated.div style={bounceIn}>
                             <Link
-                                to="/readingquestionaier"
+                                to="/chatBotPage"
                                 className="block bg-indigo-500 hover:bg-indigo-700 text-white p-6 text-center transition rounded-md"
                             >
-                                <FiBookOpen className="mx-auto mb-2 text-4xl" />
-                                Reading
+                                <FiMessageSquare className="mx-auto mb-2 text-4xl" />
+                                Chat Bot
                             </Link>
                         </animated.div>
                     </div>
