@@ -19,7 +19,7 @@ const Footer = () => {
                   <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                       <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Get Multi Language Support</h2>
                       {/* Google Translate element */}
-                      <div id='google_translate_element' className='translate-option ml-auto p-2'>Support</div>
+                      <div className='translate-option ml-auto p-2'>In Sinhala Language</div>
                   </div>
                   <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                       <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">FluentBridge Sri Lanka</h2>
