@@ -4,6 +4,7 @@ import { useSpring, animated } from "react-spring";
 import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
 import {FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook, FiBookOpen} from "react-icons/fi"; // Importing the necessary icons
 import rightBack from "../../assets/right-background.jpg";
+import Footer from "../Footer/Footer.jsx";
 
 const ActivityPanel = () => {
     const [showChatBot, setShowChatBot] = useState(false);
@@ -47,7 +48,7 @@ const ActivityPanel = () => {
                 style={{ ...slideIn, background: "rgba(255, 255, 255, 0.8)" }}
                 className="md:w-2/3 flex-shrink-0 w-full p-4 overflow-y-auto"
             >
-                <section className="hero">
+                <section className="hero max-lg:max-h-10">
                     <div className="flex flex-col md:flex-row p-4">
                         <div className="md:w-40% mb-4 md:mb-0 md:pr-4">
                             <h2 className="text-2xl font-bold mb-2 md:mb-4 text-center mt-2">Select Your Activity</h2>
@@ -101,19 +102,10 @@ const ActivityPanel = () => {
                                 <animated.div style={bounceIn} className="w-full h-50vh">
                                     <Link
                                         to="#"
-                                        className="block bg-orange-500 hover:bg-orange-700 text-white p-6 text-center transition h-full rounded-md"
+                                        className="block bg-indigo-500 hover:bg-indigo-700bg-orange-500 hover:bg-orange-700 text-white p-6 text-center transition h-full rounded-md"
                                     >
                                         <FiBookOpen className="mx-auto mb-2 text-4xl" />
                                         Reading
-                                    </Link>
-                                </animated.div>
-                                <animated.div style={bounceIn} className="w-full h-50vh">
-                                    <Link
-                                        to="/chatbotactivity"
-                                        className="block bg-indigo-500 hover:bg-indigo-700 text-white p-6 text-center transition h-full rounded-md"
-                                    >
-                                        <FiMessageSquare className="mx-auto mb-2 text-4xl" /> {/* Icon for Chatbot Activity */}
-                                        Chatbot Activity
                                     </Link>
                                 </animated.div>
                             </div>

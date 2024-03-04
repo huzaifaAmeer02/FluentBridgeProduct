@@ -76,18 +76,20 @@ export default function GradingAssesment() {
             {loading ? (
                 <LoadingPage />
             ) : (
-                <div className="container mx-auto max-w-lg p-8 bg-white bg-opacity-90 shadow-lg rounded-lg sm:mt-4">
+                <div className="container mx-auto my-5 max-w-lg p-8 bg-white bg-opacity-90 shadow-lg rounded-lg sm:mt-4">
                     <Link
                         to="/activities"
                         className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
                     >
                         <IoIosArrowBack />
                     </Link>
+                    <div className="absolute top-4 right-4 cursor-pointer" onClick={toggleLanguage}>
+                        <FiGlobe className="bg-white p-2 rounded mr-6" size={40} />
+                    </div>
 
                     <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">
                         {translation[language].welcome}
                     </h1>
-
                     <ol className="text-gray-600 mb-6 bg-gray-300 p-2 rounded-xl">
                         {translation[language].instructions.map((instruction, index) => (
                             <li className="text-gray-800" key={index}>{instruction}</li>
@@ -112,9 +114,7 @@ export default function GradingAssesment() {
                             {translation[language].start}
                         </Link>
                     </div>
-                    <div className="absolute top-4 right-4 cursor-pointer" onClick={toggleLanguage}>
-                        <FiGlobe className="bg-white p-2 rounded mr-6" size={40} />
-                    </div>
+                    
                 </div>
             )}
         </motion.div>

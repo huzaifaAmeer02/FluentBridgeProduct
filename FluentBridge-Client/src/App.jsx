@@ -41,12 +41,9 @@ function App() {
                     <Route path='/results' element={<Results/>}/>
                     <Route path='/vocabulary-activity' element={<VocabularyActivity/>} />
                     <Route path='/vactivities' element={<VActivities/>}/>
-                    
                     <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
-
-
                 </Routes>
-            
+                <Footer/>
             </Router>
         </>
     );

@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
       <footer className="text-gray-600 body-font bg-white">
-          <div className="container px-5 py-24 mx-auto">
+          <div className="container px-5 py-20 mx-auto">
               <div className="flex flex-wrap md:text-left text-center order-first">
                   <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                       <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Get Multi Language Support</h2>
@@ -22,37 +22,40 @@ const Footer = () => {
                       <div id='google_translate_element' className='translate-option ml-auto p-2'>Support</div>
                   </div>
                   <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                      <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                      <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">FluentBridge Sri Lanka</h2>
                       <nav className="list-none mb-10">
                           <li>
-                              <a className="text-gray-600 hover:text-gray-800">First Link</a>
+                              <a className="text-gray-600 hover:text-gray-800">Home</a>
                           </li>
                           <li>
-                              <a className="text-gray-600 hover:text-gray-800">Second Link</a>
+                              <a className="text-gray-600 hover:text-gray-800">Activity Panel</a>
                           </li>
                           <li>
-                              <a className="text-gray-600 hover:text-gray-800">Third Link</a>
+                              <a className="text-gray-600 hover:text-gray-800">About Us</a>
                           </li>
                           <li>
-                              <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                              <a className="text-gray-600 hover:text-gray-800">Contact Us</a>
                           </li>
                       </nav>
                   </div>
 
                   <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                      <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                      <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Learning Activities</h2>
                       <nav className="list-none mb-10">
                           <li>
-                              <a className="text-gray-600 hover:text-gray-800">First Link</a>
+                              <a className="text-gray-600 hover:text-gray-800">Speaking</a>
                           </li>
                           <li>
-                              <a className="text-gray-600 hover:text-gray-800">Second Link</a>
+                              <a className="text-gray-600 hover:text-gray-800">Listening</a>
                           </li>
                           <li>
-                              <a className="text-gray-600 hover:text-gray-800">Third Link</a>
+                              <a className="text-gray-600 hover:text-gray-800">Writing</a>
                           </li>
                           <li>
-                              <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                              <a className="text-gray-600 hover:text-gray-800">Reading</a>
+                          </li>
+                          <li>
+                              <a className="text-gray-600 hover:text-gray-800">Vocabulary</a>
                           </li>
                       </nav>
                   </div>
@@ -70,8 +73,8 @@ const Footer = () => {
                               className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-gray-600 border-0 py-2 px-6 focus:outline-none hover:bg-gray-800 rounded">Button
                           </button>
                       </div>
-                      <p className="text-gray-500 text-sm mt-2 md:text-left text-center">Bitters chicharrones fanny pack
-                          <br className="lg:block hidden" />waistcoat green juice
+                      <p className="text-gray-500 text-sm mt-2 md:text-left text-center">Get notify on our upcoming updates
+                          <br className="lg:block hidden" />by Subscribing our services
                       </p>
                   </div>
               </div>
