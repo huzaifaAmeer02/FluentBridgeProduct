@@ -7,3 +7,10 @@ export const pushAnswer = (result) => async (dispatch)=> {
         console.log(error)
     }
 }
+export const updateResult = (index) => async (dispatch) =>{
+    try{
+        dispatch(Action.updateresultAction(index))
+    }catch (err){
+        console.log(err)
+    }
+}

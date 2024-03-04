@@ -19,6 +19,9 @@ import VocabularyActivity from "./components/VocabularyActivity/VocabularyActivi
 import ListeningQuiz from "./components/ListeningQuiz/App.jsx";
 import WordleGame from "./components/WordleGame/WordleGame.jsx";
 import Confetti from "./components/WordleGame/Confetti.jsx";
+import ReadingQuestionier from "./components/ReadingActivity/ReadingQuestionier.jsx";
+import Controller from "./components/ChatBotModal/Controller";
+
 
 
 function App() {
@@ -41,9 +44,13 @@ function App() {
                     <Route path='/quiz' element={<Quiz/>}/>
                     <Route path='/results' element={<Results/>}/>
                     <Route path='/vocabulary-activity' element={<VocabularyActivity/>} />
-                    <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
                     <Route path='/wordleGame' element={<WordleGame/>} />
                     <Route path='/confetti' element={<Confetti/>}/>
+                    <Route path='/vactivities' element={<VActivities/>}/>
+                    <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
+                    <Route path='/readingquestionaier' element={<ReadingQuestionier/>}/>
+                    <Route path='/Controller' element={<Controller/>}/>
+
                 </Routes>
                 
             </Router>

@@ -16,24 +16,23 @@ export default function Quiz() {
     const {queue,trace} = useSelector(state => state.questions)
     const dispatch = useDispatch()
 
-    useEffect(()=>{
-        console.log(result)
-    })
+
 
     /*next button event handler*/
     function onNext() {
-        console.log("Next question")
         if (trace < queue.length){
             /*updating the trace's value*/
             dispatch(MoveNextQuestion())
 
-            dispatch(pushAnswer(check))
+            if (result.length <= trace){
+                dispatch(pushAnswer(check))
+            }
         }
+        setChecked(undefined)
     }
 
     /*prev button event handler*/
     function onPrevious() {
-        console.log("Previous Question")
         if (trace>0){
             /*updating the trace's value*/
             dispatch(MovePreviousQuestion())
@@ -41,9 +40,7 @@ export default function Quiz() {
     }
     function onChecked(check){
         setChecked(check)
-        console.log(check)
     }
-
     /*finish the assessment after the last question*/
     if (result.length && result.length >= queue.length){
         return <Navigate to="/results" replace={true}></Navigate>
@@ -54,13 +51,11 @@ export default function Quiz() {
             <h1 className="border-2 rounded-3xl text-3xl font-bold text-center mb-8 p-4 text-white m-4">Grading Assessment</h1>
 
             <Questions onChecked={onChecked} />{/*questions*/}
-
             {/* Grid for buttons */}
+            
             <div className="flex justify-between">
                 {/* Previous button */}
-                <button onClick={onPrevious} className="rounded-2xl bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-3 sm:px-4 shadow-md transition duration-300 ease-in-out w-1/3 sm:w-auto">
-                    Previous
-                </button>
+                { trace > 0 ? <button onClick={onPrevious} className="rounded-2xl bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-3 sm:px-4 shadow-md transition duration-300 ease-in-out w-1/3 sm:w-auto">Previous</button>:<div></div> }
                 {/* Next button */}
                 <button onClick={onNext} className="rounded-2xl bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-3 sm:px-4 shadow-md transition duration-300 ease-in-out w-1/3 sm:w-auto">
                     Next

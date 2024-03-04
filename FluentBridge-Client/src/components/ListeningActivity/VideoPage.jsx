@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 
-// eslint-disable-next-line react/prop-types
+ //eslint-disable-next-line react/prop-types
 const VideoPage = ({ onClose, videoUrl }) => {
     return (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">

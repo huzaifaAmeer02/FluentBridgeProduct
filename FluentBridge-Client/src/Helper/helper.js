@@ -1,5 +1,3 @@
-import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
 import axios from 'axios';
 
 export function attempts_Number(result) {
@@ -14,15 +12,9 @@ export function flagResult(totalPoints, earnPoints) {
     return (totalPoints * 50 / 100) < earnPoints; // Earn 50% marks
 }
 
-/** Check user authentication */
-/*export function CheckUserExist({ children }) {
-    const auth = useSelector(state => state.result.userId);
-    return auth ? children : <Navigate to={'/'} replace={true} />;
-}*/
-
 export async function getServerData(url, callback) {
     try {
-        const { data } = await axios.get(url);
+        const data = await axios.get(url)?.data;
         return callback ? callback(data) : data;
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -33,7 +25,7 @@ export async function getServerData(url, callback) {
 /** Post server data */
 export async function postServerData(url, result, callback) {
     try {
-        const { data } = await axios.post(url, result);
+        const data = await axios.post(url, result)?.data;
         return callback ? callback(data) : data;
     } catch (error) {
         console.error("Error posting data:", error);
