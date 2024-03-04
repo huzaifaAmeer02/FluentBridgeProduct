@@ -137,6 +137,7 @@ const WordleGame = () => {
                     value={guess}
                     onChange={handleInputChange}
                     maxLength={5}
+                    placeholder="Enter your guess"
                     className="p-2 mr-2 text-center border border-gray-400"
                 />
                 <button
