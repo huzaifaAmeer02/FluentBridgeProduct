@@ -27,3 +27,16 @@ def convvert_text_to_speech(message):
 
     # endpoins
     endpoints = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_reachel}"
+    try:
+        response = requests.post(endpoints, json=body, headers=headers)
+
+    except Exception as e:
+        print(e)
+        return
+
+    if response.status_code == 200:
+        return response.content
+    else:
+        return
+
+
