@@ -4,6 +4,8 @@ from decouple import config
 ELEVEN_LABS_API_KEY = config("ELEVEN_LABS_API_KEY")
 
 
+# convert text ot speech
+
 def convvert_text_to_speech(message):
     # body of data
     body = {
@@ -13,6 +15,7 @@ def convvert_text_to_speech(message):
             "similarity_boost": 0
         }
     }
+
     # define voice
     voice_reachel = "21m00Tcm4TlvDq8ikWAM"
 
@@ -27,6 +30,9 @@ def convvert_text_to_speech(message):
 
     # endpoins
     endpoints = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_reachel}"
+
+    # send request
+
     try:
         response = requests.post(endpoints, json=body, headers=headers)
 
@@ -38,5 +44,7 @@ def convvert_text_to_speech(message):
         return response.content
     else:
         return
+
+
 
 
