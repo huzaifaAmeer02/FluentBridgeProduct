@@ -80,3 +80,6 @@ const login = (req,resp) => {
         }
     });
 }
+module.exports={
+    signup,login
+}
