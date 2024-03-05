@@ -27,8 +27,31 @@ def convert_audio_to_text(audio_file):
         print(e)
         return
 
+
     # Open_ai - chat gpt
     # get responses to our Message
+
+
+def get_chat_response(message_input):
+
+    messages = get_recent_message()
+    user_message = {"role": "user", "content": message_input + " Only say two or 3 words in sinhala if speaking in spinhala. The remaining words should be in English"}
+    messages.append(user_message)
+    # print(messages)
+
+    try:
+        response = openai.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=messages
+        )
+        # print(response)
+        message_text = response.choices[0].message.content
+        print(message_text)
+        return message_text
+    except Exception as e:
+        print(e)
+        return
+
 
 
 
