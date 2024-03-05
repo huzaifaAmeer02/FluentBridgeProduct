@@ -51,6 +51,7 @@ def get_recent_message():
 
 
 # store messages
+
 def store_mesages(request_message, response_message):
     # define the fiel name
     file_name = "stored_data.json"
@@ -67,7 +68,6 @@ def store_mesages(request_message, response_message):
     # save the updated file
     with open(file_name, 'w') as f:
         json.dump(messages, f)
-
 
 
 # reset messages
