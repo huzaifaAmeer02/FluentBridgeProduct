@@ -79,3 +79,14 @@ async def post_audio(file: UploadFile = File(...)):
 
     # Convert chat response to audio
     audio_output = convvert_text_to_speech(chat_response)
+
+    # to ensure elven api convert to voice
+    if not audio_output:
+        return HTTPException(status_code=400, detail="failed to get elven labs audio output")
+
+    # genaratore that yields chunk of data
+    def iterfile():
+        yield audio_output
+
+    # return audio file
+    return StreamingResponse(iterfile(), media_type="application/octet-stream")
