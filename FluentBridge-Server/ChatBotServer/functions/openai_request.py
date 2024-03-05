@@ -27,7 +27,6 @@ def convert_audio_to_text(audio_file):
         print(e)
         return
 
-
     # Open_ai - chat gpt
     # get responses to our Message
 
@@ -51,7 +50,3 @@ def get_chat_response(message_input):
     except Exception as e:
         print(e)
         return
-
-
-
-
