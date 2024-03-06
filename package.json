@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "firebase": "^10.8.1",
+    "react-toastify": "^10.0.4",
+    "react-typed": "^2.0.12",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "sass": "^1.71.1"
+  }
+}
