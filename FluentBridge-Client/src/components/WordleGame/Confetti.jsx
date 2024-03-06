@@ -5,6 +5,10 @@ const Confetti = () => {
     const [windowDimension, setWindowDimension] = useState({ width: window.innerWidth, height: window.innerHeight });
 
     const detectSize = () => {
+
+
+
+
         setWindowDimension({
             width: window.innerWidth,
             height: window.innerHeight

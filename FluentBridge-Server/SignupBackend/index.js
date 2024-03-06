@@ -6,7 +6,12 @@
 * body-parser (npm i body-parser)
 * bcrypt (npm i bcrypt)
 * jsonwebtoken (npm i jsonwebtoken)
+* npm install cors
+* npm install nodemailer
 *
+* to run -> nodemon
+
+
 * */
 
 const cors = require('cors')
