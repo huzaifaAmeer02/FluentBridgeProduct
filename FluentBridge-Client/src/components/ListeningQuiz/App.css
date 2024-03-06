@@ -41,7 +41,7 @@
 .main {
   width: 100%;
   height: 100vh;
-  background: url("./assets/gold.jpg") center/cover;
+  background: url("./assets/ai.png") center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +50,7 @@
 
 .pyramid {
   width: 25%;
-  background-color: black;
+  background-color: light-blue;
   display: flex;
   align-items: center;
   justify-content: center;
