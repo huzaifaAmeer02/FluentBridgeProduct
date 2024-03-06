@@ -21,6 +21,8 @@ import WordleGame from "./components/WordleGame/WordleGame.jsx";
 import Confetti from "./components/WordleGame/Confetti.jsx";
 import ReadingQuestionier from "./components/ReadingActivity/ReadingQuestionier.jsx";
 import Controller from "./components/ChatBotModal/Controller";
+import Login from "./components/LandingPage/Login";
+import Signup from "./components/LandingPage/Signup.jsx";
 
 
 
@@ -50,9 +52,9 @@ function App() {
                     <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
                     <Route path='/readingquestionaier' element={<ReadingQuestionier/>}/>
                     <Route path='/Controller' element={<Controller/>}/>
-
+                    <Route path='/login' element={<Login/>}/>
+                    <Route path='/signup' element={<Signup/>}/>
                 </Routes>
-                
             </Router>
         </>
     );
