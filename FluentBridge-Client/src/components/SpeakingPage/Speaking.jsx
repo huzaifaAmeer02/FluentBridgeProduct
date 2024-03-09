@@ -4,6 +4,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { MdMic } from "react-icons/md";
 import { RiArrowRightSLine } from "react-icons/ri";
 import speakingBg from "../../assets/speaking-bg.jpg";
+import { BsFillMicFill } from "react-icons/bs"; // Added mic icon
 
 function Speaking() {
     const [fluencyLevel, setFluencyLevel] = useState("");
@@ -17,7 +18,7 @@ function Speaking() {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen" style={{ backgroundImage: `url(${speakingBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `url(${speakingBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="absolute left-4 top-4">
                 <Link
                     to="/activities"
@@ -71,6 +72,16 @@ function Speaking() {
                         disabled // Disable textarea
                     />
                 </div>
+            </div>
+            {/* Button for Try Pronounce */}
+            
+            <div className="absolute bottom-4 right-4 flex items-center"> 
+            <h2 className="mr-4 text-white">Practice Here</h2>
+                <Link to="/trypronounce">
+                    <button className="bg-gray-100 hover:bg-gray-400 text-gray-700 font-bold py-4 px-4 rounded-full flex items-center justify-center">
+                        <BsFillMicFill/>
+                    </button>
+                </Link>
             </div>
         </div>
     );
