@@ -10,11 +10,24 @@ const Navbar = () => {
     const location = useLocation();
 
     // Condition to check if the navbar should be hidden based on the current URL
-    /*const hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel" || location.pathname === "/login" || location.pathname === "/signup"|| location.pathname === "/";*/
-
-    const hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel" || location.pathname === "/" || location.pathname ==="/dictionaryapi" || location.pathname ==="/dictionary" || location.pathname==="/gradingquiz" || location.pathname==="/quiz" || location.pathname==="/results" || location.pathname==="/listeningquiz" || location.pathname==="/readingquestionaier" || location.pathname==="/vocabulary-activity" ||location.pathname==="/speaking" || location.pathname==="/pronunciation"
-
-    hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel" || location.pathname === "/" || location.pathname ==="/dictionaryapi" || location.pathname ==="/dictionary" || location.pathname==="/gradingquiz" || location.pathname==="/quiz" || location.pathname==="/results" || location.pathname==="/listeningquiz" || location.pathname==="/wordleGame" || location.pathname==="/vocabulary-activity" || location.pathname==="/readingquestionaier"
+    const hidePaths = [
+        "/listening",
+        "/vocabpanel",
+        "/",
+        "/dictionaryapi",
+        "/dictionary",
+        "/gradingquiz",
+        "/quiz",
+        "/results",
+        "/listeningquiz",
+        "/wordleGame",
+        "/vocabulary-activity",
+        "/readingquestionaier",
+        "/speaking",
+        "/pronunciation"
+      ];
+      
+      const hideNavbar = hidePaths.includes(location.pathname);
 
 
     

@@ -40,8 +40,8 @@ const ActivityPanel = () => {
                 style={{ ...slideIn, background: `url(${rightBack})`, backgroundSize: "cover" }}
                 className="flex-1 md:flex md:items-center md:justify-center "
             >
-                <div className="md:w-2/3 pb-60 overflow-y-auto pb-10">
-                    <h2 className="text-2xl font-bold  text-gray-800 rounded-2xl bg-gray-100 p-4 mb-4 text-center mt-2">Select Your Activity</h2>
+                <div className="md:w-2/3 pb-40 overflow-y-auto">
+                    <h2 className="text-2xl font-bold  text-gray-800 rounded-2xl bg-gray-100 p-4 mb-4 text-center mt-6">Select Your Activity</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <animated.div style={bounceIn}>
                             <Link
@@ -100,9 +100,6 @@ const ActivityPanel = () => {
                     </div>
                 </div>
             </animated.div>
-
-            {/* ChatBot Modal */}
-            {showChatBot && <Controller onClose={toggleChatBot} />}
             <Footer/>
         </div>
     );
