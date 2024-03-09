@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import vocabActivity1 from "../../assets/vocabActivity1.jpg";
+import vocabActivity from "../../assets/vocabActivity.png";
 import crown from "../../assets/crown.png";
 import { IoIosArrowBack } from 'react-icons/io';
 
 const VocabularyActivityPage = () => {
     return (
-        <div className="bg-cover  bg-center min-h-screen flex flex-col justify-center items-center" style={{ backgroundImage: `url(${vocabActivity1})` }}>
+        <div className="bg-center  min-h-screen flex flex-col justify-center items-center" style={{ backgroundImage: `url(${vocabActivity})` }}>
             
             <Link to="/vocabpanel" className="back-to-vocabpanel absolute left-4 top-4 text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white">
                 <IoIosArrowBack />
