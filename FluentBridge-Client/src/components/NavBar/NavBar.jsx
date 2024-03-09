@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaSignOutAlt } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import logo from "/src/assets/logofluent.png";
-import "./navbar.css";
+import "./NavBar.css";
 
 const Navbar = () => {
     const [Mobile, setMobile] = useState(false);

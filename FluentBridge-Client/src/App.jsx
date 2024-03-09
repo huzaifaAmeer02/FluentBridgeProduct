@@ -23,8 +23,8 @@ import ReadingQuestionier from "./components/ReadingActivity/ReadingQuestionier.
 import Controller from "./components/ChatBotModal/Controller";
 import Login from "./components/LandingPage/Login";
 import Signup from "./components/LandingPage/Signup.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 import Speaking from "./components/SpeakingPage/Speaking.jsx";
-
 
 
 function App() {
@@ -54,7 +54,9 @@ function App() {
                     <Route path='/Controller' element={<Controller/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/signup' element={<Signup/>}/>
+                    <Route path='/signup' element={<Signup/>}/>
                     <Route path='/speaking' element={<Speaking/>}/>
+                    <Route path='/pronunciation' element={<Pronunciation/>}/>
                 </Routes>
             </Router>
         </>

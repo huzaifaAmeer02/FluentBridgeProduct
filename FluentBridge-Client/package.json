@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
     "confetti-js": "^0.0.18",
+    "firebase": "^10.8.1",
     "framer-motion": "^11.0.3",
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",
@@ -27,11 +28,11 @@
     "react-router-dom": "^6.22.1",
     "react-speech-kit": "^3.0.1",
     "react-spring": "^9.7.3",
-    "react-toastify": "^10.0.4",
-    "react-typed": "^2.0.12",
     "react-typist": "^2.0.5",
     "react-widgets": "^5.8.4",
-    "use-sound": "^4.0.1"
+    "sass": "^1.71.1",
+    "use-sound": "^4.0.1",
+    "vite-plugin-sass": "^0.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -45,7 +46,6 @@
     "postcss": "^8.4.33",
     "sass": "^1.71.1",
     "tailwindcss": "^3.4.1",
-    "vite": "^5.0.8",
-    "vite-plugin-sass": "^0.1.0"
+    "vite": "^5.0.8"
   }
 }
