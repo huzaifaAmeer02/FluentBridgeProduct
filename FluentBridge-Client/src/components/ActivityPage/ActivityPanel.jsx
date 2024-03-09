@@ -53,7 +53,7 @@ const ActivityPanel = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <animated.div style={bounceIn}>
                             <Link
-                                to="#"
+                                to="/speaking"
                                 className="block bg-blue-500 hover:bg-blue-700 text-white p-6 text-center transition rounded-md"
                             >
                                 <FiMic className="mx-auto mb-2 text-4xl" />
