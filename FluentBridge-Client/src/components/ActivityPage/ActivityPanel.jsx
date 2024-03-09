@@ -5,6 +5,7 @@ import { useSpring, animated } from "react-spring";
 import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook, FiBookOpen } from "react-icons/fi"; // Importing the necessary icons
 import rightBack from "../../assets/activity-bg.jpg";
 import Controller from "../ChatBotModal/Controller.jsx";
+import Footer from "../Footer/Footer.jsx";
 
 const ActivityPanel = () => {
     const [showChatBot, setShowChatBot] = useState(false);
@@ -34,15 +35,6 @@ const ActivityPanel = () => {
 
     return (
         <div className="relative flex flex-col min-h-screen mt-16">
-            {/* ChatBot Button */}
-            <animated.div
-                className="fixed bottom-20 right-8 bg-blue-500 hover:bg-blue-700 text-white p-3 text-center transition rounded-full z-10"
-                style={fadeIn}
-                onClick={toggleChatBot}
-            >
-                <FiMessageSquare />
-            </animated.div>
-
             {/* Activity Panel */}
             <animated.div
                 style={{ ...slideIn, background: `url(${rightBack})`, backgroundSize: "cover" }}
@@ -111,7 +103,7 @@ const ActivityPanel = () => {
 
             {/* ChatBot Modal */}
             {showChatBot && <Controller onClose={toggleChatBot} />}
-
+            <Footer/>
         </div>
     );
 };
