@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 // import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
 import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook, FiBookOpen } from "react-icons/fi"; // Importing the necessary icons
-import rightBack from "../../assets/activity-bg.jpg";
+import rightBack from "../../assets/activity-bg6.png";
 import Controller from "../ChatBotModal/Controller.jsx";
 import Footer from "../Footer/Footer.jsx";
 
@@ -38,9 +38,9 @@ const ActivityPanel = () => {
             {/* Activity Panel */}
             <animated.div
                 style={{ ...slideIn, background: `url(${rightBack})`, backgroundSize: "cover" }}
-                className="flex-1 md:flex md:items-center md:justify-center"
+                className="flex-1 md:flex md:items-center md:justify-center "
             >
-                <div className="md:w-2/3 p-4 overflow-y-auto pb-10">
+                <div className="md:w-2/3 pb-60 overflow-y-auto pb-10">
                     <h2 className="text-2xl font-bold  text-gray-800 rounded-2xl bg-gray-100 p-4 mb-4 text-center mt-2">Select Your Activity</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <animated.div style={bounceIn}>
