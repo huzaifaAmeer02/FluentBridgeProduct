@@ -25,24 +25,24 @@ const Pronunciation = () => {
                     <img src="/img/speech.png" alt="Speech Icon" className="mx-auto mb-5 h-16" />
                     <div className="md:w-1/2 mx-auto">
                         <form className="mb-5">
-                            <div className="mb-4">
+                            <div className="mb-6">
                 <textarea
                     id="text-input"
-                    className="form-input bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none p-4 w-full rounded"
+                    className="form-input bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none p-4 w-full rounded-md text-lg placeholder-gray-500"
                     placeholder="Type anything..."
                 ></textarea>
                             </div>
-                            <div className="mb-4">
+                            <div className="mb-6">
                                 <label htmlFor="rate" className="block text-left text-gray-500">
                                     Rate
                                 </label>
-                                <div id="rate-value" className="badge badge-primary float-right text-blue-500">
+                                <div id="rate-value" className="font-bold text-blue-500 text-lg">
                                     {rate.toFixed(1)}
                                 </div>
                                 <input
                                     type="range"
                                     id="rate"
-                                    className="custom-range"
+                                    className="custom-range mt-2"
                                     min="0.5"
                                     max="2"
                                     value={rate}
@@ -50,17 +50,17 @@ const Pronunciation = () => {
                                     onChange={handleRateChange}
                                 />
                             </div>
-                            <div className="mb-4">
+                            <div className="mb-6">
                                 <label htmlFor="pitch" className="block text-left text-gray-500">
                                     Pitch
                                 </label>
-                                <div id="pitch-value" className="badge badge-primary float-right text-blue-500">
+                                <div id="pitch-value" className="font-bold text-blue-500 text-lg">
                                     {pitch.toFixed(1)}
                                 </div>
                                 <input
                                     type="range"
                                     id="pitch"
-                                    className="custom-range"
+                                    className="custom-range mt-2"
                                     min="0"
                                     max="2"
                                     value={pitch}
@@ -68,11 +68,16 @@ const Pronunciation = () => {
                                     onChange={handlePitchChange}
                                 />
                             </div>
-                            <div className="mb-4">
+                            <div className="mb-6">
                                 <select
                                     id="voice-select"
-                                    className="form-select form-select-lg bg-gray-700 border border-gray-600 text-white"
-                                ></select>
+                                    className="form-select bg-gray-700 border border-gray-600 text-white text-lg p-2 rounded"
+                                >
+                                    <option value="" disabled selected>
+                                        Select a voice...
+                                    </option>
+                                    {/* Add more options here if needed */}
+                                </select>
                             </div>
                             <button className="flex items-center justify-center btn btn-primary btn-lg btn-block">
                                 <FiMic className="mr-2" />
@@ -81,7 +86,7 @@ const Pronunciation = () => {
                         </form>
 
                         <p className="text-secondary text-sm">
-                            Note: This app uses the Web Speech API which is experimental and may not fully work in some versions of certain browsers
+                            FluentMe online pronunciation trainer
                         </p>
                     </div>
                 </div>
