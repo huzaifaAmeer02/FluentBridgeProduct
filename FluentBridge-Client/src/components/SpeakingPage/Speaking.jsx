@@ -1,21 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdMic } from "react-icons/md";
 import { RiArrowRightSLine } from "react-icons/ri";
 import speakingBg from "../../assets/speaking-bg.jpg";
 import { BsFillMicFill } from "react-icons/bs"; // Added mic icon
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 function Speaking() {
     const [fluencyLevel, setFluencyLevel] = useState("");
     const [feedback, setFeedback] = useState("");
     const [isRecording, setIsRecording] = useState(false);
+    const [loading, setLoading] = useState(true); // State for loading
 
     const startRecording = () => {
         // Add your logic to start recording here
         console.log("Recording started...");
         setIsRecording(true);
     };
+
+    useEffect(() => {
+        // Simulate loading time
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 2000); // 2 seconds for demonstration purposes
+
+        // Clear timeout on component unmount
+        return () => clearTimeout(timeout);
+    }, []);
+
+    if (loading) {
+        return <LoadingPage />; // Render loading page while loading
+    }
 
     return (
         <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `url(${speakingBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>

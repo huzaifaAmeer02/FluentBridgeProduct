@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
-import { FiGlobe } from 'react-icons/fi'; // Import the language icon
+import React, { useState, useEffect } from 'react';
+import { FiGlobe } from 'react-icons/fi';
+import LoadingPage from '../../LoadingPage/LoadingPage';
 import backgroundImage from '../assets/pic01.jpg';
 
 const Hero = () => {
+    const [loading, setLoading] = useState(true);
     const [isSinhala, setIsSinhala] = useState(false);
 
     const toggleLanguage = () => {
         setIsSinhala(!isSinhala);
     };
+
+    useEffect(() => {
+        // Simulate loading time
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+
+        // Clear timeout on component unmount
+        return () => clearTimeout(timeout);
+    }, []);
+
+    if (loading) {
+        return <LoadingPage />;
+    }
 
     return (
         <div className='text-white mt-16' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
