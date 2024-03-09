@@ -32,7 +32,8 @@
     "react-typist": "^2.0.5",
     "react-widgets": "^5.8.4",
     "use-sound": "^4.0.1"
-  },
+},
+
   "devDependencies": {
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
