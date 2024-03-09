@@ -8,6 +8,7 @@ const Pronunciation = () => {
     const [rate, setRate] = useState(1);
     const [pitch, setPitch] = useState(1);
 
+
     const handleRateChange = (e) => {
         const newRate = parseFloat(e.target.value);
         setRate(newRate);
