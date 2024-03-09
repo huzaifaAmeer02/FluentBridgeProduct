@@ -23,7 +23,7 @@ import ReadingQuestionier from "./components/ReadingActivity/ReadingQuestionier.
 import Controller from "./components/ChatBotModal/Controller";
 import Login from "./components/LandingPage/Login";
 import Signup from "./components/LandingPage/Signup.jsx";
-import Footer from "./components/Footer/Footer"
+import Footer from "./components/Footer/Footer.jsx";
 
 
 

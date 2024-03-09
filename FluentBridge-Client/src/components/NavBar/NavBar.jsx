@@ -3,13 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaSignOutAlt } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import logo from "/src/assets/logofluent.png";
-import "./NavBar.css"
+import "./NavBar.css";
 
 const Navbar = () => {
     const [Mobile, setMobile] = useState(false);
-
-
-
     const location = useLocation();
 
     // Condition to check if the navbar should be hidden based on the current URL
