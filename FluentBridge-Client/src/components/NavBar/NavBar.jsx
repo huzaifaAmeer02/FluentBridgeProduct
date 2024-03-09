@@ -11,7 +11,7 @@ const Navbar = () => {
 
     // Condition to check if the navbar should be hidden based on the current URL
 
-    const hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel" || location.pathname === "/" || location.pathname ==="/dictionaryapi" || location.pathname ==="/dictionary" || location.pathname==="/gradingquiz" || location.pathname==="/quiz" || location.pathname==="/results" || location.pathname==="/listeningquiz" || location.pathname==="/readingquestionaier" || location.pathname==="/vocabulary-activity" ||location.pathname==="/speaking"
+    const hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel" || location.pathname === "/" || location.pathname ==="/dictionaryapi" || location.pathname ==="/dictionary" || location.pathname==="/gradingquiz" || location.pathname==="/quiz" || location.pathname==="/results" || location.pathname==="/listeningquiz" || location.pathname==="/readingquestionaier" || location.pathname==="/vocabulary-activity" ||location.pathname==="/speaking" || location.pathname==="/pronunciation"
 
 
     // Function to toggle mobile menu

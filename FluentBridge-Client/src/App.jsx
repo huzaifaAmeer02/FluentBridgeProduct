@@ -25,6 +25,7 @@ import Login from "./components/LandingPage/Login";
 import Signup from "./components/LandingPage/Signup.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Speaking from "./components/SpeakingPage/Speaking.jsx";
+import Pronunciation from "./components/SpeakingPage/prounciation.jsx";
 
 
 function App() {
