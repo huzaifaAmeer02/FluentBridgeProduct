@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+// eslint-disable-next-line no-unused-vars
+import {React,useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import bglanding from '../../assets/bg-landing.jpg';
 import logo from '../../assets/logofluent.png';
+import { BiPencil, BiHeadphone, BiMicrophone, BiBookOpen, BiAbacus } from 'react-icons/bi';
 
 function LandingPage() {
     const [currentDateTime, setCurrentDateTime] = useState('');
@@ -27,33 +28,68 @@ function LandingPage() {
         // Clear interval on component unmount
         return () => clearInterval(interval);
     }, []);
+
     return (
-        <div className="bg-cover bg-center min-h-screen flex flex-col justify-center items-center" style={{backgroundImage: `url(${bglanding})`}}>
-            <header className="text-center text-white mt-2">
-                <div className="flex items-center justify-center mb-8">
-                    <img src={logo} alt="Fluent Bridge Logo" className="h-20 w-20 mr-4" />
-                    <h1 className="text-4xl font-bold bg-gray-700 bg-opacity-50 p-6 rounded-2xl animate-bounce">FluentBridge Sri Lanka</h1>
-                </div>
+        <div className="bg-gradient-to-b from-[#01282B] to-[#B3D9D9] min-h-screen flex flex-col justify-center items-center text-gray-800">
+            <header className="text-center mt-10">
+                <h1 className="flex items-center justify-center text-4xl font-bold bg-white bg-opacity-80 p-6 rounded-2xl shadow-lg">
+                    <img src={logo} alt="FluentBridge Logo" className="h-10 mr-2" />
+                    FluentBridge Sri Lanka
+                </h1>
             </header>
-            <main className="text-center text-white">
-                <section className="mb-8 bg-gray-900 bg-opacity-50 rounded-lg p-4 transition duration-300 hover:bg-gray-800 hover:bg-opacity-75">
-                    <h2 className="text-2xl font-semibold animate-pulse">Get Started</h2>
-                    <p className="text-lg animate-pulse">Sign up or log in to access the full features of Fluent Bridge.</p>
-                    <div className='mt-4'>
-                        <Link to="/login"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Login</button></Link>
-                        <Link to="/signup"><button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">Register</button></Link>
+            <main className="text-center text-gray-800 mt-8 mx-6">
+                <section className="mb-8 bg-white bg-opacity-80 rounded-lg p-8 shadow-lg">
+                    <h2 className="text-2xl font-semibold">Welcome to Fluent Bridge</h2>
+                    <p className="text-lg mt-4">Fluent Bridge is an English learning platform designed for skilled migrant workers. Our system offers writing, listening, speaking, vocabulary exercises, and user-friendly chatbot assistance.</p>
+                    <div className='mt-8 flex justify-center'>
+                        <Link to="/login"><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">Login</button></Link>
+                        <Link to="/signup"><button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Register</button></Link>
                     </div>
-
-
-
-                    <p className="text-sm mt-2">{currentDateTime}</p>
-                    <section className="bg-white text-black bg-opacity-50 rounded-lg p-4 mt-4 transition duration-300 hover:bg-gray-800 hover:bg-opacity-75 hover:text-white">
-                        <h2 className="text-2xl font-semibold animate-pulse">Contact Us</h2>
-                        <p className="text-lg animate-pulse">If you have any questions or feedback, feel free to contact us.</p>
-                    </section>
+                    <p className="text-sm mt-8">{currentDateTime}</p>
+                </section>
+                <section className="bg-gray-800 rounded-lg p-8 mt-8 shadow-lg">
+                    <h2 className="text-2xl font-semibold mb-6">Activities</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {/* Activity Box 1 */}
+                        <div className="bg-white bg-opacity-80 p-6 rounded-lg flex flex-col items-center shadow-lg">
+                            <BiPencil className="text-5xl text-gray-300" />
+                            <h3 className="text-lg font-semibold mb-2">Writing</h3>
+                            <p className="text-sm">Practice your writing skills with various exercises.</p>
+                        </div>
+                        {/* Activity Box 2 */}
+                        <div className="bg-white bg-opacity-80 p-6 rounded-lg flex flex-col items-center shadow-lg">
+                            <BiHeadphone className="text-5xl text-gray-300" />
+                            <h3 className="text-lg font-semibold mb-2">Listening</h3>
+                            <p className="text-sm">Improve your listening skills with audio exercises.</p>
+                        </div>
+                        {/* Activity Box 3 */}
+                        <div className="bg-white bg-opacity-80 p-6 rounded-lg flex flex-col items-center shadow-lg">
+                            <BiMicrophone className="text-5xl text-gray-300" />
+                            <h3 className="text-lg font-semibold mb-2">Speaking</h3>
+                            <p className="text-sm">Enhance your speaking skills through conversation practice.</p>
+                        </div>
+                        {/* Activity Box 4 */}
+                        <div className="bg-white bg-opacity-80 p-6 rounded-lg flex flex-col items-center shadow-lg">
+                            <BiBookOpen className="text-5xl text-gray-300" />
+                            <h3 className="text-lg font-semibold mb-2">Vocabulary</h3>
+                            <p className="text-sm">Expand your vocabulary with interactive exercises.</p>
+                        </div>
+                        {/* Activity Box 5 */}
+                        <div className="bg-white bg-opacity-80 p-6 rounded-lg flex flex-col items-center shadow-lg">
+                            <BiAbacus className="text-5xl text-gray-300" />
+                            <h3 className="text-lg font-semibold mb-2">Chatbot Assistance</h3>
+                            <p className="text-sm">Get assistance and practice with our user-friendly chatbot.</p>
+                        </div>
+                        {/* Activity Box 6 */}
+                        <div className="bg-white bg-opacity-80 p-6 rounded-lg flex flex-col items-center shadow-lg">
+                            <BiAbacus className="text-5xl text-gray-300" />
+                            <h3 className="text-lg font-semibold mb-2">Grading Quiz</h3>
+                            <p className="text-sm">Test your knowledge with our grading quiz.</p>
+                        </div>
+                    </div>
                 </section>
             </main>
-            <footer className="mt-8 text-center bg-black p-4 text-white">
+            <footer className="mt-8 text-center bg-white bg-opacity-80 p-4 text-gray-800 shadow-lg rounded-2xl">
                 <p className="text-sm">&copy; 2024 Fluent Bridge. All rights reserved.</p>
             </footer>
         </div>

@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 // import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
-import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook, FiBookOpen } from "react-icons/fi"; // Importing the necessary icons
+import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook } from "react-icons/fi"; // Importing the necessary icons
 import rightBack from "../../assets/activity-bg6.png";
-import Controller from "../ChatBotModal/Controller.jsx";
 import Footer from "../Footer/Footer.jsx";
 
 const ActivityPanel = () => {
-    const [showChatBot, setShowChatBot] = useState(false);
-
+    
+    // eslint-disable-next-line no-unused-vars
     const fadeIn = useSpring({
         opacity: 1,
         from: { opacity: 0 },
@@ -29,9 +28,6 @@ const ActivityPanel = () => {
         config: { duration: 800, delay: 300, tension: 300, friction: 10 },
     });
 
-    const toggleChatBot = () => {
-        setShowChatBot(!showChatBot);
-    };
 
     return (
         <div className="relative flex flex-col min-h-screen mt-16">
