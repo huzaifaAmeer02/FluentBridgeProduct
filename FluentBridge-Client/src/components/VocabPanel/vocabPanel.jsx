@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LoadingPage from "../LoadingPage/LoadingPage"; // Import the LoadingPage component
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
-import vocabback from "../../assets/vocabback.jpg";
+import vocabback from "../../assets/vocabback1.jpg";
 
 const VocabPanel = () => {
     const [loading, setLoading] = useState(true);
@@ -26,6 +26,7 @@ const VocabPanel = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        padding: '2rem',
     };
 
     if (loading) {
@@ -33,7 +34,7 @@ const VocabPanel = () => {
     }
 
     return (
-        <div className="p-8" style={containerStyle}>
+        <div className="relative" style={containerStyle}>
             <Link
                 to="/activities"
                 className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
@@ -41,23 +42,19 @@ const VocabPanel = () => {
                 <IoIosArrowBack />
             </Link>
 
-            <div className="absolute top-18 left-20 mt-4 ml-10">
-                <div className="flex flex-col">
-                    <Link
-                        to="/dictionary"
-                        className="button1 flex justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-teal-500 hover:bg-teal-700 transition duration-300 ease-in-out mx-2 my-8"
-                    >
-                        Use Dictionary
-                    </Link>
-                </div>
-                <div className="flex flex-col">
-                    <Link
-                        to="/vocabulary-activity"
-                        className="button1 flex justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-red-500 hover:bg-red-700 transition duration-300 ease-in-out mx-2"
-                    >
-                        Vocabulary Activity
-                    </Link>
-                </div>
+            <div className="flex flex-col mb-8 justify-center items-center">
+                <Link
+                    to="/dictionary"
+                    className="button1 flex justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-teal-500 hover:bg-teal-700 transition duration-300 ease-in-out mb-4"
+                >
+                    Use Dictionary
+                </Link>
+                <Link
+                    to="/vocabulary-activity"
+                    className="button1 flex justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-red-500 hover:bg-red-700 transition duration-300 ease-in-out mb-4"
+                >
+                    Vocabulary Activity
+                </Link>
             </div>
         </div>
     );

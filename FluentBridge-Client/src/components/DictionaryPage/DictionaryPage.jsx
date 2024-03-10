@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import dictionary2 from "../../assets/dictionary2.png";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiGlobe } from "react-icons/fi";
+import dictionaryImage from "../../assets/dictionary1.jpg"; // Import the dictionary image
 
 const DictionaryPage = () => {
     const [language, setLanguage] = useState("en");
 
-    // Define entrance animations using react-spring
     const fadeIn = useSpring({
         opacity: 1,
         from: { opacity: 0 },
@@ -25,7 +24,6 @@ const DictionaryPage = () => {
         setLanguage(language === "en" ? "si" : "en");
     };
 
-    // Define content for both English and Sinhala
     const content = {
         en: {
             title: "FluentBridge Dictionary",
@@ -80,19 +78,20 @@ const DictionaryPage = () => {
             >
                 <IoIosArrowBack />
             </Link>
-            <animated.section style={{ ...fadeIn, backgroundImage: `url(${dictionary2})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', paddingTop: '2rem', paddingBottom: '2rem', backgroundColor: '#055B5C' }} className="text-gray-600 body-font flex lg:flex-row-reverse">
-                <animated.div style={{ ...slideIn, delay: 200 }}  className="lg:w-2/5 bg-gray-700 text-white pt-9 p-8 h-auto rounded-lg lg:mr-6 mt-8">
-                    <h1 className="title-font sm:text-4xl text-5xl mb-4 font-medium text-gray-400">
+            <animated.section style={{ ...fadeIn, minHeight: '100vh', paddingTop: '2rem', paddingBottom: '2rem', backgroundColor: '#ffffff' }} className="text-gray-600 body-font flex flex-col lg:flex-row justify-center items-center lg:items-stretch">
+                <img src={dictionaryImage} alt="Dictionary" className="lg:w-1/2 object-cover rounded-lg lg:mr-6 mt-8 lg:mt-0" />
+                <animated.div style={{ ...slideIn, delay: 200 }}  className="lg:w-1/2 bg-teal-700 text-white pt-20 p-8 h-auto rounded-lg lg:mx-9 mt-20 mb-20">
+                    <h1 className="title-font sm:text-4xl text-5xl mb-4 font-medium text-blue-200 text-center lg:text-left">
                         {content[language].title}
                     </h1>
 
-                    <p className="mb-8 leading-relaxed">
+                    <p className="mb-8 leading-relaxed text-center lg:text-left">
                         {content[language].description}
                     </p>
 
-                    <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start">
+                    <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start w-full">
                         <Link to="/dictionaryapi">
-                            <button className="mb-4 lg:mb-0 lg:mr-4 inline-flex text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-brown-900 rounded text-lg">
+                            <button className="mb-4 lg:mb-0 lg:mr-4 inline-flex text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-900 rounded text-lg">
                                 {content[language].buttonText}
                             </button>
                         </Link>
@@ -103,6 +102,7 @@ const DictionaryPage = () => {
                     </div>
                 </animated.div>
             </animated.section>
+            
         </>
     );
 };
