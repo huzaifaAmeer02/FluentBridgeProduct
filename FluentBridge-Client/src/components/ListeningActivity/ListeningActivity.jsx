@@ -23,19 +23,19 @@ const ListeningActivity = () => {
             title: "Teacher",
             image: "https://img.freepik.com/free-photo/portrait-senior-male-professor-education-day_23-2150980102.jpg?t=st=1707676550~exp=1707680150~hmac=8d938dd34004f2bc26aadc8a07b8b272d9c545de48fe9ecb59d38652d32c4987&w=826",
             link: "/Teacher",
-            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
+            videoUrl: "https://www.youtube.com/watch?v=toCn9-9hXoY",
         },
         {
             title: "Artists",
             image: "https://img.freepik.com/free-photo/expert-carpenter-creates-art-using-old-wood-generated-by-ai_188544-27902.jpg?t=st=1707676810~exp=1707680410~hmac=214c00fb77b97dc5faa07eca7822df2c144270539bc98b3df003ffca4013797d&w=996",
             link: "/Artists",
-            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
+            videoUrl: "https://www.youtube.com/watch?v=_Fwf45pIAtM",
         },
         {
             title: "Driver",
             image: "https://img.freepik.com/premium-photo/indian-male-driver-delivery-van-uniform-looking-camera-with-smile_466689-96393.jpg?w=826",
             link: "/Driver",
-            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
+            videoUrl: "https://www.youtube.com/watch?v=zpsVpnvFfZQ",
         },
         {
             title: "Nurse",
@@ -65,7 +65,7 @@ const ListeningActivity = () => {
             title: "Store Keeper",
             image: "https://img.freepik.com/premium-photo/smiling-woman-worker-hardware-warehouse-standing-checking-supplies-her-tablet-look-camera_73899-14238.jpg?w=1060",
             link: "/Keeper",
-            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
+            videoUrl: "https://www.youtube.com/watch?v=qKVW_wJs91Q",
         }
         // Add more job details as needed
     ];
@@ -98,7 +98,7 @@ const ListeningActivity = () => {
                     >
                         <IoIosArrowBack />
                     </Link>
-                    <h2 className="text-3xl font-bold text-center mb-8">
+                    <h2 className="text-3xl  font-bold text-center mb-8">
                         Listening Activity
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 px-4">

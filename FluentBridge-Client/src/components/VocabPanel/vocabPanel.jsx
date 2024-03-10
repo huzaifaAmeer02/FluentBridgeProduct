@@ -1,10 +1,22 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useState, useEffect } from "react";
+import LoadingPage from "../LoadingPage/LoadingPage"; // Import the LoadingPage component
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
-import vocabback from "../../assets/vocabback.jpg"
+import vocabback from "../../assets/vocabback.jpg";
 
 const VocabPanel = () => {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Simulate loading time
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+
+        // Clear timeout on component unmount
+        return () => clearTimeout(timeout);
+    }, []);
+
     const containerStyle = {
         backgroundImage: `url(${vocabback})`,
         backgroundSize: 'cover',
@@ -15,6 +27,10 @@ const VocabPanel = () => {
         justifyContent: 'center',
         alignItems: 'center',
     };
+
+    if (loading) {
+        return <LoadingPage />; // Render the LoadingPage component while loading
+    }
 
     return (
         <div className="p-8" style={containerStyle}>
@@ -43,8 +59,6 @@ const VocabPanel = () => {
                     </Link>
                 </div>
             </div>
-
-
         </div>
     );
 };

@@ -3,16 +3,35 @@ import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaSignOutAlt } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import logo from "/src/assets/logofluent.png";
-import "./navbar.css";
+import "./NavBar.css";
 
 const Navbar = () => {
     const [Mobile, setMobile] = useState(false);
     const location = useLocation();
 
     // Condition to check if the navbar should be hidden based on the current URL
-    /*const hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel" || location.pathname === "/login" || location.pathname === "/signup"|| location.pathname === "/";*/
+    const hidePaths = [
+        "/listening",
+        "/vocabpanel",
+        "/",
+        "/dictionaryapi",
+        "/dictionary",
+        "/gradingquiz",
+        "/quiz",
+        "/results",
+        "/listeningquiz",
+        "/wordleGame",
+        "/vocabulary-activity",
+        "/readingquestionaier",
+        "/speaking",
+        "/pronunciation",
+        "/writingactivity"
+      ];
+      
+      const hideNavbar = hidePaths.includes(location.pathname);
 
-    const hideNavbar = location.pathname === "/listening" || location.pathname === "/vocabpanel" || location.pathname === "/" || location.pathname ==="/dictionaryapi" || location.pathname ==="/dictionary" || location.pathname ==="/Controller" || location.pathname==="/gradingquiz" || location.pathname==="/quiz" || location.pathname==="/results" || location.pathname==="/listeningquiz" || location.pathname==="/readingquestionaier"
+
+    
 
     // Function to toggle mobile menu
     const toggleMobileMenu = () => {
