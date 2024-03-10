@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 // import ChatBotModal from "../ChatBotModal/ChatBotModal.jsx";
@@ -7,7 +7,8 @@ import rightBack from "../../assets/activity-bg6.png";
 import Footer from "../Footer/Footer.jsx";
 
 const ActivityPanel = () => {
-    
+    const [showChatBot, setShowChatBot] = useState(false);
+
     // eslint-disable-next-line no-unused-vars
     const fadeIn = useSpring({
         opacity: 1,
