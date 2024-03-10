@@ -24,7 +24,8 @@ const Navbar = () => {
         "/vocabulary-activity",
         "/readingquestionaier",
         "/speaking",
-        "/pronunciation"
+        "/pronunciation",
+        "/writingactivity"
       ];
       
       const hideNavbar = hidePaths.includes(location.pathname);

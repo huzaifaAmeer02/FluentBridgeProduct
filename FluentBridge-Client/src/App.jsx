@@ -26,6 +26,7 @@ import Signup from "./components/LandingPage/Signup.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Speaking from "./components/SpeakingPage/Speaking.jsx";
 import Pronunciation from "./components/SpeakingPage/prounciation.jsx";
+import WritingActivity from "./components/WritingActivity/WritingActivity.jsx";
 
 
 
@@ -59,6 +60,7 @@ function App() {
                     <Route path='/signup' element={<Signup/>}/>
                     <Route path='/speaking' element={<Speaking/>}/>
                     <Route path='/pronunciation' element={<Pronunciation/>}/>
+                    <Route path='/writingactivity' element={<WritingActivity/>}/>
                 </Routes>
             </Router>
         </>

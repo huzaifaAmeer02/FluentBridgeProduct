@@ -63,7 +63,7 @@ const ActivityPanel = () => {
                         </animated.div>
                         <animated.div style={bounceIn}>
                             <Link
-                                to="#"
+                                to="/writingactivity"
                                 className="block bg-yellow-500 hover:bg-yellow-700 text-white p-6 text-center transition rounded-md"
                             >
                                 <FiEdit className="mx-auto mb-2 text-4xl" />
