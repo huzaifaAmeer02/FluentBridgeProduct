@@ -23,7 +23,7 @@ const ListeningActivity = () => {
         },
         {
             title: "Teacher",
-            image:"https://img.freepik.com/free-vector/flat-design-black-teacher-clipart-illustration_23-2150973457.jpg?w=740&t=st=1710143163~exp=1710143763~hmac=0647e667d53d639477f5914cdfbb7bfa759ca6a7bb454ac3c4c5f27010b85984",
+            image:"https://img.freepik.com/free-vector/flat-background-world-teacher-s-day-celebration_23-2150736743.jpg?t=st=1710087587~exp=1710091187~hmac=1fcbe08cf35bd03346d046e979f314c48549a294cd4c8c4c63e82d4e34d6c540&w=1060",
             //image: "https://img.freepik.com/free-photo/portrait-senior-male-professor-education-day_23-2150980102.jpg?t=st=1707676550~exp=1707680150~hmac=8d938dd34004f2bc26aadc8a07b8b272d9c545de48fe9ecb59d38652d32c4987&w=826",
             link: "/Teacher",
             videoUrl: "https://www.youtube.com/watch?v=toCn9-9hXoY",
@@ -123,15 +123,14 @@ const ListeningActivity = () => {
             {loading ? (
                 <LoadingPage />
             ) : (
-
-                <section className=" py-8 relative" style={{background: 'radial-gradient(circle, #220233, #000000)'}}>
+                <section className="bg-purple-100 py-8 relative">
                     <Link
                         to="/activities"
                         className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
                     >
                         <IoIosArrowBack />
                     </Link>
-                    <h2 className="text-3xl text-white font-bold text-center mb-8">
+                    <h2 className="text-3xl  font-bold text-center mb-8">
                         Listening Activity
                     </h2>
                     <button
