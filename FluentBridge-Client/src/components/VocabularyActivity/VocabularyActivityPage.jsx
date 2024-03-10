@@ -81,7 +81,9 @@ const VocabularyActivityPage = () => {
                             {translations[language].startWordle}
                         </Link>
                     </div>
-                    <FiGlobe onClick={toggleLanguage} className="text-white">{language === "en" ? "සිංහල" : "English"}</FiGlobe>
+                    <div className="flex justify-center mt-4 p-2">
+                        <FiGlobe onClick={toggleLanguage} className="text-white text-2xl cursor-pointer border-2 rounded-2xl">{language === "en" ? "සිංහල" : "English"}</FiGlobe>
+                    </div> 
                 </section>
             </main>
             
