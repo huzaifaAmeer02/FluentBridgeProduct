@@ -145,7 +145,7 @@ function Speaking() {
                             ))}
                         </select>
                     </div>
-                    <button className="flex items-center justify-center btn btn-primary btn-lg btn-block mx-auto mb-6" onClick={speak}>
+                    <button className="flex items-center justify-center bg-gray-800 btn text-white btn-lg btn-block mx-auto mb-6" onClick={speak}>
                         <FiMic className="mr-2" />
                         Pronounce It
                     </button>
