@@ -3,6 +3,7 @@ import {React,useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logofluent.png';
 import { BiPencil, BiHeadphone, BiMicrophone, BiBookOpen, BiAbacus } from 'react-icons/bi';
+import { AiOutlineMessage } from 'react-icons/ai';
 
 function LandingPage() {
     const [currentDateTime, setCurrentDateTime] = useState('');
@@ -89,7 +90,7 @@ function LandingPage() {
                         </div>
                         {/* Activity Box 5 */}
                         <div className="bg-white bg-opacity-80 p-6 rounded-lg flex flex-col items-center shadow-lg">
-                            <BiAbacus className="text-5xl text-gray-300" />
+                            <AiOutlineMessage className="text-5xl text-gray-300" />
                             <h3 className="text-lg font-semibold mb-2">Chatbot Assistance</h3>
                             <p className="text-sm">Get assistance and practice with our user-friendly chatbot.</p>
                         </div>
