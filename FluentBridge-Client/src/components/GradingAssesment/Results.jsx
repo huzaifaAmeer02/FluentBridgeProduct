@@ -1,32 +1,45 @@
-// eslint-disable-next-line no-unused-vars
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ResultsTables from "./ResultsTables.jsx";
-import {useDispatch, useSelector} from "react-redux";
-import {attempts_Number} from "../../Helper/helper.js";
-import {earnPoints_Number} from "../../Helper/helper.js";
-import {flagResult} from "../../Helper/helper.js";
-
-import {resetAllAction} from "../../Redux/Question_Reducer.js";
-import {resetResultAction} from "../../Redux/Result_Reducer.js";
+import { useDispatch, useSelector } from "react-redux";
+import { attempts_Number, earnPoints_Number, flagResult } from "../../Helper/helper.js";
+import { resetAllAction } from "../../Redux/Question_Reducer.js";
+import { resetResultAction } from "../../Redux/Result_Reducer.js";
 
 export default function Results() {
-    const dispatch = useDispatch()
-    const {questions: {queue, answers}, result : {result, userId}} = useSelector(state =>state)
+    const dispatch = useDispatch();
+    const { questions: { queue, answers }, result: { result, userId } } = useSelector(state => state);
 
-    useEffect(()=>{
-        console.log(result)
-    })
-    const totalPoints = queue.length * 10
-    const attemts = attempts_Number(result)
-    const earnPoints = earnPoints_Number(result , answers ,10)
-    const flag = flagResult(totalPoints, earnPoints)
+    useEffect(() => {
+        console.log(result);
+    }, []);
+
+    const totalPoints = queue.length * 10;
+    const attempts = attempts_Number(result);
+    const earnPoints = earnPoints_Number(result, answers, 10);
+    const flag = flagResult(totalPoints, earnPoints);
 
     function onRestart() {
+        const currentAttempt = {
+            userId,
+            attempts,
+            earnPoints,
+            flag
+        };
+
+        // Get existing attempts from local storage
+        const existingAttempts = JSON.parse(localStorage.getItem("quizAttempts")) || [];
+
+        // Add current attempt to existing attempts
+        const updatedAttempts = [...existingAttempts, currentAttempt];
+
+        // Save updated attempts to local storage
+        localStorage.setItem("quizAttempts", JSON.stringify(updatedAttempts));
+
         console.log("On Restart");
-        dispatch(resetAllAction())
-        dispatch(resetResultAction())
+        dispatch(resetAllAction());
+        dispatch(resetResultAction());
     }
 
     return (
@@ -34,9 +47,9 @@ export default function Results() {
 
             <h1 className="border-2 rounded-3xl text-3xl font-bold text-center mb-8 p-4 text-white m-4 bg-[#4FA4A5]">Grading Assessment Results</h1>
             <motion.div className="bg-white p-8 rounded-lg shadow-md"
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}>
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}>
 
                 <div className="text-gray-800 flex-wrap">
                     <div className="flex justify-between mb-4">
@@ -59,7 +72,7 @@ export default function Results() {
                 <div className="text-gray-800 flex-wrap">
                     <div className="flex justify-between mb-4">
                         <span className="font-bold">Answered Questions : </span>
-                        <span>{attemts || 0}</span>
+                        <span>{attempts || 0}</span>
                     </div>
                 </div>
                 <div className="text-gray-800 flex-wrap">
@@ -87,7 +100,7 @@ export default function Results() {
                 </Link>
             </div>
             <div className="mt-8 flex flex-col sm:flex-row justify-center">
-                <ResultsTables/>
+                <ResultsTables />
             </div>
         </div>
     );
