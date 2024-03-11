@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logofluent.png';
 import { BiPencil, BiHeadphone, BiMicrophone, BiBookOpen, BiAbacus } from 'react-icons/bi';
 import { AiOutlineMessage } from 'react-icons/ai';
+import ContactUs from '../ContactPage/ContactUs';
+import About from '../AboutUsPage/Aboutus';
 
 function LandingPage() {
     const [currentDateTime, setCurrentDateTime] = useState('');
@@ -103,18 +105,10 @@ function LandingPage() {
                     </div>
                 </section>
                 <section className="bg-gray-600 rounded-2xl p-8 mt-14 mx-10 flex flex-col md:flex-row md:justify-between">
-                    <div className="flex flex-col justify-between md:w-2/5 md:mr-6">
-                        <h2 className="text-2xl text-white font-semibold mb-6">Contact FluentBridge</h2>
-                        <form onSubmit={handleSubmit} className="flex flex-col items-center mb-6">
-                            <input type="email" value={email} onChange={handleEmailChange} placeholder="Enter your email" className="bg-gray-200 rounded-lg p-2 mb-4" required />
-                            <button type="submit" className="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Send Email</button>
-                        </form>
-                    </div>
-                    <div className="text-white text-lg md:w-3/5 text-justify mt-6">
-                        <p>Email: info@fluentbridge.com</p>
-                        <p>Phone: +94 77 1234567</p>
-                        <p>Address: Colombo, Sri Lanka</p>
-                    </div>
+                    <ContactUs/>
+                </section>
+                <section className="bg-gray-600 rounded-2xl p-8 mt-14 mx-10 flex flex-col md:flex-row md:justify-between">
+                    <About/>
                 </section>
 
 

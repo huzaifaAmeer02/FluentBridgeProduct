@@ -61,12 +61,6 @@ const Navbar = () => {
                         <Link to="/activities">
                             <li>Activities</li>
                         </Link>
-                        <Link to="/about">
-                            <li>About Us</li>
-                        </Link>
-                        <Link to="/contact" className="bg-gray-200 rounded-2xl hover:bg-gray-400">
-                            <li>Contact Us</li>
-                        </Link>
                         <li className="logout-icon special-1" onClick={handleLogout}>
                             <FaSignOutAlt />
                         </li>
