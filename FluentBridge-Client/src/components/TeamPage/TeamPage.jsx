@@ -1,6 +1,5 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiGithub, FiTwitter } from 'react-icons/fi';
 
 export const TeamPage = () => {
     const [isSinhala, setIsSinhala] = useState(false); // State to track language toggle
@@ -27,48 +26,23 @@ export const TeamPage = () => {
     const teamMembers = [
         {
             name: "Muhammedhu Ishrath",
-            role: "Team Leader",
-            imageUrl: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            description: "Amet I love liquorice jujubes pudding croissant I love pudding.",
-            email: "ishrath@example.com",
-            github: "https://github.com/ishrath",
-            twitter: "https://twitter.com/ishrath"
+            imageUrl: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         },
         {
             name: "Asani Amarasinghe",
-            role: "Developer",
-            imageUrl: "https://images.pexels.com/photos/3747435/pexels-photo-3747435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            description: "Lorizzle ipsum bling bling sit amizzle, consectetuer adipiscing elit.",
-            email: "asani@example.com",
-            github: "https://github.com/asani",
-            twitter: "https://twitter.com/asani"
+            imageUrl: "https://images.pexels.com/photos/3747435/pexels-photo-3747435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         },
         {
             name: "Nuwaf Azley",
-            role: "Developer",
-            imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            description: "Bacon ipsum dolor sit amet salami jowl corned beef, andouille flank.",
-            email: "nuwaf@example.com",
-            github: "https://github.com/nuwaf",
-            twitter: "https://twitter.com/nuwaf"
+            imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         },
         {
             name: "Faslan Rizni",
-            role: "Developer",
-            imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            description: "Bacon ipsum dolor sit amet salami jowl corned beef, andouille flank.",
-            email: "faslan@example.com",
-            github: "https://github.com/faslan",
-            twitter: "https://twitter.com/faslan"
+            imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         },
         {
-            name: "Mohamed Huzaifa Ameer",
-            role: "Developer",
-            imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            description: "Bacon ipsum dolor sit amet salami jowl corned beef, andouille flank.",
-            email: "huzaifa@example.com",
-            github: "https://github.com/huzaifa",
-            twitter: "https://twitter.com/huzaifa"
+            name: "Mohamed Huzaifa",
+            imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         }
     ];
 
@@ -77,7 +51,7 @@ export const TeamPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="px-4 py-16 mx-auto sm:py-24 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-28"
+            className="px-4 py-16 mx-auto sm:py-24 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
         >
             <div className="bg-gray-600 mx-auto mb-10 lg:max-w-xl sm:text-center p-10 rounded-2xl">
                 <p className="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider text-gray-100 uppercase rounded-full bg-teal-accent-400">
@@ -90,47 +64,27 @@ export const TeamPage = () => {
                     {isSinhala ? "Switch to English" : "සිංහලට මාරු වෙන්න"}
                 </button>
             </div>
-            <div className="grid gap-10 mx-auto lg:grid-cols-2 lg:max-w-screen-lg">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
                 {teamMembers.map((member, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="grid sm:grid-cols-3 bg-gray-200 p-10 m-6 rounded-3xl"
+                        whileHover={{ scale: 1.1 }}
+                        className="flex flex-col items-center"
                     >
-                        <div className="relative w-full h-40 max-h-full rounded shadow sm:h-auto">
-                            <img
-                                className="absolute object-cover w-full h-full rounded"
-                                src={member.imageUrl}
-                                alt="Person"
-                            />
-                        </div>
-                        <div className="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2">
-                            <p className="text-lg text-gray-800 font-bold">{member.name}</p>
-                            <p className="mb-4 text-xs text-gray-600">{member.role}</p>
-                            <p className="mb-4 text-sm tracking-wide text-gray-700">{member.description}</p>
-                            <div className="flex items-center justify-center space-x-3 py-3">
-                                <a
-                                    href={`mailto:${member.email}`}
-                                    className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400 hover:bg-gray-100 rounded-full p-2"
-                                >
-                                    <FiMail className="h-5" />
-                                </a>
-                                <a
-                                    href={member.github}
-                                    className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400 hover:bg-gray-100 rounded-full p-2"
-                                >
-                                    <FiGithub className="h-5" />
-                                </a>
-                                <a
-                                    href={member.twitter}
-                                    className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400 hover:bg-gray-100 rounded-full p-2"
-                                >
-                                    <FiTwitter className="h-5" />
-                                </a>
-                            </div>
-                        </div>
+                        <motion.img
+                            className="w-32 h-32 rounded-full object-cover"
+                            src={member.imageUrl}
+                            alt="Person"
+                        />
+                        <motion.p
+                            className="text-lg text-gray-800 font-bold mt-2"
+                            whileHover={{ textDecoration: "underline" }}
+                        >
+                            {member.name}
+                        </motion.p>
                     </motion.div>
                 ))}
             </div>

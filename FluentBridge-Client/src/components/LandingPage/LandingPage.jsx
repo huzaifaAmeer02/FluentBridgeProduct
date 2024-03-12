@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logofluent.png';
 import { BiPencil, BiHeadphone, BiMicrophone, BiBookOpen, BiAbacus } from 'react-icons/bi';
 import { AiOutlineMessage } from 'react-icons/ai';
+import { TeamPage } from '../TeamPage/TeamPage';
 
 function LandingPage() {
     const [currentDateTime, setCurrentDateTime] = useState('');
@@ -101,6 +102,9 @@ function LandingPage() {
                             <p className="text-sm">Test your knowledge with our grading quiz.</p>
                         </div>
                     </div>
+                </section>
+                <section>
+                    <TeamPage/>
                 </section>
                 <section className="bg-gray-600 rounded-2xl p-8 mt-14 mx-10 flex flex-col md:flex-row md:justify-between">
                     <div className="flex flex-col justify-between md:w-2/5 md:mr-6">

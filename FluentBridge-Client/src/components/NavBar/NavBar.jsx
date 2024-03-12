@@ -55,9 +55,7 @@ const Navbar = () => {
                 <nav className="navbar">
                     <img src={logo} className="logo" alt="" width={80} height={80} />
                     <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
-                        <Link to="/home" className="home">
-                            <li>Home</li>
-                        </Link>
+                        
                         <Link to="/activities">
                             <li>Activities</li>
                         </Link>
