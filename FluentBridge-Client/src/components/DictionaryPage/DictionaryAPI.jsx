@@ -5,15 +5,17 @@ import myListIcon from '../../assets/myListIcon.png';
 import dictionarybg from '../../assets/dictionarybg.jpg';
 
 const DictionaryAPI = () => {
-  const [word, setWord] = useState("");
-  const [meanings, setMeanings] = useState([]);
-  const [audio, setAudio] = useState();
-  const [savedWords, setSavedWords] = useState([]);
-  const [showListPanel, setShowListPanel] = useState(false);
-  const [duplicateWordError, setDuplicateWordError] = useState(false);
-  const [wordFound, setWordFound] = useState(false);
-  const [sortedSavedWords, setSortedSavedWords] = useState([]);
+  // State variables
+  const [word, setWord] = useState(""); // Stores the input word
+  const [meanings, setMeanings] = useState([]); // Stores the meanings of the word
+  const [audio, setAudio] = useState(); // Stores the audio pronunciation of the word
+  const [savedWords, setSavedWords] = useState([]); // Stores the list of saved words
+  const [showListPanel, setShowListPanel] = useState(false); // Controls the visibility of the saved words list panel
+  const [duplicateWordError, setDuplicateWordError] = useState(false); // Indicates if a duplicate word is being added
+  const [wordFound, setWordFound] = useState(false); // Indicates if the word is found in the dictionary
+  const [sortedSavedWords, setSortedSavedWords] = useState([]); // Stores the saved words in sorted order
 
+  // Fetches the meanings of the word from the dictionary API
   const getMeaning = async () => {
     if (!word.trim()) {
       return;
@@ -43,6 +45,7 @@ const DictionaryAPI = () => {
     }
   };
   
+  // Handles the change event of the input field
   const handleChange = (e) => {
     if (e.target.name === "word") {
       setWord(e.target.value);
@@ -53,30 +56,39 @@ const DictionaryAPI = () => {
     }
   };
   
+  // Adds the word to the saved words list
   const addToMyList = () => {
     const lowercaseWord = word.toLowerCase();
     const lowercaseSavedWords = savedWords.map(savedWord => savedWord.toLowerCase());
-  
+
     if (meanings.length > 0 && !lowercaseSavedWords.includes(lowercaseWord)) {
-      setSavedWords([...savedWords, lowercaseWord]);
+      const updatedWordList = [...savedWords, lowercaseWord];
+      setSavedWords(updatedWordList);
       setWord("");
       setDuplicateWordError(false);
+      saveWordListToBackend(updatedWordList); // Save the updated word list to the backend
+      localStorage.setItem('savedWords', JSON.stringify(updatedWordList));
     } else {
       setDuplicateWordError(true);
     }
   };
 
+  // Handles the click event of a saved word
   const handleWordClick = (selectedWord) => {
     setWord(selectedWord);
     setShowListPanel(false);
     getMeaningForSelectedWord(selectedWord);
   };
 
+  // Removes a word from the saved words list
   const removeFromList = (wordToRemove) => {
     const updatedList = savedWords.filter(savedWord => savedWord !== wordToRemove);
     setSavedWords(updatedList);
-  };
+    localStorage.setItem('savedWords', JSON.stringify(updatedList)); // Update local storage
+};
 
+
+  // Fetches the meanings of a selected word from the dictionary API
   const getMeaningForSelectedWord = async (selectedWord) => {
     try {
       const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${selectedWord}`);
@@ -100,14 +112,45 @@ const DictionaryAPI = () => {
     }
   };
 
+  const saveWordListToBackend = async (wordList) => {
+    try {
+      const response = await fetch('/api/saveWordList', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ wordList }),
+      });
+      if (response.ok) {
+        console.log('Word list saved successfully');
+      } else {
+        console.error('Failed to save word list');
+      }
+    } catch (error) {
+      console.error('Error saving word list:', error);
+    }
+  };
+
+  
+
+  // Resets the audio state when the word changes
   useEffect(() => {
     setAudio(null);
   }, [word]);
 
+  // Sorts the saved words list when it changes
   useEffect(() => {
     const sortedWords = [...savedWords].sort((a, b) => a.localeCompare(b));
     setSortedSavedWords(sortedWords);
   }, [savedWords]);
+
+  useEffect(() => {
+    const savedWordList = localStorage.getItem('savedWords');
+    if (savedWordList) {
+        setSavedWords(JSON.parse(savedWordList));
+    }
+}, []);
+
 
   return (
     <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${dictionarybg})` }}>
