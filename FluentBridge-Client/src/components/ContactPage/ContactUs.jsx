@@ -10,7 +10,7 @@ import HeroImage from '../ContactPage/assets/contact_us.jpg';
 const HeroSection = () => {
     return (
         <section className="hero-section relative h-50">
-            <img src={HeroImage} alt="Hero Image" className="rounded-lg shadow-xl w-full h-full object-cover  pt-10" />
+            <img src={HeroImage} alt="Hero Image" className="rounded-lg shadow-xl w-full h-full object-cover  pt-0" />
         </section>
     );
 };
