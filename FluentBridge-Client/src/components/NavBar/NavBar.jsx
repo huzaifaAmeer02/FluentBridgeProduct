@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars, FaSignOutAlt } from "react-icons/fa";
-import { ImCross } from "react-icons/im";
+import { FaSignOutAlt } from "react-icons/fa";
+
 import logo from "/src/assets/logofluent.png";
+import defaultUserImage from "../../assets/user-progile.jpg"; // Import a default user image
 import "./NavBar.css";
 
 const Navbar = () => {
-    const [Mobile, setMobile] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [profileMenuOpen, setProfileMenuOpen] = useState(false);
     const location = useLocation();
 
     // Condition to check if the navbar should be hidden based on the current URL
@@ -25,17 +27,16 @@ const Navbar = () => {
         "/readingquestionaier",
         "/speaking",
         "/pronunciation",
-        "/writingactivity"
-      ];
-      
-      const hideNavbar = hidePaths.includes(location.pathname);
-
-
+        "/writingactivity",
+        "/login",
+        "/signup"
+    ];
     
+    const hideNavbar = hidePaths.includes(location.pathname);
 
     // Function to toggle mobile menu
     const toggleMobileMenu = () => {
-        setMobile(!Mobile);
+        setMobileMenuOpen(!mobileMenuOpen);
     };
 
     // Function to handle logout
@@ -50,28 +51,42 @@ const Navbar = () => {
     return (
         <>
             {!hideNavbar && (
-                <nav className="navbar">
-                    <img src={logo} className="logo" alt="" width={80} height={80} />
-                    <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
-                        <Link to="/home" className="home">
-                            <li>Home</li>
-                        </Link>
-                        <Link to="/activities">
-                            <li>Activities</li>
-                        </Link>
-                        <Link to="/about">
-                            <li>About Us</li>
-                        </Link>
-                        <Link to="/contact" className="bg-gray-200 rounded-2xl hover:bg-gray-400">
-                            <li>Contact Us</li>
-                        </Link>
-                        <li className="logout-icon special-1" onClick={handleLogout}>
-                            <FaSignOutAlt />
-                        </li>
-                    </ul>
-                    <button className="mobile-menu-icon" onClick={toggleMobileMenu}>
-                        {Mobile ? <ImCross /> : <FaBars />}
-                    </button>
+                <nav className="navbar flex items-center justify-between">
+                    <Link to="/">
+                        <img src={logo} className="logo ml-2 top-2" alt="Logo" width={70} height={70} />
+                    </Link>
+                    <div className="flex items-center space-x-4">
+                        <div className="relative">
+                            <div className="profile-button" onClick={() => setProfileMenuOpen(!profileMenuOpen)}>
+                                {/* Rounded profile picture */}
+                                <img src={defaultUserImage} alt="User" className="mr-4 w-12 user-image rounded-full" />
+                            </div>
+                            {/* Dropdown menu for user profile */}
+                            {profileMenuOpen && (
+                                <ul className="profile-dropdown absolute top-12 right-0 bg-white shadow-md rounded-lg py-2">
+                                    <li className="profile-item px-4 py-2 flex items-center">
+                                        {/* User name and email address */}
+                                        <div>
+                                            <p className="font-semibold">Username</p>
+                                            <p className="text-gray-500">email@example.com</p>
+                                        </div>
+                                    </li>
+                                    {/* Dropdown options */}
+                                    <li className="profile-item px-4 py-2 hover:bg-gray-100">
+                                        <Link to="/contact">Contact Us</Link>
+                                    </li>
+                                    <li className="profile-item px-4 py-2 hover:bg-gray-100">
+                                        <Link to="/about">About Us</Link>
+                                    </li>
+                                    <li className="profile-item px-4 py-2 hover:bg-gray-100" onClick={handleLogout}>
+                                        <FaSignOutAlt className="mr-2" />
+                                        Logout
+                                    </li>
+                                </ul>
+                            )}
+                        </div>
+                        
+                    </div>
                 </nav>
             )}
         </>
