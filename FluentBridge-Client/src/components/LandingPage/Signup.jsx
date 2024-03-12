@@ -17,6 +17,8 @@ export default function Signup() {
     const [password, setPassword]=useState('');
 
     const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
 
 
@@ -32,12 +34,22 @@ export default function Signup() {
             setFullName('');
             setPassword('');
 
-            // Navigate to the home page
-            navigate('/home');
+            // Display success message
+            setSuccessMessage('Signup successful!');
+
+            // Clear any previous error message
+            setErrorMessage('');
+
+            // Navigate to the home page after a short delay
+            setTimeout(() => {
+                navigate('/home');
+            }, 2000);
 
 
-        } catch (e) {
-            console.log(e)
+        } catch (error) {
+            setErrorMessage('Invalid-password or email is already exists. Please try again.');
+            console.log(error);
+            // Handle error or display an error message if needed
         }
     }
 
@@ -107,6 +119,9 @@ export default function Signup() {
                                 >
                                     Register Now
                                 </button>
+                                {errorMessage && (
+                                    <p className="text-red-500 mt-2">{errorMessage}</p>
+                                )}
                             </div>
                             <div className="col-span-3 mt-2">
                                 <Link to="/login" className='border border-gray-300 text-gray-700 py-2 px-4 w-full rounded inline-block text-center'>Already have an Account</Link>

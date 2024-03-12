@@ -5,8 +5,8 @@ const nodemailer= require('nodemailer');
 const jsonwebtoken =require('jsonwebtoken');
 
 const signup = (req,resp) => {
-
     userSchema.findOne({'email':req.body.email}).then(result=>{
+        // console.log('User lookup result:', result);
         if(result==null){
             bcrypt.hash(req.body.password,salt,function (err,hash) {
                 if (err){
@@ -18,14 +18,20 @@ const signup = (req,resp) => {
                     email:req.body.email,
                     activeState:true
                 });
-                const transporter= nodemailer.createTransport({
+
+                user.save().then(saveResponse=>{
+                    return resp.status(201).json({'message':'Saved!'});
+                }).catch(error=>{
+                    return resp.status(500).json(error);
+                });
+                /*const transporter= nodemailer.createTransport({
                     service:'gmail',
                     auth:{
-                        user:'testdevstackemail@gmail.com',
+                        user:'fluentBridge@gmail.com',
                         pass:'jxdo sqxg szag keuu',
                     }
-                });
-
+                });*/
+/*
                 const mailOption={
                     from:'faslan2002rizni@gmail.com',
                     to:req.body.email,
@@ -42,7 +48,7 @@ const signup = (req,resp) => {
                             return resp.status(500).json(error);
                         });
                     }
-                })
+                })*/
             })
 
 
@@ -83,3 +89,4 @@ const login = (req,resp) => {
 module.exports={
     signup,login
 }
+

@@ -20,7 +20,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
-const port = process.env.SERVER_PORT | 3000;
+const port = process.env.SERVER_PORT | 4000;
 const app = express();
 app.use(cors())
 
@@ -42,13 +42,15 @@ try{
 }catch (e){
     console.log(e);
 }
+app.use('/api/v1/users',userRoute);
+
+
+app.use('/api/v1/customers',customerRoute);
 
 app.get('/test-api',(req,resp)=>{
     return resp.json({'message':'Server Started!'})
 })
 
 //------------
-app.use('/api/v1/users',userRoute);
 
 
-app.use('/api/v1/customers',customerRoute);
