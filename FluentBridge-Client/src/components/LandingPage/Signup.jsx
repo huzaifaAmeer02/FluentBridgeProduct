@@ -2,7 +2,7 @@
 
 // import { useHistory } from "react-router-dom";
 import React, { useEffect, useRef, useState } from "react";
-
+import signPic from "../../assets/signing.jpg"
 
 
 import { IoIosArrowBack } from "react-icons/io";
@@ -61,7 +61,7 @@ export default function Signup() {
             transition={{ duration: 1 }}
             className="flex justify-center items-center h-screen"
             style={{
-                backgroundImage: `url('https://img.freepik.com/free-vector/modern-desktop-background-geometric-blue-design-vector_53876-135923.jpg?t=st=1708689364~exp=1708692964~hmac=fcccc35303a3ba2cdb11db3463e494c8a2da28e1b0c0f64c33525984e3530946&w=996')`,
+                backgroundImage: `url(${signPic})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}
