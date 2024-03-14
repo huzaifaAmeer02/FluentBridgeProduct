@@ -23,36 +23,33 @@ const ActivityPanel = () => {
         config: { duration: 800 },
     });
 
+    const activities = [
+        { to: "/speaking", color: "bg-blue-400", icon: <FiMic className="mx-auto mb-2 text-4xl text-blue-500" />, text: "Speaking" },
+        { to: "/listening", color: "bg-green-400", icon: <FiHeadphones className="mx-auto mb-2 text-4xl text-green-500" />, text: "Listening" },
+        { to: "/writingactivity", color: "bg-yellow-400", icon: <FiEdit className="mx-auto mb-2 text-4xl text-yellow-500" />, text: "Writing" },
+        { to: "/vocabpanel", color: "bg-red-400", icon: <FiBook className="mx-auto mb-2 text-4xl text-red-500" />, text: "Vocabulary" },
+        { to: "/gradingquiz", color: "bg-purple-400", icon: <FiEdit className="mx-auto mb-2 text-4xl text-purple-500" />, text: "Grading Quiz" },
+        { to: "/Controller", color: "bg-indigo-400", icon: <FiMessageSquare className="mx-auto mb-2 text-4xl text-indigo-500" />, text: "Chat Bot" }
+    ];
+
     return (
         <div className="relative flex flex-col min-h-screen">
             <animated.div
-                style={{ ...slideIn, background: "linear-gradient(to bottom, #FFFFFF, #163032)" }}
+                style={{ ...slideIn, background: "linear-gradient(to right, #7D6995, #35273D, #17111A)" }}
                 className="flex-1 md:flex md:items-center md:justify-center"
             >
-                <div className="md:w-2/3 pb-40 overflow-y-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-28 p-10 rounded-3xl">
-                        <animated.div>
-                            <ActivityButton to="/speaking" color="bg-blue-400" icon={<FiMic className="mx-auto mb-2 text-4xl text-blue-500" />} text="Speaking" />
-                        </animated.div>
-                        <animated.div>
-                            <ActivityButton to="/listening" color="bg-green-400" icon={<FiHeadphones className="mx-auto mb-2 text-4xl text-green-500" />} text="Listening" />
-                        </animated.div>
-                        <animated.div>
-                            <ActivityButton to="/writingactivity" color="bg-yellow-400" icon={<FiEdit className="mx-auto mb-2 text-4xl text-yellow-500" />} text="Writing" />
-                        </animated.div>
-                        <animated.div>
-                            <ActivityButton to="/vocabpanel" color="bg-red-400" icon={<FiBook className="mx-auto mb-2 text-4xl text-red-500" />} text="Vocabulary" />
-                        </animated.div>
-                        <animated.div>
-                            <ActivityButton to="/gradingquiz" color="bg-purple-400" icon={<FiEdit className="mx-auto mb-2 text-4xl text-purple-500" />} text="Grading Quiz" />
-                        </animated.div>
-                        <animated.div>
-                            <ActivityButton to="/Controller" color="bg-indigo-400" icon={<FiMessageSquare className="mx-auto mb-2 text-4xl text-indigo-500" />} text="Chat Bot" />
-                        </animated.div>
+                <div className="md:w-2/3 pb-32 overflow-y-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-28 p-10 rounded-4xl">
+                        {activities.map((activity, index) => (
+                            <animated.div key={index}>
+                                <ActivityButton to={activity.to} color={activity.color} icon={activity.icon} text={activity.text} />
+                            </animated.div>
+                        ))}
                     </div>
                 </div>
             </animated.div>
             <Footer />
+            
         </div>
     );
 };
