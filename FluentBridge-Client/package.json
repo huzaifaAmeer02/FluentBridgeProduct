@@ -33,6 +33,7 @@
     "react-typist": "^2.0.5",
     "react-widgets": "^5.8.4",
     "sass": "^1.71.1",
+    "scroll-lock": "^2.1.5",
     "use-sound": "^4.0.1",
     "vite-plugin-sass": "^0.1.0"
   },
