@@ -27,6 +27,8 @@ import Footer from "./components/Footer/Footer.jsx";
 import Speaking from "./components/SpeakingPage/Speaking.jsx";
 import Pronunciation from "./components/SpeakingPage/prounciation.jsx";
 import WritingActivity from "./components/WritingActivity/WritingActivity.jsx";
+// import PurpleThemedLandingPage from "./components/PurpleThemedLandingPage/App.jsx";
+
 
 
 
@@ -61,6 +63,7 @@ function App() {
                     <Route path='/speaking' element={<Speaking/>}/>
                     <Route path='/pronunciation' element={<Pronunciation/>}/>
                     <Route path='/writingactivity' element={<WritingActivity/>}/>
+{/*                     <Route path='/PurpleThemedLandingPage' element={<PurpleThemedLandingPage/>}/> */}
                 </Routes>
             </Router>
         </>
