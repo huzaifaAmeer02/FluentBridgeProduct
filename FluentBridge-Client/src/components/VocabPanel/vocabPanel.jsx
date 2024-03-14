@@ -51,7 +51,7 @@ const VocabPanel = () => {
                 </Link>
                 <Link
                     to="/vocabulary-activity"
-                    className="button1 flex justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-red-500 hover:bg-red-700 transition duration-300 ease-in-out mb-4"
+                    className="button1 flex justify-center text-white text-4xl font-bold py-4 px-6 rounded-lg bg-yellow-500 hover:bg-yellow-700 transition duration-300 ease-in-out mb-4"
                 >
                     Vocabulary Activity
                 </Link>

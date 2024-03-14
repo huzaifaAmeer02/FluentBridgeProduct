@@ -11,7 +11,7 @@ const WordleGame = () => {
     const verbList = ["clean", "print","dance","drink","write","plant", "study", "teach","fetch","catch","sleep"]; // List of verbs
     const nounList = ["grape", "melon", "lemon", "peach", "berry", "mango","chair", "house", "table", "clock", "shoes", "shirt","glove","phone","piano","beach"]; // List of fruits
     const adjectiveList = ["happy","silly","brave","proud","sharp","clean","large","small"];
-    const adverbList = ["quick","sharp","clean","smart","sunny","clear","early","lucky","plain","ready"];
+    const adverbList = ["quick","sunny","clear","early","lucky","plain","ready"];
     
 
     const [word, setWord] = useState("");
