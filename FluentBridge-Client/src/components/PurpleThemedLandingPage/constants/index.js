@@ -227,3 +227,114 @@ export const pricing = [
       "Priority support to solve issues quickly",
       "Priority support to solve issues quickly",
       "Priority support to solve issues quickly",
+    ],
+  },
+  {
+    id: "1",
+    title: "Premium",
+    description: "Listening, Reading , Writing,Speaking",
+    price: "9.99",
+    features: [
+      "Priority support to solve issues quickly",
+      "Priority support to solve issues quickly",
+      "Priority support to solve issues quickly",
+    ],
+  },
+  {
+    id: "2",
+    title: "Enterprise",
+    description: "Listening, Reading , Writing,Speaking",
+    price: null,
+    features: [
+      "Priority support to solve issues quickly",
+      "Priority support to solve issues quickly",
+      "Priority support to solve issues quickly",
+    ],
+  },
+];
+
+export const benefits = [
+  {
+    id: "0",
+    title: "Speaking",
+    text: "Lets master confident speaking with Fluent Bridge's interactive voice bot, practicing real-world conversations.",
+     backgroundUrl: "./src/assets/benefits/card-1.svg",
+    iconUrl: benefitIcon1,
+    imageUrl: benefitImage2,
+  },
+  {
+    id: "1",
+    title:  "Listening",
+    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    backgroundUrl: "./src/assets/benefits/card-2.svg",
+    iconUrl: benefitIcon2,
+    imageUrl: benefitImage2,
+    light: true,
+  },
+  {
+    id: "2",
+    title: "Reading",
+    text: "Lets the user read a paragraph and provide feedback on their reading skills.",
+    backgroundUrl: "./src/assets/benefits/card-3.svg",
+    iconUrl: benefitIcon3,
+    imageUrl: benefitImage2,
+  },
+  {
+    id: "3",
+    title: "Vocabulary",
+    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    backgroundUrl: "./src/assets/benefits/card-4.svg",
+    iconUrl: benefitIcon4,
+    imageUrl: benefitImage2,
+    light: true,
+  },
+  {
+    id: "4",
+    title:  "Writing",
+    text:  "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    backgroundUrl: "./src/assets/benefits/card-5.svg",
+    iconUrl: benefitIcon1,
+    imageUrl: benefitImage2,
+  },
+  {
+    id: "5",
+    title: "Grading Quiz",
+    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    backgroundUrl: "./src/assets/benefits/card-6.svg",
+    iconUrl: benefitIcon2,
+    imageUrl: benefitImage2,
+  },
+];
+
+export const socials = [
+  {
+    id: "0",
+    title: "Discord",
+    iconUrl: discordBlack,
+    url: "#",
+  },
+  {
+    id: "1",
+    title: "Twitter",
+    iconUrl: twitter,
+    url: "#",
+  },
+  {
+    id: "2",
+    title: "Instagram",
+    iconUrl: instagram,
+    url: "#",
+  },
+  {
+    id: "3",
+    title: "Telegram",
+    iconUrl: telegram,
+    url: "#",
+  },
+  {
+    id: "4",
+    title: "Facebook",
+    iconUrl: facebook,
+    url: "#",
+  },
+];
