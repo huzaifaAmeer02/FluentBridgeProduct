@@ -27,6 +27,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import Speaking from "./components/SpeakingPage/Speaking.jsx";
 import Pronunciation from "./components/SpeakingPage/prounciation.jsx";
 import WritingActivity from "./components/WritingActivity/WritingActivity.jsx";
+// import PurpleLandingPage from "./components/WritingActivity/WritingActivity.jsx";
 
 
 
