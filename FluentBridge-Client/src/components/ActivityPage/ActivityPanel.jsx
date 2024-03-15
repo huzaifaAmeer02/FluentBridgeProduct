@@ -8,7 +8,7 @@ const ActivityButton = ({ to, color, icon, text }) => {
     return (
         <Link
             to={to}
-            className={`flex items-center justify-center flex-col p-4 md:p-8 bg-white hover:bg-gray-100 transition duration-300 rounded-full shadow-md border border-gray-200`}
+            className={`flex items-center justify-center flex-col p-4 md:p-8 bg-white hover:bg-gray-100 border-2 transition duration-300 rounded-full shadow-md hover:border-[#FFFFFF] border-gray-200`}
         >
             {icon}
             <p className="mt-2 text-sm font-medium">{text}</p>
