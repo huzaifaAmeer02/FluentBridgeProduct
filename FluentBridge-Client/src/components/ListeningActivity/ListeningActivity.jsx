@@ -91,21 +91,21 @@ const ListeningActivity = () => {
             {loading ? (
                 <LoadingPage />
             ) : (
-                <section className="bg-gray-200 py-8 relative">
+                <section className="bg-purple-200 py-8 relative">
                     <Link
                         to="/activities"
-                        className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
+                        className="back-to-activities flex items-center text-purple-500 font-bold hover:text-purple-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
                     >
                         <IoIosArrowBack />
                     </Link>
-                    <h2 className="text-3xl  font-bold text-center mb-8">
+                    <h2 className="text-3xl  font-bold text-center mb-8 text-purple-950">
                         Listening Activity
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 px-4">
                         {jobs.map((job, index) => (
                             <div key={index}>
                                 <div
-                                    className="bg-white rounded-xl overflow-hidden shadow-lg transition duration-300 cursor-pointer"
+                                    className="bg-white rounded-xl overflow-hidden shadow-lg transition duration-300 cursor-pointer text-purple-950"
                                     onClick={() => handleJobClick(job)}
                                 >
                                     <img
@@ -115,7 +115,7 @@ const ListeningActivity = () => {
                                     />
                                     <div className="p-4 text-center">
                                         <h3 className="text-lg font-bold mb-2">{job.title}</h3>
-                                        <p className="text-blue-500 hover:underline">
+                                        <p className="text-purple-800 hover:bg-purple-200 p-2 rounded">
                                             Watch Video
                                         </p>
                                     </div>

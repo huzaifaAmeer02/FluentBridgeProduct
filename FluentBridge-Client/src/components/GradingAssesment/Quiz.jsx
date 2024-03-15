@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useEffect, useState} from "react";
 import Questions from "./Questions.jsx";
-import bgImage from "../../assets/questionaier-bg.jpg";
+import bgImage from "../../assets/bg-quiz.jpg";
 import {MoveNextQuestion, MovePreviousQuestion} from "../../Hooks/FetchQuestion.js";
 import { pushAnswer} from "../../Hooks/setResults.js";
 
