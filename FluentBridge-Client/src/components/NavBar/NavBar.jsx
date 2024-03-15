@@ -16,6 +16,7 @@ const Navbar = () => {
         "/listening",
         "/vocabpanel",
         "/",
+        "/NewOne",
         "/dictionaryapi",
         "/dictionary",
         "/gradingquiz",

@@ -26,38 +26,38 @@ import robot from "./hero/robot.jpg";
 import ant from "./hero/ant.jpg";
 import heroBackground from "./hero/hero-background.jpg";
 
-import curve1 from "./collaboration/curve-1.svg";
-import curve2 from "./collaboration/curve-2.svg";
-import discord from "./collaboration/discord.png";
-import figma from "./collaboration/figma.png";
-import framer from "./collaboration/framer.png";
-import notion from "./collaboration/notion.png";
-import photoshop from "./collaboration/photoshop.png";
-import protopie from "./collaboration/protopie.png";
-import raindrop from "./collaboration/raindrop.png";
-import slack from "./collaboration/slack.png";
+//import curve1 from "./collaboration/curve-1.svg";
+//import curve2 from "./collaboration/curve-2.svg";
+//import discord from "./collaboration/discord.png";
+//import figma from "./collaboration/figma.png";
+//import framer from "./collaboration/framer.png";
+//import notion from "./collaboration/notion.png";
+//import photoshop from "./collaboration/photoshop.png";
+//import protopie from "./collaboration/protopie.png";
+//import raindrop from "./collaboration/raindrop.png";
+//import slack from "./collaboration/slack.png";
 
 import service1 from "./services/service-1.png";
 import service2 from "./services/service-2.png";
 import service3 from "./services/service-3.png";
 
-import lines from "./pricing/lines.svg";
-import stars from "./pricing/stars.svg";
+//import lines from "./pricing/lines.svg";
+//import stars from "./pricing/stars.svg";
 
-import coins from "./roadmap/coins.png";
-import done from "./roadmap/done.svg";
-import hero from "./roadmap/hero.png";
-import roadmap1 from "./roadmap/image-1.png";
-import roadmap2 from "./roadmap/image-2.png";
-import roadmap3 from "./roadmap/image-3.png";
-import roadmap4 from "./roadmap/image-4.png";
-import roadmap5 from "./roadmap/image-5.png";
+//import coins from "./roadmap/coins.png";
+//import done from "./roadmap/done.svg";
+//import hero from "./roadmap/hero.png";
+//import roadmap1 from "../roadmap/image-1.png";
+//import roadmap2 from "../roadmap/image-2.png";
+//import roadmap3 from "../roadmap/image-3.png";
+//import roadmap4 from "../roadmap/image-4.png";
+//import roadmap5 from "../roadmap/image-5.png";
 import Huzaifa from "./roadmap/Huzaifa.png";
 import Faslan from "./roadmap/Faslan.png";
 import Nuwaf from "./roadmap/Nuwaf.png";
 import Asani from "./roadmap/Asani.png";
 
-import undone from "./roadmap/undone.svg";
+//import undone from "./roadmap/undone.svg";
 
 import notification1 from "./notification/image-1.png";
 import notification2 from "./notification/image-2.png";
