@@ -53,7 +53,7 @@ const Navbar = () => {
             {!hideNavbar && (
                 <nav className="navbar flex items-center justify-between">
                     <Link to="/">
-                        <img src={logo} className="logo ml-2 top-2" alt="Logo" width={70} height={70} />
+                        <img src={logo} className="m-2 logo ml-2 top-2" alt="Logo" width={70} height={70} />
                     </Link>
                     <div className="flex items-center space-x-4">
                         <div className="relative">
