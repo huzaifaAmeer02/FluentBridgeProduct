@@ -58,7 +58,7 @@ function LandingPage() {
                     <p className="text-lg text-justify justify-normal mt-2 p-4">Fluent Bridge is an English learning platform designed for skilled migrant workers. Our system offers writing, listening, speaking, vocabulary exercises, and user-friendly chatbot assistance. The system is built by a team from IIT Sri Lanka affiliated with the University of Westminster, under the group name " Tangent Techies ".</p>
                     <div className='mt-8 flex justify-center'>
                         <Link to="/login"><button className="bg-[#A779E9] hover:bg-[#8A5BCC] text-white font-bold py-2 px-4 rounded mr-4">Login</button></Link>
-                        <Link to="/signup"><button className="bg-[#60C9A8] hover:bg-[#4BA78A] text-white font-bold py-2 px-4 rounded">Register</button></Link>
+                        <Link to="/signup"><button className="bg-[#4A404F] hover:bg-[#BAB8BB] text-white hover:text-gray-600 font-bold py-2 px-4 rounded">Register</button></Link>
                     </div>
                     <p className="text-sm mt-6">{currentDateTime}</p>
                 </section>
