@@ -14,7 +14,7 @@
   box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.1),
     0 0 10px white,
-    0 0 20px gold,
+    0 0 20px #77349B,
     0 0 30px white;
   margin-top: calc(75vh - 50%);
   position: absolute;
@@ -35,7 +35,7 @@
   height: 100vh;
   display: flex;
   color: white;
-  background: linear-gradient(#FFD700, black);
+  background: linear-gradient(#77349B, #271133);
 }
 
 .main {
@@ -220,18 +220,18 @@
 .startButton {
   width: 100%;
   height: 80px; /* Adjust height as needed */
-  border: 2px solid #ffd700; /* Gold border color */
+  border: 2px solid #FFFFFF; /* Gold border color */
   border-radius: 10px; /* Increased border-radius for more rounded corners */
   cursor: pointer;
   font-size: 24px; /* Font size */
   font-weight: 500;
-  color: #ffd700; /* Gold text color */
-  background-color: #000000; /* Black background color */
+  color: #FFFFFF; /* Gold text color */
+  background-color: #77349B; /* Black background color */
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .startButton:hover {
-  background-color: #333333; /* Darker black on hover */
+  background-color: #1A0B22; /* Darker black on hover */
 }
 
 

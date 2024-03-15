@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
 import Title from "./Title";
 import axios from "axios";
 import RecordMessage from "./RecordMessage";
@@ -59,6 +61,12 @@ const Controller = () => {
 
     return (
         <div className="h-screen overflow-y-hidden">
+            <Link
+                to="/vocabpanel"
+                className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
+            >
+                <IoIosArrowBack />
+            </Link>
             {/* Title */}
             <Title setMessages={setMessages} />
 
@@ -79,8 +87,8 @@ const Controller = () => {
                                     <p
                                         className={
                                             audio.sender === "rachel"
-                                                ? "text-right mr-2 italic text-green-500"
-                                                : "ml-2 italic text-blue-500"
+                                                ? "text-right mr-2 italic text-purple-950"
+                                                : "ml-2 italic text-purple-500"
                                         }
                                     >
                                         {audio.sender}
@@ -111,7 +119,7 @@ const Controller = () => {
                 </div>
 
                 {/* Recorder */}
-                <div className="fixed bottom-0 w-full py-6 border-t text-center bg-gradient-to-r from-sky-500 to-green-500">
+                <div className="fixed bottom-0 w-full py-6 border-t text-center bg-gradient-to-r from-[#140A20] to-[#5C2E91]">
                     <div className="flex justify-center items-center w-full">
                         <div>
                             <RecordMessage handleStop={handleStop} />

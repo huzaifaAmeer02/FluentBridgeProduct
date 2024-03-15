@@ -35,8 +35,8 @@ const Title = ({ setMessages }) => {
     };
 
     return (
-        <div className="flex justify-between items-center w-full p-4 bg-gray-900 text-white font-bold shadow">
-            <div className="italic">FluentBridge</div>
+        <div className="pl-14 flex justify-between items-center w-full p-4 bg-gray-900 text-white font-bold shadow">
+            <div className="italic">FluentBridge Sri Lanka</div>
             <button
                 onClick={resetConversation}
                 className={
