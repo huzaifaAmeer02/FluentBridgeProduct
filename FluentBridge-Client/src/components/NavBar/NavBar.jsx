@@ -64,7 +64,7 @@ const Navbar = () => {
                             </div>
                             {/* Dropdown menu for user profile */}
                             {profileMenuOpen && (
-                                <ul className="profile-dropdown absolute top-12 right-0 bg-[#B29BC1] shadow-md rounded-lg py-2 mr-2 mt-2">
+                                <ul className="profile-dropdown absolute top-12 right-0 bg-[#D6C2E1] shadow-md rounded-lg py-2 mr-2 mt-2">
                                     <li className="profile-item px-4 py-2 flex items-center">
                                         {/* User name and email address */}
                                         <div>
