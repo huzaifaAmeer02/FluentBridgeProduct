@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { setUserId } from "../../Redux/Result_Reducer.js";
 import { FiGlobe } from "react-icons/fi"; // Import the Globe icon
-import gradingPic from "../../assets/gradingAssessment.jpg"
 
-export default function GradingAssesment() {
+
+export default function GradingAssessment() {
     const [loading, setLoading] = useState(true);
     const [language, setLanguage] = useState("english");
     const translation = {
@@ -69,9 +69,7 @@ export default function GradingAssesment() {
             transition={{ duration: 1 }}
             className="flex justify-center items-center h-screen"
             style={{
-                backgroundImage: `url(${gradingPic})`, // Replace the URL with your desired background image
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
+                background: "linear-gradient(135deg, #231631, #8C61FF,#231631)",
             }}
         >
             {loading ? (

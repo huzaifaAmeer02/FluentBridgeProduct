@@ -23,12 +23,10 @@ import ReadingQuestionier from "./components/ReadingActivity/ReadingQuestionier.
 import Controller from "./components/ChatBotModal/Controller";
 import Login from "./components/LandingPage/Login";
 import Signup from "./components/LandingPage/Signup.jsx";
-import Footer from "./components/Footer/Footer.jsx";
 import Speaking from "./components/SpeakingPage/Speaking.jsx";
 import Pronunciation from "./components/SpeakingPage/prounciation.jsx";
 import WritingActivity from "./components/WritingActivity/WritingActivity.jsx";
 // import PurpleThemedLandingPage from "./components/PurpleThemedLandingPage/App.jsx";
-
 
 
 

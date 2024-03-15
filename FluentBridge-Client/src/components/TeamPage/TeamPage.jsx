@@ -52,15 +52,16 @@ export const TeamPage = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
             className="px-4 py-16 mx-auto sm:py-24 md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+            style={{ backgroundImage: "linear-gradient(to bottom, #752F99, #1E0F30)", color: "white" }}
         >
-            <div className="bg-gray-600 mx-auto mb-10 lg:max-w-xl sm:text-center p-10 rounded-2xl">
-                <p className="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider text-gray-100 uppercase rounded-full bg-teal-accent-400">
+            <div className="bg-purple-600 mx-auto mb-10 lg:max-w-xl sm:text-center p-10 rounded-3xl">
+                <p className="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider text-purple-100 uppercase rounded-full bg-teal-accent-400">
                     {content.heading}
                 </p>
-                <p className="text-base text-gray-100 md:text-lg px-4 md:px-0">
+                <p className="text-base text-purple-100 md:text-lg px-4 md:px-0">
                     {content.intro}
                 </p>
-                <button onClick={toggleLanguage} className="mt-4 bg-gray-800 text-gray-100 px-4 py-2 rounded-md hover:bg-teal-accent-500">
+                <button onClick={toggleLanguage} className="mt-4 bg-purple-900 text-purple-100 px-4 py-2 rounded-md hover:bg-teal-accent-500">
                     {isSinhala ? "Switch to English" : "සිංහලට මාරු වෙන්න"}
                 </button>
             </div>
@@ -72,7 +73,7 @@ export const TeamPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         whileHover={{ scale: 1.1 }}
-                        className="flex flex-col items-center"
+                        className="flex flex-col items-center bg-purple-800 rounded-2xl p-2"
                     >
                         <motion.img
                             className="w-32 h-32 rounded-full object-cover"
@@ -80,7 +81,7 @@ export const TeamPage = () => {
                             alt="Person"
                         />
                         <motion.p
-                            className="text-lg text-gray-800 font-bold mt-2"
+                            className="text-lg text-purple-100 font-bold mt-2"
                             whileHover={{ textDecoration: "underline" }}
                         >
                             {member.name}
