@@ -101,14 +101,14 @@ const ListeningActivity = () => {
             {loading ? (
                 <LoadingPage />
             ) : (
-                <section className="bg-gray-100 py-8 relative">
+                <section className=" py-8 relative" style={{background: 'radial-gradient(circle, #220233, #000000)'}}>
                     <Link
                         to="/activities"
                         className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
                     >
                         <IoIosArrowBack />
                     </Link>
-                    <h2 className="text-3xl  font-bold text-center mb-8">
+                    <h2 className="text-3xl text-white font-bold text-center mb-8">
                         Listening Activity
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 px-4">

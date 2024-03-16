@@ -74,14 +74,20 @@ const DictionaryPage = () => {
     return (
         <>
             <Link
-                to="/vocabpanel"
+                to="/vocabpanel" // Ensure this matches the route configured in your router setup
                 className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-gradient-to-b from-white to-gray-200 absolute left-4 top-4"
             >
                 <IoIosArrowBack />
             </Link>
-            <animated.section style={{ ...fadeIn, minHeight: '100vh', paddingTop: '2rem', paddingBottom: '2rem', background: 'linear-gradient(#C86DF5, #e2e8f0)' }} className="text-gray-600 body-font flex flex-col lg:flex-row justify-center items-center lg:items-stretch">
-                <Lottie animationData={dictionarypage} className="lg:w-1/2 object-cover rounded-lg lg:mr-6 mt-8 lg:mt-0" />
-                <animated.div style={{ ...slideIn, delay: 200 }}  className="lg:w-1/2 bg-gray-700 text-white pt-20 p-8 h-auto rounded-lg lg:mx-9 mt-20 mb-20">
+            <animated.section style={{ ...fadeIn, minHeight: '100vh', paddingTop: '2rem', paddingBottom: '2rem',background: 'radial-gradient(circle, #220233, #000000)' }} className="text-gray-600 body-font flex flex-col lg:flex-row justify-center items-center lg:items-stretch">
+                <Lottie animationData={dictionarypage} 
+                        className="lg:w-1/2 object-cover rounded-lg lg:mr-6 mt-8 lg:mt-0" 
+                        style={{
+                            filter: 'drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.5))',
+                            borderRadius: '15px', // You can adjust this to match the rounded corners
+                        }}/>
+                
+                <animated.div style={{ ...slideIn, delay: 200 }}  className="lg:w-1/2  text-white pt-20 p-8 h-auto rounded-lg lg:mx-9 mt-20 mb-20">
                     <h1 className="title-font sm:text-4xl text-5xl mb-4 font-medium text-purple-200 text-center lg:text-left">
                         {content[language].title}
                     </h1>
@@ -91,7 +97,7 @@ const DictionaryPage = () => {
                     </p>
 
                     <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start w-full">
-                        <Link to="/dictionaryapi">
+                        <Link to="/dictionaryapi"> {/* Update the route to the correct destination */}
                             <button className="mb-4 lg:mb-0 lg:mr-4 inline-flex text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-800 rounded text-lg">
                                 {content[language].buttonText}
                             </button>
@@ -102,6 +108,7 @@ const DictionaryPage = () => {
                         </button>
                     </div>
                 </animated.div>
+                
             </animated.section>
             
         </>
