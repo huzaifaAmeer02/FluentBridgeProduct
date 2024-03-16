@@ -2,7 +2,7 @@
 
 // import { useHistory } from "react-router-dom";
 import React, { useEffect, useRef, useState } from "react";
-import signPic from "../../assets/signing.jpg"
+import signPic from "../../assets/signup.jpg"
 
 
 import { IoIosArrowBack } from "react-icons/io";
@@ -77,6 +77,11 @@ export default function Signup() {
                     >
                         <IoIosArrowBack />
                     </Link>
+                    {/* Add the image container */}
+                    <div className="text-center mb-4">
+                        <img src={signPic} alt="Signup Image" className="mx-auto" style={{ maxHeight: '200px' }} />
+                    </div>
+                    {/* End of image container */}
                     <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">
                         Signup to FluentBridge
                     </h1>
