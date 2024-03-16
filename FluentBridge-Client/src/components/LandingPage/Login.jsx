@@ -3,6 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import AxiosInstance from "../../config/axiosInstance";
+import signPic from "../../assets/signup.jpg"
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -39,6 +40,11 @@ export default function Login() {
                     <IoIosArrowBack />
                 </Link>
                 <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">Login to FluentBridge</h1>
+                {/* Add the image container */}
+                <div className="text-center mb-4">
+                    <img src={signPic} alt="Signup Image" className="mx-auto" style={{ maxHeight: '200px' }} />
+                </div>
+                {/* End of image container */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="col-span-2">
                         <div className="form-group">
