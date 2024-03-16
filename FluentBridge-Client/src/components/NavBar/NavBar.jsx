@@ -82,6 +82,9 @@ const Navbar = () => {
                                     <li className="profile-item px-4 py-2 hover:bg-purple-200">
                                         <Link to="/about">About Us</Link>
                                     </li>
+                                    {/*<li className="profile-item px-4 py-2 hover:bg-purple-200">*/}
+                                    {/*    <Link to="/user">User profile</Link>*/}
+                                    {/*</li>*/}
                                     <li className="profile-item px-4 py-2 hover:bg-purple-200" onClick={handleLogout}>
                                         <FaSignOutAlt className="mr-2" />
                                         Logout
