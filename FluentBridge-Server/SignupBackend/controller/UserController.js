@@ -91,8 +91,14 @@ const updateUser = (req, res) => {
     const { fullName, email } = req.body;
     const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
 
+    // Check if file is uploaded
+    let profileImage = '';
+    if (req.file) {
+        profileImage = req.file.path; // Assuming file path is stored in req.file.path
+    }
+
     // Update user details in the database
-    userSchema.findByIdAndUpdate(userId, { fullName, email }, { new: true })
+    userSchema.findByIdAndUpdate(userId, { fullName, email, profileImage }, { new: true })
         .then(updatedUser => {
             res.status(200).json(updatedUser);
         })
