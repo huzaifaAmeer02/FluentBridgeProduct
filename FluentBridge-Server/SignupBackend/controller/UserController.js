@@ -31,24 +31,24 @@ const signup = (req,resp) => {
                         pass:'jxdo sqxg szag keuu',
                     }
                 });*/
-/*
-                const mailOption={
-                    from:'faslan2002rizni@gmail.com',
-                    to:req.body.email,
-                    subject:'New Account Creation',
-                    text:'You have Created Your Account!'
-                }
-                transporter.sendMail(mailOption, function (error, info) {
-                    if (error){
-                        return resp.status(500).json({'error':error});
-                    }else{
-                        user.save().then(saveResponse=>{
-                            return resp.status(201).json({'message':'Saved!'});
-                        }).catch(error=>{
-                            return resp.status(500).json(error);
-                        });
-                    }
-                })*/
+                /*
+                                const mailOption={
+                                    from:'faslan2002rizni@gmail.com',
+                                    to:req.body.email,
+                                    subject:'New Account Creation',
+                                    text:'You have Created Your Account!'
+                                }
+                                transporter.sendMail(mailOption, function (error, info) {
+                                    if (error){
+                                        return resp.status(500).json({'error':error});
+                                    }else{
+                                        user.save().then(saveResponse=>{
+                                            return resp.status(201).json({'message':'Saved!'});
+                                        }).catch(error=>{
+                                            return resp.status(500).json(error);
+                                        });
+                                    }
+                                })*/
             })
 
 
@@ -86,7 +86,60 @@ const login = (req,resp) => {
         }
     });
 }
-module.exports={
-    signup,login
-}
+// Function to update user details
+const updateUser = (req, res) => {
+    const { fullName, email } = req.body;
+    const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
 
+    // Update user details in the database
+    userSchema.findByIdAndUpdate(userId, { fullName, email }, { new: true })
+        .then(updatedUser => {
+            res.status(200).json(updatedUser);
+        })
+        .catch(error => {
+            res.status(500).json({ error: error.message });
+        });
+};
+// Function to change password
+const changePassword = (req, res) => {
+    const { oldPassword, newPassword } = req.body;
+    const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
+
+    // Find user by ID
+    userSchema.findById(userId)
+        .then(user => {
+            // Compare old password
+            bcrypt.compare(oldPassword, user.password, function(err, result) {
+                if (err) {
+                    return res.status(500).json({ message: 'Internal server error' });
+                }
+                if (result) {
+                    // Hash new password and update in the database
+                    bcrypt.hash(newPassword, 10, function(err, hash) {
+                        if (err) {
+                            return res.status(500).json({ message: 'Internal server error' });
+                        }
+                        // Update password
+                        user.password = hash;
+                        user.save()
+                            .then(() => {
+                                res.status(200).json({ message: 'Password updated successfully' });
+                            })
+                            .catch(error => {
+                                res.status(500).json({ error: error.message });
+                            });
+                    });
+                } else {
+                    res.status(401).json({ message: 'Old password is incorrect' });
+                }
+            });
+        })
+        .catch(error => {
+            res.status(500).json({ error: error.message });
+        });
+};
+module.exports={
+    signup,login,
+    updateUser,
+    changePassword
+}
