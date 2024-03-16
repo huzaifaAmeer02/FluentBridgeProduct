@@ -16,11 +16,11 @@ const UpdateProfileForm = ({ userData }) => {
     };
 
     return (
-        <div>
-            <h3>Update Profile</h3>
-            <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} />
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-            <button onClick={handleUpdate}>Update</button>
+        <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+            <h3 className="text-xl font-semibold mb-4">Update Profile</h3>
+            <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} className="block w-full rounded-md border-gray-300 mb-2 px-3 py-2 focus:outline-none focus:border-indigo-500" />
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="block w-full rounded-md border-gray-300 mb-4 px-3 py-2 focus:outline-none focus:border-indigo-500" />
+            <button onClick={handleUpdate} className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">Update</button>
         </div>
     );
 };
