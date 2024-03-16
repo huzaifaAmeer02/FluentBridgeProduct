@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import UpdateProfileForm from './UpdateProfileForm';
-import ChangePasswordForm from './ChangePasswordForm';
+import UpdateProfileForm from '../user/UpdateProfileForm';
+import ChangePasswordForm from '../user/ChangePasswordForm';
 import axios from 'axios';
 
 const Profile = () => {
