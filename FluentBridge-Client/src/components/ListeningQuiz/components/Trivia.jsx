@@ -68,7 +68,7 @@ export default function Trivia({
           <div
             className={`${
               selectedAnswer === a ? className : "answer"
-            } bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-md cursor-pointer transition duration-300 ease-in-out`}
+            } ${a.correct ? "correct" : "wrong"} bg-purple-500 hover:bg-purple-900 text-white py-2 px-4 rounded-md cursor-pointer transition duration-300 ease-in-out`}
             onClick={() => !selectedAnswer && handleClick(a)}
             key={a.text}
           >

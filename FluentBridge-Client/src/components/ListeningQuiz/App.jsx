@@ -374,18 +374,19 @@ function App() {
       setEarned(moneyPyramid.find((m) => m.id === questionNumber - 1).amount);
     }
   }, [questionNumber, moneyPyramid, data.length]);
-  
-  // Add this condition to handle completing all questions
-  if (questionNumber > data.length) {
-    setQuizCompleted(true);
-  }
+
+  // Handle completing all questions
+  useEffect(() => {
+    if (questionNumber > data.length) {
+      setQuizCompleted(true);
+    }
+  }, [questionNumber, data.length]);
 
   const handleStart = () => {
     setUsername("Guest");
   };
 
   return (
-    <>
     <div className="app bg-gradient-to-b from-purple-800 to-purple-900 min-h-screen flex justify-center items-center text-white">
       <Link
         to="/listening"
@@ -416,40 +417,35 @@ function App() {
                       onQuizComplete={() => setQuizCompleted(true)}
                     />
                   </div>
-              </div>
-              </>
-              
-            )}
-            {!timeOut && !quizCompleted && (
-              <div className="pyramid-container flex flex-col items-center justify-center mb-10">
-                <h2 className="text-white font-bold mb-4">See Your Progress</h2>
-                <div className="pyramid bg-purple-600 rounded-lg p-4 flex">
-                  <ul className="moneyList">
-                    {moneyPyramid.map((m) => (
-                      <li
-                        className={
-                          questionNumber === m.id
-                            ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl"
-                            : "moneyListItem text-white p-4"
-                        }
-                        key={m.id}
-                      >
-                        <span className="moneyListItemNumber">[ {m.id} ]</span>
-                        <span className="moneyListItemAmount">{m.amount} Points</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </div>
-          )}
+                {!timeOut && !quizCompleted && (
+                  <div className="pyramid-container flex flex-col items-center justify-center mb-10">
+                    <h2 className="text-white font-bold mb-4">See Your Progress</h2>
+                    <div className="pyramid bg-purple-600 rounded-lg p-4 flex">
+                      <ul className="moneyList">
+                        {moneyPyramid.map((m) => (
+                          <li
+                            className={
+                              questionNumber === m.id
+                                ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl"
+                                : "moneyListItem text-white p-4"
+                            }
+                            key={m.id}
+                          >
+                            <span className="moneyListItemNumber">[ {m.id} ]</span>
+                            <span className="moneyListItemAmount">{m.amount} Points</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </>
       )}
     </div>
-
-    </>
-    
-
   );
 }
 
