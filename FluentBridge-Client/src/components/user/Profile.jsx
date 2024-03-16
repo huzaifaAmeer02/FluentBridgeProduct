@@ -18,7 +18,7 @@ const Profile = () => {
     }, []);
 
     return (
-        <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+        <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md mt-10">
             {userData && (
                 <div>
                     <h2 className="text-2xl font-bold mb-4">User Profile</h2>
