@@ -112,7 +112,7 @@ function App() {
                       correct: false,
                     },
                     {
-                      text: "Middle back",
+                      text: "Middle bachhk",
                       correct: false,
                     },
                     {
@@ -350,29 +350,35 @@ function App() {
 
   const moneyPyramid = useMemo(
     () => [
-      { id: 1, amount: "$ 100" },
-      { id: 2, amount: "$ 200" },
-      { id: 3, amount: "$ 300" },
-      { id: 4, amount: "$ 500" },
-      { id: 5, amount: "$ 1.000" },
-      { id: 6, amount: "$ 2.000" },
-      { id: 7, amount: "$ 4.000" },
-      { id: 8, amount: "$ 8.000" },
-      { id: 9, amount: "$ 16.000" },
-      { id: 10, amount: "$ 32.000" },
-      { id: 11, amount: "$ 64.000" },
-      { id: 12, amount: "$ 125.000" },
-      { id: 13, amount: "$ 250.000" },
-      { id: 14, amount: "$ 500.000" },
-      { id: 15, amount: "$ 1.000.000" },
+      { id: 1, amount: " 100" },
+      { id: 2, amount: " 200" },
+      { id: 3, amount: " 300" },
+      { id: 4, amount: " 500" },
+      { id: 5, amount: " 1 000" },
+      { id: 6, amount: " 2 000" },
+      { id: 7, amount: " 4 000" },
+      { id: 8, amount: " 8 000" },
+      { id: 9, amount: " 16 000" },
+      { id: 10, amount: " 32 000" },
+      { id: 11, amount: " 64 000" },
+      { id: 12, amount: " 125 000" },
+      { id: 13, amount: " 250 000" },
+      { id: 14, amount: " 500 000" },
+      { id: 15, amount: " 1000 000" },
     ].reverse(),
     []
   );
 
   useEffect(() => {
-    questionNumber > 1 &&
+    if (questionNumber > 1 && questionNumber <= data.length) {
       setEarned(moneyPyramid.find((m) => m.id === questionNumber - 1).amount);
-  }, [questionNumber, moneyPyramid]);
+    }
+  }, [questionNumber, moneyPyramid, data.length]);
+  
+  // Add this condition to handle completing all questions
+  if (questionNumber > data.length) {
+    setQuizCompleted(true);
+  }
 
   const handleStart = () => {
     setUsername("Guest");
@@ -396,43 +402,46 @@ function App() {
               <WinningPanel earned={earned} />
             ) : (
               <>
-                <div className="top w-auto max-w-lg mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8">
+                <div className="top w-auto max-w-2xl mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8">
                   <Timer setTimeOut={setTimeOut} questionNumber={questionNumber} />
                 </div>
-                <div className="bottom w-full flex max-w-lg bg-gradient-to-b from-purple-700 to-purple-900 rounded-lg shadow-lg p-6 mb-10">
-                  <Trivia
-                    data={data}
-                    questionNumber={questionNumber}
-                    setQuestionNumber={setQuestionNumber}
-                    setTimeOut={setTimeOut}
-                    onQuizComplete={() => setQuizCompleted(true)}
-                  />
-                </div>
+                <div className="trivia-container flex flex-col items-center justify-center mb-10">
+                  <h2 className="text-white font-bold mb-4">Select the Correct Option</h2>
+                  <div className="trivia bg-purple-600 rounded-lg p-4">
+                    <Trivia
+                      data={data}
+                      questionNumber={questionNumber}
+                      setQuestionNumber={setQuestionNumber}
+                      setTimeOut={setTimeOut}
+                      onQuizComplete={() => setQuizCompleted(true)}
+                    />
+                  </div>
+              </div>
               </>
               
             )}
             {!timeOut && !quizCompleted && (
-  <div className="pyramid-container flex flex-col items-center justify-center ml-10">
-    <h2 className="text-white font-bold mb-4">Money Pyramid</h2>
-    <div className="pyramid bg-purple-600 rounded-lg p-4">
-      <ul className="moneyList">
-        {moneyPyramid.map((m) => (
-          <li
-            className={
-              questionNumber === m.id
-                ? "moneyListItem text-yellow-500 font-bold"
-                : "moneyListItem text-white"
-            }
-            key={m.id}
-          >
-            <span className="moneyListItemNumber">{m.id}</span>
-            <span className="moneyListItemAmount">{m.amount}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-)}
+              <div className="pyramid-container flex flex-col items-center justify-center mb-10">
+                <h2 className="text-white font-bold mb-4">See Your Progress</h2>
+                <div className="pyramid bg-purple-600 rounded-lg p-4 flex">
+                  <ul className="moneyList">
+                    {moneyPyramid.map((m) => (
+                      <li
+                        className={
+                          questionNumber === m.id
+                            ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl"
+                            : "moneyListItem text-white p-4"
+                        }
+                        key={m.id}
+                      >
+                        <span className="moneyListItemNumber">[ {m.id} ]</span>
+                        <span className="moneyListItemAmount">{m.amount} Points</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+          )}
           </div>
         </>
       )}
