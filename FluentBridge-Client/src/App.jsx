@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar/NavBar";
-// import Footer from "./components/Footer/Footer"
 import About from "./components/AboutUsPage/Aboutus";
 import Home from "./components/HomePage/Homepage";
 import Contact from "./components/ContactPage/ContactUs";
@@ -26,7 +25,7 @@ import Signup from "./components/LandingPage/Signup.jsx";
 import Speaking from "./components/SpeakingPage/Speaking.jsx";
 import Pronunciation from "./components/SpeakingPage/prounciation.jsx";
 import WritingActivity from "./components/WritingActivity/WritingActivity.jsx";
-// import PurpleThemedLandingPage from "./components/PurpleThemedLandingPage/App.jsx";
+import User from "./components/user/Profile";
 
 
 
@@ -61,7 +60,7 @@ function App() {
                     <Route path='/speaking' element={<Speaking/>}/>
                     <Route path='/pronunciation' element={<Pronunciation/>}/>
                     <Route path='/writingactivity' element={<WritingActivity/>}/>
-{/*                     <Route path='/PurpleThemedLandingPage' element={<PurpleThemedLandingPage/>}/> */}
+                    <Route path='/user' element={<User/>}/>
                 </Routes>
             </Router>
         </>

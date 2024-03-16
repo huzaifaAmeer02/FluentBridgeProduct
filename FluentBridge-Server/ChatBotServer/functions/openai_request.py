@@ -34,7 +34,7 @@ def convert_audio_to_text(audio_file):
 def get_chat_response(message_input):
 
     messages = get_recent_message()
-    user_message = {"role": "user", "content": message_input + " Only say two or 3 words in sinhala if speaking in spinhala. The remaining words should be in English"}
+    user_message = {"role": "user", "content": message_input + " Only say two or 3 words in sinhala if speaking in sinhala. The remaining words should be in English"}
     messages.append(user_message)
     # print(messages)
 

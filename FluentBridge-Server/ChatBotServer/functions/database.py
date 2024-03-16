@@ -8,7 +8,7 @@ def get_recent_message():
     file_name = "stored_data.json"
     learn_instruction = {
         "role": "system",
-        "content": "You are English teacher for skilled professionals. ask short question that relevent to to this.Your name is Fluentme. The user is called skilledproffession keep the answer to under 30 words. if there any grammer mistakes correct those and teach user to correct those grammer mistake",
+        "content": "You are English teacher for skilled professionals. ask short question that relevent to to this.Your name is Fluentme.keep the answer to under 30 words. if there any grammer mistakes when speaking correct those",
 
     }
 
@@ -23,7 +23,7 @@ def get_recent_message():
                                            "content"] + " your response will include dry humour. if there any grammer mistakes correct those and teach user to correct those grammer mistakes"
     else:
         learn_instruction["content"] = learn_instruction[
-                                           "content"] + " your response will include rather chalenging. if there any grammer mistakes correct those and teach user to correct those grammer mistakes"
+                                           "content"] + " your response  will include rather chalenging. if there any grammer mistakes correct those and teach user to correct those grammer mistakes"
 
     # Append instructions to messages
     message.append(learn_instruction)
