@@ -61,7 +61,7 @@ export default function Signup() {
             transition={{ duration: 1 }}
             className="flex justify-center items-center h-screen"
             style={{
-                backgroundImage: `url(${signPic})`,
+                // backgroundImage: `url(${signPic})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}
@@ -77,44 +77,44 @@ export default function Signup() {
                     >
                         <IoIosArrowBack />
                     </Link>
-                    <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">
-                        Signup
+                    <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">
+                        Signup to FluentBridge
                     </h1>
-                    <div className="container mx-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="col-span-3">
+                    {/*<div className="container mx-auto">*/}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="col-span-2">
                                 <div className="form-group">
-                                    <label htmlFor="name" className="text-gray-700">Full Name</label>
+                                    <label htmlFor="name" className="text-gray-700 m-2">Full Name</label>
                                     <input
                                         type="text"
                                         onChange={(e) => { setFullName(e.target.value) }}
-                                        className='form-input w-full' placeholder='Full Name here'
+                                        className='form-input w-full p-2 mt-2' placeholder='Full Name here'
                                     />
                                 </div>
                             </div>
-                            <div className="col-span-3">
+                            <div className="col-span-2">
                                 <div className="form-group">
-                                    <label htmlFor="email" className="text-gray-700">Email</label>
+                                    <label htmlFor="email" className="text-gray-700 m-2">Email</label>
                                     <input
                                         type="email"
                                         onChange={(e) => { setEmail(e.target.value) }}
-                                        className='form-input w-full' placeholder='Email here'
+                                        className='form-input w-full p-2 mt-2' placeholder='Email here'
                                     />
                                 </div>
                             </div>
-                            <div className="col-span-3">
+                            <div className="col-span-2">
                                 <div className="form-group">
-                                    <label htmlFor="password" className="text-gray-700">Password</label>
+                                    <label htmlFor="password" className="text-gray-700 m-2">Password</label>
                                     <input
                                         type="password"
                                         onChange={(e) => { setPassword(e.target.value) }}
-                                        className='form-input w-full' placeholder='Password here'
+                                        className='form-input w-full p-2 mt-2' placeholder='Password here'
                                     />
                                 </div>
                             </div>
                             <div className="col-span-3 mt-4">
                                 <button
-                                    className='bg-blue-500 text-white py-2 px-4 w-full rounded'
+                                    className='bg-purple-950 text-white py-2 px-4 w-full rounded'
                                     onClick={signup}
                                 >
                                     Register Now
@@ -126,8 +126,9 @@ export default function Signup() {
                             <div className="col-span-3 mt-2">
                                 <Link to="/login" className='border border-gray-300 text-gray-700 py-2 px-4 w-full rounded inline-block text-center'>Already have an Account</Link>
                             </div>
+
                         </div>
-                    </div>
+                    {/*</div>*/}
 
 
 
