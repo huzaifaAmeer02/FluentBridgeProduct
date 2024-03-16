@@ -72,6 +72,7 @@ const ListeningActivity = () => {
     const [selectedJob, setSelectedJob] = useState(null);
     const [loading, setLoading] = useState(true);
     const [showInstructions, setShowInstructions] = useState(false); // State to track instructions panel visibility
+    const [translatedInstructions, setTranslatedInstructions] = useState(null);
 
     useEffect(() => {
         setTimeout(() => {
@@ -88,6 +89,21 @@ const ListeningActivity = () => {
     };
     const toggleInstructions = () => {
         setShowInstructions(!showInstructions);
+    };
+    const translateInstructions = () => {
+        // Placeholder translation logic, replace with your actual translation logic
+        // For demonstration purposes, we'll just toggle between English and Sinhala
+        if (translatedInstructions === null) {
+            setTranslatedInstructions({
+                objective: "අරමුණ",
+                procedure: "පටිපාටිය",
+                answeringQuestions: "ප්‍රශ්න වලට පිළිතුරු දීම",
+                completingActivity: "ක්රියාකාරකම් සම්පූර්ණ කිරීම",
+                note: "සටහන"
+            });
+        } else {
+            setTranslatedInstructions(null);
+        }
     };
     
 
@@ -107,7 +123,7 @@ const ListeningActivity = () => {
                         Listening Activity
                     </h2>
                     <button
-                        className="bg-purple-500 text-white py-2 px-4 rounded mb-8 mx-auto block"
+                        className="bg-purple-600 hover:bg-purple-800 text-white py-2 px-4 rounded mb-8 mx-auto block"
                         onClick={toggleInstructions}
                     >
                         {showInstructions ? "Hide Instructions" : "Show Instructions"}
@@ -115,48 +131,53 @@ const ListeningActivity = () => {
                     {showInstructions && (
                         <div className="bg-white p-4 rounded shadow-lg mb-4 mx-4">
                             <h3 className="text-xl font-bold mb-2 text-purple-950">Instructions:</h3>
-                            <p className="text-purple-800">
+                            <p className="text-purple-800 bg-purple-200 p-10 text-justify">
                                 <ol className="list-decimal ml-6">
-                                    <li><strong>Objective :</strong>
+                                    <li><strong>{translatedInstructions ? translatedInstructions.objective : "Objective"} :</strong>
                                         <ul className="list-disc ml-6">
-                                            <li>The objective of this listening activity is to watch a video and identify the main and important points discussed in it.</li>
+                                            <li>{translatedInstructions ? "The objective of this listening activity is to watch a video and identify the main and important points discussed in it." : "The objective of this listening activity is to watch a video and identify the main and important points discussed in it."}</li>
                                         </ul>
                                     </li>
 
-                                    <li><strong>Procedure :</strong>
+                                    <li><strong>{translatedInstructions ? translatedInstructions.procedure : "Procedure"} :</strong>
                                         <ul className="list-disc ml-6">
-                                            <li>Click on the "Play Video" button to start watching the video.</li>
-                                            <li>While watching the video, pay close attention to the content being presented.</li>
-                                            <li>Identify the main topics, key ideas, and any important information mentioned in the video.</li>
-                                            <li>You may take notes on a piece of paper if you wish, but remember that each question will have a time limit of 30 seconds, so manage your time effectively.</li>
+                                            <li>{translatedInstructions ? "Click on the 'Play Video' button to start watching the video." : "Click on the 'Play Video' button to start watching the video."}</li>
+                                            <li>{translatedInstructions ? "While watching the video, pay close attention to the content being presented." : "While watching the video, pay close attention to the content being presented."}</li>
+                                            <li>{translatedInstructions ? "Identify the main topics, key ideas, and any important information mentioned in the video." : "Identify the main topics, key ideas, and any important information mentioned in the video."}</li>
+                                            <li>{translatedInstructions ? "You may take notes on a piece of paper if you wish, but remember that each question will have a time limit of 30 seconds, so manage your time effectively." : "You may take notes on a piece of paper if you wish, but remember that each question will have a time limit of 30 seconds, so manage your time effectively."}</li>
                                         </ul>
                                     </li>
 
-                                    <li><strong>Answering Questions :</strong>
+                                    <li><strong>{translatedInstructions ? translatedInstructions.answeringQuestions : "Answering Questions"} :</strong>
                                         <ul className="list-disc ml-6">
-                                            <li>After watching the video, you will be presented with a series of questions related to the content.</li>
-                                            <li>Each question will have a time limit of 30 seconds.</li>
-                                            <li>Select your answer for each question carefully, as there will be no opportunity to change your answer once selected.</li>
+                                            <li>{translatedInstructions ? "After watching the video, you will be presented with a series of questions related to the content." : "After watching the video, you will be presented with a series of questions related to the content."}</li>
+                                            <li>{translatedInstructions ? "Each question will have a time limit of 30 seconds." : "Each question will have a time limit of 30 seconds."}</li>
+                                            <li>{translatedInstructions ? "Select your answer for each question carefully, as there will be no opportunity to change your answer once selected." : "Select your answer for each question carefully, as there will be no opportunity to change your answer once selected."}</li>
                                         </ul>
                                     </li>
 
-                                    <li><strong>Completing the Activity :</strong>
+                                    <li><strong>{translatedInstructions ? translatedInstructions.completingActivity : "Completing the Activity"} :</strong>
                                         <ul className="list-disc ml-6">
-                                            <li>Once you have answered all the questions, the activity will be complete.</li>
-                                            <li>Your performance will be evaluated based on the accuracy of your answers and your ability to identify the main points from the video.</li>
+                                            <li>{translatedInstructions ? "Once you have answered all the questions, the activity will be complete." : "Once you have answered all the questions, the activity will be complete."}</li>
+                                            <li>{translatedInstructions ? "Your performance will be evaluated based on the accuracy of your answers and your ability to identify the main points from the video." : "Your performance will be evaluated based on the accuracy of your answers and your ability to identify the main points from the video."}</li>
                                         </ul>
                                     </li>
 
-                                    <li className="text-red-900 bg-red-100 p-4 mt-4"><strong>Note :</strong>
+                                    <li className="text-red-900 bg-red-100 p-4 mt-4"><strong>{translatedInstructions ? translatedInstructions.note : "Note"} :</strong>
                                         <ul className="list-disc ml-6">
-                                            <li>Ensure that you have a quiet environment to watch the video and concentrate on the content.</li>
-                                            <li>Avoid distractions and focus on understanding the information presented in the video.</li>
+                                            <li>{translatedInstructions ? "Ensure that you have a quiet environment to watch the video and concentrate on the content." : "Ensure that you have a quiet environment to watch the video and concentrate on the content."}</li>
+                                            <li>{translatedInstructions ? "Avoid distractions and focus on understanding the information presented in the video." : "Avoid distractions and focus on understanding the information presented in the video."}</li>
                                         </ul>
                                     </li>
                                 </ol>
                             </p>
+                            <div className="mt-4 text-center">
+                                <button className="bg-purple-800 hover:bg-purple-900 text-white py-2 px-4 rounded" onClick={translateInstructions}>
+                                    {translatedInstructions ? "English" : "සිංහල"}
+                                </button>
+                            </div>
                         </div>
-                    )}
+            )}
 
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 px-4">
