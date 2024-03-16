@@ -71,6 +71,7 @@ const ListeningActivity = () => {
     ];
     const [selectedJob, setSelectedJob] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [showInstructions, setShowInstructions] = useState(false); // State to track instructions panel visibility
 
     useEffect(() => {
         setTimeout(() => {
@@ -85,6 +86,10 @@ const ListeningActivity = () => {
     const handleClosePopup = () => {
         setSelectedJob(null);
     };
+    const toggleInstructions = () => {
+        setShowInstructions(!showInstructions);
+    };
+    
 
     return (
         <>
@@ -101,6 +106,59 @@ const ListeningActivity = () => {
                     <h2 className="text-3xl  font-bold text-center mb-8 text-purple-950">
                         Listening Activity
                     </h2>
+                    <button
+                        className="bg-purple-500 text-white py-2 px-4 rounded mb-8 mx-auto block"
+                        onClick={toggleInstructions}
+                    >
+                        {showInstructions ? "Hide Instructions" : "Show Instructions"}
+                    </button>
+                    {showInstructions && (
+                        <div className="bg-white p-4 rounded shadow-lg mb-4 mx-4">
+                            <h3 className="text-xl font-bold mb-2 text-purple-950">Instructions:</h3>
+                            <p className="text-purple-800">
+                                <ol className="list-decimal ml-6">
+                                    <li><strong>Objective :</strong>
+                                        <ul className="list-disc ml-6">
+                                            <li>The objective of this listening activity is to watch a video and identify the main and important points discussed in it.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li><strong>Procedure :</strong>
+                                        <ul className="list-disc ml-6">
+                                            <li>Click on the "Play Video" button to start watching the video.</li>
+                                            <li>While watching the video, pay close attention to the content being presented.</li>
+                                            <li>Identify the main topics, key ideas, and any important information mentioned in the video.</li>
+                                            <li>You may take notes on a piece of paper if you wish, but remember that each question will have a time limit of 30 seconds, so manage your time effectively.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li><strong>Answering Questions :</strong>
+                                        <ul className="list-disc ml-6">
+                                            <li>After watching the video, you will be presented with a series of questions related to the content.</li>
+                                            <li>Each question will have a time limit of 30 seconds.</li>
+                                            <li>Select your answer for each question carefully, as there will be no opportunity to change your answer once selected.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li><strong>Completing the Activity :</strong>
+                                        <ul className="list-disc ml-6">
+                                            <li>Once you have answered all the questions, the activity will be complete.</li>
+                                            <li>Your performance will be evaluated based on the accuracy of your answers and your ability to identify the main points from the video.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li className="text-red-900 bg-red-100 p-4 mt-4"><strong>Note :</strong>
+                                        <ul className="list-disc ml-6">
+                                            <li>Ensure that you have a quiet environment to watch the video and concentrate on the content.</li>
+                                            <li>Avoid distractions and focus on understanding the information presented in the video.</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </p>
+                        </div>
+                    )}
+
+
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 px-4">
                         {jobs.map((job, index) => (
                             <div key={index}>

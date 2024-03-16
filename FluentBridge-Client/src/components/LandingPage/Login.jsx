@@ -28,21 +28,21 @@ export default function Login() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="flex justify-center items-center h-screen"
+            className="flex justify-center items-center h-screen py-22"
             style={{
-                backgroundColor: "#CBBCD5",
+                backgroundColor: "#271133",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}
         >
-            <div className="container mx-auto max-w-lg p-8 bg-purple-400 bg-opacity-90 shadow-lg rounded-3xl">
+            <div className="container mx-auto max-w-lg p-8 bg-purple-400 bg-opacity-90 shadow-lg mb-2">
                 <Link to="/activities" className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
                     <IoIosArrowBack />
                 </Link>
                 <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">Login to FluentBridge</h1>
                 {/* Add the image container */}
                 <div className="text-center mb-4">
-                    <img src={signPic} alt="Signup Image" className="mx-auto" style={{ maxHeight: '200px' }} />
+                    <img src={signPic} alt="Signup Image" className="mx-auto" style={{ maxHeight: '100px' }} />
                 </div>
                 {/* End of image container */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

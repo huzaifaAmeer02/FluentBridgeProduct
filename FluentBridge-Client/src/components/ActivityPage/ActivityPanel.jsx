@@ -31,7 +31,6 @@ const ActivityPanel = () => {
         { to: "/gradingquiz", color: "bg-purple-400", icon: <FiEdit className="mx-auto mb-2 text-4xl text-purple-500" />, text: "Grading Quiz" },
         { to: "/Controller", color: "bg-indigo-400", icon: <FiMessageSquare className="mx-auto mb-2 text-4xl text-indigo-500" />, text: "Chat Bot" }
     ];
-
     return (
         <div className="relative flex flex-col min-h-screen">
             <animated.div
