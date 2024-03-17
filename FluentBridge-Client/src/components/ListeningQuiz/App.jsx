@@ -420,8 +420,8 @@ function App() {
                     </>
                 )}
               </div>
-              {/* Show the pyramid container if window width is larger or showPyramid is true */}
-              {(window.innerWidth > 768 || showPyramid) && (
+              {/* Pyramid container */}
+              {showPyramid && (
                   <div className="pyramid-container absolute right-4 top-0 h-full sm:h-80vh w-full sm:w-80 flex flex-col items-center justify-center mb-10">
                     <div className="pyramid bg-purple-600 rounded-lg p-4 h-full w-full sm:w-auto flex flex-col items-center justify-center">
                       <h2 className="text-white font-bold mb-1">See Your Progress</h2>
@@ -444,7 +444,7 @@ function App() {
                     </div>
                   </div>
               )}
-              {/* Show the Show/Hide button */}
+              {/* Show/hide button */}
               <button
                   className="pyramid-toggle-btn absolute left-4 top-4 text-white bg-purple-600 py-2 px-4 rounded-lg"
                   onClick={() => setShowPyramid(!showPyramid)}
