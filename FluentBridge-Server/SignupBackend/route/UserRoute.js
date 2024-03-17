@@ -1,16 +1,16 @@
 const express = require('express');
 const userController = require('../controller/UserController');
 // const verifyToken = require('../middleware/AuthMiddleware');
-// const UserController = require("../controller/UserController");
+const UserController = require("../controller/UserController");
 const router = express.Router();
 router.post('/signup', userController.signup);
 router.post('/login', userController.login);
 
 // Route for updating user details
-// router.put('/update', UserController.updateUser);
+router.put('/update', UserController.updateUser);
 
 // Route for changing password
-// router.put('/change-password',  UserController.changePassword);
+router.put('/change-password',  UserController.changePassword);
 
 const multer = require('multer');
 
@@ -27,6 +27,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Update user details including profile image
-// router.put('/update',  upload.single('image'), UserController.updateUser);
+router.put('/update',  upload.single('image'), UserController.updateUser);
 
 module.exports=router;

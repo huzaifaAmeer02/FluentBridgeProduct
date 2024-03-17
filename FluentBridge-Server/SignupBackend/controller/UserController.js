@@ -86,6 +86,66 @@ const login = (req,resp) => {
         }
     });
 }
+// Function to update user details
+const updateUser = (req, res) => {
+    const { fullName, email } = req.body;
+    const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
+
+    // Check if file is uploaded
+    let profileImage = '';
+    if (req.file) {
+        profileImage = req.file.path; // Assuming file path is stored in req.file.path
+    }
+
+    // Update user details in the database
+    userSchema.findByIdAndUpdate(userId, { fullName, email, profileImage }, { new: true })
+        .then(updatedUser => {
+            res.status(200).json(updatedUser);
+        })
+        .catch(error => {
+            res.status(500).json({ error: error.message });
+        });
+};
+// Function to change password
+const changePassword = (req, res) => {
+    const { oldPassword, newPassword } = req.body;
+    const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
+
+    // Find user by ID
+    userSchema.findById(userId)
+        .then(user => {
+            // Compare old password
+            bcrypt.compare(oldPassword, user.password, function(err, result) {
+                if (err) {
+                    return res.status(500).json({ message: 'Internal server error' });
+                }
+                if (result) {
+                    // Hash new password and update in the database
+                    bcrypt.hash(newPassword, 10, function(err, hash) {
+                        if (err) {
+                            return res.status(500).json({ message: 'Internal server error' });
+                        }
+                        // Update password
+                        user.password = hash;
+                        user.save()
+                            .then(() => {
+                                res.status(200).json({ message: 'Password updated successfully' });
+                            })
+                            .catch(error => {
+                                res.status(500).json({ error: error.message });
+                            });
+                    });
+                } else {
+                    res.status(401).json({ message: 'Old password is incorrect' });
+                }
+            });
+        })
+        .catch(error => {
+            res.status(500).json({ error: error.message });
+        });
+};
 module.exports={
-    signup,login
+    signup,login,
+    updateUser,
+    changePassword
 }
