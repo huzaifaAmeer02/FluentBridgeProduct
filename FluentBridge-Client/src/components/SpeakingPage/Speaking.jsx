@@ -145,12 +145,12 @@ function Speaking() {
                             ))}
                         </select>
                     </div>
-                    <button className="flex items-center justify-center bg-gray-800 btn text-white btn-lg btn-block mx-auto mb-6" onClick={speak}>
+                    <button className="flex items-center justify-center bg-gray-800 px-6 py-4 rounded-2xl text-white btn-lg btn-block mx-auto mb-6" onClick={speak}>
                         <FiMic className="mr-2" />
                         Pronounce It
                     </button>
                 </div>
-                <p className="text-white text-sm mt-4 mb-4">
+                <p className="text-purple-900 text-sm mt-4 mb-4 bg-purple-300 px-6 py-4 rounded-3xl">
                     FluentBridge online pronunciation trainer
                 </p>
             </div>
