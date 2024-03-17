@@ -66,7 +66,7 @@ const Hero = () => {
                         <img src={icon} width={24} height={25} alt={icon} />
                       </li>
                     ))}
-                  </ul>
+                  </ul> 
                 </ScrollParallax>
 
                 <ScrollParallax isAbsolutelyPositioned>
