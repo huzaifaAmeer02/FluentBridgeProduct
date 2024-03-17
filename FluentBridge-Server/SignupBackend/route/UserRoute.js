@@ -27,6 +27,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Update user details including profile image
-router.put('/update',  upload.single('image'), UserController.updateUser);
+// router.put('/update',  upload.single('image'), UserController.updateUser);
 
 module.exports=router;

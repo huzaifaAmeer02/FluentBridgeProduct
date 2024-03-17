@@ -88,7 +88,7 @@ const login = (req,resp) => {
 }
 // Function to update user details
 const updateUser = (req, res) => {
-    const { fullName, email } = req.body;
+    const {_id,fullName, email }= req.body;
     const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
 
     // Check if file is uploaded
@@ -98,7 +98,7 @@ const updateUser = (req, res) => {
     }
 
     // Update user details in the database
-    userSchema.findByIdAndUpdate(userId, { fullName, email, profileImage }, { new: true })
+    userSchema.findByIdAndUpdate(_id, { fullName, email, profileImage }, { new: true })
         .then(updatedUser => {
             res.status(200).json(updatedUser);
         })
@@ -108,11 +108,11 @@ const updateUser = (req, res) => {
 };
 // Function to change password
 const changePassword = (req, res) => {
-    const { oldPassword, newPassword } = req.body;
+    const {_id, oldPassword, newPassword } = req.body;
     const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
 
     // Find user by ID
-    userSchema.findById(userId)
+    userSchema.findById(_id)
         .then(user => {
             // Compare old password
             bcrypt.compare(oldPassword, user.password, function(err, result) {
