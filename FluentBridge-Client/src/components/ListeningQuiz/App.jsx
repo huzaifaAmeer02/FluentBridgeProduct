@@ -422,7 +422,7 @@ function App() {
                 )}
               </div>
               {!timeOut && !quizCompleted && (
-                  <div className="pyramid-container absolute right-4 top-0 flex flex-col items-center justify-center mb-10">
+                  <div className="pyramid-container absolute right-4 top-0 h-80vh flex flex-col items-center justify-center mb-10">
                     <h2 className="text-white font-bold mb-4">See Your Progress</h2>
                     <div className="pyramid bg-purple-600 rounded-lg p-4">
                       <ul className="moneyList">
