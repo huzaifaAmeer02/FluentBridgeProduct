@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import vocabActivity from "../../assets/vocabActivity.png";
 import crown from "../../assets/logofluent.png";
 import { IoIosArrowBack } from 'react-icons/io';
 import { FiGlobe } from 'react-icons/fi';
+
 
 const VocabularyActivityPage = () => {
     const [language, setLanguage] = useState("en");
@@ -44,12 +44,12 @@ const VocabularyActivityPage = () => {
     };
 
     return (
-        <div className="bg-cover bg-center min-h-screen flex flex-col" style={{ backgroundImage: `url(${vocabActivity})` }}>
+        <div className="bg-cover bg-center min-h-screen flex flex-col" style={{background: 'radial-gradient(circle, #220233, #000000)'}}>
             <Link to="/vocabpanel" className="absolute left-4 top-4 text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white">
                 <IoIosArrowBack />
             </Link>
-            <main className="flex-grow flex justify-center items-center">
-                <section className="bg-gray-900 bg-opacity-80 rounded-lg w-full max-w-xl mx-4 p-8">
+            <main className="flex-grow flex justify-center items-center p-20" >
+                <section className="bg-gray-900 bg-opacity-80 rounded-lg w-full max-w-xl mx-4 p-8 shadow-white " style={{ border: '2px solid white' }}>
                     <img src={crown} alt="crown clip art" className="mx-auto w-40 mb-6" />
                     <h2 className="text-4xl text-white font-semibold text-center mb-4">{translations[language].vocabularyGame}</h2>
                     <p className="text-lg text-white mb-8">{translations[language].unlockPower}</p>
