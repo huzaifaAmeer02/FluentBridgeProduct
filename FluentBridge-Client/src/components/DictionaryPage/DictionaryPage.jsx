@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiGlobe } from "react-icons/fi";
-import dictionaryImage from "../../assets/dictionary1.jpg"; // Import the dictionary image
+import Lottie from "lottie-react";
+import dictionarypage from "../../assets/dictionarypage.json"; // Import the DictionaryPage component
 
 const DictionaryPage = () => {
     const [language, setLanguage] = useState("en");

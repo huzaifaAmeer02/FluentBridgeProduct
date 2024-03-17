@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 //import fiveLetterWords from "./fiveletterwords.json";
 import { IoIosArrowBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import Confetti from "./Confetti.jsx";
 import axios from 'axios';
+import Lottie from "lottie-react";
+import animationData from "../../assets/wordle.json";
 
 
 
 const WordleGame = () => {
-    const verbList = ["clean", "print","dance","drink","write","plant", "study", "teach","fetch","catch","sleep"]; // List of verbs
+    const verbList = ["clean", "print","dance","drink","write","plant", "study", "teach","fetch","sleep"]; // List of verbs
     const nounList = ["grape", "melon", "lemon", "peach", "berry", "mango","chair", "house", "table", "clock", "shoes", "shirt","glove","phone","piano","beach"]; // List of fruits
-    const adjectiveList = ["happy","silly","brave","proud","sharp","clean","large","small"];
-    const adverbList = ["quick","sharp","clean","smart","sunny","clear","early","lucky","plain","ready"];
+    const adjectiveList = ["happy","silly","brave","proud","sharp","clean","small"];
+    const adverbList = ["quick","sunny","clear","early","lucky","plain","ready"];
     
 
     const [word, setWord] = useState("");
@@ -22,16 +24,18 @@ const WordleGame = () => {
     const maxAttempts = 6;
     const [gameOver, setGameOver] = useState(false);
     const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-    const initialKeyColors = alphabet.reduce((acc, curr) => ({ ...acc, [curr]: 'bg-blue-500' }), {});
+    const initialKeyColors = alphabet.reduce((acc, curr) => ({ ...acc, [curr]: 'bg-purple-400' }), {});
     const [keyColors, setKeyColors] = useState(initialKeyColors);
     const [congratulationsMessage, setCongratulationsMessage] = useState("");
     const [showConfetti, setShowConfetti] = useState(false); 
     const [showNotification, setShowNotification] = useState(false);
-
+    
 
     useEffect(() => {
         chooseRandomWord();
     }, []);
+
+    
 
     const chooseRandomWord = () => {
         setFeedback([]); // Reset feedback array
@@ -174,19 +178,32 @@ const WordleGame = () => {
     };
 
     return (
-        <>
-            <div className="min-h-screen bg-cover bg-center bg-no-repeat p-0 " style={{ backgroundImage: 'url("/src/assets/wordlebg1.jpg")', backgroundAttachment: 'fixed' }}>
-                <Link to="/vocabulary-activity" className="back-to-vocabulary-activity flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
-                    <IoIosArrowBack />
-                </Link>
-                <div className="pt-10">
-                <div style={{ margin: '10px', padding:'20px'}}>
-                    <div className="container mx-auto flex flex-col items-center bg-black-900 bg-opacity-80 rounded-lg p-4 transition duration-300 hover:bg-opacity-90 text-center max-w-3xl">
-                        <h2 className="text-4xl text-white font-bold pt-5 pb-2 mb-2">Wordle Game</h2>
+        <div style={{ display: 'flex',   justifyContent: 'center', alignItems: 'center', zIndex: -1 }}>
+        <div style={{ display: 'flex', position: 'fixed', zIndex: -1 }}>
+            <Lottie animationData={animationData} style={{ width:1800, height:900}} />
+        </div>
+        
+            {/* Your existing JSX code */}
+            <Link to="/vocabulary-activity" className="back-to-vocabulary-activity flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-10 top-10">
+                <IoIosArrowBack />
+            </Link>
+            {congratulationsMessage && (<>
+                            <div className="congratulations-message text-white text-center " style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 2 , fontSize: '2rem'}}>
+                                {congratulationsMessage}
+                            </div>
+                            <Confetti numberOfPieces={200} />
+                        </>
+                        )}
+        <div>
+            {/* Game content */}
+            <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div className="container mx-auto flex flex-col items-center bg-black-900 bg-opacity-60 rounded-lg p-4 transition duration-300 hover:bg-opacity-80 text-center max-w-3xl">
+                    <h2 className="text-4xl text-white font-bold pt-5 pb-2 mb-2">Wordle Game</h2>
+                    
                         <div className="text-white mb-2">The clue is that this word is a 5-letter : {category}</div>
                         {feedback.map((feedbackArray, attemptIndex) => (
                             <div key={attemptIndex} className="flex justify-center mb-2">
-                                {feedbackArray.map((color, letterIndex) => (
+                          {feedbackArray.map((color, letterIndex) => (
                                     <div key={letterIndex} className={`h-8 w-8 rounded-full flex items-center justify-center mx-0.5 ${color === 'green' ? 'bg-green-500' : color === 'yellow' ? 'bg-yellow-500' : 'bg-gray-500'}`}>
                                         {attempts[attemptIndex][letterIndex]}
                                     </div>
@@ -221,13 +238,7 @@ const WordleGame = () => {
                             </div>
                         )}
 
-                        {congratulationsMessage && (<>
-                            <div className="congratulations-message text-white">
-                                {congratulationsMessage}
-                            </div>
-                            <Confetti numberOfPieces={200} />
-                        </>
-                        )}
+                        
 
                         {gameOver && (
                             <div className="text-sm text-white font-semibold mb-2">
@@ -265,8 +276,9 @@ const WordleGame = () => {
                     </div>
                 </div>
                 </div>
-            </div>
-        </>
+            
+                </div>
+        
     );
 };
 

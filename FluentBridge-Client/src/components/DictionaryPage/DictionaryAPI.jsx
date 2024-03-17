@@ -66,30 +66,39 @@ const DictionaryAPI = () => {
     }
   };
   
+  // Adds the word to the saved words list
   const addToMyList = () => {
     const lowercaseWord = word.toLowerCase();
     const lowercaseSavedWords = savedWords.map(savedWord => savedWord.toLowerCase());
-  
+
     if (meanings.length > 0 && !lowercaseSavedWords.includes(lowercaseWord)) {
-      setSavedWords([...savedWords, lowercaseWord]);
+      const updatedWordList = [...savedWords, lowercaseWord];
+      setSavedWords(updatedWordList);
       setWord("");
       setDuplicateWordError(false);
+      saveWordListToBackend(updatedWordList); // Save the updated word list to the backend
+      localStorage.setItem('savedWords', JSON.stringify(updatedWordList));
     } else {
       setDuplicateWordError(true);
     }
   };
 
+  // Handles the click event of a saved word
   const handleWordClick = (selectedWord) => {
     setWord(selectedWord);
     setShowListPanel(false);
     getMeaningForSelectedWord(selectedWord);
   };
 
+  // Removes a word from the saved words list
   const removeFromList = (wordToRemove) => {
     const updatedList = savedWords.filter(savedWord => savedWord !== wordToRemove);
     setSavedWords(updatedList);
-  };
+    localStorage.setItem('savedWords', JSON.stringify(updatedList)); // Update local storage
+};
 
+
+  // Fetches the meanings of a selected word from the dictionary API
   const getMeaningForSelectedWord = async (selectedWord) => {
     try {
       const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${selectedWord}`);
@@ -142,10 +151,19 @@ const DictionaryAPI = () => {
     setAudio(null);
   }, [word]);
 
+  // Sorts the saved words list when it changes
   useEffect(() => {
     const sortedWords = [...savedWords].sort((a, b) => a.localeCompare(b));
     setSortedSavedWords(sortedWords);
   }, [savedWords]);
+
+  useEffect(() => {
+    const savedWordList = localStorage.getItem('savedWords');
+    if (savedWordList) {
+        setSavedWords(JSON.parse(savedWordList));
+    }
+}, []);
+
 
   return (
     
