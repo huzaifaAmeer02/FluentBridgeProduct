@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook } from "react-icons/fi";
 import Footer from "../Footer/Footer.jsx";
+import ResultsTables from "../GradingAssesment/ResultsTables.jsx";
 
 const ActivityButton = ({ to, color, icon, text }) => {
     return (
@@ -34,7 +35,7 @@ const ActivityPanel = () => {
     return (
         <div className="relative flex flex-col min-h-screen">
             <animated.div
-                style={{ ...slideIn, background: 'radial-gradient(circle, #220233, #000000)'}}
+                style={{ ...slideIn}}
                 className="flex-1 md:flex md:items-center md:justify-center"
             >
                 <div className="md:w-2/3 pb-32 overflow-y-auto">
@@ -47,6 +48,9 @@ const ActivityPanel = () => {
                     </div>
                 </div>
             </animated.div>
+            <div className="mt-8 flex flex-col sm:flex-row justify-center mx-10">
+                <ResultsTables />
+            </div>
             <Footer />
             
         </div>
