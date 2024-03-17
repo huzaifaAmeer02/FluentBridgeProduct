@@ -65,28 +65,28 @@ const Navbar = () => {
                             </div>
                             {/* Dropdown menu for user profile */}
                             {profileMenuOpen && (
-                                <ul className="profile-dropdown absolute top-12 right-0 bg-[#D6C2E1] shadow-md rounded-lg py-2 mr-2 mt-2">
+                                <ul className="profile-dropdown absolute top-12 right-0 bg-purple-600 shadow-md rounded-lg py-2 mr-2 mt-2">
                                     <li className="profile-item px-4 py-2 flex items-center">
                                         {/* User name and email address */}
                                         <div>
                                             <p className="font-semibold">Username</p>
-                                            <p className="text-gray-500">email@example.com</p>
+                                            <p className="text-purple-950">email@example.com</p>
                                         </div>
                                     </li>
                                     {/* Dropdown options */}
-                                    <li className="profile-item px-4 py-2 hover:bg-purple-200">
+                                    <li className="profile-item px-4 py-2 hover:bg-purple-400">
                                         <Link to="/activities">My Activity Panel</Link>
                                     </li>
-                                    <li className="profile-item px-4 py-2 hover:bg-purple-200">
+                                    <li className="profile-item px-4 py-2 hover:bg-purple-400">
                                         <Link to="/contact">Contact Us</Link>
                                     </li>
-                                    <li className="profile-item px-4 py-2 hover:bg-purple-200">
+                                    <li className="profile-item px-4 py-2 hover:bg-purple-400">
                                         <Link to="/about">About Us</Link>
                                     </li>
-                                    <li className="profile-item px-4 py-2 hover:bg-purple-200">
+                                    <li className="profile-item px-4 py-2 hover:bg-purple-400">
                                         <Link to="/user">User profile</Link>
                                     </li>
-                                    <li className="profile-item px-4 py-2 hover:bg-purple-200" onClick={handleLogout}>
+                                    <li className="profile-item px-4 py-2 text-purple-900 rounded-xl hover:text-white hover:bg-purple-500 bg-white m-2" onClick={handleLogout}>
                                         <FaSignOutAlt className="mr-2" />
                                         Logout
                                     </li>

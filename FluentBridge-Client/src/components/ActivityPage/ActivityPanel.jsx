@@ -39,7 +39,7 @@ const ActivityPanel = () => {
                 className="flex-1 md:flex md:items-center md:justify-center"
             >
                 <div className="md:w-2/3 pb-32 overflow-y-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-28 p-10 rounded-4xl">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-28 p-10 rounded-4xl text-purple-950 font-bold text-2xl">
                         {activities.map((activity, index) => (
                             <animated.div key={index}>
                                 <ActivityButton to={activity.to} color={activity.color} icon={activity.icon} text={activity.text} />
