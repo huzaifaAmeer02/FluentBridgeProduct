@@ -1,14 +1,17 @@
 # uvicon main:app
-# uvicorn main:app --reload
+
 # Get-ExecutionPolicy
 # Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
-# .\venv\Scripts\Activate
+
 # python -m venv venv
 # pip3 install fastapi
 # pip3 install python-decouple==3.8 python-multipart==0.0.6 requests==2.28.2 fastapi==0.92.0
 # pip install "uvicorn[standard]"
 #  pip install openai
+# .\venv\Scripts\Activate
+
+# uvicorn main:app --reload
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import StreamingResponse
