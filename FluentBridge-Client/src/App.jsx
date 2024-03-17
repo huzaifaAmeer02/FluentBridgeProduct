@@ -63,6 +63,7 @@ function App() {
                     <Route path='/speaking' element={<Speaking/>}/>
                     <Route path='/pronunciation' element={<Pronunciation/>}/>
                     <Route path='/writingactivity' element={<WritingActivity/>}/>
+
                         {/* <Route path='/NewOne' element={<NewOne/>}/> */}
                     <Route path='/user' element={<User/>}/>
 
