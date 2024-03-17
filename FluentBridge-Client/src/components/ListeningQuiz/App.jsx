@@ -385,6 +385,10 @@ function App() {
   const handleStart = () => {
     setUsername("Guest");
   };
+  const togglePyramidVisibility = () => {
+    setShowPyramid((prev) => !prev);
+  };
+
 
   return (
       <div className="app bg-gradient-to-b from-purple-800 to-purple-900 min-h-screen flex justify-center items-center text-white relative">
@@ -421,8 +425,8 @@ function App() {
                     </>
                 )}
               </div>
-              {/* Show the pyramid container if showPyramid state is true or screen width is larger */}
-              {(showPyramid || window.innerWidth > 768) && !timeOut && !quizCompleted && (
+              {/* Show the pyramid container if showPyramid state is true */}
+              {showPyramid && !timeOut && !quizCompleted && (
                   <div className="pyramid-container absolute right-4 top-0 h-80vh flex flex-col items-center justify-center mb-10">
                     <h2 className="text-white font-bold mb-4">See Your Progress</h2>
                     <div className="pyramid bg-purple-600 rounded-lg p-4">
@@ -444,13 +448,13 @@ function App() {
                     </div>
                   </div>
               )}
-              {/* Button to toggle pyramid visibility on smaller screens */}
-              {window.innerWidth <= 768 && !timeOut && !quizCompleted && (
+              {/* Button to toggle pyramid visibility */}
+              {!showPyramid && !timeOut && !quizCompleted && (
                   <button
                       className="pyramid-toggle-btn absolute right-4 top-4 text-white bg-purple-600 py-2 px-4 rounded-lg"
-                      onClick={() => setShowPyramid(!showPyramid)}
+                      onClick={togglePyramidVisibility}
                   >
-                    {showPyramid ? "Hide Pyramid" : "Show Pyramid"}
+                    Show Pyramid
                   </button>
               )}
             </>
