@@ -1,5 +1,3 @@
-// Trivia.js
-
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
 import play from "../sounds/play.mp3";
@@ -61,12 +59,16 @@ export default function Trivia({
   };
 
   return (
-    <div className="trivia">
-      <div className="question">{question?.question}</div>
-      <div className="answers">
+    <div className="trivia mt-8 mb-10">
+      <div className="question text-white bg-purple-700 py-4 px-6 rounded-md mb-8">
+        {question?.question}
+      </div>
+      <div className="answers grid grid-cols-2 gap-4">
         {question?.answers.map((a) => (
           <div
-            className={selectedAnswer === a ? className : "answer"}
+            className={`${
+              selectedAnswer === a ? className : "answer"
+            } ${a.correct ? "correct" : "wrong"} bg-purple-500 hover:bg-purple-900 text-white py-2 px-4 rounded-md cursor-pointer transition duration-300 ease-in-out`}
             onClick={() => !selectedAnswer && handleClick(a)}
             key={a.text}
           >

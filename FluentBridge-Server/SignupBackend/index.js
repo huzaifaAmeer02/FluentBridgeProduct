@@ -25,7 +25,7 @@ const app = express();
 app.use(cors())
 
 const userRoute = require('./route/UserRoute');
-const customerRoute = require('./route/CustomerRoute');
+const customerRoute = require('./route/customerRoute');
 
 //-----------------------Signup Comments
 

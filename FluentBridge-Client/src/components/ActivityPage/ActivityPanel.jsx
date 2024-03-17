@@ -31,11 +31,10 @@ const ActivityPanel = () => {
         { to: "/gradingquiz", color: "bg-purple-400", icon: <FiEdit className="mx-auto mb-2 text-4xl text-purple-500" />, text: "Grading Quiz" },
         { to: "/Controller", color: "bg-indigo-400", icon: <FiMessageSquare className="mx-auto mb-2 text-4xl text-indigo-500" />, text: "Chat Bot" }
     ];
-
     return (
         <div className="relative flex flex-col min-h-screen">
             <animated.div
-                style={{ ...slideIn, background: "linear-gradient(to right, #752F99, #35273D, #17111A)" }}
+                style={{ ...slideIn, background: 'radial-gradient(circle, #220233, #000000)'}}
                 className="flex-1 md:flex md:items-center md:justify-center"
             >
                 <div className="md:w-2/3 pb-32 overflow-y-auto">
