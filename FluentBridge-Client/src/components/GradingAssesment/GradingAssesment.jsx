@@ -83,7 +83,7 @@ export default function GradingAssessment() {
                         <IoIosArrowBack />
                     </Link>
                     <div className="absolute top-4 right-4 cursor-pointer" onClick={toggleLanguage}>
-                        <FiGlobe className="bg-white p-2 rounded mr-6" size={40} />
+                        <FiGlobe className="bg-white p-2 rounded mr-6 text-purple-950" size={40} />
                     </div>
 
                     <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">
