@@ -20,12 +20,12 @@ const UserSchema =
             type:Boolean,
             required:true
         },
-        profileImage: {
-            type: String // Store the URL of the profile image
-        },
-        userId: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true
-        }
+        // profileImage: {
+        //     type: String // Store the URL of the profile image
+        // },
+        // userId: {
+        //     type: mongoose.Schema.Types.ObjectId,
+        //     required: true
+        // }
     });
 module.exports = mongoose.model('user',UserSchema);
