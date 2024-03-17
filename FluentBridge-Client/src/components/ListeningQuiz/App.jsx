@@ -421,8 +421,8 @@ function App() {
                     </>
                 )}
               </div>
-              {/* Show the pyramid container if showPyramid state is true or screen width is larger */}
-              {(showPyramid || window.innerWidth > 768) && !timeOut && !quizCompleted && (
+              {/* Show the pyramid container if showPyramid state is true and screen width is larger */}
+              {(showPyramid && window.innerWidth > 768) && !timeOut && !quizCompleted && (
                   <div className="pyramid-container absolute right-4 top-0 h-80vh flex flex-col items-center justify-center mb-10">
                     <h2 className="text-white font-bold mb-4">See Your Progress</h2>
                     <div className="pyramid bg-purple-600 rounded-lg p-4">
@@ -457,6 +457,7 @@ function App() {
         )}
       </div>
   );
+
 }
 
 export default App;
