@@ -387,7 +387,7 @@ function App() {
   };
 
   return (
-      <div className="app bg-gradient-to-b from-purple-800 to-purple-900 min-h-screen flex justify-center items-center text-white">
+      <div className="app bg-gradient-to-b from-purple-800 to-purple-900 min-h-screen flex justify-center items-center text-white relative">
         <Link
             to="/listening"
             className="back-to-activities flex items-center text-yellow-500 font-bold hover:text-red-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
@@ -418,35 +418,37 @@ function App() {
                           />
                         </div>
                       </div>
-                      {!timeOut && !quizCompleted && (
-                          <div className="pyramid-container flex flex-col items-center justify-center mb-10">
-                            <h2 className="text-white font-bold mb-4">See Your Progress</h2>
-                            <div className="pyramid bg-purple-600 rounded-lg p-4 flex">
-                              <ul className="moneyList">
-                                {moneyPyramid.map((m) => (
-                                    <li
-                                        className={
-                                          questionNumber === m.id
-                                              ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl"
-                                              : "moneyListItem text-white p-4"
-                                        }
-                                        key={m.id}
-                                    >
-                                      <span className="moneyListItemNumber">[ {m.id} ]</span>
-                                      <span className="moneyListItemAmount">{m.amount} Points</span>
-                                    </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>
-                      )}
                     </>
                 )}
               </div>
+              {!timeOut && !quizCompleted && (
+                  <div className="pyramid-container absolute right-4 top-0 flex flex-col items-center justify-center mb-10">
+                    <h2 className="text-white font-bold mb-4">See Your Progress</h2>
+                    <div className="pyramid bg-purple-600 rounded-lg p-4">
+                      <ul className="moneyList">
+                        {moneyPyramid.map((m) => (
+                            <li
+                                className={
+                                  questionNumber === m.id
+                                      ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl"
+                                      : "moneyListItem text-white p-4"
+                                }
+                                key={m.id}
+                            >
+                              <span className="moneyListItemNumber">[ {m.id} ]</span>
+                              <span className="moneyListItemAmount">{m.amount} Points</span>
+                            </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+              )}
             </>
         )}
       </div>
   );
+
+
 }
 
 export default App;
