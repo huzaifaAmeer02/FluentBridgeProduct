@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+
 export default function ResultsTables() {
     const [attemptData, setAttemptData] = useState([]);
 
@@ -21,7 +22,7 @@ export default function ResultsTables() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <h3 className="text-xl font-semibold mb-4">Be Your Own Competitor</h3>
+                <h3 className="text-xl font-semibold mb-4">Grading Assesment Rankings</h3>
                 <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-purple-200">
                         <thead className="bg-gray-50 sticky top-0">
