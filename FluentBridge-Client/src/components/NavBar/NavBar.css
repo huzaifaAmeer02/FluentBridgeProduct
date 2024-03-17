@@ -7,7 +7,7 @@
 
 }
 body{
-    background-color: #075C5C;
+    background: radial-gradient(circle, #220233, #000000);
 }
 a {
     text-decoration: none;
@@ -19,7 +19,7 @@ li {
     z-index: 9999;
     top: 0;
     display: flex;
-    position: fixed;
+    position: absolute;
     width: 100%;
     justify-content: space-around;
     align-items: center;

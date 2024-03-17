@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
 import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook } from "react-icons/fi";
 import Footer from "../Footer/Footer.jsx";
+import ResultsTables from "../GradingAssesment/ResultsTables.jsx";
 
 const ActivityButton = ({ to, color, icon, text }) => {
     return (
@@ -31,11 +32,10 @@ const ActivityPanel = () => {
         { to: "/gradingquiz", color: "bg-purple-400", icon: <FiEdit className="mx-auto mb-2 text-4xl text-purple-500" />, text: "Grading Quiz" },
         { to: "/Controller", color: "bg-indigo-400", icon: <FiMessageSquare className="mx-auto mb-2 text-4xl text-indigo-500" />, text: "Chat Bot" }
     ];
-
     return (
         <div className="relative flex flex-col min-h-screen">
             <animated.div
-                style={{ ...slideIn, background: "linear-gradient(to right, #7D6995, #35273D, #17111A)" }}
+                style={{ ...slideIn}}
                 className="flex-1 md:flex md:items-center md:justify-center"
             >
                 <div className="md:w-2/3 pb-32 overflow-y-auto">
@@ -48,6 +48,9 @@ const ActivityPanel = () => {
                     </div>
                 </div>
             </animated.div>
+            <div className="mt-8 flex flex-col sm:flex-row justify-center mx-10">
+                <ResultsTables />
+            </div>
             <Footer />
             
         </div>
