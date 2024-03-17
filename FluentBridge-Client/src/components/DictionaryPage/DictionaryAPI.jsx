@@ -76,7 +76,7 @@ const DictionaryAPI = () => {
       setSavedWords(updatedWordList);
       setWord("");
       setDuplicateWordError(false);
-      saveWordListToBackend(updatedWordList); // Save the updated word list to the backend
+      //saveWordListToBackend(updatedWordList); // Save the updated word list to the backend
       localStorage.setItem('savedWords', JSON.stringify(updatedWordList));
     } else {
       setDuplicateWordError(true);
