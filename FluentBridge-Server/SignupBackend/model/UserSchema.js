@@ -20,5 +20,8 @@ const UserSchema =
             type:Boolean,
             required:true
         },
+        profileImage: {
+            type: String // Store the URL of the profile image
+        }
     });
 module.exports = mongoose.model('user',UserSchema);
