@@ -6,7 +6,7 @@ const ChangePasswordForm = () => {
     const [newPassword, setNewPassword] = useState('');
 
     const handleChangePassword = () => {
-        axios.put('/api/v1/users/change-password', { oldPassword, newPassword })
+        axios.put('/api/v1/users/change-password', {_id: userData._id,oldPassword, newPassword })
             .then(response => {
                 console.log('Password changed successfully');
             })

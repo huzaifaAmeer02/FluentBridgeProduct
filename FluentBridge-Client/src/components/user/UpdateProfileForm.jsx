@@ -6,7 +6,7 @@ const UpdateProfileForm = ({ userData }) => {
     const [email, setEmail] = useState(userData.email);
 
     const handleUpdate = () => {
-        axios.put('/api/v1/users/update', { fullName, email })
+        axios.put('/api/v1/users/update', {_id: userData._id, fullName, email })
             .then(response => {
                 console.log('Profile updated successfully');
             })
