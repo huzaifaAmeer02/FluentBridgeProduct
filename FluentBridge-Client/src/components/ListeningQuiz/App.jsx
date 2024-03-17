@@ -448,17 +448,17 @@ function App() {
                   </div>
               )}
               {/* Show hide/show button on smaller screens */}
-              {!timeOut && !quizCompleted && window.innerWidth <= 768 && (
-                  <div className="pyramid-toggle-btn-container absolute right-4 top-4">
-                    <button
-                        className="pyramid-toggle-btn absolute right-4 top-4 text-white bg-purple-600 py-2 px-4 rounded-lg"
-                        onClick={() => setShowPyramid(!showPyramid)}
-                    >
-                      {showPyramid ? "Hide Pyramid" : "Show Pyramid"}
-                    </button>
+              {/*{!timeOut && !quizCompleted && window.innerWidth <= 768 && (*/}
+              {/*    <div className="pyramid-toggle-btn-container absolute right-4 top-4">*/}
+              {/*      <button*/}
+              {/*          className="pyramid-toggle-btn absolute right-4 top-4 text-white bg-purple-600 py-2 px-4 rounded-lg"*/}
+              {/*          onClick={() => setShowPyramid(!showPyramid)}*/}
+              {/*      >*/}
+              {/*        {showPyramid ? "Hide Pyramid" : "Show Pyramid"}*/}
+              {/*      </button>*/}
 
-                  </div>
-              )}
+              {/*    </div>*/}
+              {/*)}*/}
             </>
         )}
       </div>
