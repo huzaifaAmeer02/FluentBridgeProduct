@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import UpdateProfileForm from '../user/UpdateProfileForm';
 import ChangePasswordForm from '../user/ChangePasswordForm';
 import axios from 'axios';
+import ResultsTables from "../GradingAssesment/ResultsTables"
 
 const Profile = () => {
     const [userData, setUserData] = useState(null);
@@ -26,6 +27,9 @@ const Profile = () => {
                     <p>Email: {userData.email}</p>
                     <UpdateProfileForm userData={userData} />
                     <ChangePasswordForm />
+                    <div className="mt-8 flex flex-col sm:flex-row justify-center mx-10">
+                        <ResultsTables />
+                    </div>
                 </div>
             )}
         </div>

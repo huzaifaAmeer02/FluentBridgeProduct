@@ -99,9 +99,6 @@ export default function Results() {
                     Checkout Quiz
                 </Link>
             </div>
-            <div className="mt-8 flex flex-col sm:flex-row justify-center">
-                <ResultsTables />
-            </div>
         </div>
     );
 }
