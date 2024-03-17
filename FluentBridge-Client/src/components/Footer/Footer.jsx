@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
       <footer className="text-gray-600 body-font bg-white">
-          <div className="container px-5 py-20 mx-auto">
+          <div className="container px-5 py-10 mx-auto">
               <div className="flex flex-wrap md:text-left text-center order-first">
                   <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                       <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Get Multi Language Support</h2>

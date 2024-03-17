@@ -25,9 +25,9 @@ const app = express();
 app.use(cors())
 
 const userRoute = require('./route/UserRoute');
-const customerRoute = require('./route/CustomerRoute');
+const customerRoute = require('./route/customerRoute');
 
-//-----------------------
+//-----------------------Signup Comments
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))

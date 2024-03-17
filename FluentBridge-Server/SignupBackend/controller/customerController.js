@@ -1,13 +1,12 @@
-const Customer = require('../model/customerShema');
+const Customer = require('../model/customerSchema');
 const {response} = require("express");
+
+// Import the required modules
 
 /*
 * POST -> save
-* PUT ->Update
-* GET - > fetch
-* DELETE -> remove
-* */
-
+* This function saves a new customer to the database.
+*/
 const saveCustomer = (req,resp) =>{
     console.log(resp.body)
     const tempCustomer = new Customer({
@@ -22,6 +21,11 @@ const saveCustomer = (req,resp) =>{
         resp.status(500).json(error);
     });
 };
+
+/*
+* PUT -> Update
+* This function updates an existing customer in the database.
+*/
 const updateCustomer = (req,resp) =>{
     Customer.updateOne({nic:req.headers.nic},{
         $set:{
@@ -38,9 +42,12 @@ const updateCustomer = (req,resp) =>{
     }).catch(error=>{
         resp.status(500).json(error);
     })
-
-
 };
+
+/*
+* DELETE -> remove
+* This function deletes a customer from the database.
+*/
 const deleteCustomer = (req,resp) =>{
     Customer.deleteOne({nic:req.headers.nic}).then(result=>{
         if(result.deletedCount>0){
@@ -52,6 +59,11 @@ const deleteCustomer = (req,resp) =>{
         resp.status(500).json(error);
     })
 };
+
+/*
+* GET -> fetch
+* This function finds a customer in the database based on the NIC (National Identity Card) number.
+*/
 const findCustomer = (req,resp) =>{
     Customer.findOne({nic:req.headers.nic}).then(result=>{
         if(result==null){
@@ -62,19 +74,21 @@ const findCustomer = (req,resp) =>{
     }).catch(error=>{
         resp.status(500).json(error);
     })
-
 };
-const findallCustomer = (req,resp) =>{
 
+/*
+* GET -> fetch all
+* This function fetches all customers from the database.
+*/
+const findallCustomer = (req,resp) =>{
     Customer.find().then(result=>{
         resp.status(200).json({status:true,data:result});
-
     }).catch(error=>{
         resp.status(500).json(error);
     })
-
 };
 
+// Export the functions
 module.exports={
     saveCustomer,
     updateCustomer,
