@@ -9,7 +9,8 @@ const UserSchema =
         username: String,
         email:{
             type:String,
-            required:true
+            required:true,
+            unique: true // Assuming email should be unique
         },
         password:{
             type:String,
