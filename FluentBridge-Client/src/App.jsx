@@ -38,7 +38,7 @@ function App() {
             <Router>
                 <Navbar />
                 <Routes>
-                    <Route path='/' element={<LandingPage />} />
+                    <Route path='/' element={<NewOne />} />
                     <Route path='/home' element={<Home />} />
                     <Route path='/about' element={<About />} />
                     <Route path='/activities' element={<Activity />} />
@@ -63,7 +63,7 @@ function App() {
                     <Route path='/speaking' element={<Speaking/>}/>
                     <Route path='/pronunciation' element={<Pronunciation/>}/>
                     <Route path='/writingactivity' element={<WritingActivity/>}/>
-                        <Route path='/NewOne' element={<NewOne/>}/>
+                        {/* <Route path='/NewOne' element={<NewOne/>}/> */}
                 </Routes>
             </Router>
         </>
