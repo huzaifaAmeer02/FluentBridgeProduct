@@ -11,14 +11,14 @@ const WritingActivity = () => {
     };
 
     return (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-200 z-50">
-            <Link to="/activities" className="absolute left-4 top-4 text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-purple-400 z-50">
+            <Link to="/activities" className="absolute left-4 top-4 text-purple-500 font-bold hover:text-purple-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white">
                 <IoIosArrowBack />
             </Link>
 
-            <div className="max-w-md p-6 bg-white rounded-lg shadow-lg text-center mx-4">
-                <h2 className="text-xl font-bold mb-4">{isTranslated ? 'FluentBridge ලිවීමේ නිවැරදි කිරීමේ ක්‍රියාකාරකම්' : 'FluentBridge Writing Corrector Activity'}</h2>
-                <p className="text-gray-700 mb-4">{isTranslated ? 'ඔබේ ලිවීම නිවැරදි කිරීම සඳහා ඉදිරිපත් කිරීමට පහත උපදෙස් අනුගමනය කරන්න:' : 'Follow the instructions below to submit your writing for correction:'}</p>
+            <div className="max-w-md p-6 bg-purple-200 rounded-lg shadow-lg text-center mx-4">
+                <h2 className="text-purple-950 text-xl font-bold mb-4">{isTranslated ? 'FluentBridge ලිවීමේ නිවැරදි කිරීමේ ක්‍රියාකාරකම්' : 'FluentBridge Writing Corrector Activity'}</h2>
+                <p className="text-purple-900 mb-4">{isTranslated ? 'ඔබේ ලිවීම නිවැරදි කිරීම සඳහා ඉදිරිපත් කිරීමට පහත උපදෙස් අනුගමනය කරන්න:' : 'Follow the instructions below to submit your writing for correction:'}</p>
                 <ol className="text-left mb-4">
                     <li className="mb-2">{isTranslated ? 'ඔබේ රචනය හෝ ඡේදය ඔබ කැමති පාඨ සංස්කාරකයක ලියන්න.' : 'Write your essay or paragraph in a text editor of your choice.'}</li>
                     <li className="mb-2">{isTranslated ? 'පහත පරිදි ආදාන බොහෝ ආකාරවලින් ලබා දිය හැක.' : 'The inputs can be given in many ways as below.'}</li>
@@ -30,13 +30,13 @@ const WritingActivity = () => {
                     href="https://your-writing-corrector-url.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-10 mb-4 bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-md shadow-md transition duration-300 ease-in-out"
+                    className="mt-10 mb-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-md shadow-md transition duration-300 ease-in-out"
                 >
                     {isTranslated ? 'Writing Corrector වෙත යන්න' : 'Go to Writing Corrector'}
                 </a><br />
                 <button
                     onClick={toggleTranslation}
-                    className="mt-6 mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-md shadow-md transition duration-300 ease-in-out"
+                    className="mt-6 mb-4 bg-purple-800 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-md shadow-md transition duration-300 ease-in-out"
                 >
                     {isTranslated ? 'Translate to English' : 'සිංහලට පරිවර්තනය කරන්න'}
                 </button>
