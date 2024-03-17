@@ -11,7 +11,7 @@ const WritingActivity = () => {
     };
 
     return (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-purple-300 z-50">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-[#271133] z-50">
             <Link to="/activities" className="absolute left-4 top-4 text-purple-500 font-bold hover:text-purple-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white">
                 <IoIosArrowBack />
             </Link>
