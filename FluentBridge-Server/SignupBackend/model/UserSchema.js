@@ -26,3 +26,5 @@ const UserSchema =
         }
     });
 module.exports = mongoose.model('user',UserSchema);
+
+

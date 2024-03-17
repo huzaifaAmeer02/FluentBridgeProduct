@@ -106,46 +106,57 @@ const updateUser = (req, res) => {
             res.status(500).json({ error: error.message });
         });
 };
-// Function to change password
-const changePassword = (req, res) => {
-    const { oldPassword, newPassword } = req.body;
-    const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
 
-    // Find user by ID
-    userSchema.findById(userId)
-        .then(user => {
-            // Compare old password
-            bcrypt.compare(oldPassword, user.password, function(err, result) {
-                if (err) {
-                    return res.status(500).json({ message: 'Internal server error' });
-                }
-                if (result) {
-                    // Hash new password and update in the database
-                    bcrypt.hash(newPassword, 10, function(err, hash) {
-                        if (err) {
-                            return res.status(500).json({ message: 'Internal server error' });
-                        }
-                        // Update password
-                        user.password = hash;
-                        user.save()
-                            .then(() => {
-                                res.status(200).json({ message: 'Password updated successfully' });
-                            })
-                            .catch(error => {
-                                res.status(500).json({ error: error.message });
-                            });
-                    });
-                } else {
-                    res.status(401).json({ message: 'Old password is incorrect' });
-                }
-            });
-        })
-        .catch(error => {
-            res.status(500).json({ error: error.message });
-        });
+
+
+// Function to change password
+// Function to change password
+const changePassword = async (req, res) => {
+    try {
+        const { oldPassword, newPassword } = req.body;
+        const userId = req.user.id;
+
+        // Find user by ID
+        const user = await userSchema.findById(userId);
+
+        // Compare old password
+        const isPasswordMatch = await bcrypt.compare(oldPassword, user.password);
+        if (!isPasswordMatch) {
+            return res.status(401).json({ message: 'Old password is incorrect' });
+        }
+
+        // Hash new password and update in the database
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+        user.password = hashedPassword;
+        await user.save();
+
+        res.status(200).json({ message: 'Password updated successfully' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 };
+
+
+// Function to update user details including email
+// Function to update user email
+const updateUserEmail = async (req, res) => {
+    try {
+        const { email } = req.body;
+        const userId = req.user.id;
+
+        // Update email in the database
+        const updatedUser = await userSchema.findByIdAndUpdate(userId, { email }, { new: true });
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
 module.exports={
     signup,login,
     updateUser,
-    changePassword
+    changePassword,
+    updateUserEmail
 }
+
