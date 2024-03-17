@@ -35,8 +35,7 @@
     "react-widgets": "^5.8.4",
     "sass": "^1.71.1",
     "scroll-lock": "^2.1.5",
-    "use-sound": "^4.0.1",
-    "vite-plugin-sass": "^0.1.0"
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -50,6 +49,7 @@
     "postcss": "^8.4.33",
     "sass": "^1.71.1",
     "tailwindcss": "^3.4.1",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vite-plugin-sass": "^0.1.0"
   }
 }
