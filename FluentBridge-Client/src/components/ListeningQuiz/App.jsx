@@ -1,4 +1,3 @@
-
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Start from "./components/Start";
@@ -13,7 +12,8 @@ function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [earned, setEarned] = useState("$ 0");
   const [quizCompleted, setQuizCompleted] = useState(false);
-  const [showPyramid, setShowPyramid] = useState(false); // State to toggle pyramid visibility
+  const [showPyramid, setShowPyramid] = useState(false);
+
 
   const data = [
     {
@@ -349,6 +349,7 @@ function App() {
     },
 
   ];
+
   const moneyPyramid = useMemo(
       () => [
         { id: 1, amount: " 100" },
@@ -376,6 +377,7 @@ function App() {
     }
   }, [questionNumber, moneyPyramid, data.length]);
 
+  // Handle completing all questions
   useEffect(() => {
     if (questionNumber > data.length) {
       setQuizCompleted(true);
@@ -403,12 +405,12 @@ function App() {
                     <WinningPanel earned={earned} />
                 ) : (
                     <>
-                      <div className="top w-auto max-w-2xl mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8">
+                      <div className="top w-auto max-w-2xl mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8 mr-80">
                         <Timer setTimeOut={setTimeOut} questionNumber={questionNumber} />
                       </div>
                       <div className="trivia-container flex flex-col items-center justify-center mb-10">
-                        <h2 className="text-white font-bold mb-4">Select the Correct Option</h2>
-                        <div className="trivia bg-purple-600 rounded-lg p-4">
+                        <h2 className="text-white font-bold mb-4 mr-80" >Select the Correct Option</h2>
+                        <div className="trivia bg-purple-600 rounded-lg p-6 mr-80">
                           <Trivia
                               data={data}
                               questionNumber={questionNumber}
@@ -421,20 +423,21 @@ function App() {
                     </>
                 )}
               </div>
-              {/* Show the pyramid container if showPyramid state is true and screen width is larger */}
-              {(showPyramid && window.innerWidth > 768) && !timeOut && !quizCompleted && (
-                  <div className="pyramid-container absolute right-4 top-0 h-80vh flex flex-col items-center justify-center mb-10">
-                    <h2 className="text-white font-bold mb-4">See Your Progress</h2>
-                    <div className="pyramid bg-purple-600 rounded-lg p-4">
-                      <ul className="moneyList">
+              {/* Show the pyramid container if window width is larger */}
+              {!timeOut && !quizCompleted && window.innerWidth > 768 && (
+                  <div className="pyramid-container absolute right-4 top-0 h-full sm:h-80vh w-full sm:w-80 flex flex-col items-center justify-center mb-10">
+                    <div className="pyramid bg-purple-600 rounded-lg p-4 h-full w-full sm:w-auto flex flex-col items-center justify-center"> {/* Center the content */}
+                      <h2 className="text-white font-bold mb-1">See Your Progress</h2>
+                      <ul className="moneyList" style={{ margin: 0, padding: 0 }}>
                         {moneyPyramid.map((m) => (
                             <li
                                 className={
                                   questionNumber === m.id
-                                      ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl"
-                                      : "moneyListItem text-white p-4"
+                                      ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl mb-2 sm:mb-3 lg:mb-4" // Adjust margin for different screen sizes
+                                      : "moneyListItem text-white p-4 mb-2 sm:mb-3 lg:mb-4" // Adjust margin for different screen sizes
                                 }
                                 key={m.id}
+                                style={{ margin: 0, padding: 4 }}
                             >
                               <span className="moneyListItemNumber">[ {m.id} ]</span>
                               <span className="moneyListItemAmount">{m.amount} Points</span>
@@ -444,21 +447,25 @@ function App() {
                     </div>
                   </div>
               )}
-              {/* Button to toggle pyramid visibility on smaller screens */}
-              {window.innerWidth <= 768 && !timeOut && !quizCompleted && (
-                  <button
-                      className="pyramid-toggle-btn absolute right-4 top-4 text-white bg-purple-600 py-2 px-4 rounded-lg"
-                      onClick={() => setShowPyramid(!showPyramid)}
-                  >
-                    {showPyramid ? "Hide Pyramid" : "Show Pyramid"}
-                  </button>
+              {/* Show hide/show button on smaller screens */}
+              {!timeOut && !quizCompleted && window.innerWidth <= 768 && (
+                  <div className="pyramid-toggle-btn-container absolute right-4 top-4">
+                    <button
+                        className="pyramid-toggle-btn absolute right-4 top-4 text-white bg-purple-600 py-2 px-4 rounded-lg"
+                        onClick={() => setShowPyramid(!showPyramid)}
+                    >
+                      {showPyramid ? "Hide Pyramid" : "Show Pyramid"}
+                    </button>
+
+                  </div>
               )}
             </>
         )}
       </div>
   );
 
+
+
 }
 
 export default App;
-
