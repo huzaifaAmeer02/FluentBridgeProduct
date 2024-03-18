@@ -126,5 +126,9 @@ body {
     font-weight: bold;
 }
 
+.result i {
+    margin-right: 5px;
+    color: white;
+}
 
 
