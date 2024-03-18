@@ -7,6 +7,7 @@ import { FiGlobe } from 'react-icons/fi';
 
 const VocabularyActivityPage = () => {
     const [language, setLanguage] = useState("en");
+    const [showInstructions, setShowInstructions] = useState(false); // State to manage instructions visibility
 
     const translations = {
         en: {
@@ -49,34 +50,43 @@ const VocabularyActivityPage = () => {
                 <IoIosArrowBack />
             </Link>
             <main className="flex-grow flex justify-center items-center p-20" >
-                <section className="bg-gray-900 bg-opacity-80 rounded-lg w-full max-w-xl mx-4 p-8 shadow-white " style={{ border: '2px solid white' }}>
-                    <img src={crown} alt="crown clip art" className="mx-auto w-40 mb-6" />
+                <section className="bg-[#271133] bg-opacity-80 rounded-lg w-full max-w-xl mx-4 p-8 shadow-white " style={{ border: '2px solid white' }}>
+                    <img src={crown} alt="crown clip art" className="mx-auto w-32 mb-6" />
                     <h2 className="text-4xl text-white font-semibold text-center mb-4">{translations[language].vocabularyGame}</h2>
                     <p className="text-lg text-white mb-8">{translations[language].unlockPower}</p>
-                    <hr className="border-b border-white mb-8" />
-                    <h3 className="text-3xl text-white text-center mb-4">{translations[language].instructions}</h3>
-                    <ul className="text-white mb-8 bg-black-600 p-10 rounded-2xl opacity-80">
-                        <li className="mb-2">{translations[language].startOfGame}</li>
-                        <li className="mb-2">{translations[language].playerGuess}</li>
-                        <li className="mb-2">{translations[language].afterGuess}</li>
-                        <li className="mb-2">
-                            <span className="h-4 w-4 rounded-full mr-2 bg-green-500 inline-block"></span>
-                            {translations[language].greenCircle}
-                        </li>
-                        <li className="mb-2">
-                            <span className="h-4 w-4 rounded-full mr-2 bg-yellow-500 inline-block"></span>
-                            {translations[language].yellowCircle}
-                        </li>
-                        <li className="mb-2">
-                            <span className="h-4 w-4 rounded-full mr-2 bg-gray-500 inline-block"></span>
-                            {translations[language].grayCircle}
-                        </li>
-                        <li>{translations[language].feedback}</li>
-                    </ul>
+                    <hr className="border-b mb-8" />
+                    {/* Button to toggle instructions visibility */}
+                    <button
+                        className="text-white font-bold py-3 px-6 rounded-lg border-2 bg-purple-900 hover:bg-purple-700 transition duration-300 ease-in-out mb-4 w-full"
+                        onClick={() => setShowInstructions(!showInstructions)}
+                    >
+                        {translations[language].instructions}
+                    </button>
+                    {/* Instructions section */}
+                    {showInstructions && (
+                        <ul className="text-white mb-8 bg-purple-950 p-10 rounded-2xl opacity-80">
+                            <li className="mb-2">{translations[language].startOfGame}</li>
+                            <li className="mb-2">{translations[language].playerGuess}</li>
+                            <li className="mb-2">{translations[language].afterGuess}</li>
+                            <li className="mb-2">
+                                <span className="h-4 w-4 rounded-full mr-2 bg-green-500 inline-block"></span>
+                                {translations[language].greenCircle}
+                            </li>
+                            <li className="mb-2">
+                                <span className="h-4 w-4 rounded-full mr-2 bg-yellow-500 inline-block"></span>
+                                {translations[language].yellowCircle}
+                            </li>
+                            <li className="mb-2">
+                                <span className="h-4 w-4 rounded-full mr-2 bg-gray-500 inline-block"></span>
+                                {translations[language].grayCircle}
+                            </li>
+                            <li>{translations[language].feedback}</li>
+                        </ul>
+                    )}
                     <div className="flex justify-center">
                         <Link
                             to="/wordleGame" // Link to the Wordle game page
-                            className="text-white font-bold py-3 px-6 rounded-lg border-2 bg-gray-900 hover:bg-gray-700 transition duration-300 ease-in-out"
+                            className="text-white font-bold py-3 px-6 rounded-lg border-2 bg-[#1A0B22] hover:bg-[#271133] transition duration-300 ease-in-out"
                         >
                             {translations[language].startWordle}
                         </Link>

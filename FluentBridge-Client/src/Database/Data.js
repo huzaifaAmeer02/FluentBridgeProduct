@@ -101,22 +101,22 @@ export default [
     },
     {
         id: 11,
-        questions: "What part of speech is the word 'quickly'?",
+        questions: "Translate the English phrase ' Good morning, how are you? ' into Sinhala.",
         options: [
-            "Adjective",
-            "Verb",
-            "Noun",
-            "Adverb"
+            "මම ඔයාට වෙනස් කරනවා",
+            "සුභ උදෑසනක්, කොහොමද?",
+            "සුභ උදෑසනක්, ඔබට කොහොමද?",
+            "ඉතා හොඳ උදෑසනක්, කොහොමද"
         ]
     },
     {
         id: 12,
-        questions: "Identify the type of sentence: The sky is blue.",
+        questions: '"ඔබ දුම්රිය ස්ථානයෙන් පැමිණිය යුතුය." How would you translate this sentence into English, and what does it mean?',
         options: [
-            "Interrogative",
-            "Imperative",
-            "Exclamatory",
-            "Declarative"
+            "You must come from the station.",
+            "From the station, you have to come.",
+            "One should arrive from the station.",
+            "Coming from the station is required."
         ]
     },
     {
@@ -151,4 +151,4 @@ export default [
     }
 ];
 
-export const answers = [1, 0, 2, 0, 0, 3, 1, 2, 0, 2, 3, 3, 0, 0, 1];
+export const answers = [1, 0, 2, 0, 0, 3, 1, 2, 0, 2, 3, 0, 0, 0, 1];

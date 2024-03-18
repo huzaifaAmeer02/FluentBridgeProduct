@@ -266,12 +266,12 @@ const DictionaryAPI = () => {
         {showListPanel && (
           <div className="absolute right-10 top-10 bg-purple-100 bg-opacity-80 text-purple-900 w-21 p-4 m-9 rounded-lg transition duration-300 hover:bg-opacity-100" style={{ maxHeight: '600px', overflowY: 'auto' }}>
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl text-purple font-medium my-2 ml-2 px-5" style={{ textShadow: '10px 7px 10px black' }}>My List:</h2>
+              <h2 className="text-xl text-purple font-medium my-2 ml-2 px-5">My List:</h2>
               <button className="text-blue-500 hover:text-gray-700 font-bold hover:text-blue-700 rounded-lg p-3 bg-white left-30 top-3" onClick={() => setShowListPanel(false)}>
                 <IoIosClose />
               </button>
             </div>
-            <ul className="list-disc pl-4 space-y-1" style={{ maxHeight: '600px', textShadow: '10px 10px 10px black'}}>
+            <ul className="list-disc pl-4 space-y-1" style={{ maxHeight: '600px'}}>
               {sortedSavedWords.map((savedWord, index) => (
                 <li key={index} className="py-2 flex justify-between items-center">
                   <div className="flex flex-col">

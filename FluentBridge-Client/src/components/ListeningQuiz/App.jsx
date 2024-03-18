@@ -386,7 +386,10 @@ function App() {
   };
 
   return (
+
       <div className="app bg-gradient-to-b from-purple-800 to-purple-900 min-h-screen flex flex-col justify-center items-center text-white relative">
+      <div className="app bg-gradient-to-b from-[#230F2E] to-purple-950 min-h-screen flex justify-center items-center text-white">
+
         <Link
             to="/listening"
             className="back-to-activities flex items-center text-yellow-500 font-bold hover:text-red-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
