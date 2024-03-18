@@ -113,3 +113,10 @@ body {
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.btn:hover {
+    background: #219653;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
+}
+
+
