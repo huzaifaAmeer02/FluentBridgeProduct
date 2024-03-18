@@ -72,3 +72,7 @@ body {
     margin-left: 8px; /* Adjusted margin */
     vertical-align: middle;
 }
+
+.button-wrapper {
+    margin-top: 10px; /* Adjust the margin to your preference */
+}
