@@ -51,3 +51,10 @@ body {
 .form {
     width: 100%;
 }
+
+.inputfield {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Updated to column layout */
+    align-items: center;
+}
