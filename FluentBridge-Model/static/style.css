@@ -13,3 +13,12 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+.wrapper {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(to bottom,white,purple); /* Updated gradient */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+    padding: 30px;
+    animation: fadeInUp 1s ease-in-out;
+}
