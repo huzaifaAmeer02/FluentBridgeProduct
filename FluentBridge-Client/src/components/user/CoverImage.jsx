@@ -48,7 +48,7 @@ export default function Cover() {
                 alt="Cover"
             />
             <input ref={inputRef} type="file" onChange={handleChangeCover} hidden />
-            {/*<Button
+            <Button
                 onClick={openChooseFile}
                 position="absolute"
                 bottom={4}
@@ -56,7 +56,7 @@ export default function Cover() {
                 variant="ghost"
             >
                 Change Cover
-            </Button>*/}
+            </Button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>

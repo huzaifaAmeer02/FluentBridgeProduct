@@ -3,6 +3,7 @@ import axios from 'axios';
 import UpdateProfileForm from './UpdateProfileForm';
 import ChangePasswordForm from './ChangePasswordForm';
 import CoverImage from './CoverImage'; // Import the CoverImage component
+import newProfiel from './NewProfile'; // Import the CoverImage component
 
 const Profile = () => {
     const [userData, setUserData] = useState(null);
@@ -20,6 +21,7 @@ const Profile = () => {
 
     return (
         <>
+            <newProfiel />
             <CoverImage /> {/* Add the CoverImage component */}
             <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md mt-10">
 
