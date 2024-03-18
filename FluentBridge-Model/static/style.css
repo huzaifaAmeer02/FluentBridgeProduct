@@ -58,3 +58,12 @@ body {
     flex-direction: column; /* Updated to column layout */
     align-items: center;
 }
+
+
+.inputfield label {
+    width: auto; /* Adjust width to accommodate longer text */
+    color: #34495e;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
