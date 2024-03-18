@@ -402,12 +402,12 @@ function App() {
                     <WinningPanel earned={earned} />
                 ) : (
                     <>
-                      <div className="top w-auto max-w-2xl mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8 mr-80">
+                      <div className={`top w-auto max-w-2xl mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8 ${showPyramid ? 'mr-80' : 'mr-0'}`}>
                         <Timer setTimeOut={setTimeOut} questionNumber={questionNumber} />
                       </div>
-                      <div className="trivia-container flex flex-col items-center justify-center mb-10">
-                        <h2 className="text-white font-bold mb-4 mr-80">Select the Correct Option</h2>
-                        <div className="trivia bg-purple-600 rounded-lg p-6 mr-80">
+                      <div className={`trivia-container flex flex-col items-center justify-center mb-10 ${showPyramid ? 'mr-80' : 'mr-0'}`}>
+                        <h2 className="text-white font-bold mb-4">Select the Correct Option</h2>
+                        <div className="trivia bg-purple-600 rounded-lg p-6">
                           <Trivia
                               data={data}
                               questionNumber={questionNumber}
@@ -455,6 +455,7 @@ function App() {
         )}
       </div>
   );
+
 }
 
 export default App;
