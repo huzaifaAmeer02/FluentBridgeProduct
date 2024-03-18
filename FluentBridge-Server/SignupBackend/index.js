@@ -20,12 +20,12 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
-const port = process.env.SERVER_PORT | 4000;
+const port = process.env.SERVER_PORT || 4000;
 const app = express();
 app.use(cors())
 
 const userRoute = require('./route/UserRoute');
-const customerRoute = require('./route/customerRoute');
+// const customerRoute = require('./route/customerRoute');
 
 //-----------------------Signup Comments
 
@@ -45,12 +45,11 @@ try{
 app.use('/api/v1/users',userRoute);
 
 
-app.use('/api/v1/customers',customerRoute);
+// app.use('/api/v1/customers',customerRoute);
 
 app.get('/test-api',(req,resp)=>{
     return resp.json({'message':'Server Started!'})
 })
 
+
 //------------
-
-

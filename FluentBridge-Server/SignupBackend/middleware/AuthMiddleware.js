@@ -1,4 +1,3 @@
-
 const jwt = require('jsonwebtoken');
 const {response} = require("express");
 
@@ -8,7 +7,7 @@ function verifyToken(req,res,next){
         return res.status(401).json({error:'no token provide in here'})
     }
 
-    
+    /*token come with "Bearer" text we need only token*/
     if (authorizeHeaders.startsWith('Bearer  ')){
         return res.status(401).json({error:'invalid token format'})
     }
