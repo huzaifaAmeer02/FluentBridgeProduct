@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import crown from "../../assets/logofluent.png";
 import { IoIosArrowBack } from 'react-icons/io';
@@ -7,6 +7,7 @@ import { FiGlobe } from 'react-icons/fi';
 
 const VocabularyActivityPage = () => {
     const [language, setLanguage] = useState("en");
+    const [stopAnimation, setStopAnimation] = useState(false);
 
     const translations = {
         en: {
@@ -43,19 +44,27 @@ const VocabularyActivityPage = () => {
         setLanguage(language === "en" ? "si" : "en");
     };
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setStopAnimation(true);
+        }, 3000); // Change 3000 to the number of milliseconds after which you want to stop the animation
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className="bg-cover bg-center min-h-screen flex flex-col" style={{background: 'radial-gradient(circle, #220233, #000000)'}}>
             <Link to="/vocabpanel" className="absolute left-4 top-4 text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white">
                 <IoIosArrowBack />
             </Link>
             <main className="flex-grow flex justify-center items-center p-20" >
-                <section className="bg-gray-900 bg-opacity-80 rounded-lg w-full max-w-xl mx-4 p-8 shadow-white " style={{ border: '2px solid white' }}>
-                    <img src={crown} alt="crown clip art" className="mx-auto w-40 mb-6" />
+                <section className=" rounded-lg w-full max-w-xl mx-4 p-8 shadow-white ">
+                    <img src={crown} alt="crown clip art" className={`mx-auto w-40 mb-6 transition-transform ${stopAnimation ? 'transform-none' : 'animate-bounce'}`}/>
                     <h2 className="text-4xl text-white font-semibold text-center mb-4">{translations[language].vocabularyGame}</h2>
                     <p className="text-lg text-white mb-8">{translations[language].unlockPower}</p>
                     <hr className="border-b border-white mb-8" />
                     <h3 className="text-3xl text-white text-center mb-4">{translations[language].instructions}</h3>
-                    <ul className="text-white mb-8 bg-black-600 p-10 rounded-2xl opacity-80">
+                    <ul className="text-purple mb-8 bg-purple-300 p-10 rounded-2xl opacity-80">
                         <li className="mb-2">{translations[language].startOfGame}</li>
                         <li className="mb-2">{translations[language].playerGuess}</li>
                         <li className="mb-2">{translations[language].afterGuess}</li>
@@ -76,7 +85,7 @@ const VocabularyActivityPage = () => {
                     <div className="flex justify-center">
                         <Link
                             to="/wordleGame" // Link to the Wordle game page
-                            className="text-white font-bold py-3 px-6 rounded-lg border-2 bg-gray-900 hover:bg-gray-700 transition duration-300 ease-in-out"
+                            className="text-white  hover:text-purple-900 font-bold py-3 px-6 rounded-lg border-2 bg-purple-900 hover:bg-purple-100 transition duration-300 ease-in-out"
                         >
                             {translations[language].startWordle}
                         </Link>

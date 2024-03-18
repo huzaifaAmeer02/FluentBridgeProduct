@@ -10,7 +10,7 @@ import animationData from "../../assets/wordle.json";
 
 
 const WordleGame = () => {
-    const verbList = ["clean", "print","dance","drink","write","plant", "study", "teach","fetch","sleep"]; // List of verbs
+    const verbList = ["clean", "print","dance","drink","write","plant", "study", "teach","fetch","sleep"];
     const nounList = ["grape", "melon", "lemon", "peach", "berry", "mango","chair", "house", "table", "clock", "shoes", "shirt","glove","phone","piano","beach"]; // List of fruits
     const adjectiveList = ["happy","silly","brave","proud","sharp","clean","small"];
     const adverbList = ["quick","sunny","clear","early","lucky","plain","ready"];
@@ -179,7 +179,7 @@ const WordleGame = () => {
 
     return (
         <div style={{ display: 'flex',   justifyContent: 'center', alignItems: 'center', zIndex: -1 }}>
-        <div style={{ display: 'flex', position: 'fixed', zIndex: -1 }}>
+        <div  style={{ display: 'flex', position: 'fixed', zIndex: -1, padding:2}}>
             <Lottie animationData={animationData} style={{ width:1800, height:900}} />
         </div>
         
