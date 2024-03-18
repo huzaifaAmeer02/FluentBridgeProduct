@@ -14,7 +14,6 @@ const WordleGame = () => {
     const nounList = ["grape", "melon", "lemon", "peach", "berry", "mango","chair", "house", "table", "clock", "shoes", "shirt","glove","phone","piano","beach"]; // List of fruits
     const adjectiveList = ["happy","silly","brave","proud","sharp","clean","small"];
     const adverbList = ["quick","sunny","clear","early","lucky","plain","ready"];
-    
 
     const [word, setWord] = useState("");
     const [category, setCategory] = useState("");
@@ -133,7 +132,6 @@ const WordleGame = () => {
             alert(`No word like "${guess}".`);
         }
     };
-    
 
     const handleInputChange = (e) => {
         setGuess(e.target.value.toLowerCase().slice(0, 5));

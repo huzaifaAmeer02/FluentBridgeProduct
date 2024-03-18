@@ -109,11 +109,11 @@ const ListeningActivity = () => {
 
 
     return (
-        <>
+        < >
             {loading ? (
                 <LoadingPage />
             ) : (
-                <section className="bg-purple-100 py-8 relative">
+                <section className=" py-8 relative" style={{background: 'radial-gradient(circle, #220233, #000000)'}}>
                     <Link
                         to="/activities"
                         className="back-to-activities flex items-center text-purple-500 font-bold hover:text-purple-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"

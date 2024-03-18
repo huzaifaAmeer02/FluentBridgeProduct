@@ -20,7 +20,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
-const port = process.env.SERVER_PORT || 4000;
+const port = process.env.SERVER_PORT || 3000;
 const app = express();
 app.use(cors())
 
