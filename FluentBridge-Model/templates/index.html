@@ -21,6 +21,14 @@
                 <input type="submit" class="btn" value="Predict Fluency">
             </div>
         </form>
+
+        <p>
+            <div class="result">
+                {% if pred %}
+                <p><i class="fas fa-check-circle"></i> Predicted Level: {{ pred }}</p>
+                {% endif %}
+            </div>
+        </p>
     </div>
 </body>
 </html>
