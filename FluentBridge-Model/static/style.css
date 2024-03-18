@@ -119,4 +119,12 @@ body {
     box-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
 }
 
+.result {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
 
