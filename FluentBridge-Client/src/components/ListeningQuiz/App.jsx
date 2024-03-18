@@ -386,7 +386,7 @@ function App() {
   };
 
   return (
-      <div className="app bg-gradient-to-b from-purple-800 to-purple-900 min-h-screen flex justify-center items-center text-white relative">
+      <div className="app bg-gradient-to-b from-purple-800 to-purple-900 min-h-screen flex flex-col justify-center items-center text-white relative">
         <Link
             to="/listening"
             className="back-to-activities flex items-center text-yellow-500 font-bold hover:text-red-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
@@ -402,10 +402,10 @@ function App() {
                     <WinningPanel earned={earned} />
                 ) : (
                     <>
-                      <div className={`top w-auto max-w-2xl mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8 ${showPyramid ? 'mr-80' : 'mr-0'}`}>
+                      <div className={`top w-auto max-w-2xl mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8 sm:mr-0 ${showPyramid ? 'sm:mr-80' : ''}`}>
                         <Timer setTimeOut={setTimeOut} questionNumber={questionNumber} />
                       </div>
-                      <div className={`trivia-container flex flex-col items-center justify-center mb-10 ${showPyramid ? 'mr-80' : 'mr-0'}`}>
+                      <div className={`trivia-container flex flex-col items-center justify-center mb-10 sm:mr-0 ${showPyramid ? 'sm:mr-80' : ''}`}>
                         <h2 className="text-white font-bold mb-4">Select the Correct Option</h2>
                         <div className="trivia bg-purple-600 rounded-lg p-6">
                           <Trivia
@@ -446,15 +446,16 @@ function App() {
               )}
               {/* Show/hide button */}
               <button
-                  className="pyramid-toggle-btn absolute left-4 top-4 text-white bg-purple-600 py-2 px-4 rounded-lg"
+                  className="pyramid-toggle-btn absolute left-4 top-4 text-white py-2 px-4 rounded-lg bg-gradient-to-r from-purple-900 to-purple-700 hover:from-purple-800 hover:to-purple-600 hover:text-black transition duration-300 ease-in-out"
                   onClick={() => setShowPyramid(!showPyramid)}
               >
-                {showPyramid ? "Hide Pyramid" : "Show Pyramid"}
+                {showPyramid ? "Hide" : "Your Progress"}
               </button>
             </>
         )}
       </div>
   );
+
 
 }
 
