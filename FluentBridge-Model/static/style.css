@@ -46,3 +46,8 @@ body {
 .title:hover {
     color: #3498db;
 }
+
+
+.form {
+    width: 100%;
+}
