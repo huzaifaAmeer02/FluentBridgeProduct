@@ -100,3 +100,16 @@ body {
     box-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
 }
 
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 0px;
+    background: #27ae60;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
