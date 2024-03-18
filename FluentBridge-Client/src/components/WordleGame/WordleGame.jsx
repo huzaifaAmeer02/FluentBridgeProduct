@@ -187,14 +187,15 @@ const WordleGame = () => {
             <Link to="/vocabulary-activity" className="back-to-vocabulary-activity flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-10 top-10">
                 <IoIosArrowBack />
             </Link>
-            {congratulationsMessage && (<>
-                            <div className="congratulations-message text-white text-center " style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 2 , fontSize: '2rem'}}>
+            
+        <div >
+        {congratulationsMessage && (<>
+                            <div className="congratulations-message text-white text-center display-fixed " style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 2 , fontSize: '1rem'}}>
                                 {congratulationsMessage}
                             </div>
                             <Confetti numberOfPieces={200} />
                         </>
                         )}
-        <div>
             {/* Game content */}
             <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="container mx-auto flex flex-col items-center bg-black-900 bg-opacity-60 rounded-lg p-4 transition duration-300 hover:bg-opacity-80 text-center max-w-3xl">
@@ -217,7 +218,7 @@ const WordleGame = () => {
                                 value={guess}
                                 onChange={handleInputChange}
                                 maxLength={5}
-                                placeholder="Guess"
+                                placeholder="Guess the word"
                                 className="p-1 mr-1 text-center border border-gray-400"
                                 style={{
                                     fontSize: '1rem', // Default font size
@@ -226,7 +227,7 @@ const WordleGame = () => {
                             <button
                                 onClick={checkGuess}
                                 disabled={ gameOver}
-                                className="py-1 px-2 bg-blue-500 text-white font-semibold rounded"
+                                className="py-1 px-2 bg-purple-900 text-white font-semibold rounded"
                             >
                                 Guess
                             </button>
@@ -268,7 +269,7 @@ const WordleGame = () => {
                         {(congratulationsMessage || gameOver) && (
                             <button
                                 onClick={resetGame}
-                                className="mt-2 py-1 px-2 bg-blue-500 text-white font-semibold rounded"
+                                className="mt-2 py-1 px-2 bg-purple-900 text-white font-semibold rounded"
                             >
                                 Play Again
                             </button>
