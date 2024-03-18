@@ -21,7 +21,7 @@ const WinningPanel = ({ earned }) => {
     textColor = "text-green-800";
     bgColor = "bg-green-100";
   }else{
-    message = "Sorry please try again !";
+    message = "Time's up !!! Sorry please try again !";
     textColor = "text-red-900";
     bgColor = "bg-red-400"
   }

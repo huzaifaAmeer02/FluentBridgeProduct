@@ -11,12 +11,12 @@ const WritingActivity = () => {
     };
 
     return (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-purple-400 z-50">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-[#271133] z-50">
             <Link to="/activities" className="absolute left-4 top-4 text-purple-500 font-bold hover:text-purple-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white">
                 <IoIosArrowBack />
             </Link>
 
-            <div className="max-w-md p-6 bg-purple-200 rounded-lg shadow-lg text-center mx-4">
+            <div className="max-w-md p-6 bg-purple-500 rounded-lg shadow-lg text-center mx-4">
                 <h2 className="text-purple-950 text-xl font-bold mb-4">{isTranslated ? 'FluentBridge ලිවීමේ නිවැරදි කිරීමේ ක්‍රියාකාරකම්' : 'FluentBridge Writing Corrector Activity'}</h2>
                 <p className="text-purple-900 mb-4">{isTranslated ? 'ඔබේ ලිවීම නිවැරදි කිරීම සඳහා ඉදිරිපත් කිරීමට පහත උපදෙස් අනුගමනය කරන්න:' : 'Follow the instructions below to submit your writing for correction:'}</p>
                 <ol className="text-left mb-4">

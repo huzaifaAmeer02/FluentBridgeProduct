@@ -20,12 +20,13 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
-const port = process.env.SERVER_PORT | 4000;
+const port = process.env.SERVER_PORT || 4000;
 const app = express();
 app.use(cors())
 
 const userRoute = require('./route/UserRoute');
-const customerRoute = require('./route/customerRoute');
+const questionRoute = require('./route/QuestionRoute');
+// const customerRoute = require('./route/customerRoute');
 
 //-----------------------Signup Comments
 
@@ -34,23 +35,34 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
-try{
-    mongoose.connect('mongodb://127.0.0.1:27017/fluentBridge');
-    app.listen(port,()=>{
-        console.log(`server Started & running on port ${port}`);
-    })
-}catch (e){
-    console.log(e);
-}
+
 app.use('/api/v1/users',userRoute);
+app.use('/api/v1/question',questionRoute);
 
 
-app.use('/api/v1/customers',customerRoute);
+// app.use('/api/v1/customers',customerRoute);
 
 app.get('/test-api',(req,resp)=>{
     return resp.json({'message':'Server Started!'})
 })
 
+const connectDb = async ()=>{
+    return await mongoose.connect('mongodb://127.0.0.1:27017/fluentBridge');
+
+}
+try{
+    // mongoose.connect('mongodb://127.0.0.1:27017/fluentBridge');
+    app.listen(port,()=>{
+        console.log(`server Started & running on port ${port}`);
+    })
+    connectDb().then(()=>{
+        console.log("connected to db");
+    })
+        .catch((err)=>{
+            console.log(err)
+        })
+}catch (e){
+    console.log(e);
+}
+
 //------------
-
-
