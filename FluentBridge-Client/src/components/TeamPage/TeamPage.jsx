@@ -6,7 +6,7 @@ export const TeamPage = () => {
 
     // Static content in English
     const englishContent = {
-        heading: "FluentBridge - Sri Lanka Crew",
+        heading: "FluentBridge - Sri Lanka Team",
         intro: "Our team consists of second-year undergraduate students, each bringing unique perspectives and skills to the table. Despite being early in our academic journey, we're passionate, driven, and committed to learning and contributing to meaningful projects."
     };
 
