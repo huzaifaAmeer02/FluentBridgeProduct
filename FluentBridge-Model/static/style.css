@@ -67,3 +67,8 @@ body {
     display: flex;
     align-items: center;
 }
+
+.inputfield label i {
+    margin-left: 8px; /* Adjusted margin */
+    vertical-align: middle;
+}
