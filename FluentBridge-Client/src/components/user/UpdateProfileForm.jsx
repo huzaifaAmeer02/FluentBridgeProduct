@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import AxiosInstance from "../../config/axiosInstance";
 
 const UpdateProfileForm = ({ userData }) => {
     const [fullName, setFullName] = useState(userData.fullName);
     const [email, setEmail] = useState(userData.email);
+    // const [selectedUserId,setSelectedUserId]=useState('');
 
     const handleUpdate = () => {
         axios.put('/api/v1/users/update-email', {_id: userData._id, email })
@@ -14,6 +16,7 @@ const UpdateProfileForm = ({ userData }) => {
                 console.error('Error updating email:', error);
             });
     };
+
 
     return (
         <div className="mb-4">

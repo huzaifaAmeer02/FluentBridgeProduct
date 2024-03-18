@@ -87,33 +87,33 @@ const login = (req,resp) => {
     });
 }
 // Function to update user details
-const updateUser = (req, res) => {
-    const { fullName, email } = req.body;
-    const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
-
-    // Check if file is uploaded
-    let profileImage = '';
-    if (req.file) {
-        profileImage = req.file.path; // Assuming file path is stored in req.file.path
-    }
-
-    // Update user details in the database
-    userSchema.findByIdAndUpdate(userId, { fullName, email, profileImage }, { new: true })
-        .then(updatedUser => {
-            res.status(200).json(updatedUser);
-        })
-        .catch(error => {
-            res.status(500).json({ error: error.message });
-        });
-};
+// const updateUser = (req, res) => {
+//     const { fullName, email } = req.body;
+//     const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
+//
+//     // // Check if file is uploaded
+//     // let profileImage = '';
+//     // if (req.file) {
+//     //     profileImage = req.file.path; // Assuming file path is stored in req.file.path
+//     // }
+//
+//     // Update user details in the database
+//     userSchema.findByIdAndUpdate(userId, { fullName, email, profileImage }, { new: true })
+//         .then(updatedUser => {
+//             res.status(200).json(updatedUser);
+//         })
+//         .catch(error => {
+//             res.status(500).json({ error: error.message });
+//         });
+// };
 
 
 
 // Function to change password
-const changePassword = (req, res) => {
+const changePassword =  async (req, res) => {
     const { oldPassword, newPassword } = req.body;
-    const userId = req.user.id; // Assuming you have user ID available in req.user after token verification
-    console.log(userId)
+    const userId = req.params._id; // Assuming you have user ID available in req.user after token verification
+
 
     // Find user by ID
     userSchema.findById(userId)
@@ -153,8 +153,8 @@ const changePassword = (req, res) => {
 // Function to update user email
 const updateUserEmail = async (req, res) => {
     try {
-        const { email } = req.body;
-        const userId = req.user.id;
+        const { email } = req.body.email;
+        const userId = req.user._id;
 
         // Update email in the database
         const updatedUser = await userSchema.findByIdAndUpdate(userId, { email }, { new: true });
@@ -167,7 +167,7 @@ const updateUserEmail = async (req, res) => {
 
 module.exports={
     signup,login,
-    updateUser,
+    // updateUser,
     changePassword,
     updateUserEmail
 }
