@@ -42,3 +42,7 @@ body {
     margin-bottom: 25px;
     transition: color 0.3s ease-in-out;
 }
+
+.title:hover {
+    color: #3498db;
+}
