@@ -6,11 +6,14 @@ const router = express.Router();
 router.post('/signup', userController.signup);
 router.post('/login', userController.login);
 
+
 // Route for updating user details
 router.put('/update-email', verifyToken, UserController.updateUserEmail);
 
 // Route for changing password
 router.put('/change-password', verifyToken,  UserController.changePassword);
+
+
 
 // // Modify the route to update user details to handle profile image update if needed
 // router.put('/update', upload.single('image'), UserController.updateUser);

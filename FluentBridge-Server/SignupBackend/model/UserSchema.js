@@ -24,7 +24,11 @@ const UserSchema =
         },
         profileImage: {
             type: String // Store the URL of the profile image
-        }
+        },
+        quizAnswers: [{
+            questionId: mongoose.Schema.Types.ObjectId,
+            answer: String // Store the user's answer to the question
+        }],
     });
 module.exports = mongoose.model('user',UserSchema);
 

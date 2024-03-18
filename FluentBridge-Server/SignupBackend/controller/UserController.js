@@ -112,7 +112,7 @@ const login = (req,resp) => {
 // Function to change password
 const changePassword =  async (req, res) => {
     const { oldPassword, newPassword } = req.body;
-    const userId = req.params._id; // Assuming you have user ID available in req.user after token verification
+    const userId = req.params._id;
 
 
     // Find user by ID
