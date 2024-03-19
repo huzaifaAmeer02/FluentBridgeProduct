@@ -25,7 +25,7 @@ const ActivityPanel = () => {
     });
 
     const activities = [
-        { to: "/speaking", color: "bg-blue-400", icon: <FiMic className="mx-auto mb-2 text-4xl text-blue-500" />, text: "Speaking" },
+        { to: "/speakingmainpanel", color: "bg-blue-400", icon: <FiMic className="mx-auto mb-2 text-4xl text-blue-500" />, text: "Speaking" },
         { to: "/listening", color: "bg-green-400", icon: <FiHeadphones className="mx-auto mb-2 text-4xl text-green-500" />, text: "Listening" },
         { to: "/writingactivity", color: "bg-yellow-400", icon: <FiEdit className="mx-auto mb-2 text-4xl text-yellow-500" />, text: "Writing" },
         { to: "/vocabpanel", color: "bg-red-400", icon: <FiBook className="mx-auto mb-2 text-4xl text-red-500" />, text: "Vocabulary" },

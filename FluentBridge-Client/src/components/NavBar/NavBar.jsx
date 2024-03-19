@@ -31,7 +31,8 @@ const Navbar = () => {
         "/writingactivity",
         "/login",
         "/signup",
-        "/Controller"
+        "/Controller",
+        "/speakingmainpanel"
     ];
     
     const hideNavbar = hidePaths.includes(location.pathname);

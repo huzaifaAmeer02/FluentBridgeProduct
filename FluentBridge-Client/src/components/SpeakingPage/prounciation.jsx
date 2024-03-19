@@ -1,20 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import speechIcon from '../../assets/logofluent.png';
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 const Pronunciation = () => {
     const [isTranslated, setIsTranslated] = useState(false);
+    const [loading, setLoading] = useState(true); // State for loading
 
     const toggleTranslation = () => {
         setIsTranslated(!isTranslated);
         // Add your translation logic here
     };
+    useEffect(() => {
+        // Simulate loading time
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 2000); // 2 seconds for demonstration purposes
+
+        // Clear timeout on component unmount
+        return () => clearTimeout(timeout);
+    }, []);
+    if (loading) {
+        return <LoadingPage />; // Render loading page while loading
+    }
 
     return (
         <div className="bg-gray-400 min-h-screen flex flex-col justify-center items-center">
             <Link
-                to="/speaking"
+                to="/speakingmainpanel"
                 className="absolute left-4 top-4 p-2 rounded-lg bg-white text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out"
             >
                 <IoIosArrowBack />
