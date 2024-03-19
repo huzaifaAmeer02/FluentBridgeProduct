@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiMic } from 'react-icons/fi';
-import speakingBg from "../../assets/speaking-bg.jpg";
 import LoadingPage from "../LoadingPage/LoadingPage";
 
 
@@ -83,7 +82,7 @@ function Speaking() {
     }
 
     return (
-        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `url(${speakingBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `linear-gradient(135deg, #7E22CE, #CDBCF4)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="absolute left-4 top-4">
                 <Link
                     to="/speakingmainpanel"
@@ -93,7 +92,7 @@ function Speaking() {
                 </Link>
             </div>
             <div className="container mx-auto flex flex-col items-center justify-center">
-                
+
                 <div className="w-full md:w-1/2 bg-white opacity-80 rounded-lg shadow-lg p-8 mt-24">
                     <textarea
                         id="text-input"
@@ -158,4 +157,3 @@ function Speaking() {
 }
 
 export default Speaking;
-
