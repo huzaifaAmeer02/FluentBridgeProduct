@@ -1,6 +1,3 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Node.js CI
 
 on:
@@ -29,3 +26,20 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+
+  handle-failed-test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Handle failed test
+        id: handle_failed_test
+        run: echo "Failed tests handled"
+        continue-on-error: true
+
+      - name: Continue on error comment
+        if: ${{ always() }}
+        uses: mainmatter/continue-on-error-comment@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          outcome: ${{ needs.build.outcome }}
+          test-id: Handle failed test
