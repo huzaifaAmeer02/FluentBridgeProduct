@@ -82,7 +82,7 @@ function Speaking() {
     }
 
     return (
-        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `linear-gradient(135deg, #7E22CE, #CDBCF4)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `linear-gradient(to right, #191425FF, #4D2B8BFF , ##dcd2d2)`, backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             <div className="absolute left-4 top-4">
                 <Link
                     to="/speakingmainpanel"
@@ -92,13 +92,12 @@ function Speaking() {
                 </Link>
             </div>
             <div className="container mx-auto flex flex-col items-center justify-center">
-
                 <div className="w-full md:w-1/2 bg-white opacity-80 rounded-lg shadow-lg p-8 mt-24">
-                    <textarea
-                        id="text-input"
-                        className="form-input mb-4 bg-gray-100 border border-gray-300 focus:border-blue-500 focus:outline-none p-4 w-full rounded-lg text-lg placeholder-gray-500"
-                        placeholder="Type anything..."
-                    ></textarea>
+                <textarea
+                    id="text-input"
+                    className="form-input mb-4 bg-gray-100 border border-gray-300 focus:border-blue-500 focus:outline-none p-4 w-full rounded-lg text-lg placeholder-gray-500"
+                    placeholder="Type anything..."
+                ></textarea>
                     <div className="mb-4">
                         <label htmlFor="rate" className="block text-gray-600">
                             Speed : {rate.toFixed(1)}
@@ -154,6 +153,7 @@ function Speaking() {
             </div>
         </div>
     );
+
 }
 
 export default Speaking;
