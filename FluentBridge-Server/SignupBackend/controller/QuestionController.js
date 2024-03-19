@@ -16,6 +16,7 @@ const getAllQuestions = async (req, res) => {
         })
     }
 }
+
 module.exports = {
     getAllQuestions
 }
