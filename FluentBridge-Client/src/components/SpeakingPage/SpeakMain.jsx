@@ -35,33 +35,35 @@ const SpeakMain = () => {
             {/* Loading Page */}
             {loading && (
                 <div className="absolute inset-0 flex items-center justify-center bg-purple-600 bg-opacity-75">
+                    {/* You can add loading indicators here */}
                 </div>
             )}
             {/* Buttons Container */}
             {!loading && (
-                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 mt-16 md:mt-0">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 md:mt-0 w-full max-w-4xl">
                     {/* Type and Pronounce Button */}
                     <Link to="/speaking">
-                        <button className="rounded-full bg-purple-600 text-white py-4 px-6 md:py-6 md:px-8 text-center font-bold text-lg md:text-xl shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out">
+                        <button className="rounded-full bg-purple-600 text-white h-24 md:h-32 py-4 md:py-6 px-6 md:px-8 text-center font-bold text-lg md:text-xl shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out">
                             Type and Listen with Us
                         </button>
                     </Link>
                     {/* Check Your Pronunciation Level Button */}
                     <Link to="/pronunciation">
-                        <button className="rounded-full bg-purple-600 text-white py-4 px-6 md:py-6 md:px-8 text-center font-bold text-lg md:text-xl shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out">
+                        <button className="rounded-full bg-purple-600 text-white h-24 md:h-32 py-4 md:py-6 px-6 md:px-8 text-center font-bold text-lg md:text-xl shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out">
                             Check Pronunciation Level
                         </button>
                     </Link>
                     {/* Practice With FluentBridge Button */}
                     <Link>
-                        <button className="rounded-full bg-purple-600 text-white py-4 px-6 md:py-6 md:px-8 text-center font-bold text-lg md:text-xl shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out">
+                        <button className="rounded-full bg-purple-600 text-white h-24 md:h-32 py-4 md:py-6 px-6 md:px-8 text-center font-bold text-lg md:text-xl shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out">
                             Practice With FluentBridge
                         </button>
-                    </Link>               
+                    </Link>
                 </div>
             )}
         </div>
     );
+
 };
 
 export default SpeakMain;
