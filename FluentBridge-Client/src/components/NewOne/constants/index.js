@@ -45,24 +45,23 @@ export const navigation = [
   {
     id: "0",
     title: "Home",
-    url: "#Hero",
+    url: "#features",
   },
-  
   {
     id: "1",
     title:  "Activities",
-    url: "#Benefits",
+    url: "#features",
   },
   {
     id: "2",
     title:  "About US",
-    url: "#Roadmap",
+    url: "#roadmap",
   },
-  {
-    id: "3",
-    title: "Contact US",
-    url: "#Footer",
-  },
+  // {
+  //   id: "3",
+  //   title: "Contact US",
+  //   url: "#roadmap",
+  // },
   {
     id: "4",
     title: "New account",
