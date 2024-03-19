@@ -82,7 +82,7 @@ function Speaking() {
     }
 
     return (
-        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `linear-gradient(to right, #191425FF, #4D2B8BFF , ##dcd2d2)`, backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `linear-gradient(to right, #191425FF, #4D2B8BFF )`, backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             <div className="absolute left-4 top-4">
                 <Link
                     to="/speakingmainpanel"

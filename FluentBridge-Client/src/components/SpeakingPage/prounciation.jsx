@@ -26,7 +26,7 @@ const Pronunciation = () => {
     }
 
     return (
-        <div className="bg-gradient-to-br from-purple-900 to-purple-700 min-h-screen flex flex-col justify-center items-center">
+        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: 'linear-gradient(to right, #191425FF, #4D2B8BFF)', backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             <Link
                 to="/speakingmainpanel"
                 className="absolute left-4 top-4 p-2 rounded-lg bg-white text-purple-700 font-bold hover:text-blue-700 transition duration-300 ease-in-out"
