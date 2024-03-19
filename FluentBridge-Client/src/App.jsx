@@ -28,6 +28,7 @@ import Pronunciation from "./components/SpeakingPage/prounciation.jsx";
 import WritingActivity from "./components/WritingActivity/WritingActivity.jsx";
 import NewOne from "./components/NewOne/App.jsx";
 import User from "./components/user/Profile";
+import SpeakMain from "./components/SpeakingPage/SpeakMain.jsx"
 
 
 
@@ -61,6 +62,7 @@ function App() {
                     <Route path='/signup' element={<Signup/>}/>
                     <Route path='/signup' element={<Signup/>}/>
                     <Route path='/speaking' element={<Speaking/>}/>
+                    <Route path='/speakingmainpanel' element={<SpeakMain/>}/>
                     <Route path='/pronunciation' element={<Pronunciation/>}/>
                     <Route path='/writingactivity' element={<WritingActivity/>}/>
 

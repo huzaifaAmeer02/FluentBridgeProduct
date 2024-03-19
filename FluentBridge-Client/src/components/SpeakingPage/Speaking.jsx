@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiMic } from 'react-icons/fi';
 import speakingBg from "../../assets/speaking-bg.jpg";
-import { BsFillMicFill } from "react-icons/bs"; // Added mic icon
 import LoadingPage from "../LoadingPage/LoadingPage";
 
 
@@ -87,7 +86,7 @@ function Speaking() {
         <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `url(${speakingBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="absolute left-4 top-4">
                 <Link
-                    to="/activities"
+                    to="/speakingmainpanel"
                     className="flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white"
                 >
                     <IoIosArrowBack />
@@ -153,16 +152,6 @@ function Speaking() {
                 <p className="text-purple-900 text-sm mt-4 mb-4 bg-purple-300 px-6 py-4 rounded-3xl">
                     FluentBridge online pronunciation trainer
                 </p>
-            </div>
-            
-            {/* Button for Try Pronounce */}      
-            <div className="absolute top-4 right-4 flex items-center">
-                <h2 className="mr-4 text-white">Check Your Fluency Level</h2>
-                <Link to="/pronunciation">
-                    <button className="bg-gray-100 hover:bg-gray-400 text-gray-700 font-bold py-4 px-4 rounded-full flex items-center justify-center">
-                        <BsFillMicFill/>
-                    </button>
-                </Link>
             </div>
         </div>
     );
