@@ -7,6 +7,7 @@ import Trivia from "./components/Trivia";
 import WinningPanel from "./components/WinningPanel";
 import { IoIosArrowBack } from "react-icons/io";
 import axios from "axios";
+import LoadinngPage from "../LoadingPage/LoadingPage"
 
 function App() {
     const [username, setUsername] = useState(null);
@@ -69,7 +70,7 @@ function App() {
     }, [questionNumber, questions.length]);  /!*when i put this it not returns the quiz*!/*/
 
     if (loading) {
-        return <div>Loading...</div>;
+        <LoadinngPage/>
     }
 
     const handleStart = () => {
@@ -116,20 +117,22 @@ function App() {
                             <div className="pyramid bg-purple-600 p-4 h-full w-full sm:w-auto flex flex-col items-center justify-center">
                                 <h2 className="text-white font-bold mb-1">Level Up</h2>
                                 <ul className="moneyList" style={{ margin: 0, padding: 0 }}>
-                                    {moneyPyramid.map((m) => (
-                                        <li
-                                            className={
-                                                questionNumber === m._id
-                                                    ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl mb-2 sm:mb-3 lg:mb-4"
-                                                    : "moneyListItem text-white p-4 mb-2 sm:mb-3 lg:mb-4"
-                                            }
-                                            key={m._id}
-                                            style={{ margin: 0, padding: 4 }}
-                                        >
-                                            <span className="moneyListItemNumber">[ {m._id} ]</span>
-                                            <span className="moneyListItemAmount">{m.amount} Points</span>
-                                        </li>
-                                    ))}
+                                    {
+                                        moneyPyramid.map((m) => (
+                                            <li
+                                                className={
+                                                    questionNumber === m.id // Change _id to id
+                                                        ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl mb-2 sm:mb-3 lg:mb-4"
+                                                        : "moneyListItem text-white p-4 mb-2 sm:mb-3 lg:mb-4"
+                                                }
+                                                key={m.id} // Change _id to id
+                                                style={{ margin: 0, padding: 4 }}
+                                            >
+                                                <span className="moneyListItemNumber">[ {m.id} ]</span>
+                                                <span className="moneyListItemAmount">{m.amount} Points</span>
+                                            </li>
+                                        ))
+                                    }
                                 </ul>
                             </div>
                         </div>
