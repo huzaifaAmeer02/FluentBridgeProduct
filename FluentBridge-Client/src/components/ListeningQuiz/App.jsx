@@ -62,11 +62,11 @@ function App() {
         }
     }, [questionNumber, moneyPyramid, questions.length]);
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (questionNumber > questions.length) {
             setQuizCompleted(true);
         }
-    }, [questionNumber, questions.length]);  /*when i put this it not returns the quiz*/
+    }, [questionNumber, questions.length]);  /!*when i put this it not returns the quiz*!/*/
 
     if (loading) {
         return <div>Loading...</div>;
