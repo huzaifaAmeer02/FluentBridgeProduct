@@ -24,25 +24,26 @@ const Profile = () => {
         <>
             <newProfiel />
             <CoverImage /> {/* Add the CoverImage component */}
-            <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md mt-10">
+            <div className="max-w-2xl mx-auto p-6  rounded-md shadow-md mt-4 bg-purple-200 text-purple-950 mb-4">
 
-                {userData && (
-                    <div>
+    {userData && (
+        <div>
 
-                        <h2 className="text-2xl font-bold mb-4">User Profile</h2>
-                        <div className="mb-4">
-                            <p className="font-semibold">Name:</p>
-                            <p>{userData.fullName}</p>
-                        </div>
-                        <div className="mb-4">
-                            <p className="font-semibold">Email:</p>
-                            <p>{userData.email}</p>
-                        </div>
-                        <UpdateProfileForm userData={userData} />
-                        <ChangePasswordForm />
-                    </div>
-                )}
+            <h2 className="text-2xl font-bold mb-4">User Profile</h2>
+            <div className="mb-4">
+                <p className="font-semibold">Name:</p>
+                <p className="text-purple-300">{userData.fullName}</p>
             </div>
+            <div className="mb-4">
+                <p className="font-semibold">Email:</p>
+                <p className="text-purple-300">{userData.email}</p>
+            </div>
+            <UpdateProfileForm userData={userData} />
+            <ChangePasswordForm />
+        </div>
+    )}
+</div>
+
         </>
 
     );
