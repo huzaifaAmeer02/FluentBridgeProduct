@@ -92,18 +92,20 @@ export default function Trivia({
         <div className="answers grid grid-cols-2 gap-4">
           {question?.answers.map((answer, index) =>
               (
-                  <div className="answers grid grid-cols-2 gap-4">
-                    {question?.answers.map((a) => (
-                        <div
-                            className={`${
-                                selectedAnswer === a ? className : "answer"
-                            } ${selectedAnswer === a && a.correct ? "correct" : selectedAnswer === a ? "wrong" : ""} bg-purple-500 hover:bg-purple-900 text-white py-2 px-4 rounded-md cursor-pointer transition duration-300 ease-in-out`}
-                            onClick={() => !selectedAnswer && handleClick(a)}
-                            key={a.text}
-                        >
-                          {a.text}
-                        </div>
-                    ))}
+                  <div
+                      className={`${
+                          selectedAnswer === answer ? className : "answer"
+                      } ${
+                          selectedAnswer === answer && answer.correct
+                              ? "correct"
+                              : selectedAnswer === answer
+                                  ? "wrong"
+                                  :""
+                      } bg-purple-500 hover:bg-purple-900 text-white py-2 px-4 rounded-md cursor-pointer transition duration-300 ease-in-out`}
+                      onClick={() => !selectedAnswer && handleClick(answer)}
+                      key={answer._id} // Assuming answer has an id
+                  >
+                    {answer.text}
                   </div>
               ))}
         </div>
