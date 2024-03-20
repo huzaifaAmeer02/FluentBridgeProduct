@@ -75,7 +75,7 @@ const DictionaryPage = () => {
         <>
             <Link
                 to="/vocabpanel" // Ensure this matches the route configured in your router setup
-                className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-gradient-to-b from-white to-gray-200 absolute left-4 top-4"
+                className="back-to-activities flex items-center text-purple-500 font-bold hover:text-purple-700 transition duration-300 ease-in-out rounded-lg p-2 bg-gradient-to-b from-white to-gray-200 absolute left-4 top-4"
             >
                 <IoIosArrowBack />
             </Link>
