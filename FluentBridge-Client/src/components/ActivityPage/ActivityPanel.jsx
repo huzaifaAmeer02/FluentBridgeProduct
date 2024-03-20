@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
@@ -5,6 +6,7 @@ import { FiMessageSquare, FiMic, FiHeadphones, FiEdit, FiBook } from "react-icon
 import Footer from "../Footer/Footer.jsx";
 import ResultsTables from "../GradingAssesment/ResultsTables.jsx";
 
+// eslint-disable-next-line react/prop-types, no-unused-vars
 const ActivityButton = ({ to, color, icon, text }) => {
     return (
         <Link

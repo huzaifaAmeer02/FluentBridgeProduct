@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -46,7 +47,7 @@ export default function ResultsTables() {
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
                             {attemptData.map((attempt, index) => (
-                                <tr key={index} className={index === 0 ? 'bg-[#7E22CE]' : ''}>
+                                <tr key={index} className={index === 0 ? 'bg-[#7E22CE]' : 'bg-purple-400'}>
                                     <td className="px-4 py-3 whitespace-nowrap sm:px-1 sm:py-2 md:px-3 md:py-3">{index + 1}</td>
                                     <td className="px-4 py-3 whitespace-nowrap sm:px-1 sm:py-2 md:px-3 md:py-3">{attempt.userId}</td>
                                     <td className="px-4 py-3 whitespace-nowrap sm:px-1 sm:py-2 md:px-3 md:py-3">{attempt.attempts}</td>

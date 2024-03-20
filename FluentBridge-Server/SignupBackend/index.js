@@ -45,6 +45,9 @@ app.use('/api/v1/question',questionRoute);
 app.get('/test-api',(req,resp)=>{
     return resp.json({'message':'Server Started!'})
 })
+app.get('/getQuestions', (req, res)=>{
+
+})
 
 const connectDb = async ()=>{
     return await mongoose.connect('mongodb://127.0.0.1:27017/fluentBridge');
