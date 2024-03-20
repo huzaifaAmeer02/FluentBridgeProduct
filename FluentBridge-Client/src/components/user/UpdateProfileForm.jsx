@@ -22,8 +22,8 @@ const UpdateProfileForm = ({ userData }) => {
         <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Update Email</h3>
             {/*<input type="text" value={fullName} onChange={e => setFullName(e.target.value)} className="w-full rounded-md border-gray-300 mb-2 px-3 py-2 focus:outline-none focus:border-indigo-500" />*/}
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="w-full rounded-md border-gray-300 mb-4 px-3 py-2 focus:outline-none focus:border-indigo-500" />
-            <button onClick={handleUpdate} className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">Update Email</button>
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="w-full rounded-md border-gray-300 mb-4 px-3 py-2 focus:outline-none focus:border-purple-500" />
+            <button onClick={handleUpdate} className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-indigo-600">Update Email</button>
         </div>
     );
 };
