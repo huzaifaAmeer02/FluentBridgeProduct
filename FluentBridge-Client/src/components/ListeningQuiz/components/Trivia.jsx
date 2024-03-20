@@ -48,8 +48,6 @@ export default function Trivia({
     setSelectedAnswer(a);
     setClassName("answer active");
 
-    console.log("Selected Answer:", a);
-
     delay(3000, () => {
       setClassName(a.correct ? "answer correct" : "answer wrong");
     });
@@ -57,16 +55,12 @@ export default function Trivia({
     delay(5000, () => {
       if (a.correct) {
         correctAnswer();
-        delay(1000, () => {
+        delay(2000, () => {
           if (questionNumber < data.length) {
-            const nextQuestionNumber = questionNumber + 1;
-            console.log("Next Question Number:", nextQuestionNumber);
-            setQuestionNumber(nextQuestionNumber);
+            setQuestionNumber((prev) => prev + 1);
             setSelectedAnswer(null);
-            setClassName("answer");
-            setQuestion(data[nextQuestionNumber - 1]);
           } else {
-            setTimeOut(true);
+            setTimeOut(true); // Terminate when questions are over
           }
         });
       } else {
