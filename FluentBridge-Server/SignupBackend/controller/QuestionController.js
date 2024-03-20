@@ -6,16 +6,17 @@ const getAllQuestions = async (req, res) => {
         return res.status(200).json({
             status: true,
             question:questions,
-            success: {message: "successfully featched questions"}
+            success: {message: "successfully fetched questions"}
         })
     } catch (err) {
         return res.status(500).json({
             status: false,
-            questions,
+            error: err.message,
             success: {message: "failed to fetch questions"}
         })
     }
 }
+/**/
 module.exports = {
     getAllQuestions
 }
