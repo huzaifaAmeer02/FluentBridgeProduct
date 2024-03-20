@@ -18,7 +18,18 @@ function App() {
     const [loading, setLoading] = useState(true);
     const [showPyramid, setShowPyramid] = useState(false);
 
-
+    useEffect(() => {
+        axios.get("http://localhost:4000/api/v1/question/get_questions")
+            .then(response => {
+                setQuestions(response.data.question);
+                console.log("Fetched questions:", response.data.question);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.log("Error fetching questions:", error);
+                setLoading(false);
+            });
+    }, []);
     const moneyPyramid = useMemo(
         () => [
             { id: 1, amount: " 100" },
@@ -51,11 +62,11 @@ function App() {
         }
     }, [questionNumber, moneyPyramid, questions.length]);
 
-    /*useEffect(() => {
+    useEffect(() => {
         if (questionNumber > questions.length) {
             setQuizCompleted(true);
         }
-    }, [questionNumber, questions.length]);  /!*when i put this it not returns the quiz*!/*/
+    }, [questionNumber, questions.length]);  /*when i put this it not returns the quiz*/
 
     if (loading) {
         return <div>Loading...</div>;
