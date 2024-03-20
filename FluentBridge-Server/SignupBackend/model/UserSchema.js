@@ -29,6 +29,12 @@ const UserSchema =
             questionId: mongoose.Schema.Types.ObjectId,
             answer: String // Store the user's answer to the question
         }],
+
+        wordLists: [
+            {
+                type: String  // Assuming word lists are stored as an array of strings
+            }
+        ],
     });
 module.exports = mongoose.model('user',UserSchema);
 

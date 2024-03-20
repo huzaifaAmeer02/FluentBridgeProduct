@@ -5,6 +5,7 @@ import Lottie from "lottie-react";
 import listicon from "../../assets/listicon.json";
 import purpleglobe from "../../assets/purpleglobe.json";
 import searching from "../../assets/searching.json";
+import axios from 'axios';
 
 const DictionaryAPI = () => {
   // State variables
@@ -66,6 +67,8 @@ const DictionaryAPI = () => {
     }
   };
   
+
+
   // Adds the word to the saved words list
   const addToMyList = () => {
     const lowercaseWord = word.toLowerCase();
@@ -76,8 +79,7 @@ const DictionaryAPI = () => {
       setSavedWords(updatedWordList);
       setWord("");
       setDuplicateWordError(false);
-      //saveWordListToBackend(updatedWordList); // Save the updated word list to the backend
-      localStorage.setItem('savedWords', JSON.stringify(updatedWordList));
+      handleSubmit(lowercaseWord)
     } else {
       setDuplicateWordError(true);
     }
@@ -89,14 +91,6 @@ const DictionaryAPI = () => {
     setShowListPanel(false);
     getMeaningForSelectedWord(selectedWord);
   };
-
-  // Removes a word from the saved words list
-  const removeFromList = (wordToRemove) => {
-    const updatedList = savedWords.filter(savedWord => savedWord !== wordToRemove);
-    setSavedWords(updatedList);
-    localStorage.setItem('savedWords', JSON.stringify(updatedList)); // Update local storage
-};
-
 
   // Fetches the meanings of a selected word from the dictionary API
   const getMeaningForSelectedWord = async (selectedWord) => {
@@ -122,29 +116,37 @@ const DictionaryAPI = () => {
     }
   };
 
-  const saveWordListToBackend = async (wordList) => {
+  //  // Function to save the word list to the database
+  //  const saveWordListToDatabase = async (updatedWordList) => {
+  //   try {
+  //     const response = await fetch('/api/saveWordList', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ updatedWordList}),
+  //     });
+  //     if (response.ok) {
+  //       console.log('Word list saved successfully to the database');
+  //     } else {
+  //       console.error('Failed to save word list to the database');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error saving word list to the database:', error);
+  //   }
+  // };
+
+  const handleSubmit = async (formData) => {
+
     try {
-      const response = await fetch('/api/saveWordList', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ wordList }),
-      });
-      if (response.ok) {
-        console.log('Word list saved successfully');
-      } else {
-        console.error('Failed to save word list');
-      }
+      const response = await axios.post('http://192.168.1.2:3000/api/v1/wordlist/', formData);
+      console.log('Response:', response.data);
+      // Do something with the response data
     } catch (error) {
-      console.error('Error saving word list:', error);
+      console.error('Error:', error);
+      // Handle error
     }
   };
-
-  // Function to delay setting the loading state
-  const setLoadingWithDelay = (value, delay) => {
-    setTimeout(() => setLoading(value), delay);
-  }; 
 
   // Resets the audio state when the word changes
   useEffect(() => {
@@ -157,12 +159,9 @@ const DictionaryAPI = () => {
     setSortedSavedWords(sortedWords);
   }, [savedWords]);
 
-  useEffect(() => {
-    const savedWordList = localStorage.getItem('savedWords');
-    if (savedWordList) {
-        setSavedWords(JSON.parse(savedWordList));
-    }
-}, []);
+    useEffect(() => {
+      saveWordListToDatabase(savedWords);
+    }, [savedWords]);
 
 
   return (
@@ -201,7 +200,7 @@ const DictionaryAPI = () => {
                   type="text"
                   id="name"
                   name="word"
-                  className="w-full bg-white bg-opacity-80 rounded-1 border border-gray-700 focus:border-gray-800 focus:bg-purple-100 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mt-5 placeholder-gray-600 rounded-lg"
+                  className="w-full bg-white bg-opacity-90 rounded-1 border border-gray-700 focus:border-gray-800 focus:bg-purple-100 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mt-5 placeholder-gray-600 rounded-lg"
                   placeholder="Enter a word"
                   value={word}
                 />
