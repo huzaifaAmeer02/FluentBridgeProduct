@@ -40,9 +40,9 @@ export default function Signup() {
             // Clear any previous error message
             setErrorMessage('');
 
-            // Navigate to the home page after a short delay
+            // Navigate to the activity page after a short delay
             setTimeout(() => {
-                navigate('/home');
+                navigate('/activities');
             }, 2000);
 
 
