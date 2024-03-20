@@ -3,6 +3,7 @@ import useSound from "use-sound";
 import play from "../sounds/play.mp3";
 import correct from "../sounds/correct.mp3";
 import wrong from "../sounds/wrong.mp3";
+import "../ListeningQuiz.css"; // Import CSS file containing animation keyframes
 
 export default function Trivia({
   data,
@@ -34,6 +35,7 @@ export default function Trivia({
   const handleClick = (a) => {
     setSelectedAnswer(a);
     setClassName("answer active");
+
     delay(3000, () => {
       setClassName(a.correct ? "answer correct" : "answer wrong");
     });
@@ -41,7 +43,7 @@ export default function Trivia({
     delay(5000, () => {
       if (a.correct) {
         correctAnswer();
-        delay(1000, () => {
+        delay(2000, () => {
           if (questionNumber < data.length) {
             setQuestionNumber((prev) => prev + 1);
             setSelectedAnswer(null);
@@ -51,7 +53,7 @@ export default function Trivia({
         });
       } else {
         wrongAnswer();
-        delay(1000, () => {
+        delay(2000, () => {
           setTimeOut(true);
         });
       }
@@ -68,7 +70,7 @@ export default function Trivia({
           <div
             className={`${
               selectedAnswer === a ? className : "answer"
-            } ${a.correct ? "correct" : "wrong"} bg-purple-500 hover:bg-purple-900 text-white py-2 px-4 rounded-md cursor-pointer transition duration-300 ease-in-out`}
+            } ${selectedAnswer === a && a.correct ? "correct" : selectedAnswer === a ? "wrong" : ""} bg-purple-500 hover:bg-purple-900 text-white py-2 px-4 rounded-md cursor-pointer transition duration-300 ease-in-out`}
             onClick={() => !selectedAnswer && handleClick(a)}
             key={a.text}
           >
