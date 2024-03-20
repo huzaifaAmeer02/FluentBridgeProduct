@@ -25,7 +25,8 @@ import heroBackground from "./hero/hero-background.jpg";
 import Huzaifa from "./roadmap/Huzaifa.png";
 import Faslan from "./roadmap/Faslan.png";
 import Nuwaf from "./roadmap/Nuwaf.png";
-import Asani from "./roadmap/Asani.png";
+import Asani from "./roadmap/Asani.jpg";
+import Ishrath from "./roadmap/image-5.png";
 
 
 import notification2 from "./notification/image-2.png";
@@ -77,6 +78,7 @@ export {
   Nuwaf,
   Asani,
   Faslan,
+  Ishrath,
   notification2,
   notification3,
   notification4,

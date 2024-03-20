@@ -21,6 +21,7 @@ import {
   Nuwaf,
   Asani,
   Faslan,
+  Ishrath,
   searchMd,
   sliders04,
   telegram,
@@ -88,7 +89,7 @@ export const roadmap = [
       title: "Asani Amarasinghe",
       text: "Allow the chatbot to access external data sources, such as weather APIs or news APIs, to provide more relevant recommendations.",
       date: "CTO",
-      imageUrl: Nuwaf,
+      imageUrl: Asani,
       colorful: true,
     },
     {
@@ -112,7 +113,7 @@ export const roadmap = [
       title: "Muhammadu Ishrath",
       text: "Allow the chatbot to access external data sources, such as weather APIs or news APIs, to provide more relevant recommendations.",
       date: "Designer",
-      imageUrl: Nuwaf,
+      imageUrl: Ishrath,
       colorful: true,
     },
 ];
