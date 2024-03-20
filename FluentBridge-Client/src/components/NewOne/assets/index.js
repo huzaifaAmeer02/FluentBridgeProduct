@@ -1,6 +1,7 @@
 import check from "./check.svg";
 import fluentBridgeLogo from "./logofluent.png";
 import yourlogo from "./yourlogo.svg";
+import logo from "./logo.jpg";
 import gradient from "./gradient.png";
 import grid from "./grid.png";
 import check2 from "./check-02.svg";
@@ -56,6 +57,7 @@ export {
   check2,
   loading1,
   fluentBridgeLogo,
+  logo,
   yourlogo,
   gradient,
   grid,

@@ -8,39 +8,23 @@ import {
   benefitImage2,
   chromecast,
   disc02,
-  // discord,
   discordBlack,
   facebook,
-  // figma,
   file02,
-  // framer,
   homeSmile,
   instagram,
   notification2,
   notification3,
   notification4,
-  // notion,
-  // photoshop,
   plusSquare,
-  // protopie,
-  // raindrop,
-  // recording01,
-  // recording03,
-  // roadmap1,
-  // roadmap2,
-  // roadmap3,
-  // roadmap4,
-  // roadmap5,
   Huzaifa,
   Nuwaf,
   Asani,
   Faslan,
   searchMd,
-  // slack,
   sliders04,
   telegram,
   twitter,
-  // yourlogo,
 } from "../assets";
 
 export const navigation = [
@@ -59,11 +43,6 @@ export const navigation = [
     title:  "About US",
     url: "#roadmap",
   },
-  // {
-  //   id: "3",
-  //   title: "Contact US",
-  //   url: "#roadmap",
-  // },
   {
     id: "4",
     title: "New account",
@@ -82,7 +61,6 @@ export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
 export const notificationImages = [notification4, notification3, notification2];
 
-// export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
 
 export const brainwaveServices = [
   "Photo generating",
@@ -91,8 +69,6 @@ export const brainwaveServices = [
 ];
 
 export const brainwaveServicesIcons = [
-  // recording03,
-  // recording01,
   disc02,
   chromecast,
   sliders04,

@@ -4,6 +4,7 @@ import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 import{fluentBridgeLogo} from "../assets";
 import{yourlogo} from "../assets";
+import{logo} from "../assets";
 import { navigation } from "../constants";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
@@ -39,7 +40,7 @@ const Header = () => {
     >
       <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
         <a className="block w-[12rem] xl:mr-8" href="#hero">
-          <img src={yourlogo} width={60} height={10} alt="logo" />
+          <img className="rounded-full" src={logo} width={45}  alt="logo" />
         </a>
          <span className="text-xl lg:text-2xl font-bold ml-[-7.8rem]">FluentBridge</span>
 
