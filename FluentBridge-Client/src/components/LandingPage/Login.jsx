@@ -16,7 +16,7 @@ export default function Login() {
             const response = await AxiosInstance.post('/users/login', { email, password });
             setErrorMessage('');
             // Add your cookie logic here
-            navigate('/home');
+            navigate('/activities');
         } catch (error) {
             setErrorMessage('Invalid email or password. Please try again.');
             console.error(error);
