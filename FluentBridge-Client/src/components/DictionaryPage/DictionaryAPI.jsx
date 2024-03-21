@@ -4,7 +4,7 @@ import { IoIosArrowBack, IoIosClose } from 'react-icons/io';
 import Lottie from "lottie-react";
 import listicon from "../../assets/listicon.json";
 import purpleglobe from "../../assets/purpleglobe.json";
-import searching from "../../assets/searching.json";
+
 
 const DictionaryAPI = () => {
   // State variables
@@ -25,7 +25,6 @@ const DictionaryAPI = () => {
     }
 
     setLoading(true); // Display loading animation
-    
     setTimeout(() => {
       setLoading(false); // Hide loading animation after 3 seconds
     }, 3000);
@@ -76,6 +75,7 @@ const DictionaryAPI = () => {
       setSavedWords(updatedWordList);
       setWord("");
       setDuplicateWordError(false);
+      saveWordListLocally(updatedWordList); 
     } else {
       setDuplicateWordError(true);
     }
@@ -86,6 +86,12 @@ const DictionaryAPI = () => {
     setWord(selectedWord);
     setShowListPanel(false);
     getMeaningForSelectedWord(selectedWord);
+  };
+  
+  const removeFromList = (wordToRemove) => {
+    const updatedWordList = savedWords.filter((word) => word !== wordToRemove);
+    setSavedWords(updatedWordList);
+    saveWordListLocally(updatedWordList);
   };
 
   // Fetches the meanings of a selected word from the dictionary API
@@ -113,7 +119,7 @@ const DictionaryAPI = () => {
   };
   
    // Function to save the word list to the database
-   const saveWordListToDatabase = async (wordList) => {
+   /*const saveWordListToDatabase = async (wordList) => {
     try {
       const response = await fetch('/api/saveWordList', {
         method: 'POST',
@@ -130,7 +136,19 @@ const DictionaryAPI = () => {
     } catch (error) {
       console.error('Error saving word list to the database:', error);
     }
-  };
+  };*/
+
+  // Reset the audio state when the word changes
+  useEffect(() => {
+    setAudio(null);
+  }, [word]);
+
+  // Sort the saved words list when it changes
+  useEffect(() => {
+    const sortedWords = [...savedWords].sort((a, b) => a.localeCompare(b));
+    setSortedSavedWords(sortedWords);
+  }, [savedWords]);
+
 
   // Resets the audio state when the word changes
   useEffect(() => {
