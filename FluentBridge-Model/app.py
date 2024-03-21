@@ -26,3 +26,24 @@ def feature_extraction(file_name):
     spectral_flux = np.mean(librosa.onset.onset_strength(y=X, sr=sample_rate).T, axis=0)
     zcr = np.mean(librosa.feature.zero_crossing_rate(y=X).T, axis=0)
     return np.hstack([mfccs, rmse, spectral_flux, zcr])
+
+
+
+# Function to predict class for a single audio file
+def predict_single_audio_file(model, file_name):
+    print("*/n*/n came inside single audio ")
+    class_mapping = {0: 'Intermediate', 1: 'High', 2: 'Low'}
+    try:
+        # Extract features for the single audio file
+        features = feature_extraction(file_name)
+        # Reshape the features to match the input shape expected by the model
+        features = features.reshape(1, -1)
+        # Perform prediction
+        prediction = model.predict(features)
+        # Get the predicted class
+        predicted_class = np.argmax(prediction)
+        predicted_label = class_mapping.get(predicted_class, 'Unknown')
+        return predicted_label
+    except Exception as e:
+        print(f"Error predicting audio: {e}")
+        return 'Error predicting audio'
