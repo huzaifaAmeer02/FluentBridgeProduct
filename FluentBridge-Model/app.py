@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+7from flask import Flask, render_template, request
 import os
 import numpy as np
 import librosa
@@ -58,3 +58,10 @@ def index():
             # Check if the audio data is present in the request
             # if 'audioFile' in request.files:
             #     audio_file = request.files['audioFile']
+
+
+#     # Generate a unique filename for the audio file
+            #     unique_filename = str(uuid.uuid4()) + '.wav'
+            #     audio_file_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+            #     audio_file.save(audio_file_path)
+
