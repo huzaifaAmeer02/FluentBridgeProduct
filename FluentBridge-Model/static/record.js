@@ -36,3 +36,14 @@ let isRecording = false;
 
                 mediaRecorder.onstop = function () {
                     const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+
+     // Send the audio data to the Flask server
+                    saveAudioFile(audioBlob);
+                };
+
+                mediaRecorder.start();
+            })
+            .catch(function (err) {
+                console.error("Error accessing microphone:", err);
+            });
+    }
