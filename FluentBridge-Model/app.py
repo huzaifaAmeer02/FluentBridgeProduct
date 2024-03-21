@@ -47,3 +47,14 @@ def predict_single_audio_file(model, file_name):
     except Exception as e:
         print(f"Error predicting audio: {e}")
         return 'Error predicting audio'
+
+
+# Route to handle audio file upload and prediction
+@app.route('/', methods=['POST', 'GET'])
+def index():
+    pred = ''
+    if request.method == 'POST':
+        # try:
+            # Check if the audio data is present in the request
+            # if 'audioFile' in request.files:
+            #     audio_file = request.files['audioFile']
