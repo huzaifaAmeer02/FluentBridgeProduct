@@ -23,7 +23,7 @@ const WordleGame = () => {
     const maxAttempts = 6;
     const [gameOver, setGameOver] = useState(false);
     const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-    const initialKeyColors = alphabet.reduce((acc, curr) => ({ ...acc, [curr]: 'bg-purple-400' }), {});
+    const initialKeyColors = alphabet.reduce((acc, curr) => ({ ...acc, [curr]: 'bg-purple-800' }), {});
     const [keyColors, setKeyColors] = useState(initialKeyColors);
     const [congratulationsMessage, setCongratulationsMessage] = useState("");
     const [showConfetti, setShowConfetti] = useState(false); 

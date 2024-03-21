@@ -55,13 +55,13 @@ const VocabPanel = () => {
             <div className="flex flex-col mx-3 mb-8 justify-center items-center" style={{ zIndex: 2, marginTop: '50px' }}>
                 <Link
                     to="/dictionary"
-                    className="button1 flex justify-center text-white text-2xl font-bold py-4 px-6 rounded-full bg-purple-500 hover:bg-purple-800 transition duration-300 ease-in-out mb-4 w-full top-30%"
+                    className="button1 flex justify-center text-white text-2xl font-bold py-4 px-6 rounded-full bg-purple-600 hover:bg-purple-900 transition duration-300 ease-in-out mb-4 w-full top-30%"
                 >
                     Use Dictionary
                 </Link>
                 <Link
                     to="/vocabulary-activity"
-                    className="button1 flex justify-center text-white text-2xl font-bold py-4 px-6 rounded-full bg-purple-500 hover:bg-purple-800 transition duration-300 ease-in-out mb-4 w-full"
+                    className="button1 flex justify-center text-white text-2xl font-bold py-4 px-6 rounded-full bg-purple-600 hover:bg-purple-900 transition duration-300 ease-in-out mb-4 w-full"
                 >
                     Vocabulary Activity
                 </Link>

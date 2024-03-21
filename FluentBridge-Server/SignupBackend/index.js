@@ -20,12 +20,12 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
-const port = process.env.SERVER_PORT || 3000;
+const port = process.env.SERVER_PORT || 4000;
 const app = express();
 app.use(cors())
+
 const userRoute = require('./route/UserRoute');
 const questionRoute = require('./route/QuestionRoute');
-const wordListRoute = require ("./route/WordListRoute")
 // const customerRoute = require('./route/customerRoute');
 
 //-----------------------Signup Comments
@@ -38,7 +38,6 @@ app.use(bodyParser.json())
 
 app.use('/api/v1/users',userRoute);
 app.use('/api/v1/question',questionRoute);
-app.use('/api/v1/wordlist' , wordListRoute)
 
 
 // app.use('/api/v1/customers',customerRoute);
@@ -56,8 +55,8 @@ const connectDb = async ()=>{
 }
 try{
     // mongoose.connect('mongodb://127.0.0.1:27017/fluentBridge');
-    app.listen(5173, "192.168.1.2",()=>{
-        console.log(`server Started & running on port ${5173}`);
+    app.listen(port,()=>{
+        console.log(`server Started & running on port ${port}`);
     })
     connectDb().then(()=>{
         console.log("connected to db");

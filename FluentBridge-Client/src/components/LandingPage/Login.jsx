@@ -4,7 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import AxiosInstance from "../../config/axiosInstance";
 import signPic from "../../assets/signup.jpg"
-
+import Lottie from "lottie-react";
+import animationData from "../../assets/login.json"; // Animation
+import loginbg from "../../assets/loginbg.json"; // Animation
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -30,21 +32,30 @@ export default function Login() {
             transition={{ duration: 1 }}
             className="flex justify-center items-center h-screen py-22"
             style={{
-                backgroundColor: "#271133",
+                backgroundImage: `url(${loginbg})`, // Add the loginbg animation as background
                 backgroundSize: 'cover',
-                backgroundPosition: 'center'
+                backgroundPosition: 'center',
+                backgroundColor: "#271133",
             }}
         >
-            <div className="container mx-auto max-w-lg p-8 bg-purple-400 bg-opacity-90 shadow-lg mb-2">
+            <div className="container mx-auto max-w-lg p-8 bg-white bg-opacity-90 shadow-lg mb-2">
                 <Link to="/activities" className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
                     <IoIosArrowBack />
                 </Link>
-                <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">Login to FluentBridge</h1>
                 {/* Add the image container */}
                 <div className="text-center mb-4">
-                    <img src={signPic} alt="Signup Image" className="mx-auto" style={{ maxHeight: '100px' }} />
+                    <Lottie
+                        options={{
+                            loop: true,
+                            autoplay: true,
+                            animationData: animationData,
+                        }}
+                        height={200}
+                        width={200}
+                    />
                 </div>
                 {/* End of image container */}
+                <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">Login to FluentBridge</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="col-span-2">
                         <div className="form-group">
