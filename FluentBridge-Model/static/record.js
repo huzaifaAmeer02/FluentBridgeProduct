@@ -17,3 +17,6 @@ let isRecording = false;
             stopRecording();
         }
     }
+
+// Attach click event to the record button
+    recordButton.addEventListener("click", toggleRecording);
