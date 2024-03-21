@@ -1,4 +1,4 @@
-7from flask import Flask, render_template, request
+87from flask import Flask, render_template, request
 import os
 import numpy as np
 import librosa
@@ -65,3 +65,13 @@ def index():
             #     audio_file_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
             #     audio_file.save(audio_file_path)
 
+# Load the model
+                model = load_model('model/classifier.h5')
+                # Predict using the model
+                pred = predict_single_audio_file(model,'Cake.waptt.wav')
+        #     else:
+        #         pred = 'No audio data received'
+            
+        # except Exception as e:
+        #     print(f"Error handling audio: {e}")
+        #     pred = 'Error'
