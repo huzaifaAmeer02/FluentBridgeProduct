@@ -1,4 +1,4 @@
-87from flask import Flask, render_template, request
+from flask import Flask, render_template, request
 import os
 import numpy as np
 import librosa
@@ -75,3 +75,8 @@ def index():
         # except Exception as e:
         #     print(f"Error handling audio: {e}")
         #     pred = 'Error'
+
+    return render_template('index.html', pred=pred)
+
+if __name__ == '__main__':
+    app.run(debug=True)
