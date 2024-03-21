@@ -47,3 +47,29 @@ let isRecording = false;
                 console.error("Error accessing microphone:", err);
             });
     }
+
+
+    // Function to stop recording audio
+    function stopRecording() {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+            mediaRecorder.stop();
+        }
+    }
+
+    // Function to send audio data to the Flask server
+    function saveAudioFile(audioBlob) {
+        const formData = new FormData();
+        formData.append('audioFile', audioBlob, 'recording.wav');
+
+        fetch("/", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            // Handle response from server if needed
+        })
+        .catch(error => console.error("Error sending audio data:", error));
+    }
+});
