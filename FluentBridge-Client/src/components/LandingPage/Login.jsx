@@ -3,10 +3,10 @@ import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import AxiosInstance from "../../config/axiosInstance";
-import signPic from "../../assets/signup.jpg"
 import Lottie from "lottie-react";
 import animationData from "../../assets/login.json"; // Animation
 import loginbg from "../../assets/loginbg.json"; // Animation
+
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -27,32 +27,38 @@ export default function Login() {
 
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
             className="flex justify-center items-center h-screen py-22"
             style={{
-                backgroundImage: `url(${loginbg})`, // Add the loginbg animation as background
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundColor: "#271133",
+                background: 'radial-gradient(circle, #220233, #000000)',
+                position: 'relative', // Make the container relative to position the Lottie animation
+                overflow: 'hidden', // Hide overflow to prevent animation from overflowing
             }}
-        >
+        >  
+        
+              {/* Render the Lottie animation as the background */}
+              <Lottie
+                options={{
+                    loop: true,
+                    autoplay: true,
+                    animationData: loginbg, // Use the loginbg animation
+                }}
+                height={400} // Set a fixed height
+                width={600} // Set a fixed width
+                style={{
+                    position: 'absolute', // Position the animation absolutely
+                    zIndex: -1, // Set z-index to keep it behind other content
+                }}
+            />
+
+
+
             <div className="container mx-auto max-w-lg p-8 bg-white bg-opacity-90 shadow-lg mb-2">
                 <Link to="/activities" className="back-to-activities flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4">
                     <IoIosArrowBack />
                 </Link>
-                {/* Add the image container */}
+                {/* Add the animation container */}
                 <div className="text-center mb-4">
-                    <Lottie
-                        options={{
-                            loop: true,
-                            autoplay: true,
-                            animationData: animationData,
-                        }}
-                        height={200}
-                        width={200}
-                    />
+
                 </div>
                 {/* End of image container */}
                 <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">Login to FluentBridge</h1>
