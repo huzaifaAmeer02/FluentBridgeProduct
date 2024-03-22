@@ -10,11 +10,10 @@ import animationData from "../../assets/wordle.json";
 
 
 const WordleGame = () => {
-    const verbList = ["clean", "print","dance","drink","write","plant", "study", "teach","fetch","sleep"]; // List of verbs
+    const verbList = ["clean", "print","dance","drink","write","plant", "study", "teach","fetch","sleep"];
     const nounList = ["grape", "melon", "lemon", "peach", "berry", "mango","chair", "house", "table", "clock", "shoes", "shirt","glove","phone","piano","beach"]; // List of fruits
     const adjectiveList = ["happy","silly","brave","proud","sharp","clean","small"];
     const adverbList = ["quick","sunny","clear","early","lucky","plain","ready"];
-    
 
     const [word, setWord] = useState("");
     const [category, setCategory] = useState("");
@@ -24,7 +23,7 @@ const WordleGame = () => {
     const maxAttempts = 6;
     const [gameOver, setGameOver] = useState(false);
     const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-    const initialKeyColors = alphabet.reduce((acc, curr) => ({ ...acc, [curr]: 'bg-purple-400' }), {});
+    const initialKeyColors = alphabet.reduce((acc, curr) => ({ ...acc, [curr]: 'bg-purple-800' }), {});
     const [keyColors, setKeyColors] = useState(initialKeyColors);
     const [congratulationsMessage, setCongratulationsMessage] = useState("");
     const [showConfetti, setShowConfetti] = useState(false); 
@@ -133,7 +132,6 @@ const WordleGame = () => {
             alert(`No word like "${guess}".`);
         }
     };
-    
 
     const handleInputChange = (e) => {
         setGuess(e.target.value.toLowerCase().slice(0, 5));
@@ -179,7 +177,7 @@ const WordleGame = () => {
 
     return (
         <div style={{ display: 'flex',   justifyContent: 'center', alignItems: 'center', zIndex: -1 }}>
-        <div style={{ display: 'flex', position: 'fixed', zIndex: -1 }}>
+        <div  style={{ display: 'flex', position: 'fixed', zIndex: -1, padding:2}}>
             <Lottie animationData={animationData} style={{ width:1800, height:900}} />
         </div>
         
@@ -187,14 +185,15 @@ const WordleGame = () => {
             <Link to="/vocabulary-activity" className="back-to-vocabulary-activity flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-10 top-10">
                 <IoIosArrowBack />
             </Link>
-            {congratulationsMessage && (<>
-                            <div className="congratulations-message text-white text-center " style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 2 , fontSize: '2rem'}}>
+            
+        <div >
+        {congratulationsMessage && (<>
+                            <div className="congratulations-message text-white text-center display-fixed " style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 2 , fontSize: '1rem'}}>
                                 {congratulationsMessage}
                             </div>
                             <Confetti numberOfPieces={200} />
                         </>
                         )}
-        <div>
             {/* Game content */}
             <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="container mx-auto flex flex-col items-center bg-black-900 bg-opacity-60 rounded-lg p-4 transition duration-300 hover:bg-opacity-80 text-center max-w-3xl">
@@ -217,7 +216,7 @@ const WordleGame = () => {
                                 value={guess}
                                 onChange={handleInputChange}
                                 maxLength={5}
-                                placeholder="Guess"
+                                placeholder="Guess the word"
                                 className="p-1 mr-1 text-center border border-gray-400"
                                 style={{
                                     fontSize: '1rem', // Default font size
@@ -226,7 +225,7 @@ const WordleGame = () => {
                             <button
                                 onClick={checkGuess}
                                 disabled={ gameOver}
-                                className="py-1 px-2 bg-blue-500 text-white font-semibold rounded"
+                                className="py-1 px-2 bg-purple-900 text-white font-semibold rounded"
                             >
                                 Guess
                             </button>
@@ -268,7 +267,7 @@ const WordleGame = () => {
                         {(congratulationsMessage || gameOver) && (
                             <button
                                 onClick={resetGame}
-                                className="mt-2 py-1 px-2 bg-blue-500 text-white font-semibold rounded"
+                                className="mt-2 py-1 px-2 bg-purple-900 text-white font-semibold rounded"
                             >
                                 Play Again
                             </button>

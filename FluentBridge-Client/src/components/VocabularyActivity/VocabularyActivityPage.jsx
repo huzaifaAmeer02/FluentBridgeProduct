@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import crown from "../../assets/logofluent.png";
 import { IoIosArrowBack } from 'react-icons/io';
@@ -43,6 +43,14 @@ const VocabularyActivityPage = () => {
     const toggleLanguage = () => {
         setLanguage(language === "en" ? "si" : "en");
     };
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setStopAnimation(true);
+        }, 3000); // Change 3000 to the number of milliseconds after which you want to stop the animation
+
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div className="bg-cover bg-center min-h-screen flex flex-col" style={{background: 'radial-gradient(circle, #220233, #000000)'}}>

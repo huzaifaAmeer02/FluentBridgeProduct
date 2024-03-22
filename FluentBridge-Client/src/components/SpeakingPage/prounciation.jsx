@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import speechIcon from '../../assets/logofluent.png';
 import LoadingPage from "../LoadingPage/LoadingPage";
 
+
+
 const Pronunciation = () => {
     const [isTranslated, setIsTranslated] = useState(false);
     const [loading, setLoading] = useState(true); // State for loading
@@ -26,7 +28,11 @@ const Pronunciation = () => {
     }
 
     return (
+<<<<<<< HEAD
         <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: 'linear-gradient(to right, #191425FF, #4D2B8BFF)', backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+=======
+        <div className="bg-gray-400 min-h-screen flex flex-col justify-center items-center" style={{background: 'radial-gradient(circle, #220233, #000000)'}}>
+>>>>>>> main
             <Link
                 to="/speakingmainpanel"
                 className="absolute left-4 top-4 p-2 rounded-lg bg-white text-purple-700 font-bold hover:text-blue-700 transition duration-300 ease-in-out"
@@ -39,8 +45,13 @@ const Pronunciation = () => {
             </div>
             <div className="mt-4 text-center mx-auto max-w-lg">
                 <h1 className="text-3xl font-bold mb-6 text-white">{isTranslated ? 'FluentBridge චතුර මට්ටමේ අනාවැකිකරු වෙත සාදරයෙන් පිළිගනිමු' : 'Welcome to FluentBridge Fluency Level Predictor'}</h1>
+<<<<<<< HEAD
                 <p className="mb-6 text-lg text-gray-200">{isTranslated ? 'FluentBridge චතුර මට්ටමේ පුරෝකථනය භාවිතා කිරීම සඳහා:' : 'To use the FluentBridge fluency level predictor:'}</p>
                 <ol className="text-left mb-6 bg-gray-800 p-8 rounded-2xl mx-4">
+=======
+                <p className="mb-6 text-lg text-purple-200">{isTranslated ? 'FluentBridge චතුර මට්ටමේ පුරෝකථනය භාවිතා කිරීම සඳහා:' : 'To use the FluentBridge fluency level predictor:'}</p>
+                <ol className="text-left mb-6 bg-purple-100 text-purple-900 p-8 rounded-2xl mx-4">
+>>>>>>> main
                     <li className="mb-2"><strong>{isTranslated ? 'ක්ලික් කරන්න' : 'Click'}</strong> {isTranslated ? '- මෙම "Predict My Fluency Level" වෙත ක්ලික් කරන්න.' : 'on the "Predict My Fluency Level" button below.'}</li>
                     <li className="mb-2"><strong>{isTranslated ? 'කතා කරන්න' : 'Speak'}</strong> {isTranslated ? '- මෙම බොත්තම ක්ලික් කර පසුබිමට කතා කරන්න.' : 'into the microphone after clicking the button.'}</li>
                     <li className="mb-2"><strong>{isTranslated ? 'රැඳී සිටින්න' : 'Wait'}</strong> {isTranslated ? '- විශ්ලේෂණ ප්රතිඵල පෙනී සිටීම සඳහා.' : 'for the analysis results to appear.'}</li>
