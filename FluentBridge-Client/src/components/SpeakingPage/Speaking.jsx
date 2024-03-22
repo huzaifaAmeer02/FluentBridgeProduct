@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiMic } from 'react-icons/fi';
-import speakingBg from "../../assets/speaking-bg.jpg";
-import { BsFillMicFill } from "react-icons/bs"; // Added mic icon
 import LoadingPage from "../LoadingPage/LoadingPage";
+import Lottie from 'lottie-react';
+import pronunce from '../../assets/pronunce.json';
 
 
 function Speaking() {
@@ -84,25 +84,42 @@ function Speaking() {
     }
 
     return (
-        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ backgroundImage: `url(${speakingBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="relative flex flex-col items-center justify-center min-h-screen" style={{ background: 'radial-gradient(circle, #220233, #000000)'}}>
             <div className="absolute left-4 top-4">
                 <Link
-                    to="/activities"
+                    to="/speakingmainpanel"
                     className="flex items-center text-blue-500 font-bold hover:text-blue-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white"
                 >
                     <IoIosArrowBack />
                 </Link>
             </div>
+            
+            {/* Lottie animation */}
+            <Lottie
+                animationData={pronunce}
+                loop
+                autoplay
+                style={{
+                    position: 'absolute',
+                    top: '10%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '10%',
+                    height: '10%',
+                    zIndex: 1, // Set z-index between gradient background and links
+                }}
+            />
+
             <div className="container mx-auto flex flex-col items-center justify-center">
                 
-                <div className="w-full md:w-1/2 bg-white opacity-80 rounded-lg shadow-lg p-8 mt-24">
+                <div className="w-full md:w-1/2 bg-purple-200  rounded-lg shadow-lg p-8 mt-24">
                     <textarea
                         id="text-input"
-                        className="form-input mb-4 bg-gray-100 border border-gray-300 focus:border-blue-500 focus:outline-none p-4 w-full rounded-lg text-lg placeholder-gray-500"
+                        className="form-input mb-4 bg-white opacity-90 border border-purple-900 focus:border-blue-500 focus:outline-none p-4 w-full rounded-lg text-lg text-purple-900 placeholder-gray-500"
                         placeholder="Type anything..."
                     ></textarea>
                     <div className="mb-4">
-                        <label htmlFor="rate" className="block text-gray-600">
+                        <label htmlFor="rate" className="block text-purple-900">
                             Speed : {rate.toFixed(1)}
                         </label>
                         <input
@@ -117,7 +134,7 @@ function Speaking() {
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="pitch" className="block text-gray-600">
+                        <label htmlFor="pitch" className="block text-purple-900">
                             Pitch : {pitch.toFixed(1)}
                         </label>
                         <input
@@ -145,24 +162,14 @@ function Speaking() {
                             ))}
                         </select>
                     </div>
-                    <button className="flex items-center justify-center bg-gray-800 btn text-white btn-lg btn-block mx-auto mb-6" onClick={speak}>
+                    <button className="flex items-center justify-center bg-gray-800 px-6 py-4 rounded-2xl text-white btn-lg btn-block mx-auto mb-6" onClick={speak}>
                         <FiMic className="mr-2" />
                         Pronounce It
                     </button>
                 </div>
-                <p className="text-white text-sm mt-4 mb-4">
+                <p className="text-purple-900 text-sm mt-4 mb-4 bg-purple-300 px-6 py-4 rounded-3xl">
                     FluentBridge online pronunciation trainer
                 </p>
-            </div>
-            
-            {/* Button for Try Pronounce */}      
-            <div className="absolute top-4 right-4 flex items-center">
-                <h2 className="mr-4 text-white">Check Your Fluency Level</h2>
-                <Link to="/pronunciation">
-                    <button className="bg-gray-100 hover:bg-gray-400 text-gray-700 font-bold py-4 px-4 rounded-full flex items-center justify-center">
-                        <BsFillMicFill/>
-                    </button>
-                </Link>
             </div>
         </div>
     );

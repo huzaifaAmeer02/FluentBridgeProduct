@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiMail, FiGithub, FiTwitter } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
 export const TeamPage = () => {
@@ -6,7 +7,7 @@ export const TeamPage = () => {
 
     // Static content in English
     const englishContent = {
-        heading: "FluentBridge - Sri Lanka Crew",
+        heading: "FluentBridge - Sri Lanka Team",
         intro: "Our team consists of second-year undergraduate students, each bringing unique perspectives and skills to the table. Despite being early in our academic journey, we're passionate, driven, and committed to learning and contributing to meaningful projects."
     };
 
@@ -69,8 +70,8 @@ export const TeamPage = () => {
                 {teamMembers.map((member, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         whileHover={{ scale: 1.1 }}
                         className="flex flex-col items-center bg-purple-800 rounded-2xl p-2"

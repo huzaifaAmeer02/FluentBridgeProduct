@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { setUserId } from "../../Redux/Result_Reducer.js";
 import { FiGlobe } from "react-icons/fi"; // Import the Globe icon
+import Lottie from "lottie-react";
+import grading from "../../assets/grading.json";
 
 
 export default function GradingAssessment() {
@@ -69,7 +71,7 @@ export default function GradingAssessment() {
             transition={{ duration: 1 }}
             className="flex justify-center items-center h-screen"
             style={{
-                background: "linear-gradient(135deg, #231631, #8C61FF,#231631)",
+                background: 'radial-gradient(circle, #220233, #000000)',
             }}
         >
             {loading ? (
@@ -82,8 +84,22 @@ export default function GradingAssessment() {
                     >
                         <IoIosArrowBack />
                     </Link>
+                    <Lottie
+                animationData={grading}
+                loop
+                autoplay
+                style={{
+                    position: 'absolute',
+                    top: '15%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '20%',
+                    height: '20%',
+                    zIndex: 1, // Set z-index between gradient background and links
+                }}
+            />
                     <div className="absolute top-4 right-4 cursor-pointer" onClick={toggleLanguage}>
-                        <FiGlobe className="bg-white p-2 rounded mr-6" size={40} />
+                        <FiGlobe className="bg-white p-2 rounded mr-6 text-purple-950" size={40} />
                     </div>
 
                     <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">
