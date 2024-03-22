@@ -16,6 +16,7 @@ const Navbar = () => {
         "/listening",
         "/vocabpanel",
         "/",
+        "/NewOne",
         "/dictionaryapi",
         "/dictionary",
         "/gradingquiz",
@@ -30,7 +31,8 @@ const Navbar = () => {
         "/writingactivity",
         "/login",
         "/signup",
-        "/Controller"
+        "/Controller",
+        "/speakingmainpanel"
     ];
     
     const hideNavbar = hidePaths.includes(location.pathname);
@@ -54,7 +56,7 @@ const Navbar = () => {
             {!hideNavbar && (
                 <nav className="navbar flex items-center justify-between mt-1">
                     <Link to="/">
-                        <img src={logo} className="m-2 logo ml-2 top-2 bg-white rounded-full p-2" alt="Logo" width={70} height={70} />
+                        <img src={logo} className="mt-5 logo ml-4 top-2 rounded-full bg-white" alt="Logo" width={70} height={70} />
                     </Link>
                     <div className="flex items-center space-x-4">
                         <div className="relative">
@@ -64,25 +66,28 @@ const Navbar = () => {
                             </div>
                             {/* Dropdown menu for user profile */}
                             {profileMenuOpen && (
-                                <ul className="profile-dropdown absolute top-12 right-0 bg-[#D6C2E1] shadow-md rounded-lg py-2 mr-2 mt-2">
+                                <ul className="profile-dropdown absolute top-12 right-0 bg-purple-600 shadow-md rounded-lg py-2 mr-2 mt-2">
                                     <li className="profile-item px-4 py-2 flex items-center">
                                         {/* User name and email address */}
                                         <div>
                                             <p className="font-semibold">Username</p>
-                                            <p className="text-gray-500">email@example.com</p>
+                                            <p className="text-purple-950">email@example.com</p>
                                         </div>
                                     </li>
                                     {/* Dropdown options */}
-                                    <li className="profile-item px-4 py-2 hover:bg-purple-200">
+                                    <li className="profile-item px-4 py-2 hover:bg-purple-400">
                                         <Link to="/activities">My Activity Panel</Link>
                                     </li>
-                                    <li className="profile-item px-4 py-2 hover:bg-purple-200">
+                                    <li className="profile-item px-4 py-2 hover:bg-purple-400">
                                         <Link to="/contact">Contact Us</Link>
                                     </li>
-                                    <li className="profile-item px-4 py-2 hover:bg-purple-200">
+                                    <li className="profile-item px-4 py-2 hover:bg-purple-400">
                                         <Link to="/about">About Us</Link>
                                     </li>
-                                    <li className="profile-item px-4 py-2 hover:bg-purple-200" onClick={handleLogout}>
+                                    <li className="profile-item px-4 py-2 hover:bg-purple-400">
+                                        <Link to="/user">User profile</Link>
+                                    </li>
+                                    <li className="profile-item px-4 py-2 text-purple-900 rounded-xl hover:text-white hover:bg-purple-500 bg-white m-2" onClick={handleLogout}>
                                         <FaSignOutAlt className="mr-2" />
                                         Logout
                                     </li>

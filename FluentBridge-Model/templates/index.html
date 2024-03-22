@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronounciation Level Predictor</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">
+            <i class="fas fa-language"></i>  Pronunciation Level Predictor
+        </div>
+
+        <form action="/" method="POST" class="form" enctype="multipart/form-data">
+            <div class="inputfield">
+                <button type="button" id="recordButton" class="round-btn"><i class="fas fa-microphone"></i></button>
+                <span id="recordingStatus" style="margin-left: 10px;"></span>
+            </div>
+
+            <div class="inputfield">
+                <input type="submit" class="btn" value="Predict Fluency">
+            </div>
+        </form>
+
+        <p>
+            <div class="result">
+                {% if pred %}
+                <p><i class="fas fa-check-circle"></i> Predicted Level: {{ pred }}</p>
+                {% endif %}
+            </div>
+            </p>
+    </div>
+
+    <script src="/static/record.js"></script>
+</body>
+</html>
