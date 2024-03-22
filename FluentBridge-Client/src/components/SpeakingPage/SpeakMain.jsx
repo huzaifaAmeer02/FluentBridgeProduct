@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link component
 import { IoIosArrowBack } from "react-icons/io";
 import LoadingPage from '../LoadingPage/LoadingPage';
+import Lottie from 'lottie-react';
+import fourplanets from "../../assets/fourplanets.json";
 
 const SpeakMain = () => {
     const [loading, setLoading] = useState(true); // State for loading
@@ -20,9 +22,8 @@ const SpeakMain = () => {
         return <LoadingPage />; // Render loading page while loading
     }
 
-
     return (
-        <div className="flex flex-col md:flex-row justify-center items-center h-screen">
+        <div className="flex flex-col md:flex-row justify-center items-center min-h-screen">
             {/* Back Button */}
             <div className="absolute left-4 top-4">
                 <Link
@@ -39,26 +40,44 @@ const SpeakMain = () => {
             )}
             {/* Buttons Container */}
             {!loading && (
-                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 mt-16 md:mt-0">
-                    {/* Type and Pronounce Button */}
-                    <Link to="/speaking">
-                        <button className="rounded-full bg-purple-600 text-white py-4 px-6 md:py-6 md:px-8 text-center font-bold text-lg md:text-xl shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out">
-                            Type and Listen with Us
-                        </button>
-                    </Link>
-                    {/* Check Your Pronunciation Level Button */}
-                    <Link to="/pronunciation">
-                        <button className="rounded-full bg-purple-600 text-white py-4 px-6 md:py-6 md:px-8 text-center font-bold text-lg md:text-xl shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out">
-                            Check Pronunciation Level
-                        </button>
-                    </Link>
-                    {/* Practice With FluentBridge Button */}
-                    <Link>
-                        <button className="rounded-full bg-purple-600 text-white py-4 px-6 md:py-6 md:px-8 text-center font-bold text-lg md:text-xl shadow-lg hover:bg-purple-700 transition duration-300 ease-in-out">
-                            Practice With FluentBridge
-                        </button>
-                    </Link>               
-                </div>
+                
+                <div className="grid   gap-4 mt-16 md:mt-0 max-w-screen-xl">
+                {/* Lottie animation */}
+            <Lottie
+                animationData={fourplanets}
+                loop
+                autoplay
+                style={{
+                    position: 'absolute',
+                    top: '25%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '100%',
+                    height: '100%',
+                    zIndex: -1, // Set z-index between gradient background and links
+                }}
+            />
+            <div className='p-10'></div>
+            {/* Type and Pronounce Button */}
+                <Link to="/speaking" className="flex justify-center">
+                    <button className="w-full rounded-full bg-purple-600 hover:bg-purple-900 text-white py-4 px-20 md:py-6 text-center font-bold text-lg md:text-xl shadow-lg  transition duration-300 ease-in-out">
+                        Type and Listen with Us
+                    </button>
+                </Link>
+                {/* Check Your Pronunciation Level Button */}
+                <Link to="/pronunciation" className="flex justify-center">
+                    <button className="w-full rounded-full bg-purple-600 hover:bg-purple-900 text-white py-4 px-20 md:py-6 text-center font-bold text-lg md:text-xl shadow-lg  transition duration-300 ease-in-out">
+                        Check Pronunciation Level
+                    </button>
+                </Link>
+                {/* Practice With FluentBridge Button */}
+                <Link to="#" className="flex justify-center">
+                    <button className="w-full rounded-full bg-purple-600 hover:bg-purple-900 text-white py-4 px-20 md:py-6 text-center font-bold text-lg md:text-xl shadow-lg  transition duration-300 ease-in-out">
+                        Practice With FluentBridge
+                    </button>
+                </Link>
+            </div>
+            
             )}
         </div>
     );

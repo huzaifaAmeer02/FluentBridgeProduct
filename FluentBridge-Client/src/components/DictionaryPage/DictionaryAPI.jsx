@@ -76,7 +76,7 @@ const DictionaryAPI = () => {
       setSavedWords(updatedWordList);
       setWord("");
       setDuplicateWordError(false);
-      saveWordListToBackend(updatedWordList); // Save the updated word list to the backend
+      //saveWordListToBackend(updatedWordList); // Save the updated word list to the backend
       localStorage.setItem('savedWords', JSON.stringify(updatedWordList));
     } else {
       setDuplicateWordError(true);
@@ -174,7 +174,7 @@ const DictionaryAPI = () => {
         </div>
       )}
       <div className="container mx-auto px-4 py-8">
-        <Link to="/dictionary" className="absolute bg-white top-4 left-4 flex items-center text-purple-500 font-bold hover:text-purple-700 rounded-lg p-2 bg-black">
+        <Link to="/dictionary" className="absolute top-4 left-4 flex items-center text-blue-500 font-bold hover:text-blue-700 rounded-lg p-2 bg-black">
           <IoIosArrowBack />
         </Link>
         <div className="mb-8 mt-10 bg-gray-800 bg-opacity-0 rounded-lg p-2 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto transition duration-300 ">
@@ -201,9 +201,11 @@ const DictionaryAPI = () => {
                   type="text"
                   id="name"
                   name="word"
-                  className="w-full bg-white bg-opacity-80 rounded-1 border border-gray-700 focus:border-gray-800 focus:bg-purple-100 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mt-5 placeholder-gray-600 rounded-lg"
+                  className="w-full bg-purple-100 rounded-1 border border-gray-700 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-900 py-1 px-3 leading-8 mt-5 placeholder-gray-600 rounded-lg"
+
                   placeholder="Enter a word"
                   value={word}
+                 
                 />
                 <button
                   onClick={getMeaning}
@@ -226,7 +228,7 @@ const DictionaryAPI = () => {
             {wordFound && !duplicateWordError && (
               <button
                 onClick={addToMyList}
-                className="text-white bg-purple-400 rounded-full py-2 px-8 my-3 focus:outline-none hover:bg-purple-00 text-lg md:mx-10"
+                className="text-white border-0 py-2 px-8 my-3 focus:outline-none hover:bg-gray-500 rounded text-lg md:mx-10"
               >
                 Add to My List
               </button>
@@ -238,24 +240,24 @@ const DictionaryAPI = () => {
           {meanings.length > 0 && (
             <div className="p-1 rounded-lg">
             <table className="w-full rounded-lg border-2 ">
-              <thead className="text-center border-b-2 bg-purple-700">
+              <thead className="text-center text-purple-950 border-b-2 bg-purple-200">
                 <tr>
                   <th className="border px-2 py-2 sm:w-1/4">Part of Speech</th>
                   <th className="border px-2 py-2 sm:w-1/2">Definition</th>
                   <th className="border px-2 py-2 sm:w-1/4">Example</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className= "text-gray-700">
                 <tr>
-                  <td className="border px-2 py-2 bg-purple-500 text-center" style={{ width: '25%' }}>{word}</td>
-                  <td className="border px-2 py-2 bg-white text-purple-950" style={{ width: '50%' }}></td>
-                  <td className="border px-2 py-2 bg-white text-purple-950" style={{ width: '25%' }}></td>
+                  <td className="border px-2 py-2 bg-gray-100 text-center" style={{ width: '25%' }}>{word}</td>
+                  <td className="border px-2 py-2 bg-white" style={{ width: '50%' }}></td>
+                  <td className="border px-2 py-2 bg-white" style={{ width: '25%' }}></td>
                 </tr>
                 {meanings.map((meaning, index) => (
                   <tr key={index} className="text-justify border-2">
-                    <td className="border px-2 py-2 bg-gray-100 text-purple-950" style={{ width: '25%' }}>{meaning.partOfSpeech}</td>
-                    <td className="border px-2 py-2 bg-white text-purple-950" style={{ width: '50%' }}>{meaning.definition}</td>
-                    <td className="border px-2 py-2 bg-white text-purple-950" style={{ width: '25%' }}>{meaning.example}</td>
+                    <td className="border px-2 py-2 bg-gray-100" style={{ width: '25%' }}>{meaning.partOfSpeech}</td>
+                    <td className="border px-2 py-2 bg-white" style={{ width: '50%' }}>{meaning.definition}</td>
+                    <td className="border px-2 py-2 bg-white" style={{ width: '25%' }}>{meaning.example}</td>
                   </tr>
                 ))}
               </tbody>
