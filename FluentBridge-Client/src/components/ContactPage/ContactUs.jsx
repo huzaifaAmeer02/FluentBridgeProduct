@@ -4,6 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import firebaseDB from "./firebase";
 import '@fortawesome/fontawesome-free/css/all.css';
 import HeroImage from '../ContactPage/assets/contact_us.jpg';
+import Footer from "../Footer/Footer.jsx";
+import {animated} from "react-spring";
 
 const HeroSection = () => {
     return (
@@ -175,6 +177,9 @@ const ContactUs = () => {
                     </div>
                 </div>
             </section>
+            <animated.div style={{ zIndex: 2 }} className="z-10 mt-8">
+                <Footer />
+            </animated.div>
         </>
     );
 };
