@@ -40,12 +40,17 @@ const ContactUs = () => {
     };
 
     useEffect(() => {
-        // Scroll to contact section when the component mounts
-        window.scrollTo({
-            top: document.querySelector("#contactSection").offsetTop,
-            behavior: "smooth"
-        });
+        // Scroll to contact section
+        const scrollToContactSection = setTimeout(() => {
+            window.scrollTo({
+                top: document.querySelector("#contactSection").offsetTop,
+                behavior: "smooth"
+            });
+        }, 1500); // 2 seconds delay
+
+        return () => clearTimeout(scrollToContactSection); // Cleanup on component unmount
     }, []);
+
 
     return (
         <>
