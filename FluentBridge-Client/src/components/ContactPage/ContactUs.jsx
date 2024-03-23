@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import firebaseDB from "./firebase";
@@ -7,9 +7,9 @@ import HeroImage from '../ContactPage/assets/contact_us.jpg';
 
 const HeroSection = () => {
     return (
-        <section className="hero-section relative h-screen">
-            <img src={HeroImage} alt="Hero Image" className="rounded-lg shadow-xl w-full h-full object-cover" />
-        </section>
+        <div className="border-4 border-purple-500 rounded-lg overflow-hidden">
+            <img src={HeroImage} alt="Hero Image" className="w-full h-full object-cover" />
+        </div>
     );
 };
 
@@ -39,10 +39,18 @@ const ContactUs = () => {
         setState({ ...state, [name]: value });
     };
 
+    useEffect(() => {
+        // Scroll to contact section when the component mounts
+        window.scrollTo({
+            top: document.querySelector("#contactSection").offsetTop,
+            behavior: "smooth"
+        });
+    }, []);
+
     return (
         <>
             <HeroSection />
-            <section className="py-20 contact-section" style={{ background: 'linear-gradient(180deg, #4B0082 0%, #000000 100%)' }}>
+            <section id="contactSection" className="py-20 contact-section" style={{ background: 'linear-gradient(180deg, #4B0082 0%, #000000 100%)' }}>
                 <div className="container mx-auto wrapper shadow-md">
                     <div className="flex flex-wrap justify-center">
                         <div className="w-full lg:w-1/2 px-4">
@@ -102,7 +110,7 @@ const ContactUs = () => {
                         </div>
                         <div className="w-full lg:w-1/2 px-4">
                             <div className="bg-white rounded-lg p-6 mb-4 contact-wrap bg-gradient-to-r from-black-600 to-purple-900 shadow-lg flex flex-col justify-between h-full">
-                                <h3 className="text-2xl mb-6 font-semibold text-white">Contact us</h3>
+                                <h3 className="text-2xl mb-6 font-semibold text-white">Contact us 📧</h3>
                                 <p className="mb-4 text-white">
                                     We're open for any suggestion or just to have a chat
                                 </p>
