@@ -18,11 +18,16 @@ function App() {
     const [loading, setLoading] = useState(true);
     const [showPyramid, setShowPyramid] = useState(false);
 
+    // App.js
     useEffect(() => {
-        axios.get("http://localhost:4000/api/v1/question/get_questions")
+        axios.get("http://localhost:4000/api/v1/question/get_questions", {
+            params: {
+                jobTitle: "Store Keeper" // Change the job title dynamically based on your logic
+            }
+        })
             .then(response => {
-                setQuestions(response.data.question);
-                console.log("Fetched questions:", response.data.question);
+                setQuestions(response.data.questions);
+                console.log("Fetched questions:", response.data.questions);
                 setLoading(false);
             })
             .catch(error => {
@@ -30,6 +35,7 @@ function App() {
                 setLoading(false);
             });
     }, []);
+
     const moneyPyramid = useMemo(
         () => [
             { id: 1, amount: " 100" },

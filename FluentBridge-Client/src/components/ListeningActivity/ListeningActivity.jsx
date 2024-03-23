@@ -9,66 +9,67 @@ const ListeningActivity = () => {
     const jobs = [
         {
             title: "Labour",
-            image: "https://img.freepik.com/free-photo/construction-workers-sunset_53876-138180.jpg?w=900&t=st=1707675337~exp=1707675937~hmac=88653ffa23aecd19c4753b729f43b7e73dc70638b03813eab70d37a3fa4433a4",
-            link: "/Labour",
-            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
+            image: "",
+            link: "/Keeper",
+            videoUrl: ""
         },
         {
             title: "Engineer",
-            image: "https://img.freepik.com/free-photo/protective-equipment-ensures-safety-work_60438-3943.jpg?t=st=1707676389~exp=1707679989~hmac=92ddeb27a72085020e8b5572aa232b5a1613a22ee5fc640edf8105058ce5f9cf&w=1380",
-            link: "/Engineer",
-            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
+            image: "",
+            link: "/Keeper",
+            videoUrl: ""
         },
         {
             title: "Teacher",
-            image: "https://img.freepik.com/free-photo/portrait-senior-male-professor-education-day_23-2150980102.jpg?t=st=1707676550~exp=1707680150~hmac=8d938dd34004f2bc26aadc8a07b8b272d9c545de48fe9ecb59d38652d32c4987&w=826",
-            link: "/Teacher",
-            videoUrl: "https://www.youtube.com/watch?v=toCn9-9hXoY",
+            image: "",
+            link: "/Keeper",
+            videoUrl: ""
         },
         {
             title: "Artists",
-            image: "https://img.freepik.com/free-photo/expert-carpenter-creates-art-using-old-wood-generated-by-ai_188544-27902.jpg?t=st=1707676810~exp=1707680410~hmac=214c00fb77b97dc5faa07eca7822df2c144270539bc98b3df003ffca4013797d&w=996",
-            link: "/Artists",
-            videoUrl: "https://www.youtube.com/watch?v=_Fwf45pIAtM",
+            image: "",
+            link: "/Keeper",
+            videoUrl: "",
         },
         {
             title: "Driver",
-            image: "https://img.freepik.com/premium-photo/indian-male-driver-delivery-van-uniform-looking-camera-with-smile_466689-96393.jpg?w=826",
-            link: "/Driver",
-            videoUrl: "https://www.youtube.com/watch?v=zpsVpnvFfZQ",
+            image: "",
+            link: "/Keeper",
+            videoUrl: ""
         },
         {
             title: "Nurse",
-            image: "https://img.freepik.com/free-photo/medium-shot-female-nurse-hospital_23-2150796710.jpg?t=st=1707677272~exp=1707680872~hmac=a712895918ac7a4e7d5853669d6df944b85ddef469c41796d1ad30ba6b00ab40&w=740",
-            link: "/Nurse",
-            videoUrl: "https://youtu.be/Y6_HBR2Ue2k"
+            image: "",
+            link: "/Keeper",
+            videoUrl: ""
         },
         {
             title: "Care Taker",
-            image: "https://img.freepik.com/free-photo/senior-adults-embracing-smiling-sunlight-outdoors-generated-by-ai_188544-28058.jpg?t=st=1707677329~exp=1707680929~hmac=ba14133970261e201d41fce7dab6edcb28f2c6e9aa5bb7dd0dff6358d921659e&w=996",
-            link: "/Taker",
-            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
+            image: "",
+            link: "/Keeper",
+            videoUrl: ""
         },
         {
             title: "IT Consultant",
-            image: "https://img.freepik.com/premium-photo/young-programmer-computer-boss-chief-talking-office-colleagues-discussing-new-hardware-software-coding-programming-process_839035-190750.jpg?w=826",
-            link: "/Consultant",
-            videoUrl: "https://youtu.be/dImiR3Sr8Wo",
-        },
-        {
-            title: "Pharmacist",
-            image: "https://img.freepik.com/free-photo/group-pharmacists-pharmacy-flat-design-cartoon-illustration_123827-28136.jpg?t=st=1707677491~exp=1707681091~hmac=246f3dfe3455d85752696558bd8902975e5cd3af2c501833e56ec99e7fab00f4&w=826",
-            link: "/Pharmacist",
-            videoUrl: "https://youtu.be/R5C-RJTqD5w",
+            image: "",
+            link: "/Keeper",
+            videoUrl: ""
         },
         {
             title: "Store Keeper",
-            image: "https://img.freepik.com/premium-photo/smiling-woman-worker-hardware-warehouse-standing-checking-supplies-her-tablet-look-camera_73899-14238.jpg?w=1060",
+            image: "",
             link: "/Keeper",
-            videoUrl: "https://www.youtube.com/watch?v=qKVW_wJs91Q",
+            videoUrl: ""
+        },
+        {
+            title: "Store Keeper",
+            image: "",
+            link: "/Keeper",
+            videoUrl: ""
         }
-        // Add more job details as needed
+        // Add more job details as needed
     ];
+
     const [selectedJob, setSelectedJob] = useState(null);
     const [loading, setLoading] = useState(true);
     const [showInstructions, setShowInstructions] = useState(false); // State to track instructions panel visibility
