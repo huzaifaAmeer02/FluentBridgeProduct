@@ -45,7 +45,7 @@ const ContactUs = () => {
     return (
         <>
             <HeroSection />
-            <section className="bg-gray-100 py-20 contact-section mt-0">
+            <section className="py-20 contact-section mt-0" style={{ background: 'linear-gradient(180deg, #4B0082 0%, #000000 100%)' }}>
                 <div className="container mx-auto wrapper shadow-md">
                     <div className="flex flex-wrap justify-center">
                         <div className="w-full lg:w-1/2 px-4">
@@ -103,8 +103,9 @@ const ContactUs = () => {
                                 </form>
                             </div>
                         </div>
-                        <div className="col-md-6 d-flex align-items-stretch">
-                            <div className="info-wrap w-100 p-4">
+                        <div className="col-md-6 d-flex align-items-stretch" style={{ backgroundColor: 'rgb(1,24,87)' }}>
+
+                        <div className="info-wrap w-100 p-4">
                                 <h3 className="text-2xl mb-4 font-semibold text-d62196">Contact us</h3>
                                 <p className="mb-4">
                                     {/* eslint-disable-next-line react/no-unescaped-entities */}
@@ -160,4 +161,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-
