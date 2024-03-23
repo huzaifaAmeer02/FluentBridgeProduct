@@ -28,6 +28,10 @@ const mongoose = require("mongoose");
 
 
 const QuestionSchema = new mongoose.Schema({
+    jobTitle: {
+        type: String,
+        required: true
+    },
     question: {
         type: String,
         required: true

@@ -12,5 +12,10 @@
     "npmlog": "^7.0.1",
     "range-parser": "^1.2.1",
     "set-blocking": "^2.0.0"
+  },
+
+  "scripts": {
+    "dev": "nodemon index.js",
+    "build": "npm i"
   }
 }

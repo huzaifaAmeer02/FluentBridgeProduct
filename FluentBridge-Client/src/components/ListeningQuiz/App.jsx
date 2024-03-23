@@ -7,7 +7,6 @@ import Trivia from "./components/Trivia";
 import WinningPanel from "./components/WinningPanel";
 import { IoIosArrowBack } from "react-icons/io";
 import axios from "axios";
-import LoadinngPage from "../LoadingPage/LoadingPage"
 
 function App() {
     const [username, setUsername] = useState(null);
@@ -19,11 +18,16 @@ function App() {
     const [loading, setLoading] = useState(true);
     const [showPyramid, setShowPyramid] = useState(false);
 
+    // App.js
     useEffect(() => {
-        axios.get("http://localhost:3000/api/v1/question/get_questions")
+        axios.get("http://localhost:4000/api/v1/question/get_questions", {
+            params: {
+                jobTitle: "Store Keeper" // Change the job title dynamically based on your logic
+            }
+        })
             .then(response => {
-                setQuestions(response.data.question);
-                console.log("Fetched questions:", response.data.question);
+                setQuestions(response.data.questions);
+                console.log("Fetched questions:", response.data.questions);
                 setLoading(false);
             })
             .catch(error => {
@@ -31,6 +35,7 @@ function App() {
                 setLoading(false);
             });
     }, []);
+
     const moneyPyramid = useMemo(
         () => [
             { id: 1, amount: " 100" },
@@ -67,10 +72,10 @@ function App() {
         if (questionNumber > questions.length) {
             setQuizCompleted(true);
         }
-    }, [questionNumber, questions.length]);  /!*when i put this it not returns the quiz*!/*/
+    }, [questionNumber, questions.length]);  /!when i put this it not returns the quiz!/*/
 
     if (loading) {
-        <LoadinngPage/>
+        return <div>Loading...</div>;
     }
 
     const handleStart = () => {
@@ -94,10 +99,10 @@ function App() {
                             <WinningPanel earned={earned} />
                         ) : (
                             <>
-                                <div className={`top w-auto max-w-2xl mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8 sm:mr-0 ${showPyramid ? 'sm:mr-80' : ''}`}>
+                                <div className={top w-auto max-w-2xl mt-10 bg-gradient-to-b from-gray-700 to-gray-900 rounded-full shadow-lg p-6 mb-8 sm:mr-0 ${showPyramid ? 'sm:mr-80' : ''}}>
                                     <Timer setTimeOut={setTimeOut} questionNumber={questionNumber} />
                                 </div>
-                                <div className={`trivia-container flex flex-col items-center justify-center mb-10 sm:mr-0 ${showPyramid ? 'sm:mr-80' : ''}`}>
+                                <div className={trivia-container flex flex-col items-center justify-center mb-10 sm:mr-0 ${showPyramid ? 'sm:mr-80' : ''}}>
                                     <h2 className="text-white font-bold mb-4">Select the Correct Option</h2>
                                     <div className="trivia bg-purple-600 rounded-lg p-6">
                                         <Trivia
@@ -117,22 +122,20 @@ function App() {
                             <div className="pyramid bg-purple-600 p-4 h-full w-full sm:w-auto flex flex-col items-center justify-center">
                                 <h2 className="text-white font-bold mb-1">Level Up</h2>
                                 <ul className="moneyList" style={{ margin: 0, padding: 0 }}>
-                                    {
-                                        moneyPyramid.map((m) => (
-                                            <li
-                                                className={
-                                                    questionNumber === m.id // Change _id to id
-                                                        ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl mb-2 sm:mb-3 lg:mb-4"
-                                                        : "moneyListItem text-white p-4 mb-2 sm:mb-3 lg:mb-4"
-                                                }
-                                                key={m.id} // Change _id to id
-                                                style={{ margin: 0, padding: 4 }}
-                                            >
-                                                <span className="moneyListItemNumber">[ {m.id} ]</span>
-                                                <span className="moneyListItemAmount">{m.amount} Points</span>
-                                            </li>
-                                        ))
-                                    }
+                                    {moneyPyramid.map((m) => (
+                                        <li
+                                            className={
+                                                questionNumber === m._id
+                                                    ? "moneyListItem text-yellow-500 font-bold p-4 bg-purple-950 rounded-3xl mb-2 sm:mb-3 lg:mb-4"
+                                                    : "moneyListItem text-white p-4 mb-2 sm:mb-3 lg:mb-4"
+                                            }
+                                            key={m._id}
+                                            style={{ margin: 0, padding: 4 }}
+                                        >
+                                            <span className="moneyListItemNumber">[ {m._id} ]</span>
+                                            <span className="moneyListItemAmount">{m.amount} Points</span>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
