@@ -1,22 +1,29 @@
+// QuestionController.js
 const QuestionModel = require("../model/QuestionScema");
 
 const getAllQuestions = async (req, res) => {
+    const { jobTitle } = req.query;
     try {
-        const questions = await QuestionModel.find().exec();
+        let questions;
+        if (jobTitle) {
+            questions = await QuestionModel.find({ jobTitle }).exec();
+        } else {
+            questions = await QuestionModel.find().exec();
+        }
         return res.status(200).json({
             status: true,
-            question:questions,
-            success: {message: "successfully fetched questions"}
-        })
+            questions,
+            success: { message: "Successfully fetched questions" }
+        });
     } catch (err) {
         return res.status(500).json({
             status: false,
             error: err.message,
-            success: {message: "failed to fetch questions"}
-        })
+            success: { message: "Failed to fetch questions" }
+        });
     }
-}
-/**/
+};
+
 module.exports = {
     getAllQuestions
-}
+};

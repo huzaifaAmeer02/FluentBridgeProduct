@@ -9,6 +9,7 @@
 # pip3 install python-decouple==3.8 python-multipart==0.0.6 requests==2.28.2 fastapi==0.92.0
 # pip install "uvicorn[standard]"
 #  pip install openai
+#  pip install elevenlabs==v1.0.0b1
 # .\venv\Scripts\Activate
 
 # uvicorn main:app --reload
@@ -20,9 +21,13 @@ from decouple import config
 import openai
 
 # Custome function imports
+from functions.text_to_speech import convvert_text_to_speech
 from functions.openai_request import convert_audio_to_text, get_chat_response
 from functions.database import store_mesages, recet_messages
-from functions.text_to_speech import convvert_text_to_speech
+
+# Get Environment Vars
+openai.organization = config("OPEN_AI_ORG")
+openai.api_key = config("OPEN_AI_KEY")
 
 app = FastAPI()
 
