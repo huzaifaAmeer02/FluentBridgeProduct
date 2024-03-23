@@ -46,7 +46,7 @@ const ContactUs = () => {
                 <div className="container mx-auto wrapper shadow-md">
                     <div className="flex flex-wrap justify-center">
                         <div className="w-full lg:w-1/2 px-4">
-                            <div className="bg-white rounded-lg p-6 mb-4 contact-wrap bg-gradient-to-r from-green-600 to-blue-900 shadow-lg">
+                            <div className="bg-white rounded-lg p-6 mb-4 contact-wrap bg-gradient-to-r from-black-600 to-purple-900 shadow-lg  h-full">
                                 <h3 className="text-2xl mb-6 font-semibold text-white">Send us a message</h3>
                                 <form id="contactForm" className="contactForm" onSubmit={handleSubmit}>
                                     <div className="mb-4">
@@ -101,7 +101,7 @@ const ContactUs = () => {
                             </div>
                         </div>
                         <div className="w-full lg:w-1/2 px-4">
-                            <div className="bg-white rounded-lg p-6 mb-4 contact-wrap bg-gradient-to-r from-green-600 to-blue-900 shadow-lg">
+                            <div className="bg-white rounded-lg p-6 mb-4 contact-wrap bg-gradient-to-r from-black-600 to-purple-900 shadow-lg flex flex-col justify-between h-full">
                                 <h3 className="text-2xl mb-6 font-semibold text-white">Contact us</h3>
                                 <p className="mb-4 text-white">
                                     We're open for any suggestion or just to have a chat
