@@ -1,16 +1,14 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import firebaseDB from "./firebase";
 import '@fortawesome/fontawesome-free/css/all.css';
 import HeroImage from '../ContactPage/assets/contact_us.jpg';
 
 const HeroSection = () => {
     return (
-        <section className="hero-section relative h-50">
-            <img src={HeroImage} alt="Hero Image" className="rounded-lg shadow-xl w-full h-full object-cover  pt-0" />
+        <section className="hero-section relative h-screen">
+            <img src={HeroImage} alt="Hero Image" className="rounded-lg shadow-xl w-full h-full object-cover" />
         </section>
     );
 };
@@ -41,11 +39,10 @@ const ContactUs = () => {
         setState({ ...state, [name]: value });
     };
 
-
     return (
         <>
             <HeroSection />
-            <section className="py-20 contact-section mt-0" style={{ background: 'linear-gradient(180deg, #4B0082 0%, #000000 100%)' }}>
+            <section className="py-20 contact-section" style={{ background: 'linear-gradient(180deg, #4B0082 0%, #000000 100%)' }}>
                 <div className="container mx-auto wrapper shadow-md">
                     <div className="flex flex-wrap justify-center">
                         <div className="w-full lg:w-1/2 px-4">
@@ -103,49 +100,47 @@ const ContactUs = () => {
                                 </form>
                             </div>
                         </div>
-                        <div className="col-md-6 d-flex align-items-stretch" style={{ backgroundColor: 'rgb(1,24,87)' }}>
-
-                        <div className="info-wrap w-100 p-4">
-                                <h3 className="text-2xl mb-4 font-semibold text-d62196">Contact us</h3>
-                                <p className="mb-4">
-                                    {/* eslint-disable-next-line react/no-unescaped-entities */}
+                        <div className="w-full lg:w-1/2 px-4">
+                            <div className="bg-white rounded-lg p-6 mb-4 contact-wrap bg-gradient-to-r from-green-600 to-blue-900 shadow-lg">
+                                <h3 className="text-2xl mb-6 font-semibold text-white">Contact us</h3>
+                                <p className="mb-4 text-white">
                                     We're open for any suggestion or just to have a chat
                                 </p>
-                                <div className="dbox w-100 mb-4">
-                                    <div className="icon d-flex items-center justify-center bg-d62196 rounded-full w-12 h-12 mr-3">
-                                        <i className="fas fa-map-marker-alt text-black"></i>
-                                    </div>
-                                    <div className="text">
+                                <div className="mb-4">
+                                    <div className="flex items-center">
+                                        <div className="bg-d62196 rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                            <i className="fas fa-map-marker-alt text-white"></i>
+                                        </div>
                                         <p>
                                             <span className="text-d62196">Address:</span> Colombo , Srilanka.
                                         </p>
                                     </div>
                                 </div>
-                                <div className="dbox w-100 mb-4">
-                                    <div className="icon d-flex items-center justify-center bg-d62196 rounded-full w-12 h-12 mr-3">
-                                        <i className="fas fa-phone-alt text-black"></i>
-                                    </div>
-                                    <div className="text">
+                                <div className="mb-4">
+                                    <div className="flex items-center">
+                                        <div className="bg-d62196 rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                            <i className="fas fa-phone-alt text-white"></i>
+                                        </div>
                                         <p>
                                             <span className="text-d62196">Phone:</span> <a href="tel://123456789" className="text-d62196">+94 760688707</a>
                                         </p>
                                     </div>
                                 </div>
-                                <div className="dbox w-100 mb-4">
-                                    <div className="icon d-flex items-center justify-center bg-d62196 rounded-full w-12 h-12 mr-3">
-                                        <i className="fas fa-envelope text-black"></i>
-                                    </div>
-                                    <div className="text">
+                                <div className="mb-4">
+                                    <div className="flex items-center">
+                                        <div className="bg-d62196 rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                            <i className="fas fa-envelope text-white"></i>
+                                        </div>
                                         <p>
                                             <span className="text-d62196">Email:</span> <a href="mailto:info@yoursite.com" className="text-d62196">fluentbridge@gmail.com</a>
                                         </p>
                                     </div>
                                 </div>
-                                <div className="dbox w-100 mb-4">
-                                    <div className="icon d-flex items-center justify-center bg-d62196 rounded-full w-12 h-12 mr-3">
-                                        <i className="fas fa-globe text-black"></i>
-                                    </div>
-                                    <div className="text">
+                                <div className="mb-4">
+                                    <div className="flex items-center">
+                                        <div className="bg-d62196 rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                            <i className="fas fa-globe text-white"></i>
+                                        </div>
                                         <p>
                                             <span className="text-d62196">Website:</span> <a href="#" className="text-d62196">FluentBridge.com</a>
                                         </p>
