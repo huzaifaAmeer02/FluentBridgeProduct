@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, purple, white);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(to bottom,white,purple); /* Updated gradient */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+    padding: 30px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.title {
+    font-size: 36px;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 25px;
+    transition: color 0.3s ease-in-out;
+}
+
+.title:hover {
+    color: #3498db;
+}
+
+
+.form {
+    width: 100%;
+}
+
+.inputfield {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Updated to column layout */
+    align-items: center;
+}
+
+
+.inputfield label {
+    width: auto; /* Adjust width to accommodate longer text */
+    color: #34495e;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.inputfield label i {
+    margin-left: 8px; /* Adjusted margin */
+    vertical-align: middle;
+}
+
+.button-wrapper {
+    margin-top: 10px; /* Adjust the margin to your preference */
+}
+
+.round-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #27ae60;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.round-btn:hover {
+    background: #219653;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 0px;
+    background: #27ae60;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #219653;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
+}
+
+.result {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.result i {
+    margin-right: 5px;
+    color: white;
+}
+
+

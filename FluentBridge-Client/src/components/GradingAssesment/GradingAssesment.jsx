@@ -6,8 +6,11 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { setUserId } from "../../Redux/Result_Reducer.js";
 import { FiGlobe } from "react-icons/fi"; // Import the Globe icon
+import Lottie from "lottie-react";
+import grading from "../../assets/grading.json";
 
-export default function GradingAssesment() {
+
+export default function GradingAssessment() {
     const [loading, setLoading] = useState(true);
     const [language, setLanguage] = useState("english");
     const translation = {
@@ -68,9 +71,7 @@ export default function GradingAssesment() {
             transition={{ duration: 1 }}
             className="flex justify-center items-center h-screen"
             style={{
-                backgroundImage: `url('https://img.freepik.com/free-photo/diverse-multiethnic-kids-junior-school-students-group-study-together-classroom-generative-ai_1258-166493.jpg?t=st=1708657512~exp=1708661112~hmac=c8a0d4cdb34b79646270515622f94e1fb522c8d20fc28748a113268243ff8400&w=996')`, // Replace the URL with your desired background image
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
+                background: 'radial-gradient(circle, #220233, #000000)',
             }}
         >
             {loading ? (
@@ -83,14 +84,28 @@ export default function GradingAssesment() {
                     >
                         <IoIosArrowBack />
                     </Link>
+                    <Lottie
+                animationData={grading}
+                loop
+                autoplay
+                style={{
+                    position: 'absolute',
+                    top: '15%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '20%',
+                    height: '20%',
+                    zIndex: 1, // Set z-index between gradient background and links
+                }}
+            />
                     <div className="absolute top-4 right-4 cursor-pointer" onClick={toggleLanguage}>
-                        <FiGlobe className="bg-white p-2 rounded mr-6" size={40} />
+                        <FiGlobe className="bg-white p-2 rounded mr-6 text-purple-950" size={40} />
                     </div>
 
-                    <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">
+                    <h1 className="text-2xl font-bold text-center text-purple-950 mb-4">
                         {translation[language].welcome}
                     </h1>
-                    <ol className="text-gray-600 mb-6 bg-gray-300 p-2 rounded-xl">
+                    <ol className="text-purple-600 mb-6 bg-purple-200 p-2 rounded-xl">
                         {translation[language].instructions.map((instruction, index) => (
                             <li className="text-gray-800" key={index}>{instruction}</li>
                         ))}
@@ -102,14 +117,14 @@ export default function GradingAssesment() {
                             value={username}
                             onChange={handleInputChange}
                             placeholder={translation[language].placeholder}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-4 py-2 border border-purple-300 rounded-md focus:outline-none focus:ring focus:ring-purple-500 focus:border-purple-500"
                         />
                     </form>
                     <div className="start text-center">
                         <Link
                             to="/quiz"
                             onClick={startQuiz}
-                            className={`btn py-2 px-6 border border-transparent text-base font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 ${!username && "pointer-events-none opacity-50"}`}
+                            className={`btn py-2 px-6 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 ${!username && "pointer-events-none opacity-50"}`}
                         >
                             {translation[language].start}
                         </Link>

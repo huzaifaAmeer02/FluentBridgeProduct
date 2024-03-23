@@ -35,12 +35,12 @@ const Title = ({ setMessages }) => {
     };
 
     return (
-        <div className="flex justify-between items-center w-full p-4 bg-gray-900 text-white font-bold shadow">
-            <div className="italic">FluentBridge</div>
+        <div className="pl-14 flex justify-between items-center w-full p-4 bg-purple-950 text-white font-bold shadow">
+            <div className="text-purple-200 ml-2">Live Assistant by FluentBridge</div>
             <button
                 onClick={resetConversation}
                 className={
-                    "transition-all duration-300 text-blue-300 hover:text-pink-500 " +
+                    "transition-all duration-300 text-purple-950 hover:text-purple-500 " +
                     (isResetting && "animate-pulse")
                 }
             >
