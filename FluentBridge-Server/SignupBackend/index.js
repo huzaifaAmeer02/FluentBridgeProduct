@@ -51,10 +51,20 @@ app.get('/getQuestions', (req, res)=>{
 
 })
 
-const connectDb = async ()=>{
-    return await mongoose.connect('mongodb://127.0.0.1:27017/fluentBridge');
+// MongoDB connection
+const connectDb = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("Connected to MongoDB");
+    } catch (error) {
+        console.error("MongoDB connection error:", error);
+        process.exit(1);
+    }
+};
 
-}
 try{
     // mongoose.connect('mongodb://127.0.0.1:27017/fluentBridge');
     app.listen(port,()=>{
