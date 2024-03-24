@@ -31,7 +31,7 @@ export const TeamPage = () => {
         },
         {
             name: "Asani Amarasinghe",
-            imageUrl: "https://images.pexels.com/photos/3747435/pexels-photo-3747435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            imageUrl: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         },
         {
             name: "Nuwaf Azley",

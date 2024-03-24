@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -11,7 +12,6 @@ import DictionaryAPI from "./components/DictionaryPage/DictionaryAPI.jsx";
 import ListeningActivity from "./components/ListeningActivity/ListeningActivity.jsx";
 import VideoPage from "./components/ListeningActivity/VideoPage.jsx";
 import VocabPanel from "./components/VocabPanel/vocabPanel.jsx";
-import LandingPage from "./components/LandingPage/LandingPage";
 import GradingAssesment from "./components/GradingAssesment/GradingAssesment.jsx";
 import Quiz from "./components/GradingAssesment/Quiz.jsx";
 import Results from "./components/GradingAssesment/Results.jsx";
@@ -19,7 +19,6 @@ import VocabularyActivity from "./components/VocabularyActivity/VocabularyActivi
 import ListeningQuiz from "./components/ListeningQuiz/App.jsx";
 import WordleGame from "./components/WordleGame/WordleGame.jsx";
 import Confetti from "./components/WordleGame/Confetti.jsx";
-import ReadingQuestionier from "./components/ReadingActivity/ReadingQuestionier.jsx";
 import Controller from "./components/ChatBotModal/Controller";
 import Login from "./components/LandingPage/Login";
 import Signup from "./components/LandingPage/Signup.jsx";
@@ -56,7 +55,6 @@ function App() {
                     <Route path='/wordleGame' element={<WordleGame/>} />
                     <Route path='/confetti' element={<Confetti/>}/>
                     <Route path='/listeningquiz' element={<ListeningQuiz/>}/>
-                    <Route path='/readingquestionaier' element={<ReadingQuestionier/>}/>
                     <Route path='/Controller' element={<Controller/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/signup' element={<Signup/>}/>
