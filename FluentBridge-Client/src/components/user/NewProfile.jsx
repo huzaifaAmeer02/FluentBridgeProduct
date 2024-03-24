@@ -1,103 +1,64 @@
-import { useState, useRef } from 'react'
-import {
-    Avatar,
-    AvatarBadge,
-    Badge,
-    Button,
-    Heading,
-    HStack,
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalFooter,
-    ModalHeader,
-    ModalOverlay,
-    Text,
-    useDisclosure,
-    VStack,
-} from '@chakra-ui/react'
+import { useState, useRef } from 'react';
 
 function Profile() {
-    const [userProfile, setUserProfile] = useState(null)
-
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const profileImage = useRef(null)
+    const [userProfile, setUserProfile] = useState(null);
+    const profileImage = useRef(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openChooseImage = () => {
-        profileImage.current.click()
-    }
+        profileImage.current.click();
+    };
 
     const changeProfileImage = event => {
-        const ALLOWED_TYPES = ['image/png', 'image/jpeg', 'image/jpg']
-        const selected = event.target.files[0]
+        const ALLOWED_TYPES = ['image/png', 'image/jpeg', 'image/jpg'];
+        const selected = event.target.files[0];
 
         if (selected && ALLOWED_TYPES.includes(selected.type)) {
-            let reader = new FileReader()
-            reader.onloadend = () => setUserProfile(reader.result)
-            return reader.readAsDataURL(selected)
+            let reader = new FileReader();
+            reader.onloadend = () => setUserProfile(reader.result);
+            reader.readAsDataURL(selected);
+        } else {
+            setIsModalOpen(true);
         }
+    };
 
-        onOpen()
-    }
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
-        <VStack spacing={3} py={5} borderBottomWidth={1} borderColor="brand.light">
-            <Avatar
-                size="2xl"
-                name="Tim Cook"
-                cursor="pointer"
-                onClick={openChooseImage}
+        <div style={{ marginBottom: '20px' }}>
+            <img
                 src={userProfile ? userProfile : '/img/tim-cook.jpg'}
-            >
-                <AvatarBadge bg="brand.blue" boxSize="1em">
-                    <svg width="0.4em" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z"
-                        />
-                    </svg>
-                </AvatarBadge>
-            </Avatar>
+                alt="Profile"
+                style={{ width: '150px', height: '150px', borderRadius: '50%', cursor: 'pointer' }}
+                onClick={openChooseImage}
+            />
             <input
                 hidden
                 type="file"
                 ref={profileImage}
                 onChange={changeProfileImage}
             />
-            <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Something went wrong</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        <Text>File not supported!</Text>
-                        <HStack mt={1}>
-                            <Text color="brand.cadet" fontSize="sm">
-                                Supported types:
-                            </Text>
-                            <Badge colorScheme="green">PNG</Badge>
-                            <Badge colorScheme="green">JPG</Badge>
-                            <Badge colorScheme="green">JPEG</Badge>
-                        </HStack>
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button onClick={onClose}>Close</Button>
-                    </ModalFooter>
-                </ModalContent>
-            </Modal>
-            <VStack spacing={1}>
-                <Heading as="h3" fontSize="xl" color="brand.dark">
-                    Tim Cook
-                </Heading>
-                <Text color="brand.gray" fontSize="sm">
-                    CEO of Apple
-                </Text>
-            </VStack>
-        </VStack>
-    )
+            {isModalOpen && (
+                <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', zIndex: '9999' }}>
+                    <h2>Something went wrong</h2>
+                    <p>File not supported!</p>
+                    <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
+                        <span style={{ color: '#6C757D', fontSize: '14px' }}>Supported types:</span>
+                        <span style={{ marginLeft: '5px', marginRight: '5px', backgroundColor: '#198754', color: '#fff', padding: '3px 6px', borderRadius: '4px' }}>PNG</span>
+                        <span style={{ marginLeft: '5px', marginRight: '5px', backgroundColor: '#198754', color: '#fff', padding: '3px 6px', borderRadius: '4px' }}>JPG</span>
+                        <span style={{ marginLeft: '5px', marginRight: '5px', backgroundColor: '#198754', color: '#fff', padding: '3px 6px', borderRadius: '4px' }}>JPEG</span>
+                    </div>
+                    <button style={{ marginTop: '10px' }} onClick={closeModal}>Close</button>
+                </div>
+            )}
+            <div style={{ marginTop: '10px' }}>
+                <h3 style={{ fontSize: '1.25rem', color: '#333' }}>Tim Cook</h3>
+                <p style={{ fontSize: '0.875rem', color: '#6C757D' }}>CEO of Apple</p>
+            </div>
+        </div>
+    );
 }
 
-export default Profile
+export default Profile;
