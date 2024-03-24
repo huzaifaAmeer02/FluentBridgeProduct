@@ -14,6 +14,7 @@ body {
     height: 100vh;
 }
 
+
 .wrapper {
     width: 400px;
     height: 400px;
@@ -34,7 +35,6 @@ body {
     }
 }
 
-
 .title {
     font-size: 36px;
     color: #2c3e50;
@@ -47,7 +47,6 @@ body {
     color: #3498db;
 }
 
-
 .form {
     width: 100%;
 }
@@ -58,7 +57,6 @@ body {
     flex-direction: column; /* Updated to column layout */
     align-items: center;
 }
-
 
 .inputfield label {
     width: auto; /* Adjust width to accommodate longer text */
@@ -92,7 +90,6 @@ body {
     justify-content: center;
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
 
 .round-btn:hover {
     background: #219653;
@@ -128,7 +125,5 @@ body {
 
 .result i {
     margin-right: 5px;
-    color: white;
+    color: #c0392b;
 }
-
-

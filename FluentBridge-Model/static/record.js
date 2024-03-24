@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function saveAudioFile(audioBlob) {
         const formData = new FormData();
         formData.append('audioFile', audioBlob, 'recording.wav');
-
         fetch("/", {
             method: "POST",
             body: formData

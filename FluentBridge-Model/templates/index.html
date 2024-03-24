@@ -3,37 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pronounciation Level Predictor</title>
-
+    <title> Pronunciation Level Predictor</title>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="title">
-            <i class="fas fa-language"></i>  Pronunciation Level Predictor
-        </div>
 
-        <form action="/" method="POST" class="form" enctype="multipart/form-data">
-            <div class="inputfield">
-                <button type="button" id="recordButton" class="round-btn"><i class="fas fa-microphone"></i></button>
-                <span id="recordingStatus" style="margin-left: 10px;"></span>
-            </div>
-
-            <div class="inputfield">
-                <input type="submit" class="btn" value="Predict Fluency">
-            </div>
-        </form>
-
-        <p>
-            <div class="result">
-                {% if pred %}
-                <p><i class="fas fa-check-circle"></i> Predicted Level: {{ pred }}</p>
-                {% endif %}
-            </div>
-            </p>
+<div class="wrapper">
+    <div class="title">
+        <i class="fas fa-language"></i>  Pronunciation Level Predictor
     </div>
 
-    <script src="/static/record.js"></script>
+    <form action="/" method="POST" class="form" enctype="multipart/form-data" id="audioForm">
+        <div class="inputfield">
+            <!-- Add a button to start recording -->
+            <button type="button" id="recordButton" class="round-btn"><i class="fas fa-microphone"></i></button>
+            <span id="recordingStatus" style="margin-left: 10px;"></span>
+        </div>
+
+        <div class="inputfield" >
+            <input type="submit" class="btn" value="Predict Fluency">
+        </div>
+    </form>
+
+    <p>
+    <div class="result">
+        {% if pred %}
+        <p><i class="fas fa-check-circle"></i> Predicted Level: {{ pred }}</p>
+        {% endif %}
+    </div>
+    </p>
+</div>
+
+<!-- Include custom JavaScript for audio recording -->
+<script src="/static/record.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const recordButton = document.getElementById("recordButton");
+    const recordingStatus = document.getElementById("recordingStatus");
+    const audioForm = document.getElementById("audioForm");
+
+    let isRecording = false;
+    let mediaRecorder;
+    let audioChunks = [];
+
+    // Function to start or stop recording
+    function toggleRecording() {
+        isRecording = !isRecording;
+        if (isRecording) {
+            recordingStatus.innerText = "Recording...";
+            startRecording();
+        } else {
+            recordingStatus.innerText = "Recording stopped.";
+            stopRecording();
+        }
+    }
+
+    // Attach click event to the record button
+    recordButton.addEventListener("click", toggleRecording);
+
+    // Function to start recording audio
+    function startRecording() {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function (stream) {
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+
+                mediaRecorder.ondataavailable = function (event) {
+                    if (event.data.size > 0) {
+                        audioChunks.push(event.data);
+                    }
+                };
+
+                mediaRecorder.onstop = function () {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+
+                    // Add the audio blob as a new FormData entry
+                    const formData = new FormData(audioForm);
+                    formData.append('audioFile', audioBlob, 'recording.wav');
+
+                    // Submit the form with audio data to the Flask server
+                    fetch("/", {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log(data);
+                        // Handle response from server if needed
+                    })
+                    .catch(error => console.error("Error sending audio data:", error));
+                };
+
+                mediaRecorder.start();
+            })
+            .catch(function (err) {
+                console.error("Error accessing microphone:", err);
+            });
+    }
+
+    // Function to stop recording audio
+    function stopRecording() {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+            mediaRecorder.stop();
+        }
+    }
+});
+</script>
 </body>
 </html>
