@@ -5,7 +5,7 @@ import sass from 'vite-plugin-sass';
 export default defineConfig({
   build: {
     rollupOptions: {
-      external: ['@emotion/react', '@emotion/styled'], // Add @emotion/react and @emotion/styled to externalize them
+      external: ['@emotion/react', '@emotion/styled'], // Externalize @emotion/react and @emotion/styled
     },
   },
   plugins: [
