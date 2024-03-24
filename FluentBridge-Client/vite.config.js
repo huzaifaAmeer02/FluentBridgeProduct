@@ -5,18 +5,16 @@ import sass from 'vite-plugin-sass';
 export default defineConfig({
   build: {
     rollupOptions: {
-      external: [], // Remove @emotion/react and @emotion/styled from external
+      external: ['@emotion/react', '@emotion/styled'], // Add @emotion/react and @emotion/styled to externalize them
     },
   },
   plugins: [
-    react(),
-    sass(),
+    react(), // Keep the react plugin
+    sass(), // Keep the sass plugin
   ],
   resolve: {
     alias: {
-      '@emotion/react': 'react', // Map @emotion/react to react
-      '@emotion/styled': '@emotion/styled', // Keep @emotion/styled as it is
-      'react-toastify': 'react-toastify',
+      'react-toastify': 'react-toastify', // Keep the existing alias
     },
   },
 });
