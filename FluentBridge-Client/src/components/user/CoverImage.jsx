@@ -1,27 +1,10 @@
 import coverImageSrc from "../../assets/cover-user.jpg";
 import { useRef, useState } from 'react';
-import {
-  Badge,
-  Box,
-  Button,
-  Flex,
-  HStack,
-  Image,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Text,
-  useDisclosure,
-} from '@chakra-ui/react';
 
 export default function Cover() {
   const [coverImage, setCoverImage] = useState(null);
   const inputRef = useRef(null);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openChooseFile = () => {
     inputRef.current.click();
@@ -34,56 +17,45 @@ export default function Cover() {
     if (selected && ALLOWED_TYPES.includes(selected.type)) {
       let reader = new FileReader();
       reader.onloadend = () => setCoverImage(reader.result);
-      return reader.readAsDataURL(selected);
+      reader.readAsDataURL(selected);
+    } else {
+      setIsModalOpen(true);
     }
+  };
 
-    onOpen();
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
-    <Flex direction="column" align="center">
-      <Box maxW="xl" w="100%" h={{ base: "200px", md: "300px", lg: "400px" }} overflow="hidden" position="relative">
-        <Image
-          w="100%"
-          h="full"
-          objectFit="cover"
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ maxWidth: 'xl', width: '100%', height: '400px', overflow: 'hidden', position: 'relative' }}>
+        <img
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           src={coverImage || coverImageSrc}
           alt="Cover"
         />
         <input ref={inputRef} type="file" onChange={handleChangeCover} hidden />
-        <Button
+        <button
+          style={{ position: 'absolute', bottom: '10px', right: '10px', padding: '10px', fontWeight: 'bold', borderRadius: '20px', backgroundColor: '#1F2937', color: 'white' }}
           onClick={openChooseFile}
-          position="absolute"
-          bottom={4}
-          right={4}
-          variant="ghost" 
-          className='font-extrabold hover:bg-purple-500 text-white p-2 rounded-2xl'
         >
           Change Cover
-        </Button>
-      </Box>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Something went wrong</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Text>File not supported!</Text>
-            <HStack mt={1}>
-              <Text color="brand.cadet" fontSize="sm">
-                Supported types:
-              </Text>
-              <Badge colorScheme="green">PNG</Badge>
-              <Badge colorScheme="green">JPG</Badge>
-              <Badge colorScheme="green">JPEG</Badge>
-            </HStack>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </Flex>
+        </button>
+      </div>
+      {isModalOpen && (
+        <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', zIndex: '9999' }}>
+          <h2>Something went wrong</h2>
+          <p>File not supported!</p>
+          <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
+            <span style={{ color: '#6C757D', fontSize: '14px' }}>Supported types:</span>
+            <span style={{ marginLeft: '5px', marginRight: '5px', backgroundColor: '#198754', color: '#fff', padding: '3px 6px', borderRadius: '4px' }}>PNG</span>
+            <span style={{ marginLeft: '5px', marginRight: '5px', backgroundColor: '#198754', color: '#fff', padding: '3px 6px', borderRadius: '4px' }}>JPG</span>
+            <span style={{ marginLeft: '5px', marginRight: '5px', backgroundColor: '#198754', color: '#fff', padding: '3px 6px', borderRadius: '4px' }}>JPEG</span>
+          </div>
+          <button style={{ marginTop: '10px' }} onClick={closeModal}>Close</button>
+        </div>
+      )}
+    </div>
   );
 }
