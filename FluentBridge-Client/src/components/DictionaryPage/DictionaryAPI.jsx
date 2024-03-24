@@ -76,6 +76,8 @@ const DictionaryAPI = () => {
       setSavedWords(updatedWordList);
       setWord("");
       setDuplicateWordError(false);
+      //saveWordListToBackend(updatedWordList); // Save the updated word list to the backend
+      localStorage.setItem('savedWords', JSON.stringify(updatedWordList));
     } else {
       setDuplicateWordError(true);
     }
@@ -87,6 +89,14 @@ const DictionaryAPI = () => {
     setShowListPanel(false);
     getMeaningForSelectedWord(selectedWord);
   };
+
+  // Removes a word from the saved words list
+  const removeFromList = (wordToRemove) => {
+    const updatedList = savedWords.filter(savedWord => savedWord !== wordToRemove);
+    setSavedWords(updatedList);
+    localStorage.setItem('savedWords', JSON.stringify(updatedList)); // Update local storage
+};
+
 
   // Fetches the meanings of a selected word from the dictionary API
   const getMeaningForSelectedWord = async (selectedWord) => {
@@ -111,9 +121,8 @@ const DictionaryAPI = () => {
       console.error("Error fetching data:", error);
     }
   };
-  
-   // Function to save the word list to the database
-   const saveWordListToDatabase = async (wordList) => {
+
+  const saveWordListToBackend = async (wordList) => {
     try {
       const response = await fetch('/api/saveWordList', {
         method: 'POST',
@@ -123,14 +132,19 @@ const DictionaryAPI = () => {
         body: JSON.stringify({ wordList }),
       });
       if (response.ok) {
-        console.log('Word list saved successfully to the database');
+        console.log('Word list saved successfully');
       } else {
-        console.error('Failed to save word list to the database');
+        console.error('Failed to save word list');
       }
     } catch (error) {
-      console.error('Error saving word list to the database:', error);
+      console.error('Error saving word list:', error);
     }
   };
+
+  // Function to delay setting the loading state
+  const setLoadingWithDelay = (value, delay) => {
+    setTimeout(() => setLoading(value), delay);
+  }; 
 
   // Resets the audio state when the word changes
   useEffect(() => {
@@ -143,9 +157,12 @@ const DictionaryAPI = () => {
     setSortedSavedWords(sortedWords);
   }, [savedWords]);
 
-    useEffect(() => {
-      saveWordListToDatabase(savedWords);
-    }, [savedWords]);
+  useEffect(() => {
+    const savedWordList = localStorage.getItem('savedWords');
+    if (savedWordList) {
+        setSavedWords(JSON.parse(savedWordList));
+    }
+}, []);
 
 
   return (
@@ -184,9 +201,11 @@ const DictionaryAPI = () => {
                   type="text"
                   id="name"
                   name="word"
-                  className="w-full bg-white bg-opacity-90 rounded-1 border border-gray-700 focus:border-gray-800 focus:bg-purple-100 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mt-5 placeholder-gray-600 rounded-lg"
+                  className="w-full bg-purple-100 rounded-1 border border-gray-700 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-900 py-1 px-3 leading-8 mt-5 placeholder-gray-600 rounded-lg"
+
                   placeholder="Enter a word"
                   value={word}
+                 
                 />
                 <button
                   onClick={getMeaning}
@@ -220,15 +239,15 @@ const DictionaryAPI = () => {
           )}
           {meanings.length > 0 && (
             <div className="p-1 rounded-lg">
-            <table className="  w-full rounded-lg border-2  text-purple-900">
-              <thead className="text-center border-b-2 bg-purple-200">
+            <table className="w-full rounded-lg border-2 ">
+              <thead className="text-center text-purple-950 border-b-2 bg-purple-200">
                 <tr>
                   <th className="border px-2 py-2 sm:w-1/4">Part of Speech</th>
                   <th className="border px-2 py-2 sm:w-1/2">Definition</th>
                   <th className="border px-2 py-2 sm:w-1/4">Example</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className= "text-gray-700">
                 <tr>
                   <td className="border px-2 py-2 bg-gray-100 text-center" style={{ width: '25%' }}>{word}</td>
                   <td className="border px-2 py-2 bg-white" style={{ width: '50%' }}></td>

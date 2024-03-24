@@ -20,7 +20,7 @@ function App() {
     const [showPyramid, setShowPyramid] = useState(false);
 
     useEffect(() => {
-        axios.get("http://localhost:4000/api/v1/question/get_questions")
+        axios.get("http://localhost:3000/api/v1/question/get_questions")
             .then(response => {
                 setQuestions(response.data.question);
                 console.log("Fetched questions:", response.data.question);

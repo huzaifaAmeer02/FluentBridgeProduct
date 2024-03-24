@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import VideoPage from "./VideoPage.jsx";
+import VideoPage from "./VideoPage.jsx"; // Importing the VideoPage component
 import {IoIosArrowBack} from "react-icons/io";
 import LoadingPage from "../LoadingPage/LoadingPage.jsx";
 
@@ -125,14 +125,14 @@ const ListeningActivity = () => {
             {loading ? (
                 <LoadingPage />
             ) : (
-                <section className=" py-8 relative" style={{background: 'radial-gradient(circle, #220233, #000000)'}}>
+                <section className=" py-8 relative bg-purple-100" >
                     <Link
                         to="/activities"
                         className="back-to-activities flex items-center text-purple-500 font-bold hover:text-purple-700 transition duration-300 ease-in-out rounded-lg p-2 bg-white absolute left-4 top-4"
                     >
                         <IoIosArrowBack />
                     </Link>
-                    <h2 className="text-3xl  font-bold text-center mb-8 text-white-950">
+                    <h2 className="text-3xl  font-bold text-center mb-8 text-purple-950">
                         Listening Activity
                     </h2>
                     <button
@@ -145,6 +145,7 @@ const ListeningActivity = () => {
                         <div className="bg-white p-4 rounded-3xl shadow-lg mb-4 mx-4">
                             <h3 className="text-xl font-bold mb-2 text-purple-950">Instructions:</h3>
                             <p className="text-purple-800 bg-purple-200 rounded-3xl p-10 text-justify">
+                                {/* Instruction details */}
                                 <ol className="list-decimal ml-6">
                                     <li><strong>{translatedInstructions ? translatedInstructions.objective : "Objective"} :</strong>
                                         <ul className="list-disc ml-6">
@@ -192,7 +193,7 @@ const ListeningActivity = () => {
                         </div>
                     )}
 
-
+                    {/* Mapping through job items */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 px-4">
                         {jobs.map((job, index) => (
                             <div key={index}>

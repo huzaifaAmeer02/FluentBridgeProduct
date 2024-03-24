@@ -26,9 +26,10 @@ app.use(cors())
 
 const userRoute = require('./route/UserRoute');
 const questionRoute = require('./route/QuestionRoute');
+const wordListRoute = require('./route/WordListRoute');
 // const customerRoute = require('./route/customerRoute');
 
-//-----------------------Signup Comments
+//-----------------------Signup Comments are below---------------------------//
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -38,6 +39,7 @@ app.use(bodyParser.json())
 
 app.use('/api/v1/users',userRoute);
 app.use('/api/v1/question',questionRoute);
+app.use('/api/saveWordList' ,wordListRoute )
 
 
 // app.use('/api/v1/customers',customerRoute);

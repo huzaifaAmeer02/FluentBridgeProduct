@@ -38,7 +38,7 @@ connect().then(() =>{
             console.log(`Server Connected to http://localhost:${port}`);
         });
     }catch (error){
-        console.log("Cannot connect to the server ! Please try again ! Couldn't Connect...")
+        console.log("Cannot connect to the server ! Couldn't Connect...")
     }
 }).catch(error =>{
     console.log("Invalid DB Connection")
