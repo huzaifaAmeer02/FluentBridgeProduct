@@ -20,7 +20,7 @@ import ListeningQuiz from "./components/ListeningQuiz/App.jsx";
 import WordleGame from "./components/WordleGame/WordleGame.jsx";
 import Confetti from "./components/WordleGame/Confetti.jsx";
 import Controller from "./components/ChatBotModal/Controller";
-import Login from "./components/LandingPage/Login";
+import Login from "./components/LandingPage/Login.jsx";
 import Signup from "./components/LandingPage/Signup.jsx";
 import Speaking from "./components/SpeakingPage/Speaking.jsx";
 import Pronunciation from "./components/SpeakingPage/prounciation.jsx";
