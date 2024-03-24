@@ -9,8 +9,8 @@ import {animated} from "react-spring";
 
 const HeroSection = () => {
     return (
-        <div className="border-4 border-purple-500 rounded-lg overflow-hidden">
-            <img src={HeroImage} alt="Hero Image" className="w-full h-full object-cover" />
+        <div className="p-3 rounded-xl overflow-hidden">
+            <img src="https://img.freepik.com/premium-photo/words-with-contact-us-business-concept-idea_352439-1479.jpg?w=900" alt="Hero Image" className="w-full h-72 object-cover rounded-xl" />
         </div>
     );
 };
@@ -57,7 +57,7 @@ const ContactUs = () => {
         <>
             <HeroSection/>
             <section id="contactSection" className="py-20 contact-section"
-                     style={{background: 'linear-gradient(180deg, #4B0082 0%, #000000 100%)'}}>
+                     style={{background: 'transparent'}}>
                 <div className="container mx-auto wrapper shadow-md">
                     <div className="flex flex-wrap justify-center">
                         <div className="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
