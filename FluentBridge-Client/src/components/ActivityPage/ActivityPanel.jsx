@@ -42,7 +42,7 @@ const ActivityPanel = () => {
         { to: "/writingactivity", color: "bg-yellow-400", icon: <FiEdit className="mx-auto mb-2 text-4xl text-yellow-500" />, text: "Writing" },
         { to: "/vocabpanel", color: "bg-red-400", icon: <FiBook className="mx-auto mb-2 text-4xl text-red-500" />, text: "Vocabulary" },
         { to: "/gradingquiz", color: "bg-purple-400", icon: <FiEdit className="mx-auto mb-2 text-4xl text-purple-500" />, text: "Grading Quiz" },
-        { to: "/Controller", color: "bg-indigo-400", icon: <FiMessageSquare className="mx-auto mb-2 text-4xl text-indigo-500" />, text: "Chat Bot" }
+        { to: "https://fluent-bridge-speaking.vercel.app/", color: "bg-indigo-400", icon: <FiMessageSquare className="mx-auto mb-2 text-4xl text-indigo-500" />, text: "Chat Bot" }
     ];
 
     return (
